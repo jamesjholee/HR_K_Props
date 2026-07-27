@@ -58,6 +58,10 @@ jobs:
           curl -sf "https://api.propfinder.app/mlb/bullpen-usage?v=$RANDOM$RANDOM" \
             -o raw/bullpen_usage.json
 
+      - name: Write odds cookie
+        run: |
+          printf '%s' "${{ secrets.ODDS_COOKIE }}" > cookie.txt
+
       - name: Morning run
         run: |
           python3 run_morning.py --date "${{ steps.slate.outputs.date }}"
