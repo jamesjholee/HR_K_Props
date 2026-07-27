@@ -44,6 +44,7 @@ import puller
 from engine import config as C
 from engine import gates, parsers
 from engine.board import run_game
+from render import render_dashboard
 
 DB_FILE = "hrapp.db"  # v1.5: single place for the ledger path
 
@@ -405,75 +406,6 @@ def main():
 
     render_dashboard(date, slate_rows, k_rows, alerts, form_rows)
     print(f"\nDashboard: out/dashboard.html   DB: {DB_FILE}   (rows locked {db.now()})")
-
-
-def render_dashboard(date, rows, k_rows, alerts, form_rows=()):
-    import profiles as _pr
-
-    rows.sort(key=lambda r: -r[4])
-    body_rows = "\n".join(
-        f"<tr><td>{i + 1}</td><td><b>{r[2]}</b></td><td>{r[0]}</td><td>{r[1]}</td>"
-        f"<td>{r[3] or '?'}</td><td class='p'>{r[4]:.0%}</td><td>{r[5]}</td>"
-        f"<td>{'🔥' if 'LOUD' in r[6] else ('🌡' if ('NEAR' in r[6] or 'WARM' in r[6]) else ('❄' if 'QUIET' in r[6] else ''))}"
-        f"{'📈' if 'HEATING' in r[6] or 'SUSTAINED' in r[6] else ('📉' if 'COOLING' in r[6] else '')}"
-        f"{'⚡' if 'PEN-EDGE' in r[6] else ''}"
-        f"</td><td>{_pr.pretty(r[8]) if len(r) > 8 and r[8] else ''}</td>"
-        f"<td>{(r[9] + ' <small>' + r[11] + '</small>') if len(r) > 9 and r[9] else ''}</td>"
-        f"<td class='{'p' if len(r) > 10 and r[10].startswith('+') else 'n'}'>"
-        f"{r[10] if len(r) > 10 else ''}</td>"
-        f"<td>{r[7]}</td></tr>"
-        for i, r in enumerate(rows)
-    )
-    form_body = (
-        "\n".join(
-            f"<tr><td>{g}</td><td>{n}</td><td>{v}</td><td><b>{fl}</b></td><td>{d}</td></tr>"
-            for g, n, v, fl, d in form_rows
-        )
-        or "<tr><td colspan='5'>—</td></tr>"
-    )
-    k_body = "\n".join(
-        f"<tr><td>{g}</td><td>{n}</td><td class='p'>{kp['proj_k']}</td>"
-        f"<td>{kp['range'][0]}–{kp['range'][1]}</td><td>{kp['arsenal_whiff']}%</td>"
-        f"<td>{kp['opp_k_rank'] or '—'}</td><td>{kp['note']}</td></tr>"
-        for g, n, kp in k_rows
-    )
-    alert_html = "".join(f"<li>{a}</li>" for a in alerts) or "<li>none</li>"
-    html = f"""<!doctype html><html><head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width,initial-scale=1'>
-<title>HR Engine — {date}</title><style>
-body{{background:#0f1115;color:#e8e8e8;font:15px/1.45 -apple-system,Segoe UI,Roboto,sans-serif;margin:1.2em}}
-h1{{font-size:1.25em}} h2{{font-size:1.05em;margin-top:1.6em;color:#9ecbff}}
-table{{border-collapse:collapse;width:100%;font-size:.92em}}
-td,th{{padding:.4em .55em;border-bottom:1px solid #262a33;text-align:left}}
-th{{color:#8a93a5;font-weight:600}} .p{{color:#7ee787;font-weight:700}}
-.n{{color:#ff7b72;font-weight:700}}
-.warn li{{color:#ffb86b}} .foot{{color:#666;font-size:.8em;margin-top:2em}}
-.shadow{{color:#8a93a5;font-size:.85em}}
-</style></head><body>
-<h1>HR Engine — slate {date} <small>({C.CONFIG_VERSION})</small></h1>
-<h2>⚠ Alerts — verify these by hand (5/27 rule)</h2><ul class='warn'>{alert_html}</ul>
-<h2>HR Board (locked {db.now()})</h2>
-<table><tr><th>#</th><th>Bat</th><th>Game</th><th>Pitcher</th><th>Slot</th>
-<th>HR%</th><th>Breakeven</th><th>L15</th><th>Profile <span class='shadow'>(shadow)</span></th>
-<th>Best price</th><th>EV</th><th>Lane</th></tr>{body_rows}</table>
-<h2>Gate 2.5 — last-3-starts form <span class='shadow'>(SHADOW: annotates only,
-season verdicts authoritative)</span></h2>
-<table><tr><th>Game</th><th>Pitcher</th><th>Season verdict</th><th>Form flag</th>
-<th>Detail</th></tr>{form_body}</table>
-<h2>K Sheet — PAPER ONLY (locked at generation, no-peek rule)</h2>
-<table><tr><th>Game</th><th>Pitcher</th><th>Proj K</th><th>Range</th>
-<th>Arsenal whiff</th><th>Opp K rank</th><th>Verdict</th></tr>{k_body}</table>
-<p class='foot'>Flat units. Sub-+400 book price = auto-pass. Exception lanes smallest unit.
-Any book price LONGER than breakeven = model-positive; the EV column computes this
-automatically from the book feed but the human STILL verifies the live price at
-bet time (feeds go stale). Profile tags, Gate 2.5 flags, and PEN-EDGE (⚡) are
-shadow lanes: logged for the ledger, zero ranking effect, graded after 5-6 slates
-before earning weight. Human gates: starters, lineups, publish, sizing. Nothing
-here is financial advice; it's a research log.</p>
-</body></html>"""
-    os.makedirs("out", exist_ok=True)
-    with open("out/dashboard.html", "w") as f:
-        f.write(html)
 
 
 if __name__ == "__main__":
