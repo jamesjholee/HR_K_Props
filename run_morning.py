@@ -122,14 +122,45 @@ def pitcher_names(sched):
     return out
 
 
-def order_map(g):
-    """batting order strings -> {player_id: slot} for both sides."""
-    m = {}
-    for key in ("homeBattingOrder", "visitorBattingOrder"):
+def order_maps(g):
+    """batting orders -> per-side {player_id: slot}. Empty dict = not posted.
+
+    7/27 hotfix C: the old merged map made the scratch gate fire the moment
+    EITHER lineup posted — the side still unposted got 100% false-scratched
+    (all 6 NYY bats, 20:45 run). Per-side maps mean the gate only enforces
+    for a team whose own order is actually up.
+    """
+    out = {}
+    for key, side in (("homeBattingOrder", "home"), ("visitorBattingOrder", "visitor")):
         ids = [x for x in (g.get(key) or "").split(",") if x.strip()]
-        for i, pid in enumerate(ids, 1):
-            m[int(pid)] = i
-    return m
+        out[side] = {int(pid): i for i, pid in enumerate(ids, 1)}
+    return out
+
+
+def pitcher_hands(pids, offline=False):
+    """statsapi people batch -> {pid: 'LHP'|'RHP'}. Default RHP on any miss.
+
+    7/27 hotfix D: project_k() was never passed pitcher_hand, so EVERY
+    starter was scored against the opponent's vs-RHP K rank — every lefty
+    on every slate graded against the wrong split. One batch call fixes it.
+    """
+    out = {}
+    ids = sorted({int(p) for p in pids if p})
+    if not ids:
+        return out
+    try:
+        data = puller.fetch(
+            "https://statsapi.mlb.com/api/v1/people?personIds="
+            + ",".join(str(i) for i in ids),
+            "pitcher_hands",
+            offline,
+        )
+        for p in (data or {}).get("people", []):
+            code = ((p.get("pitchHand") or {}).get("code") or "R").upper()
+            out[int(p["id"])] = "LHP" if code == "L" else "RHP"
+    except Exception:
+        pass  # fall back to RHP default at the call site
+    return out
 
 
 def main():
@@ -170,6 +201,10 @@ def main():
 
     # 7/27 hotfix B: pitcher ID -> full name (statsapi probables)
     pname = pitcher_names(sched)
+    # 7/27 hotfix D: pitcher throwing hands (K-model split selection)
+    hands = pitcher_hands(
+        [g.get(k) for g in games for k in ("homePitcherId", "visitorPitcherId")], off
+    )
 
     season = int(date[:4])
     slate_rows, k_rows, form_rows = [], [], []
@@ -190,10 +225,12 @@ def main():
         msg = "raw/bullpen_usage.json missing — PEN-EDGE blank this run"
         print(f"  ⚠ {msg}")
         db.log_alert(date, "info", msg)
+        alerts.append(msg)  # 7/27: degraded lane must be visible on the page
     except Exception as e:  # never let the shadow lane kill the board
         msg = f"relievers.py failed ({e}) — PEN-EDGE blank this run"
         print(f"  ⚠ {msg}")
         db.log_alert(date, "warn", msg)
+        alerts.append(msg)  # 7/27: visible on the page
 
     # ---- v1.4/v1.5: odds feed, one pull per run (display/ledger only) ----
     # v1.5: new signature passes the slate date so the locked parser can
@@ -216,14 +253,15 @@ def main():
         )
         print(f"  ⚠ {msg}")
         db.log_alert(date, "info", msg)
+        alerts.append(msg)  # 7/27: visible on the page
 
     for g in games:
         home, vis = g["homeTeam"], g["visitorTeam"]
         label = f"{vis['code']}@{home['code']}"
-        omap = order_map(g)
-        for key, own_team, opp_team in (
-            ("homePitcherId", home, vis),
-            ("visitorPitcherId", vis, home),
+        omaps = order_maps(g)  # 7/27 hotfix C: per-side
+        for key, own_team, opp_team, opp_side in (
+            ("homePitcherId", home, vis, "visitor"),
+            ("visitorPitcherId", vis, home, "home"),
         ):
             pid = g.get(key)
             if not pid:
@@ -268,7 +306,10 @@ def main():
 
             # K paper projection (all starters, locked now)
             kp = kmodel.project_k(
-                g2["uw_whiff"], opp_team.get("rankings"), note=g2["verdict"]
+                g2["uw_whiff"],
+                opp_team.get("rankings"),
+                pitcher_hand=hands.get(int(pid), "RHP"),  # 7/27 hotfix D
+                note=g2["verdict"],
             )
             db.lock_k(date, pid, name, kp)
             k_rows.append((label, name, kp))
@@ -324,10 +365,16 @@ def main():
                     else {}
                 )
                 by15 = {b["id"]: b for b in (l15[2] if l15 else [])}
-                lineup_ids = set(omap.keys())
-                for rank, r in enumerate(res["board"], 1):
-                    order = omap.get(r["id"])
-                    if lineup_ids and r["id"] not in lineup_ids:
+                opp_order = omaps[opp_side]  # 7/27 hotfix C
+                # 7/27 hotfix E: watch lane (sub-floor elites / LOUD beyond
+                # board width) was computed by board.py but silently dropped.
+                # Unified-pool rule: display + lock it, lane="watch".
+                for _w in res["watch"]:
+                    _w["_watch"] = True
+                for rank, r in enumerate(res["board"] + res["watch"], 1):
+                    rid = int(r["id"])
+                    order = opp_order.get(rid)
+                    if opp_order and rid not in opp_order:
                         print(f"    SCRATCH: {r['name']} not in posted lineup — no bet")
                         continue
                     traj = gates.trajectory(
@@ -354,6 +401,8 @@ def main():
                             else "standard"
                         )
                     )
+                    if r.get("_watch"):
+                        lane = "watch"  # 7/27 hotfix E
                     db.lock_board_row(
                         date,
                         label,

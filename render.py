@@ -297,6 +297,16 @@ td.kbig{{color:var(--amber);font-weight:600;font-size:1.05em}}
 .flag b{{font:600 .85em var(--mono)}}
 .f-CONFIRMED b{{color:var(--pos)}} .f-DECLINING-TARGET b{{color:var(--neg)}}
 
+details.legend{{margin:0 0 1.4em;border:1px solid var(--line);border-radius:10px;
+  background:var(--panel2);padding:.2em 1.1em}}
+details.legend[open]{{padding-bottom:1em}}
+details.legend h2.sec{{margin:.6em 0}}
+.legendgrid{{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:.4em 1.6em}}
+.legendgrid h3{{font:600 .8em var(--disp);letter-spacing:.12em;text-transform:uppercase;
+  color:var(--amber);margin:.6em 0 .2em}}
+.legendgrid p{{margin:.2em 0;font-size:.85em;line-height:1.55;color:var(--dim)}}
+.legendgrid p b{{color:var(--ink)}}
 details{{margin-top:1.6em}}
 details summary{{cursor:pointer;list-style:none}}
 details summary::-webkit-details-marker{{display:none}}
@@ -330,6 +340,47 @@ details[open] summary h2.sec::before{{transform:rotate(90deg)}}
   <h2>Verify by hand &mdash; 5/27 rule</h2>
   <ul>{alert_html}</ul>
 </div>
+
+<details class="legend"><summary>
+<h2 class="sec">How to Read This Board <small>first time here? open this</small></h2>
+</summary>
+<div class="legendgrid">
+<div><h3>What this is</h3>
+<p>A nightly MLB home-run prop <b>research log</b>. A model ranks hitters by
+estimated HR probability for tonight's slate, the board locks with a
+timestamp before games start, and results are graded after. Every lock and
+grade is committed publicly &mdash; the record can't be edited after the fact.
+Nothing here is betting advice.</p></div>
+<div><h3>HR% &amp; lamps</h3>
+<p><b>HR%</b> is the model's probability this bat homers tonight (capped at
+25%). The amber lamp meter fills with it &mdash; a full board is the cap.
+For context: even elite hitters homer in roughly 1 of 6 games.</p></div>
+<div><h3>BE &middot; Price &middot; EV</h3>
+<p><b>BE</b> (breakeven) is the minimum odds that make the model's HR%
+profitable. <b>Price</b> is the best sportsbook line found (main line, 1+ HR),
+with the book named. <b>EV</b> compares them: positive means the price is
+longer than breakeven <i>per the model</i>. <span class="chip stale">STALE</span>
+means the quote is over 2 hours old &mdash; treat its EV as unverified.</p></div>
+<div><h3>Signal chips</h3>
+<p><span class="chip hot">LOUD</span> <span class="chip warm">NEAR</span>
+<span class="chip cold">QUIET</span> = how hard the bat's recent contact has
+been (last-15-games batted-ball screen).
+<span class="chip up">HEAT &#8599;</span> <span class="chip up">SUST &#8599;</span>
+<span class="chip down">COOL &#8600;</span> = the trend across 5/10/15-game
+windows. <span class="chip pen">&#9889; PEN</span> = the opposing bullpen is
+fatigued (worked hard recently) &mdash; late-game HR exposure.</p></div>
+<div><h3>Lane</h3>
+<p><b>standard</b>: full-confidence pitcher read. <b>thin</b>: the pitcher has
+a small sample this season (&lt;200 batted balls) &mdash; read with caution.
+<b>one-pitch</b>: the pitcher is only vulnerable on one pitch type &mdash;
+conditional matchup.</p></div>
+<div><h3>Shadow lanes</h3>
+<p>Profile tags (&#128163; &#128640; &#127808; &#127919;), form flags, and
+&#9889;PEN are <b>shadow signals</b>: logged and displayed for evaluation but
+given <i>zero weight</i> in rankings until they've proven out over 5&ndash;6
+graded slates. That's the house rule: evidence moves the model, not instinct.</p></div>
+</div>
+</details>
 
 <h2 class="sec">HR Board <small>{len(rows)} bats &middot; sorted by model HR%</small></h2>
 

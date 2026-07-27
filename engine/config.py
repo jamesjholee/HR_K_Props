@@ -5,7 +5,7 @@ When a rule changes after a graded slate, edit here and bump CONFIG_VERSION.
 The results database tags every board with the config version that produced it.
 """
 
-CONFIG_VERSION = "v1.4-2026-07-27"
+CONFIG_VERSION = "v1.5.1-2026-07-27"
 
 # ---------------- Gate 2.5: last-3-starts pitcher form (SHADOW, v1.4) ----------------
 # Annotates only. Season verdict is authoritative; flags never move probabilities.
