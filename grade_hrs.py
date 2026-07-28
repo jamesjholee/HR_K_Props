@@ -15,7 +15,12 @@ Usage:
   python3 grade_hrs.py --date 2026-07-27
   python3 grade_hrs.py --date 2026-07-27 --db hrapp.db --out out/grades
 """
-import argparse, json, os, sqlite3, sys
+
+import argparse
+import json
+import os
+import sqlite3
+import sys
 from datetime import datetime, timezone
 
 import requests
@@ -37,13 +42,15 @@ def slate_games(date):
     for d in sched.get("dates", []):
         for g in d.get("games", []):
             status = (g.get("status", {}) or {}).get("abstractGameState", "")
-            games.append({
-                "gamePk": g["gamePk"],
-                "status": status,           # Preview / Live / Final
-                "detailed": (g.get("status", {}) or {}).get("detailedState", ""),
-                "away": g["teams"]["away"]["team"].get("name", "?"),
-                "home": g["teams"]["home"]["team"].get("name", "?"),
-            })
+            games.append(
+                {
+                    "gamePk": g["gamePk"],
+                    "status": status,  # Preview / Live / Final
+                    "detailed": (g.get("status", {}) or {}).get("detailedState", ""),
+                    "away": g["teams"]["away"]["team"].get("name", "?"),
+                    "home": g["teams"]["home"]["team"].get("name", "?"),
+                }
+            )
     return games
 
 
@@ -68,16 +75,18 @@ def hr_events(game_pk, starters):
         mu = play.get("matchup", {}) or {}
         bat, pit = mu.get("batter", {}) or {}, mu.get("pitcher", {}) or {}
         about = play.get("about", {}) or {}
-        out.append({
-            "gamePk": game_pk,
-            "inning": about.get("inning"),
-            "half": about.get("halfInning"),
-            "batter_id": bat.get("id"),
-            "batter": bat.get("fullName"),
-            "pitcher_id": pit.get("id"),
-            "pitcher": pit.get("fullName"),
-            "pitcher_role": "S" if pit.get("id") in starters else "R",
-        })
+        out.append(
+            {
+                "gamePk": game_pk,
+                "inning": about.get("inning"),
+                "half": about.get("halfInning"),
+                "batter_id": bat.get("id"),
+                "batter": bat.get("fullName"),
+                "pitcher_id": pit.get("id"),
+                "pitcher": pit.get("fullName"),
+                "pitcher_role": "S" if pit.get("id") in starters else "R",
+            }
+        )
     return out
 
 
@@ -90,10 +99,22 @@ def write_finals(db_path, date, events):
         UNIQUE(date, gamePk, inning, half, batter_id, pitcher_id))""")
     now = datetime.now(timezone.utc).isoformat(timespec="seconds")
     for e in events:
-        con.execute("""INSERT OR IGNORE INTO hr_finals
+        con.execute(
+            """INSERT OR IGNORE INTO hr_finals
             VALUES(?,?,?,?,?,?,?,?,?,?)""",
-            (date, e["gamePk"], e["inning"], e["half"], e["batter_id"],
-             e["batter"], e["pitcher_id"], e["pitcher"], e["pitcher_role"], now))
+            (
+                date,
+                e["gamePk"],
+                e["inning"],
+                e["half"],
+                e["batter_id"],
+                e["batter"],
+                e["pitcher_id"],
+                e["pitcher"],
+                e["pitcher_role"],
+                now,
+            ),
+        )
     con.commit()
     return con
 
@@ -102,14 +123,16 @@ def find_board_table(con, date):
     """Locate the locked-board table by shape, not by assumed name:
     a table with a date-like column plus an integer player-id column."""
     candidates = []
-    for (tname,) in con.execute(
-            "SELECT name FROM sqlite_master WHERE type='table'"):
+    for (tname,) in con.execute("SELECT name FROM sqlite_master WHERE type='table'"):
         if tname == "hr_finals":
             continue
         cols = [c[1].lower() for c in con.execute(f"PRAGMA table_info({tname})")]
         has_date = any(c in ("date", "slate", "slate_date") for c in cols)
-        id_cols = [c for c in cols if c in
-                   ("player_id", "batter_id", "bat_id", "id", "mlbam_id", "pid")]
+        id_cols = [
+            c
+            for c in cols
+            if c in ("player_id", "batter_id", "bat_id", "id", "mlbam_id", "pid")
+        ]
         name_cols = [c for c in cols if "name" in c or c == "bat"]
         if has_date and id_cols and name_cols:
             try:
@@ -132,13 +155,28 @@ def main():
     date = args.date
 
     games = slate_games(date)
-    finals = [g for g in games if g["status"] == "Final"]
-    pending = [g for g in games if g["status"] != "Final"]
-    print(f"=== HR grade — {date} — {len(games)} games "
-          f"({len(finals)} final, {len(pending)} not final) ===")
+    finals = [
+        g
+        for g in games
+        if g["status"] == "Final"
+        and g["detailed"] not in ("Postponed", "Cancelled", "Suspended")
+    ]
+    voided = [g for g in games if g["detailed"] in ("Postponed", "Cancelled")]
+    pending = [g for g in games if g not in finals and g not in voided]
+    print(
+        f"=== HR grade — {date} — {len(games)} games "
+        f"({len(finals)} final, {len(voided)} VOID, {len(pending)} not final) ==="
+    )
+    for g in voided:
+        print(
+            f"  ∅ VOID: {g['away']} @ {g['home']} — {g['detailed']} — "
+            f"exclude this game's board rows from all denominators (props refund)"
+        )
     for g in pending:
-        print(f"  ⚠ NOT FINAL: {g['away']} @ {g['home']} — {g['detailed']}"
-              f" (grade is PARTIAL; rerun later)")
+        print(
+            f"  ⚠ NOT FINAL: {g['away']} @ {g['home']} — {g['detailed']}"
+            f" (grade is PARTIAL; rerun later)"
+        )
 
     events = []
     for g in finals:
@@ -153,8 +191,10 @@ def main():
     n_s = sum(1 for e in events if e["pitcher_role"] == "S")
     n_r = len(events) - n_s
     pct_r = (n_r / len(events) * 100) if events else 0.0
-    print(f"\nSlate total: {len(events)} HR — {n_s} starter / {n_r} reliever "
-          f"({pct_r:.0f}% off pens)")
+    print(
+        f"\nSlate total: {len(events)} HR — {n_s} starter / {n_r} reliever "
+        f"({pct_r:.0f}% off pens)"
+    )
 
     # persist raw events (JSON audit + db table)
     os.makedirs(args.out, exist_ok=True)
@@ -170,32 +210,42 @@ def main():
     if len(boards) == 1:
         tname, idcol, namecol, nrows = boards[0]
         rows = con.execute(
-            f"SELECT DISTINCT {idcol}, {namecol} FROM {tname} WHERE date=?",
-            (date,)).fetchall()
+            f"SELECT DISTINCT {idcol}, {namecol} FROM {tname} WHERE date=?", (date,)
+        ).fetchall()
         hits = [(pid, nm) for pid, nm in rows if pid in hr_ids]
         boarded_ids = {pid for pid, _ in rows}
         captured = [e for e in events if e["batter_id"] in boarded_ids]
         print(f"\nBoard table: {tname} ({nrows} rows / {len(rows)} unique bats)")
-        print(f"PROP HITS: {len(hits)}/{len(rows)} boarded bats homered "
-              f"({(len(hits)/len(rows)*100) if rows else 0:.1f}%)")
-        print(f"HR CAPTURE: {len(captured)}/{len(events)} slate HR events "
-              f"boarded ({(len(captured)/len(events)*100) if events else 0:.0f}%)")
+        print(
+            f"PROP HITS: {len(hits)}/{len(rows)} boarded bats homered "
+            f"({(len(hits) / len(rows) * 100) if rows else 0:.1f}%)"
+        )
+        print(
+            f"HR CAPTURE: {len(captured)}/{len(events)} slate HR events "
+            f"boarded ({(len(captured) / len(events) * 100) if events else 0:.0f}%)"
+        )
         pen_hits = [e for e in captured if e["pitcher_role"] == "R"]
-        print(f"  of captured: {len(captured)-len(pen_hits)} off starters, "
-              f"{len(pen_hits)} off pens")
+        print(
+            f"  of captured: {len(captured) - len(pen_hits)} off starters, "
+            f"{len(pen_hits)} off pens"
+        )
         for pid, nm in hits:
             ev = next(e for e in events if e["batter_id"] == pid)
             print(f"  ✓ {nm} — HR off {ev['pitcher']} ({ev['pitcher_role']})")
     elif boards:
-        print(f"\n⚠ Multiple board-shaped tables found: "
-              f"{[b[0] for b in boards]} — grade manually or pin the table "
-              f"name in this script.")
+        print(
+            f"\n⚠ Multiple board-shaped tables found: "
+            f"{[b[0] for b in boards]} — grade manually or pin the table "
+            f"name in this script."
+        )
     else:
-        print("\n⚠ No board table located for this date — hr_finals written; "
-              "join manually via: SELECT ... JOIN hr_finals USING(date, <id>).")
+        print(
+            "\n⚠ No board table located for this date — hr_finals written; "
+            "join manually via: SELECT ... JOIN hr_finals USING(date, <id>)."
+        )
 
     if pending:
-        sys.exit(3)   # nonzero-ish signal for CI: partial grade
+        sys.exit(3)  # nonzero-ish signal for CI: partial grade
 
 
 if __name__ == "__main__":
