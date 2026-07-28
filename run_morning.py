@@ -258,6 +258,16 @@ def main():
     for g in games:
         home, vis = g["homeTeam"], g["visitorTeam"]
         label = f"{vis['code']}@{home['code']}"
+        # v1.5.2 no-peek guard: never regenerate a board for a game underway
+        try:
+            if datetime.fromisoformat(
+                (g.get("gameDate") or "").replace("Z", "+00:00")
+            ) <= datetime.now(timezone.utc):
+                print(f"  🔒 {label} already started — lock preserved, skipping")
+                db.log_alert(date, "info", f"{label} started — lock preserved")
+                continue
+        except ValueError:
+            pass
         omaps = order_maps(g)  # 7/27 hotfix C: per-side
         for key, own_team, opp_team, opp_side in (
             ("homePitcherId", home, vis, "visitor"),
