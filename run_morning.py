@@ -215,7 +215,9 @@ def main():
         pen_states = relievers.analyze(
             relievers.load_bullpen(os.path.join("raw", "bullpen_usage.json"))
         )
-        relievers.write_ledger(DB_FILE, date, pen_states)
+        relievers.write_ledger(
+            db.DB_PATH, date, pen_states
+        )  # 7/28: same file as all other tables regardless of cwd
         tagged = sorted(ps.team for ps in pen_states.values() if ps.tag)
         if tagged:
             print(f"Pen-edge: {len(tagged)} tagged pens: {', '.join(tagged)}")

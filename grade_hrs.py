@@ -120,30 +120,46 @@ def write_finals(db_path, date, events):
 
 
 def find_board_table(con, date):
-    """Locate the locked-board table by shape, not by assumed name:
-    a table with a date-like column plus an integer player-id column."""
+    """Locate the locked-board table. Prefer hr_board by name; otherwise
+    fall back to shape detection (date-ish col + int player-id col + name col).
+    Returns list of (tname, datecol, idcol, namecol, nrows).
+
+    7/28 fix: previous version hardcoded WHERE date=? but the real column
+    is slate_date -> sqlite3.Error -> every candidate silently skipped ->
+    board join never ran. Now uses the DETECTED date column, and excludes
+    the other ledger tables (odds_lock matches the shape test)."""
     candidates = []
     for (tname,) in con.execute("SELECT name FROM sqlite_master WHERE type='table'"):
-        if tname == "hr_finals":
+        if tname in (
+            "hr_finals",
+            "k_finals",
+            "k_paper",
+            "odds_lock",
+            "pen_edge",
+            "results",
+            "alerts",
+            "slates",
+        ):
             continue
         cols = [c[1].lower() for c in con.execute(f"PRAGMA table_info({tname})")]
-        has_date = any(c in ("date", "slate", "slate_date") for c in cols)
+        date_cols = [c for c in cols if c in ("date", "slate", "slate_date")]
         id_cols = [
             c
             for c in cols
             if c in ("player_id", "batter_id", "bat_id", "id", "mlbam_id", "pid")
         ]
         name_cols = [c for c in cols if "name" in c or c == "bat"]
-        if has_date and id_cols and name_cols:
+        if date_cols and id_cols and name_cols:
             try:
                 n = con.execute(
-                    f"SELECT COUNT(*) FROM {tname} WHERE date=?", (date,)
+                    f"SELECT COUNT(*) FROM {tname} WHERE {date_cols[0]}=?", (date,)
                 ).fetchone()[0]
             except sqlite3.Error:
                 continue
             if n:
-                candidates.append((tname, id_cols[0], name_cols[0], n))
-    return candidates
+                candidates.append((tname, date_cols[0], id_cols[0], name_cols[0], n))
+    named = [c for c in candidates if c[0] == "hr_board"]
+    return named or candidates
 
 
 def main():
@@ -208,9 +224,10 @@ def main():
     hr_ids = {e["batter_id"] for e in events}
     boards = find_board_table(con, date)
     if len(boards) == 1:
-        tname, idcol, namecol, nrows = boards[0]
+        tname, datecol, idcol, namecol, nrows = boards[0]
         rows = con.execute(
-            f"SELECT DISTINCT {idcol}, {namecol} FROM {tname} WHERE date=?", (date,)
+            f"SELECT DISTINCT {idcol}, {namecol} FROM {tname} WHERE {datecol}=?",
+            (date,),
         ).fetchall()
         hits = [(pid, nm) for pid, nm in rows if pid in hr_ids]
         boarded_ids = {pid for pid, _ in rows}

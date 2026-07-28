@@ -30,15 +30,20 @@ verification remains a permanent human gate.
 """
 
 from __future__ import annotations
-from datetime import datetime, timezone, timedelta
 
-ET_OFFSET = timedelta(hours=-4)  # EDT; feed gameDate is UTC
+from datetime import datetime, timezone
+from zoneinfo import ZoneInfo
+
+# 7/28 fix: was a hardcoded -4h EDT offset (wrong after DST ends Nov 1,
+# and a second, divergent ET implementation vs run_morning.slate_date).
+# Single source of truth: real America/New_York conversion.
+ET = ZoneInfo("America/New_York")
 
 HR_MARKET = "Player Home Runs"
 MAIN_POINTS = 0.5
-REAL_BOOKS = {"DraftKings", "FanDuel", "BetMGM"}      # best-price/EV eligible
-DISPLAY_ONLY_BOOKS = {"Underdog", "PrizePicks"}        # never in EV
-STALE_SECONDS = 2 * 3600                               # flag, don't drop
+REAL_BOOKS = {"DraftKings", "FanDuel", "BetMGM"}  # best-price/EV eligible
+DISPLAY_ONLY_BOOKS = {"Underdog", "PrizePicks"}  # never in EV
+STALE_SECONDS = 2 * 3600  # flag, don't drop
 
 
 def _ts(iso: str) -> datetime:
@@ -54,7 +59,7 @@ def slate_game_ids(data: dict, slate_date: str) -> set[int]:
     """
     ids = set()
     for g in data.get("games", []):
-        local = _ts(g["gameDate"]) + ET_OFFSET
+        local = _ts(g["gameDate"]).astimezone(ET)
         if local.strftime("%Y-%m-%d") == slate_date:
             ids.add(g["id"])
     return ids
@@ -124,7 +129,7 @@ def parse_hr_odds(data: dict, slate_date: str | None = None) -> dict[int, dict]:
     out: dict[int, dict] = {}
     for p in data.get("players", []):
         books, display = {}, {}
-        for o in (p.get("odds") or []):
+        for o in p.get("odds") or []:
             if o.get("market") != HR_MARKET:
                 continue
             if valid_games is not None and o.get("gameId") not in valid_games:
@@ -142,20 +147,30 @@ def parse_hr_odds(data: dict, slate_date: str | None = None) -> dict[int, dict]:
             prev = books.get(book)
             # no dupes observed, but keep newest if feed ever repeats
             if prev is None or o["lastUpdated"] > prev["updated"]:
-                books[book] = {"price": o["price"], "updated": o["lastUpdated"],
-                               "stale": stale}
+                books[book] = {
+                    "price": o["price"],
+                    "updated": o["lastUpdated"],
+                    "stale": stale,
+                }
         if not books and not display:
             continue
         best = None
         if books:
             bb = max(books, key=lambda b: books[b]["price"])
-            best = {"book": bb, "price": books[bb]["price"],
-                    "stale": books[bb]["stale"]}
+            best = {
+                "book": bb,
+                "price": books[bb]["price"],
+                "stale": books[bb]["stale"],
+            }
         # lineup sanity gate: only meaningful once lineups have posted
         suspect = bool(lineup_ids) and p["id"] not in lineup_ids
-        out[p["id"]] = {"name": p.get("fullName", "?"), "books": books,
-                        "best": best, "display_only": display,
-                        "lineup_verified": not suspect}
+        out[p["id"]] = {
+            "name": p.get("fullName", "?"),
+            "books": books,
+            "best": best,
+            "display_only": display,
+            "lineup_verified": not suspect,
+        }
     return out
 
 
@@ -169,7 +184,9 @@ def dashboard_price(entry: dict | None) -> str:
 
 
 if __name__ == "__main__":
-    import json, sys
+    import json
+    import sys
+
     path = sys.argv[1] if len(sys.argv) > 1 else "raw/odds_v2.json"
     slate = sys.argv[2] if len(sys.argv) > 2 else None  # YYYY-MM-DD (ET)
     data = json.load(open(path))

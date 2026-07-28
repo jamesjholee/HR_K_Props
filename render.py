@@ -293,7 +293,7 @@ td.kbig{{color:var(--amber);font-weight:600;font-size:1.05em}}
 .chip.stale{{color:#100b02;background:#c9a24b;margin-left:.4em;font-size:.62em}}
 .lane{{font:600 .7em var(--mono);color:var(--dim);border:1px solid var(--line);
   border-radius:4px;padding:.2em .5em}}
-.l-thin{{color:#d9b98a}} .l-one-pitch{{color:var(--cold)}}
+.l-thin{{color:#d9b98a}} .l-one-pitch{{color:var(--cold)}} .l-watch{{color:var(--amber)}}
 .flag b{{font:600 .85em var(--mono)}}
 .f-CONFIRMED b{{color:var(--pos)}} .f-DECLINING-TARGET b{{color:var(--neg)}}
 
@@ -373,7 +373,9 @@ fatigued (worked hard recently) &mdash; late-game HR exposure.</p></div>
 <p><b>standard</b>: full-confidence pitcher read. <b>thin</b>: the pitcher has
 a small sample this season (&lt;200 batted balls) &mdash; read with caution.
 <b>one-pitch</b>: the pitcher is only vulnerable on one pitch type &mdash;
-conditional matchup.</p></div>
+conditional matchup. <b>watch</b>: cleared the same quality gates but fell
+outside board width or the price floor &mdash; tracked because this lane has
+historically outperformed the main board.</p></div>
 <div><h3>Shadow lanes</h3>
 <p>Profile tags (&#128163; &#128640; &#127808; &#127919;), form flags, and
 &#9889;PEN are <b>shadow signals</b>: logged and displayed for evaluation but
