@@ -1,0 +1,86 @@
+# .github/workflows/hr-engine-grade.yml
+#
+# HR Engine — evening grade
+#   - 07:00 UTC (3:00am ET): all games final incl. West Coast + most extras
+#   - grades YESTERDAY's slate (at 3am ET the slate date is the prior ET day)
+#   - HR grade via statsapi play-by-play (grade_hrs.py) — joins on MLBAM id
+#   - K finals via grade_k.py (statsapi, S/R tags)
+#   - commits hrapp.db + out/grades/ -> graded ledger lands in the same
+#     tamper-evident history as the morning locks (lock -> grade, auditable)
+#   - workflow_dispatch for manual regrades/backfills (input a date)
+
+name: hr-engine-grade
+
+on:
+  schedule:
+    - cron: "0 7 * * *"          # 3:00am ET during DST (2:00am ET in winter — fine)
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Slate date to grade (YYYY-MM-DD, ET). Blank = yesterday ET."
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hr-engine               # same group as the morning run — never race the db
+  cancel-in-progress: false
+
+jobs:
+  grade:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install requests tzdata
+
+      - name: Resolve slate date
+        id: slate
+        run: |
+          if [ -n "${{ github.event.inputs.date }}" ]; then
+            echo "date=${{ github.event.inputs.date }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "date=$(TZ=America/New_York date -d yesterday +%F)" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Grade HRs (statsapi, id-join)
+        id: hrs
+        continue-on-error: true       # exit 3 = partial (games not final); still commit what we have
+        run: |
+          python3 grade_hrs.py --date "${{ steps.slate.outputs.date }}" | tee out_grade_hr.txt
+
+      - name: Grade Ks
+        continue-on-error: true       # keep HR grade even if K grader hiccups
+        run: |
+          if [ -f grade_k.py ]; then
+            python3 grade_k.py "${{ steps.slate.outputs.date }}" --db hrapp.db | tee out_grade_k.txt
+          else
+            echo "grade_k.py not found — skipping K grade"
+          fi
+
+      - name: Save grade log
+        run: |
+          mkdir -p out/grades
+          {
+            echo "# Grade — ${{ steps.slate.outputs.date }} (run $(date -u +%FT%TZ))"
+            echo; echo "## HR"; cat out_grade_hr.txt 2>/dev/null || echo "no output"
+            echo; echo "## K";  cat out_grade_k.txt  2>/dev/null || echo "no output"
+          } > "out/grades/grade_${{ steps.slate.outputs.date }}.md"
+
+      - name: Commit graded ledger
+        run: |
+          git config user.name  "hr-engine-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add hrapp.db out/grades/
+          git diff --cached --quiet || git commit -m "grade: slate ${{ steps.slate.outputs.date }}"
+          git pull --rebase origin main || true
+          git push
