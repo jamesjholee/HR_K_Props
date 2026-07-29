@@ -162,6 +162,85 @@ def find_board_table(con, date):
     return named or candidates
 
 
+def grade_board(con, date, events, board):
+    """Join locked board vs HR events.  (7/29: DH-aware)
+
+    If the board table carries game_pk (locked from statsapi at lock
+    time), a hit requires (batter_id, gamePk) to match — a bat boarded
+    vs DH game 1 who homers only in game 2 is NOT a hit. Rows with
+    game_pk 0/NULL (legacy locks, unmapped games) fall back to the old
+    date-level join and are counted in a separate line so the two
+    strictness levels never blend silently.
+    """
+    tname, datecol, idcol, namecol, nrows = board
+    cols = [c[1].lower() for c in con.execute(f"PRAGMA table_info({tname})")]
+    has_gpk = "game_pk" in cols
+    hr_ids = {e["batter_id"] for e in events}
+    ev_keys = {(e["batter_id"], e["gamePk"]) for e in events}
+
+    if has_gpk:
+        rows = con.execute(
+            f"SELECT DISTINCT {idcol}, {namecol}, game_pk FROM {tname} "
+            f"WHERE {datecol}=?",
+            (date,),
+        ).fetchall()
+    else:
+        rows = [
+            (pid, nm, 0)
+            for pid, nm in con.execute(
+                f"SELECT DISTINCT {idcol}, {namecol} FROM {tname} WHERE {datecol}=?",
+                (date,),
+            )
+        ]
+
+    hits, legacy_hits = [], []
+    for pid, nm, gpk in rows:
+        if gpk and (pid, gpk) in ev_keys:
+            hits.append((pid, nm, gpk))
+        elif not gpk and pid in hr_ids:
+            legacy_hits.append((pid, nm, None))
+
+    # capture: event boarded if its exact (bat, game) was locked, or the
+    # bat sits on a legacy (game-unknown) row for the date
+    exact_keys = {(pid, gpk) for pid, _, gpk in rows if gpk}
+    legacy_ids = {pid for pid, _, gpk in rows if not gpk}
+    captured = [
+        e
+        for e in events
+        if (e["batter_id"], e["gamePk"]) in exact_keys or e["batter_id"] in legacy_ids
+    ]
+
+    n_bets = len(rows)  # DH-aware: same bat in both legs = two bettable rows
+    n_hits = len(hits) + len(legacy_hits)
+    print(f"\nBoard table: {tname} ({nrows} rows / {n_bets} unique bat-games)")
+    print(
+        f"PROP HITS: {n_hits}/{n_bets} boarded bats homered "
+        f"({(n_hits / n_bets * 100) if n_bets else 0:.1f}%)"
+    )
+    if has_gpk and legacy_hits:
+        print(
+            f"  ⚠ {len(legacy_hits)} hit(s) via date-level fallback "
+            f"(game_pk=0 rows) — DH ambiguity possible on those"
+        )
+    print(
+        f"HR CAPTURE: {len(captured)}/{len(events)} slate HR events "
+        f"boarded ({(len(captured) / len(events) * 100) if events else 0:.0f}%)"
+    )
+    pen_hits = [e for e in captured if e["pitcher_role"] == "R"]
+    print(
+        f"  of captured: {len(captured) - len(pen_hits)} off starters, "
+        f"{len(pen_hits)} off pens"
+    )
+    for pid, nm, gpk in hits + legacy_hits:
+        ev = next(
+            e
+            for e in events
+            if e["batter_id"] == pid and (gpk is None or e["gamePk"] == gpk)
+        )
+        print(f"  ✓ {nm} — HR off {ev['pitcher']} ({ev['pitcher_role']})")
+    return {"bets": n_bets, "hits": n_hits, "captured": len(captured)}
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--date", required=True)
@@ -220,35 +299,10 @@ def main():
     con = write_finals(args.db, date, events)
     print(f"hr_finals written to {args.db}; audit JSON: {jpath}")
 
-    # ---- board grading: join on BATTER ID ----
-    hr_ids = {e["batter_id"] for e in events}
+    # ---- board grading: join on BATTER ID (+ gamePk when locked) ----
     boards = find_board_table(con, date)
     if len(boards) == 1:
-        tname, datecol, idcol, namecol, nrows = boards[0]
-        rows = con.execute(
-            f"SELECT DISTINCT {idcol}, {namecol} FROM {tname} WHERE {datecol}=?",
-            (date,),
-        ).fetchall()
-        hits = [(pid, nm) for pid, nm in rows if pid in hr_ids]
-        boarded_ids = {pid for pid, _ in rows}
-        captured = [e for e in events if e["batter_id"] in boarded_ids]
-        print(f"\nBoard table: {tname} ({nrows} rows / {len(rows)} unique bats)")
-        print(
-            f"PROP HITS: {len(hits)}/{len(rows)} boarded bats homered "
-            f"({(len(hits) / len(rows) * 100) if rows else 0:.1f}%)"
-        )
-        print(
-            f"HR CAPTURE: {len(captured)}/{len(events)} slate HR events "
-            f"boarded ({(len(captured) / len(events) * 100) if events else 0:.0f}%)"
-        )
-        pen_hits = [e for e in captured if e["pitcher_role"] == "R"]
-        print(
-            f"  of captured: {len(captured) - len(pen_hits)} off starters, "
-            f"{len(pen_hits)} off pens"
-        )
-        for pid, nm in hits:
-            ev = next(e for e in events if e["batter_id"] == pid)
-            print(f"  ✓ {nm} — HR off {ev['pitcher']} ({ev['pitcher_role']})")
+        grade_board(con, date, events, boards[0])
     elif boards:
         print(
             f"\n⚠ Multiple board-shaped tables found: "

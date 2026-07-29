@@ -106,9 +106,32 @@ def _price_cell(price_str, book):
     )
 
 
-def render_dashboard(date, rows, k_rows, alerts, form_rows=()):
+def _et_clock(iso):
+    """ISO UTC -> compact ET clock, '1:15p'. Empty string on any failure."""
+    try:
+        from datetime import datetime
+        from zoneinfo import ZoneInfo
+
+        dt = datetime.fromisoformat(str(iso).replace("Z", "+00:00")).astimezone(
+            ZoneInfo("America/New_York")
+        )
+        return f"{(dt.hour - 1) % 12 + 1}:{dt.minute:02d}{'a' if dt.hour < 12 else 'p'}"
+    except Exception:
+        return ""
+
+
+def render_dashboard(date, rows, k_rows, alerts, form_rows=(), game_times=None):
     rows = sorted(rows, key=lambda r: -r[4])
-    games = sorted({r[0] for r in rows})
+    # 7/29: games ordered by start time when run_morning supplies it;
+    # unknown-time games sink to the end alphabetically.
+    _gt = game_times or {}
+
+    def _gkey(label):
+        return (_gt.get(label) or "9999", label)
+
+    games = sorted({r[0] for r in rows}, key=_gkey)
+    k_rows = sorted(k_rows, key=lambda t: _gkey(t[0]))
+    form_rows = sorted(form_rows, key=lambda t: _gkey(t[0]))
     lanes = sorted({r[7] for r in rows})
 
     # render-side safety net: degraded lanes become visible alerts
@@ -148,7 +171,13 @@ def render_dashboard(date, rows, k_rows, alerts, form_rows=()):
     body_rows = "\n".join(body)
 
     game_chips = "".join(
-        f'<button class="fchip" data-fgame="{_esc(g)}">{_esc(g)}</button>'
+        f'<button class="fchip" data-fgame="{_esc(g)}">{_esc(g)}'
+        + (
+            f'<span class="ftime">{_esc(_et_clock(_gt[g]))}</span>'
+            if _gt.get(g) and _et_clock(_gt[g])
+            else ""
+        )
+        + "</button>"
         for g in games
     )
     lane_chips = "".join(
@@ -245,6 +274,8 @@ h2.sec small{{font:500 .62em var(--mono);letter-spacing:0;text-transform:none;co
 .fchip:hover{{border-color:var(--amber-dim);color:var(--ink)}}
 .fchip.on{{background:var(--amber);border-color:var(--amber);color:#100b02}}
 .fchip:focus-visible{{outline:2px solid var(--amber);outline-offset:2px}}
+.fchip .ftime{{margin-left:.45em;opacity:.55;font-size:.85em;letter-spacing:.02em}}
+.fchip.on .ftime{{opacity:.8}}
 .count{{margin-left:auto;font:500 .8em var(--mono);color:var(--dim)}}
 .fdivider{{width:1px;height:1.4em;background:var(--line)}}
 

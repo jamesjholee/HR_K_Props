@@ -163,6 +163,87 @@ def pitcher_hands(pids, offline=False):
     return out
 
 
+def map_gamepks(games, sched):
+    """Annotate each PropFinder game with its statsapi gamePk.  (7/29)
+
+    Match key: home MLBAM team id (crosscheck_starters already proved the
+    two feeds share team ids). Doubleheaders: a home team has 2+ statsapi
+    games — pick the gamePk whose start time is closest to the PropFinder
+    gameDate. Each gamePk is consumed at most once.
+
+    Returns alert strings for statsapi games with NO PropFinder
+    counterpart (e.g. only one leg of a DH on the feed — that leg's bats
+    are unboarded BY CONSTRUCTION; must be visible, never silent).
+    """
+    by_home = {}
+    for d in (sched or {}).get("dates", []):
+        for g in d.get("games", []):
+            tid = (g.get("teams", {}).get("home", {}).get("team") or {}).get("id")
+            if tid:
+                by_home.setdefault(int(tid), []).append(
+                    (g.get("gamePk"), g.get("gameDate") or "")
+                )
+    used = set()
+
+    def _ts(iso):
+        try:
+            return datetime.fromisoformat(str(iso).replace("Z", "+00:00"))
+        except ValueError:
+            return None
+
+    for g in games:
+        g["_gamePk"] = 0
+        tid = (g.get("homeTeam") or {}).get("id")
+        cands = [c for c in by_home.get(int(tid or 0), []) if c[0] not in used]
+        if not cands:
+            continue
+        if len(cands) == 1:
+            pick = cands[0]
+        else:  # doubleheader: nearest start time
+            pf_t = _ts(g.get("gameDate"))
+            pick = min(
+                cands,
+                key=lambda c: (
+                    abs((_ts(c[1]) - pf_t).total_seconds())
+                    if pf_t and _ts(c[1])
+                    else 1e12
+                ),
+            )
+        g["_gamePk"] = pick[0] or 0
+        used.add(pick[0])
+    alerts = []
+    slate_homes = {int((g.get("homeTeam") or {}).get("id") or 0) for g in games}
+    for tid, cands in by_home.items():
+        if tid not in slate_homes:
+            continue  # team not on the PropFinder slate at all — date-filter domain
+        for pk, iso in cands:
+            if pk not in used:
+                alerts.append(
+                    f"statsapi game {pk} ({iso}) has no PropFinder counterpart "
+                    f"— likely DH leg missing from feed; that game is UNBOARDED"
+                )
+    return alerts
+
+
+def label_games(games):
+    """Assign g['_label']; duplicate matchups (DH) get -G1/-G2 by start
+    time so board rows, dashboard chips, and grades stay per-game.  (7/29)
+    Call AFTER games are sorted by gameDate."""
+    from collections import Counter
+
+    counts = Counter(
+        f"{g['visitorTeam']['code']}@{g['homeTeam']['code']}" for g in games
+    )
+    seen = Counter()
+    for g in games:
+        base = f"{g['visitorTeam']['code']}@{g['homeTeam']['code']}"
+        if counts[base] > 1:
+            seen[base] += 1
+            g["_label"] = f"{base}-G{seen[base]}"
+        else:
+            g["_label"] = base
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--offline", action="store_true")
@@ -184,6 +265,9 @@ def main():
             "No games found for date — check raw/upcoming_games.json or the date arg."
         )
         return
+    # 7/29: start-time order everywhere (console, board lock order, dashboard)
+    games.sort(key=lambda g: g.get("gameDate") or "9999")
+    label_games(games)  # 7/29: DH-safe labels (-G1/-G2)
     print(f"{len(games)} games on the slate.")
     # v1.5: excluded-game visibility (COL@MIL-class gap instrumentation)
     for ex in excluded_games:
@@ -198,6 +282,14 @@ def main():
     for a in alerts:
         print(f"  ⚠ {a}")
         db.log_alert(date, "warn", a)
+
+    # 7/29: statsapi gamePk per PropFinder game (DH join fix) + visibility
+    # for statsapi games missing from the feed (unboarded-DH-leg class)
+    gp_alerts = map_gamepks(games, sched)
+    for a in gp_alerts:
+        print(f"  ⚠ {a}")
+        db.log_alert(date, "warn", a)
+        alerts.append(a)  # visible on the page, same rule as other degraded lanes
 
     # 7/27 hotfix B: pitcher ID -> full name (statsapi probables)
     pname = pitcher_names(sched)
@@ -257,9 +349,11 @@ def main():
         db.log_alert(date, "info", msg)
         alerts.append(msg)  # 7/27: visible on the page
 
+    game_times = {}  # 7/29: label -> ISO start, for dashboard time sort/display
     for g in games:
         home, vis = g["homeTeam"], g["visitorTeam"]
-        label = f"{vis['code']}@{home['code']}"
+        label = g.get("_label") or f"{vis['code']}@{home['code']}"  # 7/29: DH-safe
+        game_times[label] = g.get("gameDate") or ""
         # v1.5.2 no-peek guard: never regenerate a board for a game underway
         try:
             if datetime.fromisoformat(
@@ -431,6 +525,7 @@ def main():
                         + pen_tag,
                         "",
                         lane,
+                        game_pk=g.get("_gamePk", 0),  # 7/29: DH join fix
                     )  # v1.5: pen flag in ledger
                     # v1.4: best price across books + EV vs locked p
                     price, pbook = odds.best_price(book, r["id"], r["name"])
@@ -465,7 +560,9 @@ def main():
                         f"{('  ' + odds.fmt_price(price) + ' ' + (pbook or '') + ' EV ' + f'{ev_val:+.1%}') if price is not None and ev_val is not None else ''}"
                     )
 
-    render_dashboard(date, slate_rows, k_rows, alerts, form_rows)
+    render_dashboard(
+        date, slate_rows, k_rows, alerts, form_rows, game_times=game_times
+    )  # 7/29: start-time sort
     print(f"\nDashboard: out/dashboard.html   DB: {DB_FILE}   (rows locked {db.now()})")
 
 
