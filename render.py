@@ -145,14 +145,27 @@ def render_dashboard(date, rows, k_rows, alerts, form_rows=(), game_times=None):
     # ---- board rows ----
     body = []
     for i, r in enumerate(rows, 1):
-        (label, pitcher, bat, order, p, be, sig, lane, prof, price, ev, book) = (
-            list(r) + [""] * 12
-        )[:12]
+        (
+            label,
+            pitcher,
+            bat,
+            order,
+            p,
+            be,
+            sig,
+            lane,
+            prof,
+            price,
+            ev,
+            book,
+            insight,
+        ) = (list(r) + [""] * 13)[:13]
         prof_txt = _pretty_prof(prof)
         pen = "1" if "PEN" in (sig or "").upper() else "0"
         body.append(
             f'<tr data-game="{_esc(label)}" data-lane="{_esc(lane)}" '
             f'data-pen="{pen}" data-p="{p}" data-be="{be}" '
+            f'data-insight="{_esc(insight)}" '
             f'data-search="{_esc((bat + " " + pitcher + " " + label).lower())}">'
             f'<td class="num rk">{i}</td>'
             f'<td class="bat"><b>{_esc(bat)}</b>'
@@ -276,6 +289,18 @@ h2.sec small{{font:500 .62em var(--mono);letter-spacing:0;text-transform:none;co
 .fchip:focus-visible{{outline:2px solid var(--amber);outline-offset:2px}}
 .fchip .ftime{{margin-left:.45em;opacity:.55;font-size:.85em;letter-spacing:.02em}}
 .fchip.on .ftime{{opacity:.8}}
+#board tbody tr{{cursor:pointer}}
+#board tbody tr.sel td{{background:rgba(255,176,32,.07);box-shadow:inset 3px 0 0 var(--amber)}}
+.detail{{background:var(--panel);border:1px solid var(--amber-dim);border-radius:8px;
+  padding:.8em 1em;margin:.6em 0 .9em}}
+.dhead{{display:flex;align-items:baseline;gap:.8em}}
+.dbat{{font:700 1.05em var(--disp);letter-spacing:.06em;color:var(--amber)}}
+.dmeta{{color:var(--dim);font-size:.85em}}
+.dclose{{margin-left:auto;background:none;border:none;color:var(--dim);
+  font-size:1.2em;cursor:pointer;line-height:1}}
+.dclose:hover{{color:var(--ink)}}
+.dtext{{margin:.5em 0 .2em;line-height:1.55}}
+.dnote{{margin:0;color:var(--dim);font-size:.75em;opacity:.7}}
 .count{{margin-left:auto;font:500 .8em var(--mono);color:var(--dim)}}
 .fdivider{{width:1px;height:1.4em;background:var(--line)}}
 
@@ -427,6 +452,16 @@ graded slates. That's the house rule: evidence moves the model, not instinct.</p
   <span class="count" id="count"></span>
 </div>
 
+<div id="detail" class="detail" hidden>
+  <div class="dhead">
+    <span class="dbat" id="dbat"></span>
+    <span class="dmeta" id="dmeta"></span>
+    <button class="dclose" id="dclose" aria-label="close">&times;</button>
+  </div>
+  <p class="dtext" id="dtext"></p>
+  <p class="dnote">read locked at generation &middot; research log, not advice</p>
+</div>
+
 <div class="tblwrap">
 <table id="board">
 <thead><tr>
@@ -508,6 +543,31 @@ here is financial advice; it's a research log.</p>
     }});
   }});
   q.addEventListener('input',apply);
+
+  // 7/29: click a bat row -> pinned detail panel (survives sort/filter)
+  var dPanel=document.getElementById('detail'),dBat=document.getElementById('dbat'),
+      dMeta=document.getElementById('dmeta'),dText=document.getElementById('dtext'),
+      dSel=null;
+  function closeDetail(){{
+    dPanel.hidden=true;
+    if(dSel)dSel.classList.remove('sel');
+    dSel=null;
+  }}
+  document.getElementById('dclose').addEventListener('click',closeDetail);
+  rows.forEach(function(tr){{
+    tr.addEventListener('click',function(){{
+      if(dSel===tr){{closeDetail();return;}}
+      if(dSel)dSel.classList.remove('sel');
+      dSel=tr;tr.classList.add('sel');
+      var tds=tr.querySelectorAll('td');
+      dBat.textContent=tds[1]?tds[1].textContent:'';
+      dMeta.textContent=tr.dataset.game+' \u00b7 vs '+(tds[3]?tds[3].textContent:'')
+        +(tds[7]&&tds[7].textContent.trim()?' \u00b7 '+tds[7].textContent.trim():'');
+      dText.textContent=tr.dataset.insight||'no read locked for this bat';
+      dPanel.hidden=false;
+      dPanel.scrollIntoView({{block:'nearest',behavior:'smooth'}});
+    }});
+  }});
 
   // column sort (HR%, BE, EV)
   var tbody=document.querySelector('#board tbody');

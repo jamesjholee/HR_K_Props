@@ -70,6 +70,51 @@ def hr_prob(row, order=None):
     return max(0.08, min(0.25, round(p, 2)))
 
 
+def bat_insight(r, g2, pitcher_name, order, traj, prof, pen_tag, p):
+    """One locked, deterministic read per bat — shown when the row is
+    clicked on the dashboard.  (7/29)  Generated from data already
+    pulled; written at lock time so it's part of the no-peek record,
+    never editorialized after results.
+    """
+    bits = []
+    hr, nhr, pa = r.get("hr", 0), r.get("near_hr", 0), r.get("pa", 0)
+    bits.append(
+        f"{hr} HR + {nhr} near-HR in {pa} PA — barrel {r.get('barrel_pct', 0):.1f}%, "
+        f"pull-air {r.get('pullair_pct', 0):.1f}%, HH {r.get('hh_pct', 0):.0f}%, "
+        f"bat speed {r.get('bat_speed', 0):.1f}"
+        + (f", {r.get('dist350', 0)}× 350ft+" if r.get("dist350") else "")
+        + "."
+    )
+    if g2:
+        vec = ",".join(pc["code"] for pc in g2.get("crushable", [])) or "—"
+        bits.append(
+            f"vs {pitcher_name}: {g2['verdict']} (arsenal whiff "
+            f"{g2['uw_whiff']:.0%}, crushable: {vec})."
+        )
+    risk = []
+    if r.get("whiff_pct", 0) >= 0.30:
+        risk.append(f"high whiff {r['whiff_pct']:.0%}")
+    if r.get("bbe", 0) < 200:
+        risk.append(f"thin sample {r.get('bbe', 0)} BBE")
+    if risk:
+        bits.append("Risk: " + ", ".join(risk) + ".")
+    form = []
+    if r.get("l15"):
+        form.append(f"L15 {r['l15']}")
+    if traj:
+        form.append(traj)
+    if prof:
+        form.append(f"profile {prof}")
+    if order:
+        form.append(f"slot {order}")
+    if pen_tag:
+        form.append("opp pen fatigued — late-HR exposure")
+    if form:
+        bits.append(" · ".join(form) + ".")
+    bits.append(f"Model {p:.0%} (breakeven {breakeven(p)}).")
+    return " ".join(bits)
+
+
 def slate_date(game_date_iso: str) -> str:
     """UTC ISO timestamp -> slate date in ET (MLB scheduling convention).
 
@@ -549,6 +594,9 @@ def main():
                             odds.fmt_price(price),
                             ("" if ev_val is None else f"{ev_val:+.1%}"),
                             pbook or "",
+                            bat_insight(  # 7/29: click-to-open player read
+                                r, g2, name, order, traj, prof, pen_tag, p
+                            ),
                         )
                     )
                     print(

@@ -30,9 +30,21 @@ UA = {"User-Agent": "hr-engine-grader/1.0"}
 
 
 def get(url, **params):
-    r = requests.get(url, params=params, headers=UA, timeout=30)
-    r.raise_for_status()
-    return r.json()
+    """7/29: 3 tries w/ backoff — one statsapi blip was enough to fail a
+    whole CI grade run (or worse, skip a game's pull inside the loop)."""
+    import time
+
+    last = None
+    for attempt in range(3):
+        try:
+            r = requests.get(url, params=params, headers=UA, timeout=30)
+            r.raise_for_status()
+            return r.json()
+        except Exception as e:
+            last = e
+            if attempt < 2:
+                time.sleep(5 * (attempt + 1))
+    raise last
 
 
 def slate_games(date):
