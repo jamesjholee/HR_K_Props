@@ -1,0 +1,232 @@
+[
+ {
+  "gamePk": 823837,
+  "inning": 5,
+  "half": "top",
+  "batter_id": 607208,
+  "batter": "Trea Turner",
+  "pitcher_id": 687473,
+  "pitcher": "Ryan Gusto",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823837,
+  "inning": 5,
+  "half": "bottom",
+  "batter_id": 681715,
+  "batter": "Heriberto Hern\u00e1ndez",
+  "pitcher_id": 666200,
+  "pitcher": "Jes\u00fas Luzardo",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823837,
+  "inning": 8,
+  "half": "bottom",
+  "batter_id": 665052,
+  "batter": "Griffin Conine",
+  "pitcher_id": 680742,
+  "pitcher": "Jonathan Bowlan",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823351,
+  "inning": 4,
+  "half": "top",
+  "batter_id": 672515,
+  "batter": "Gabriel Moreno",
+  "pitcher_id": 683003,
+  "pitcher": "Jared Jones",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824242,
+  "inning": 11,
+  "half": "bottom",
+  "batter_id": 679529,
+  "batter": "Spencer Torkelson",
+  "pitcher_id": 670329,
+  "pitcher": "Rico Garcia",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823596,
+  "inning": 6,
+  "half": "top",
+  "batter_id": 621566,
+  "batter": "Matt Olson",
+  "pitcher_id": 640455,
+  "pitcher": "Sean Manaea",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823192,
+  "inning": 2,
+  "half": "bottom",
+  "batter_id": 691740,
+  "batter": "Daniel Susac",
+  "pitcher_id": 623381,
+  "pitcher": "Thomas Pannone",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823192,
+  "inning": 8,
+  "half": "bottom",
+  "batter_id": 691740,
+  "batter": "Daniel Susac",
+  "pitcher_id": 683734,
+  "pitcher": "Andrew Vaughn",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 822947,
+  "inning": 1,
+  "half": "bottom",
+  "batter_id": 650490,
+  "batter": "Yandy D\u00edaz",
+  "pitcher_id": 669022,
+  "pitcher": "MacKenzie Gore",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 822947,
+  "inning": 1,
+  "half": "bottom",
+  "batter_id": 668723,
+  "batter": "Ryan Vilade",
+  "pitcher_id": 669022,
+  "pitcher": "MacKenzie Gore",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824487,
+  "inning": 7,
+  "half": "top",
+  "batter_id": 700932,
+  "batter": "Kyle Manzardo",
+  "pitcher_id": 695534,
+  "pitcher": "Chase Petty",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823677,
+  "inning": 3,
+  "half": "top",
+  "batter_id": 686475,
+  "batter": "Tyler Tolbert",
+  "pitcher_id": 657746,
+  "pitcher": "Joe Ryan",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824567,
+  "inning": 1,
+  "half": "top",
+  "batter_id": 682987,
+  "batter": "Spencer Jones",
+  "pitcher_id": 663436,
+  "pitcher": "Davis Martin",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824567,
+  "inning": 8,
+  "half": "bottom",
+  "batter_id": 803011,
+  "batter": "Sam Antonacci",
+  "pitcher_id": 621112,
+  "pitcher": "Paul Blackburn",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824567,
+  "inning": 8,
+  "half": "bottom",
+  "batter_id": 808959,
+  "batter": "Munetaka Murakami",
+  "pitcher_id": 621112,
+  "pitcher": "Paul Blackburn",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823022,
+  "inning": 10,
+  "half": "top",
+  "batter_id": 691718,
+  "batter": "Pete Crow-Armstrong",
+  "pitcher_id": 703725,
+  "pitcher": "Luis Gastelum",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824002,
+  "inning": 2,
+  "half": "top",
+  "batter_id": 673237,
+  "batter": "Yainer Diaz",
+  "pitcher_id": 680570,
+  "pitcher": "Grayson Rodriguez",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824002,
+  "inning": 3,
+  "half": "top",
+  "batter_id": 665161,
+  "batter": "Jeremy Pe\u00f1a",
+  "pitcher_id": 680570,
+  "pitcher": "Grayson Rodriguez",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824973,
+  "inning": 2,
+  "half": "bottom",
+  "batter_id": 641680,
+  "batter": "Jonah Heim",
+  "pitcher_id": 663776,
+  "pitcher": "Patrick Sandoval",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824973,
+  "inning": 5,
+  "half": "top",
+  "batter_id": 663330,
+  "batter": "Jahmai Jones",
+  "pitcher_id": 682052,
+  "pitcher": "Jacob Lopez",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824973,
+  "inning": 5,
+  "half": "bottom",
+  "batter_id": 671732,
+  "batter": "Lawrence Butler",
+  "pitcher_id": 663776,
+  "pitcher": "Patrick Sandoval",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824973,
+  "inning": 10,
+  "half": "top",
+  "batter_id": 655316,
+  "batter": "Andruw Monasterio",
+  "pitcher_id": 660761,
+  "pitcher": "Jos\u00e9 Suarez",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823924,
+  "inning": 1,
+  "half": "bottom",
+  "batter_id": 681624,
+  "batter": "Andy Pages",
+  "pitcher_id": 676106,
+  "pitcher": "Emerson Hancock",
+  "pitcher_role": "S"
+ }
+]
