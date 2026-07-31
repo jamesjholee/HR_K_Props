@@ -1,0 +1,182 @@
+[
+ {
+  "gamePk": 822946,
+  "inning": 6,
+  "half": "bottom",
+  "batter_id": 676356,
+  "batter": "Jonny DeLuca",
+  "pitcher_id": 682608,
+  "pitcher": "Peyton Gray",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 822946,
+  "inning": 8,
+  "half": "bottom",
+  "batter_id": 656775,
+  "batter": "Cedric Mullins",
+  "pitcher_id": 687239,
+  "pitcher": "Ben Peoples",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823674,
+  "inning": 3,
+  "half": "top",
+  "batter_id": 695506,
+  "batter": "Jac Caglianone",
+  "pitcher_id": 641927,
+  "pitcher": "Bailey Ober",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823674,
+  "inning": 9,
+  "half": "bottom",
+  "batter_id": 665019,
+  "batter": "Kody Clemens",
+  "pitcher_id": 621381,
+  "pitcher": "Matt Strahm",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823023,
+  "inning": 7,
+  "half": "bottom",
+  "batter_id": 802139,
+  "batter": "JJ Wetherholt",
+  "pitcher_id": 573204,
+  "pitcher": "Caleb Thielbar",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824488,
+  "inning": 6,
+  "half": "top",
+  "batter_id": 664040,
+  "batter": "Brandon Lowe",
+  "pitcher_id": 695076,
+  "pitcher": "Rhett Lowder",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823595,
+  "inning": 4,
+  "half": "top",
+  "batter_id": 669065,
+  "batter": "Kyle Stowers",
+  "pitcher_id": 690997,
+  "pitcher": "Nolan McLean",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823595,
+  "inning": 7,
+  "half": "top",
+  "batter_id": 805300,
+  "batter": "Jakob Marsee",
+  "pitcher_id": 690997,
+  "pitcher": "Nolan McLean",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824894,
+  "inning": 2,
+  "half": "top",
+  "batter_id": 695734,
+  "batter": "Daylen Lile",
+  "pitcher_id": 656550,
+  "pitcher": "Grant Holmes",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824894,
+  "inning": 3,
+  "half": "top",
+  "batter_id": 671277,
+  "batter": "Luis Garc\u00eda Jr.",
+  "pitcher_id": 656550,
+  "pitcher": "Grant Holmes",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824894,
+  "inning": 4,
+  "half": "top",
+  "batter_id": 695734,
+  "batter": "Daylen Lile",
+  "pitcher_id": 656550,
+  "pitcher": "Grant Holmes",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824894,
+  "inning": 4,
+  "half": "bottom",
+  "batter_id": 660670,
+  "batter": "Ronald Acu\u00f1a Jr.",
+  "pitcher_id": 663623,
+  "pitcher": "Jake Irvin",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824894,
+  "inning": 5,
+  "half": "bottom",
+  "batter_id": 573262,
+  "batter": "Mike Yastrzemski",
+  "pitcher_id": 663623,
+  "pitcher": "Jake Irvin",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824974,
+  "inning": 8,
+  "half": "top",
+  "batter_id": 677800,
+  "batter": "Wilyer Abreu",
+  "pitcher_id": 665622,
+  "pitcher": "Luis Medina",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824974,
+  "inning": 8,
+  "half": "top",
+  "batter_id": 575929,
+  "batter": "Willson Contreras",
+  "pitcher_id": 665622,
+  "pitcher": "Luis Medina",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823271,
+  "inning": 2,
+  "half": "top",
+  "batter_id": 691740,
+  "batter": "Daniel Susac",
+  "pitcher_id": 676664,
+  "pitcher": "JP Sears",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823921,
+  "inning": 4,
+  "half": "bottom",
+  "batter_id": 687221,
+  "batter": "Dalton Rushing",
+  "pitcher_id": 693433,
+  "pitcher": "Bryan Woo",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823921,
+  "inning": 6,
+  "half": "bottom",
+  "batter_id": 606192,
+  "batter": "Teoscar Hern\u00e1ndez",
+  "pitcher_id": 695380,
+  "pitcher": "Alex Hoppe",
+  "pitcher_role": "R"
+ }
+]
