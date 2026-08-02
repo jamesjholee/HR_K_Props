@@ -85,18 +85,49 @@ def _load(name):
         return json.load(f)
 
 
-def fetch(url, name, offline=False):
-    """Fetch with cache-busting; log timestamp+hash; offline reads ./raw/{name}.json."""
+def fetch(url, name, offline=False, required=True, tries=3):
+    """Fetch with cache-busting; log timestamp+hash; offline reads ./raw/{name}.json.
+
+    8/2: retry w/ backoff — a single PropFinder read-timeout killed the
+    whole morning lock (run_morning:491, l5 window). 3 attempts, 5s/10s
+    waits. On final failure: required pulls raise (no slate without
+    upcoming-games); non-required pulls return None with a loud line —
+    downstream already handles None (window skipped / game skipped with
+    alert). One degraded game must never cost the other thirteen.
+    """
     if offline:
         data = _load(name)
         if data is None:
             print(f"  [offline] MISSING fixture raw/{name}.json — skipping")
         return data
+    import time
+
     import requests
 
-    r = requests.get(_bust(url), headers=_headers(), timeout=30)
-    r.raise_for_status()
-    data = r.json()
+    last = None
+    for attempt in range(tries):
+        try:
+            r = requests.get(_bust(url), headers=_headers(), timeout=30)
+            r.raise_for_status()
+            data = r.json()
+            break
+        except Exception as e:
+            last = e
+            if attempt < tries - 1:
+                wait = 5 * (attempt + 1)
+                print(
+                    f"  [retry] {name}: {type(e).__name__} — "
+                    f"attempt {attempt + 2}/{tries} in {wait}s"
+                )
+                time.sleep(wait)
+    else:
+        if required:
+            raise last
+        print(
+            f"  [degraded] {name}: {type(last).__name__} after {tries} tries "
+            f"— continuing without it"
+        )
+        return None
     h = _save(name, data)
     print(
         f"  [pull] {name}  hash={h}  {datetime.now(timezone.utc).isoformat(timespec='seconds')}"
@@ -146,7 +177,9 @@ def hr_matchup(
         tag += f"_l{range_value}"
     if vs_rhb or vs_lhb:
         tag += "_vec"
-    return fetch(url, tag, offline)
+    # 8/2: required=False — a failed matchup pull skips one window/game
+    # (downstream None-handling + alert), never the whole slate
+    return fetch(url, tag, offline, required=False)
 
 
 def mlb_schedule(date_str, offline=False):
