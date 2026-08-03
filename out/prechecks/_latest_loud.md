@@ -1,11 +1,11 @@
 Slate 2026-08-03 — precheck findings needing eyes:
 
-## T-90 slate sweep — 18:42Z
+## T-90 slate sweep — 21:18Z
 - ✓ WSH@PHI: both probables match locked arms
 - ✓ STL@NYY: both probables match locked arms
 - ✓ PIT@MIL: both probables match locked arms
-- ⚠ SF@TEX: probable starter TBD (1/2 listed) — 5/27 RULE, verify in MLB app before betting this game
-- ⚠ LAD@CHC: probable starter TBD (1/2 listed) — 5/27 RULE, verify in MLB app before betting this game
+- ⚠ SF@TEX: home probable Cal Quantrill (id 615698) was NOT SCORED at lock — scratch/trade signature. Bats boarded vs the other arm may be unaffected; bats scored VS this slot are built on a dead read.
+- ⚠ LAD@CHC: away probable Justin Wrobleski (id 680736) was NOT SCORED at lock — scratch/trade signature. Bats boarded vs the other arm may be unaffected; bats scored VS this slot are built on a dead read.
 - ✓ TOR@HOU: both probables match locked arms
 - ✓ TB@COL: both probables match locked arms
 - ✓ SD@ARI: both probables match locked arms
