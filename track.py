@@ -300,6 +300,8 @@ def report(con, out_dir):
         "_the number above is the honest one._",
     ]
 
+    lines += shadow_report(con)
+
     md = "\n".join(lines) + "\n"
     (Path(out_dir) / "season_report.md").write_text(md)
 
@@ -338,6 +340,147 @@ def report(con, out_dir):
     }
     (Path(out_dir) / "season.json").write_text(json.dumps(strip, indent=2))
     return md
+
+
+# ---------------------------------------------------------------------------
+# Shadow-lane grading — recomputed on every grade run, appended to the season
+# report. Annotates only; per standing rules nothing here moves ranking
+# weight without the 5-6 graded-slate validation and a config bump.
+# ---------------------------------------------------------------------------
+ADJ_DDL = """
+CREATE TABLE IF NOT EXISTS adjusted_reads(
+    slate_date TEXT,
+    team       TEXT,      -- team code the ranking row refers to
+    board_rank INTEGER,   -- rank by raw sigma hr_prob at lock
+    adj_rank   INTEGER,   -- Claude adjusted-read rank at lock
+    notes      TEXT,
+    locked_at  TEXT,
+    PRIMARY KEY (slate_date, team)
+)
+"""
+
+_G = "(SELECT DISTINCT date FROM hr_finals)"
+
+_STARTER_HRS = """(SELECT date, pitcher_id, COUNT(*) n FROM hr_finals
+                   WHERE pitcher_role='S' GROUP BY date, pitcher_id)"""
+
+
+def _tbl(rows, header):
+    lines = [header, "|" + "---|" * header.count("|")]
+    lines[1] = "|" + "|".join("---" for _ in header.split("|")[1:-1]) + "|"
+    for r in rows:
+        lines.append("| " + " | ".join(str(x) for x in r) + " |")
+    return lines
+
+
+def shadow_report(con):
+    """Markdown lines grading every logged shadow signal vs hr_finals."""
+    out = ["", "## Shadow lanes (auto-graded, annotate-only)",
+           "_per-start figures are not IP-adjusted; sample spans multiple "
+           "config versions; no ranking weight moves without 5-6 slate "
+           "validation + config bump_", ""]
+
+    rows = con.execute(f"""
+        SELECT b.lane,
+          COUNT(DISTINCT b.slate_date||b.batter_id||COALESCE(NULLIF(b.game_pk,0),'')) n,
+          COUNT(DISTINCT CASE WHEN f.batter_id IS NOT NULL
+                THEN b.slate_date||b.batter_id||f.gamePk END) hits
+        FROM hr_board b JOIN {_G} g ON g.date=b.slate_date
+        LEFT JOIN hr_finals f ON f.batter_id=b.batter_id AND f.date=b.slate_date
+          AND (b.game_pk=0 OR b.game_pk=f.gamePk)
+        GROUP BY b.lane ORDER BY hits*1.0/n DESC""").fetchall()
+    out += ["### Board lanes"]
+    out += _tbl([(l, f"{h}/{n}", f"{100*h/n:.1f}%") for l, n, h in rows],
+                "| lane | hits | rate |")
+
+    rows = con.execute(f"""
+        SELECT CASE WHEN v.whiff>=0.30 THEN '>=30%' WHEN v.whiff>=0.28 THEN '28-30%'
+                    WHEN v.whiff>=0.26 THEN '26-28%' WHEN v.whiff>=0.20 THEN '20-26%'
+                    ELSE '<=20%' END tier,
+          COUNT(*) s, COALESCE(SUM(h.n),0) hr
+        FROM pitcher_verdicts v JOIN {_G} g ON g.date=v.slate_date
+        LEFT JOIN {_STARTER_HRS} h ON h.date=v.slate_date AND h.pitcher_id=v.pitcher_id
+        GROUP BY tier ORDER BY MIN(v.whiff) DESC""").fetchall()
+    out += ["", "### Whiff overlay (starter HRs allowed / start)"]
+    out += _tbl([(t, s, hr, f"{hr/s:.2f}") for t, s, hr in rows],
+                "| whiff | starts | HRs | per-start |")
+
+    rows = con.execute(f"""
+        SELECT v.verdict, COUNT(*) s, COALESCE(SUM(h.n),0) hr
+        FROM pitcher_verdicts v JOIN {_G} g ON g.date=v.slate_date
+        LEFT JOIN {_STARTER_HRS} h ON h.date=v.slate_date AND h.pitcher_id=v.pitcher_id
+        GROUP BY v.verdict ORDER BY hr*1.0/s DESC""").fetchall()
+    out += ["", "### Verdict gate (starter HRs allowed / start)"]
+    out += _tbl([(v, s, hr, f"{hr/s:.2f}") for v, s, hr in rows],
+                "| verdict | starts | HRs | per-start |")
+
+    rows = con.execute(f"""
+        SELECT COALESCE(NULLIF(f.form_flag,''),'(none)') flag, COUNT(*) s,
+               COALESCE(SUM(h.n),0) hr
+        FROM pitcher_form f JOIN {_G} g ON g.date=f.slate_date
+        LEFT JOIN {_STARTER_HRS} h ON h.date=f.slate_date AND h.pitcher_id=f.pitcher_id
+        GROUP BY flag ORDER BY hr*1.0/s DESC""").fetchall()
+    out += ["", "### Gate 2.5 form (starter HRs allowed / start)"]
+    out += _tbl([(fl, s, hr, f"{hr/s:.2f}") for fl, s, hr in rows],
+                "| form flag | starts | HRs | per-start |")
+
+    rows = con.execute("""
+        SELECT CASE WHEN edge_score>=6 THEN 'edge>=6'
+                    WHEN edge_score>=3 THEN 'edge 3-5' ELSE 'edge 0-2' END t,
+          COUNT(*) pens, SUM(reliever_hrs_allowed) hr, SUM(board_hits_off_pen) bh
+        FROM pen_edge WHERE reliever_hrs_allowed IS NOT NULL
+        GROUP BY t ORDER BY t""").fetchall()
+    out += ["", "### Pen-edge (per pen-slate)"]
+    out += _tbl([(t, p, hr, bh, f"{hr/p:.2f}") for t, p, hr, bh in rows],
+                "| edge tier | pens | pen HRs | boarded hits | HRs/pen |")
+
+    # DTP batter profiles (P:-prefixed in l15_flag) + L15 heat tags —
+    # the validation profiles.py's docstring called for, run automatically.
+    bat_rows = con.execute(f"""
+        SELECT b.l15_flag,
+          CASE WHEN f.batter_id IS NOT NULL THEN 1 ELSE 0 END hit
+        FROM hr_board b JOIN {_G} g ON g.date=b.slate_date
+        LEFT JOIN hr_finals f ON f.batter_id=b.batter_id AND f.date=b.slate_date
+          AND (b.game_pk=0 OR b.game_pk=f.gamePk)
+        GROUP BY b.slate_date, b.batter_id,
+                 COALESCE(NULLIF(b.game_pk,0),'')""").fetchall()
+    prof, heat = {}, {}
+    for flag, hit in bat_rows:
+        toks = (flag or "").split("|")
+        ptags = [t[2:] for t in toks if t.startswith("P:")]
+        key = ptags[0] if ptags else "(untagged)"
+        prof.setdefault(key, [0, 0])
+        prof[key][0] += 1; prof[key][1] += hit
+        if ptags:
+            prof.setdefault("ANY PROFILE", [0, 0])
+            prof["ANY PROFILE"][0] += 1; prof["ANY PROFILE"][1] += hit
+        for t in toks:
+            if t in ("LOUD", "SUSTAINED", "HEATING", "WARM",
+                     "NEAR", "COOLING", "QUIET"):
+                heat.setdefault(t, [0, 0])
+                heat[t][0] += 1; heat[t][1] += hit
+    order = ("INSANE", "ELITE", "FLYBALL", "LINEDRIVE",
+             "ANY PROFILE", "(untagged)")
+    out += ["", "### DTP batter profiles (boarded-bat hit rate)"]
+    out += _tbl([(k, f"{prof[k][1]}/{prof[k][0]}",
+                  f"{100*prof[k][1]/prof[k][0]:.1f}%")
+                 for k in order if k in prof and prof[k][0]],
+                "| profile | hits | rate |")
+    horder = ("LOUD", "SUSTAINED", "HEATING", "WARM",
+              "NEAR", "COOLING", "QUIET")
+    out += ["", "### L15 heat tags (boarded-bat hit rate)"]
+    out += _tbl([(k, f"{heat[k][1]}/{heat[k][0]}",
+                  f"{100*heat[k][1]/heat[k][0]:.1f}%")
+                 for k in horder if k in heat and heat[k][0]],
+                "| tag | hits | rate |")
+
+    con.execute(ADJ_DDL)
+    n_adj = con.execute(
+        "SELECT COUNT(DISTINCT slate_date) FROM adjusted_reads").fetchone()[0]
+    out += ["", f"### Adjusted-read layer: {n_adj} slate(s) logged"
+            + (" — log rankings into adjusted_reads to start the tally"
+               if n_adj == 0 else "")]
+    return out
 
 
 def main():
