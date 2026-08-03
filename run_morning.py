@@ -608,9 +608,22 @@ def main():
                         f"{('  ' + odds.fmt_price(price) + ' ' + (pbook or '') + ' EV ' + f'{ev_val:+.1%}') if price is not None and ev_val is not None else ''}"
                     )
 
+    # 8/3: season-to-date record strip. track.py (run by the grade workflow)
+    # commits out/season.json; the morning render reads it so the strip always
+    # shows the record through the last graded slate. Missing/corrupt -> no
+    # strip, never a failed lock.
+    season = None
+    try:
+        import json as _json
+        with open(os.path.join("out", "season.json")) as _f:
+            season = _json.load(_f)
+    except Exception:
+        pass
+
     render_dashboard(
-        date, slate_rows, k_rows, alerts, form_rows, game_times=game_times
-    )  # 7/29: start-time sort
+        date, slate_rows, k_rows, alerts, form_rows, game_times=game_times,
+        season=season,
+    )  # 7/29: start-time sort · 8/3: record strip
     print(f"\nDashboard: out/dashboard.html   DB: {DB_FILE}   (rows locked {db.now()})")
 
 

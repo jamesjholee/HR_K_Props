@@ -120,7 +120,48 @@ def _et_clock(iso):
         return ""
 
 
-def render_dashboard(date, rows, k_rows, alerts, form_rows=(), game_times=None):
+def _record_strip(season):
+    """Season-to-date record strip HTML from track.py's season.json dict.
+
+    Numbers come exclusively from the graded ledger (slate_ledger) — the
+    renderer computes nothing, so the strip can't drift from the record.
+    Returns '' when no season data supplied (backward compatible).
+    """
+    if not season:
+        return ""
+    try:
+        s, l5, cc = season["season"], season["last5"], season["current_config"]
+        graded = [x for x in season.get("slates", [])
+                  if x.get("pct") is not None][-10:]
+        # tiny text sparkline: block height per slate hit%, amber >= 12%
+        blocks = "▁▂▃▄▅▆▇█"
+        spark = "".join(
+            f'<span class="hi">{blocks[min(7, int(x["pct"] // 2.5))]}</span>'
+            if x["pct"] >= 12 else blocks[min(7, int(x["pct"] // 2.5))]
+            for x in graded
+        )
+        cfg_short = (cc.get("version") or "?").split("-")[0]
+        return (
+            '<div class="recstrip">'
+            f'<span>SEASON <b>{s["hits"]}/{s["boarded"]}</b> '
+            f'({s["pct"]}%)</span>'
+            f'<span>LAST 5 <b>{l5["hits"]}/{l5["boarded"]}</b> '
+            f'({l5["pct"]}%)</span>'
+            f'<span>{_esc(cfg_short)} <b>{cc["hits"]}/{cc["boarded"]}</b> '
+            f'({cc["pct"]}% · {cc["slates"]} slates)</span>'
+            f'<span class="spark">{spark}</span>'
+            '<span class="tag">graded ledger · breakeven ~15&ndash;18% '
+            '&middot; research log, not advice</span>'
+            "</div>"
+        )
+    except (KeyError, TypeError):
+        return ""
+
+
+def render_dashboard(date, rows, k_rows, alerts, form_rows=(), game_times=None,
+                     season=None):
+    # season: dict loaded from out/season.json (track.py). Optional — old
+    # callers unaffected. Renders the season-to-date record strip.
     rows = sorted(rows, key=lambda r: -r[4])
     # 7/29: games ordered by start time when run_morning supplies it;
     # unknown-time games sink to the end alphabetically.
@@ -257,6 +298,14 @@ a{{color:var(--amber)}}
 .meta b{{color:var(--ink);font-weight:600}}
 .alertpill{{font:600 .78em/1 var(--mono);color:#100b02;background:var(--amber);
   border-radius:99px;padding:.35em .7em;margin-left:auto}}
+/* ---- season record strip (track.py -> season.json) ---- */
+.recstrip{{display:flex;gap:1.6em;flex-wrap:wrap;align-items:baseline;
+  font:500 .8em/1.5 var(--mono);color:var(--dim);
+  background:#0d1310;border-bottom:1px solid #1c2620;padding:.5em 1.2em}}
+.recstrip b{{color:var(--ink);font-weight:600}}
+.recstrip .spark{{letter-spacing:.12em;color:var(--dim)}}
+.recstrip .spark .hi{{color:var(--amber)}}
+.recstrip .tag{{font-size:.9em;opacity:.75}}
 .alertpill.zero{{background:var(--line);color:var(--dim)}}
 
 .wrap{{max-width:1180px;margin:0 auto;padding:1.2em}}
@@ -389,7 +438,7 @@ details[open] summary h2.sec::before{{transform:rotate(90deg)}}
   </div>
   <span class="alertpill{" zero" if n_alerts == 0 else ""}">{n_alerts} ALERT{"S" if n_alerts != 1 else ""}</span>
 </header>
-
+{_record_strip(season)}
 <div class="wrap">
 
 <div class="alerts">
