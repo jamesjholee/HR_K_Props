@@ -1,0 +1,109 @@
+# .github/workflows/hr-engine-precheck.yml
+#
+# HR Engine — pre-game verification sweeps (automated 5/27 rule)
+#   Cron every 15 min during game hours; precheck.py decides what's DUE:
+#     T-90 before the slate's first pitch  -> slate-wide sweep
+#     T-30 before EACH game's first pitch  -> starter + posted-lineup check
+#   Checks are deduped via precheck_log in hrapp.db, never run after first
+#   pitch, and never touch the locked board or dashboard (no-peek preserved).
+#   LOUD findings (scratch signature, TBD starter, postponement, boarded bat
+#   out of the lineup) open a GitHub issue -> phone notification.
+#
+#   Bonus: lock watchdog — if no board is locked by ~16:30 UTC the T-90
+#   sweep exits "no locked board", and the watchdog step opens an issue so a
+#   silent morning failure becomes loud.
+
+name: hr-engine-precheck
+
+on:
+  schedule:
+    - cron: "*/15 15-23 * * *"   # 15:00–23:45 UTC (11am–7:45pm ET)
+    - cron: "*/15 0-3 * * *"     # 00:00–03:45 UTC (8pm–11:45pm ET, WC games)
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Slate date (YYYY-MM-DD ET). Blank = today ET."
+        required: false
+      force:
+        description: "Force a check: 't90' or 't30:<gamePk>'. Blank = due only."
+        required: false
+
+permissions:
+  contents: write   # commit precheck reports + precheck_log rows in db
+  issues: write     # loud findings -> issue -> notification
+
+concurrency:
+  group: hr-precheck
+  cancel-in-progress: false
+
+jobs:
+  precheck:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests tzdata
+
+      - name: Run prechecks
+        id: pc
+        continue-on-error: true    # exit 2 = LOUD, handled below; never a red X spiral
+        run: |
+          ARGS=""
+          if [ -n "${{ github.event.inputs.date }}" ];  then ARGS="$ARGS --date ${{ github.event.inputs.date }}"; fi
+          if [ -n "${{ github.event.inputs.force }}" ]; then ARGS="$ARGS --force ${{ github.event.inputs.force }}"; fi
+          python3 precheck.py $ARGS | tee out_precheck.txt
+
+      - name: Lock watchdog (16:15–16:45 UTC only)
+        id: watchdog
+        run: |
+          H=$(date -u +%H); M=$(date -u +%M)
+          if [ "$H" = "16" ] && [ "$M" -ge 15 ] && [ "$M" -le 45 ] \
+             && grep -q "no locked board" out_precheck.txt; then
+            echo "nolock=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "nolock=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit precheck log
+        run: |
+          git config user.name  "hr-engine-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add hrapp.db out/prechecks/ 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "precheck: $(date -u +%FT%H:%MZ)"
+          git pull --rebase origin main || true
+          git push || true
+
+      - name: Open issue on LOUD findings
+        if: steps.pc.outputs.loud == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TITLE="⚠ Precheck: slate ${{ steps.pc.outputs.slate }} needs eyes ($(date -u +%H:%MZ))"
+          gh issue create --title "$TITLE" \
+            --body-file out/prechecks/_latest_loud.md \
+            --label precheck \
+          || gh issue create --title "$TITLE" \
+               --body-file out/prechecks/_latest_loud.md || true
+
+      - name: Open issue on missing lock (watchdog)
+        if: steps.watchdog.outputs.nolock == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # dedupe: only one watchdog issue per day
+          TODAY=$(TZ=America/New_York date +%F)
+          if ! gh issue list --label lock-watchdog --state open --search "$TODAY" | grep -q .; then
+            gh issue create --title "🔒 Lock watchdog: no board locked for $TODAY by 16:30Z" \
+              --body "The morning workflow has not produced a locked board for $TODAY. Check the hr-engine-daily run — silent failure made loud." \
+              --label lock-watchdog \
+            || gh issue create --title "🔒 Lock watchdog: no board locked for $TODAY by 16:30Z" \
+                 --body "Morning workflow produced no lock. Check hr-engine-daily." || true
+          fi
