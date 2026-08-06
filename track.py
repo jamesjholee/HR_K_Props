@@ -460,33 +460,55 @@ def appearance_report(con):
 
 
 def board_depth_report(con, dates):
-    """Hit rate by slate-wide hr_prob rank (deduped) — the selection-layer
-    readout: does the top of the board clear breakeven while the tail dilutes.
+    """Hit rate by slate-wide hr_prob rank (deduped), full vs active — the
+    selection-layer readout: does the top of the board clear breakeven while
+    the tail dilutes, and how much of each bucket was dead weight.
     """
-    buckets = {"top-10": [0, 0], "11-30": [0, 0], "31-60": [0, 0], "61+": [0, 0]}
+    buckets = {k: [0, 0, 0, 0, 0]  # n, hits, active_n, active_hits, pa
+               for k in ("top-10", "11-30", "31-60", "61+")}
     for d in dates:
+        pa_map = {}
+        for bid, gpk, pa in con.execute(
+            "SELECT batter_id, gamePk, pa FROM hr_appearances "
+            "WHERE slate_date=? AND pa>0", (d,)
+        ):
+            pa_map.setdefault(bid, {})[gpk] = pa
         rows = sorted(_board_rows(con, d), key=lambda r: -(r[2] or 0))
         for i, (bid, gpk, prob, hit) in enumerate(rows):
             k = ("top-10" if i < 10 else "11-30" if i < 30
                  else "31-60" if i < 60 else "61+")
-            buckets[k][0] += 1
-            buckets[k][1] += hit
+            pa = (pa_map.get(bid, {}).get(gpk, 0) if gpk
+                  else sum(pa_map.get(bid, {}).values()))
+            b = buckets[k]
+            b[0] += 1
+            b[1] += hit
+            if pa > 0:
+                b[2] += 1
+                b[3] += hit
+                b[4] += pa
     lines = [
         "",
         "### Board depth (slate-wide hr_prob rank, deduped)",
-        "| Bucket | Hits | Rate |",
-        "|--------|-----:|-----:|",
+        "| Bucket | Full | Full% | Active | Active% | Dead% | HR/PA |",
+        "|--------|-----:|------:|-------:|--------:|------:|------:|",
     ]
+
+    def _row(label, b):
+        n, h, an, ah, pa = b
+        if not n:
+            return f"| {label} | 0/0 | — | — | — | — | — |"
+        act = f"{ah}/{an} | {100*ah/an:.1f}%" if an else "0/0 | —"
+        hrpa = f"{100*ah/pa:.2f}%" if pa else "—"
+        return (f"| {label} | {h}/{n} | {100*h/n:.1f}% | {act} | "
+                f"{100*(n-an)/n:.0f}% | {hrpa} |")
+
     for k in ("top-10", "11-30", "31-60", "61+"):
-        n, h = buckets[k]
-        lines.append(f"| {k} | {h}/{n} | {100*h/n:.1f}% |" if n
-                     else f"| {k} | 0/0 | — |")
-    t60n = sum(buckets[k][0] for k in ("top-10", "11-30", "31-60"))
-    t60h = sum(buckets[k][1] for k in ("top-10", "11-30", "31-60"))
-    if t60n:
-        lines.append(f"| **top-60 pooled** | {t60h}/{t60n} | "
-                     f"{100*t60h/t60n:.1f}% |")
-    lines.append("_Breakeven ~15-18%. Selection-layer candidate cut lines._")
+        lines.append(_row(k, buckets[k]))
+    t60 = [sum(buckets[k][i] for k in ("top-10", "11-30", "31-60"))
+           for i in range(5)]
+    lines.append(_row("**top-60 pooled**", t60))
+    lines.append("_Breakeven ~15-18% (price-dependent: ~+550 at 15.4%; "
+                 "+400 needs 20%). Selection-layer candidate cut lines._")
     return lines
 
 
