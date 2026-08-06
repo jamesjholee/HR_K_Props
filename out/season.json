@@ -1,22 +1,22 @@
 {
-  "generated": "2026-08-05T09:30:29+00:00",
-  "graded_slates": 12,
+  "generated": "2026-08-06T09:34:44+00:00",
+  "graded_slates": 13,
   "season": {
-    "hits": 135,
-    "boarded": 1296,
+    "hits": 150,
+    "boarded": 1448,
     "pct": 10.4
   },
   "last5": {
-    "hits": 73,
-    "boarded": 623,
-    "pct": 11.7
+    "hits": 66,
+    "boarded": 633,
+    "pct": 10.4
   },
   "current_config": {
     "version": "v1.6.2-2026-08-03",
-    "slates": 1,
-    "hits": 16,
-    "boarded": 139,
-    "pct": 11.5
+    "slates": 2,
+    "hits": 31,
+    "boarded": 291,
+    "pct": 10.7
   },
   "pen_share_pct": 39,
   "slates": [
@@ -122,6 +122,14 @@
       "boarded": 139,
       "hits": 16,
       "pct": 11.5,
+      "pending": false
+    },
+    {
+      "n": 14,
+      "date": "2026-08-05",
+      "boarded": 152,
+      "hits": 15,
+      "pct": 9.9,
       "pending": false
     }
   ]
