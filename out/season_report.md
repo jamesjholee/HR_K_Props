@@ -1,5 +1,5 @@
 # Season Ledger — HR board
-_generated 2026-08-06T09:34:44+00:00 · research log, not advice · misses reported as loudly as hits_
+_generated 2026-08-06T14:59:43+00:00 · research log, not advice · misses reported as loudly as hits_
 
 | # | Date | Board | Hits | Hit% | Capture | Pen share | Cfg | Src | Note |
 |---|------|------:|-----:|-----:|--------:|----------:|-----|-----|------|
@@ -26,6 +26,36 @@ _generated 2026-08-06T09:34:44+00:00 · research log, not advice · misses repor
 
 _Typical board breakeven ~15–18%. Season rate below that is not edge;_
 _the number above is the honest one._
+
+## Appearance-adjusted view (statsapi boxscore)
+_Full board is the research/capture identity and stays the headline._
+_Active = boarded bats with >=1 PA; dead = scratched/benched/never batted._
+
+| Date | Board | Hit% | Active | Active hit% | Dead bats | Board PA | HR/PA |
+|------|------:|-----:|-------:|------------:|----------:|---------:|------:|
+| 2026-07-27 | 103 | 5.8% | 84 | 7.1% | 19 | 340 | 1.76% |
+| 2026-07-29 | 70 | 12.9% | 68 | 13.2% | 2 | 284 | 3.17% |
+| 2026-07-30 | 105 | 15.2% | 93 | 17.2% | 12 | 367 | 4.36% |
+| 2026-07-31 | 142 | 15.5% | 124 | 17.7% | 18 | 485 | 4.54% |
+| 2026-08-01 | 134 | 6.7% | 117 | 7.7% | 17 | 471 | 1.91% |
+| 2026-08-02 | 127 | 10.2% | 120 | 10.8% | 7 | 485 | 2.68% |
+| 2026-08-03 | 81 | 16.0% | 68 | 19.1% | 13 | 281 | 4.63% |
+| 2026-08-04 | 139 | 11.5% | 118 | 13.6% | 21 | 452 | 3.54% |
+| 2026-08-05 | 152 | 9.9% | 128 | 11.7% | 24 | 479 | 3.13% |
+
+- **Full board:** 119/1053 = 11.3%
+- **Active board:** 119/920 = 12.9% (133 dead bats removed, 13% of locks)
+- **HR per PA (active):** 119/3644 = 3.27% vs league ~3.4%
+
+### Board depth (slate-wide hr_prob rank, deduped)
+| Bucket | Hits | Rate |
+|--------|-----:|-----:|
+| top-10 | 14/90 | 15.6% |
+| 11-30 | 25/180 | 13.9% |
+| 31-60 | 37/270 | 13.7% |
+| 61+ | 43/513 | 8.4% |
+| **top-60 pooled** | 76/540 | 14.1% |
+_Breakeven ~15-18%. Selection-layer candidate cut lines._
 
 ## Shadow lanes (auto-graded, annotate-only)
 _per-start figures are not IP-adjusted; sample spans multiple config versions; no ranking weight moves without 5-6 slate validation + config bump_

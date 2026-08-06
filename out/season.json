@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-06T09:34:44+00:00",
+  "generated": "2026-08-06T14:59:43+00:00",
   "graded_slates": 13,
   "season": {
     "hits": 150,
@@ -19,6 +19,23 @@
     "pct": 10.7
   },
   "pen_share_pct": 39,
+  "appearances": {
+    "dates": 9,
+    "full": {
+      "hits": 119,
+      "boarded": 1053,
+      "pct": 11.3
+    },
+    "active": {
+      "hits": 119,
+      "boarded": 920,
+      "pct": 12.9
+    },
+    "dead_bats": 133,
+    "board_pa": 3644,
+    "hr_per_pa_pct": 3.27,
+    "league_hr_per_pa_pct": 3.4
+  },
   "slates": [
     {
       "n": 1,

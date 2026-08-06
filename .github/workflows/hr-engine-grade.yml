@@ -76,6 +76,11 @@ jobs:
             echo; echo "## K";  cat out_grade_k.txt  2>/dev/null || echo "no output"
           } > "out/grades/grade_${{ steps.slate.outputs.date }}.md"
 
+      - name: Grade appearances (statsapi boxscore)
+        continue-on-error: true       # boxscore blip never blocks the grade commit
+        run: |
+          python3 appearances.py --date "${{ steps.slate.outputs.date }}" | tee out_grade_app.txt
+
       - name: Season ledger (track.py)
         continue-on-error: true       # record strip is additive, never blocks the grade commit
         run: |

@@ -5,7 +5,7 @@ When a rule changes after a graded slate, edit here and bump CONFIG_VERSION.
 The results database tags every board with the config version that produced it.
 """
 
-CONFIG_VERSION = "v1.6.2-2026-08-03"  # shadow-lane auto-grading in season report + adjusted_reads table — reporting only, zero ranking-weight change
+CONFIG_VERSION = "v1.6.3-2026-08-06"  # appearance grading (hr_appearances) + three-denominator season view + board-depth table — reporting only, zero ranking-weight change
 
 # ---------------- Gate 2.5: last-3-starts pitcher form (SHADOW, v1.4) ----------------
 # Annotates only. Season verdict is authoritative; flags never move probabilities.

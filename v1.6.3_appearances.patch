@@ -1,0 +1,355 @@
+diff --git a/.github/workflows/hr-engine-grade.yml b/.github/workflows/hr-engine-grade.yml
+index dda7227..6132d95 100644
+--- a/.github/workflows/hr-engine-grade.yml
++++ b/.github/workflows/hr-engine-grade.yml
+@@ -76,6 +76,11 @@ jobs:
+             echo; echo "## K";  cat out_grade_k.txt  2>/dev/null || echo "no output"
+           } > "out/grades/grade_${{ steps.slate.outputs.date }}.md"
+ 
++      - name: Grade appearances (statsapi boxscore)
++        continue-on-error: true       # boxscore blip never blocks the grade commit
++        run: |
++          python3 appearances.py --date "${{ steps.slate.outputs.date }}" | tee out_grade_app.txt
++
+       - name: Season ledger (track.py)
+         continue-on-error: true       # record strip is additive, never blocks the grade commit
+         run: |
+diff --git a/appearances.py b/appearances.py
+new file mode 100644
+index 0000000..93200bf
+--- /dev/null
++++ b/appearances.py
+@@ -0,0 +1,147 @@
++"""appearances.py — boxscore appearance grading via MLB statsapi.  (v1.6.3)
++
++Answers "did each boarded bat actually play, and how many PAs did he get"
++so the season report can show honest denominators:
++
++  full board   — every locked bat (research/capture identity, unchanged)
++  active board — locked bats who took >=1 PA (removes scratched/benched)
++  HR per PA    — hits / total PA of active boarded bats vs league ~3.4%
++
++Writes an hr_appearances table: one row per (date, gamePk, batter) for
++EVERY batter with batting data in a final boxscore — not just boarded
++bats — so capture-side and league-baseline math stays possible later.
++
++No-peek compliant: grading artifact like hr_finals. Never touches
++hr_board rows. Locked boards remain byte-identical.
++
++Usage:
++  python3 appearances.py --date 2026-08-05
++  python3 appearances.py --backfill            # every date in hr_finals
++  python3 appearances.py --backfill --db hrapp.db
++"""
++
++import argparse
++import sqlite3
++from datetime import datetime, timezone
++
++# reuse the grader's hardened GET (3 tries w/ backoff) + API constants
++from grade_hrs import API, get, slate_games
++
++DDL = """
++CREATE TABLE IF NOT EXISTS hr_appearances(
++    slate_date  TEXT,
++    gamePk      INTEGER,
++    batter_id   INTEGER,
++    batter      TEXT,
++    team        TEXT,
++    pa          INTEGER,      -- plate appearances (0 = in box but never batted)
++    batting_slot INTEGER,     -- 1-9 lineup slot, NULL if never in the order
++    started     INTEGER,      -- 1 = in the starting lineup (battingOrder x00)
++    graded_at   TEXT,
++    UNIQUE(slate_date, gamePk, batter_id)
++)
++"""
++
++
++def now():
++    return datetime.now(timezone.utc).isoformat(timespec="seconds")
++
++
++def game_appearances(game_pk):
++    """All batters with batting data in a final boxscore."""
++    box = get(f"{API}/game/{game_pk}/boxscore")
++    rows = []
++    for side in ("away", "home"):
++        tm = (box.get("teams", {}) or {}).get(side, {}) or {}
++        team = ((tm.get("team", {}) or {}).get("abbreviation")
++                or (tm.get("team", {}) or {}).get("name", "?"))
++        for key, p in (tm.get("players", {}) or {}).items():
++            person = p.get("person", {}) or {}
++            pid = person.get("id")
++            if not pid:
++                continue
++            bat = ((p.get("stats", {}) or {}).get("batting", {}) or {})
++            order = p.get("battingOrder")  # e.g. "300" starter, "301" sub
++            pa = int(bat.get("plateAppearances") or 0)
++            if not order and pa == 0:
++                continue  # pitcher / never-appeared bench body with no order
++            slot = int(order) // 100 if order else None
++            started = 1 if (order and str(order).endswith("00")) else 0
++            rows.append(
++                {
++                    "gamePk": game_pk,
++                    "batter_id": pid,
++                    "batter": person.get("fullName"),
++                    "team": team,
++                    "pa": pa,
++                    "batting_slot": slot,
++                    "started": started,
++                }
++            )
++    return rows
++
++
++def write_appearances(con, date, rows):
++    con.execute(DDL)
++    ts = now()
++    for r in rows:
++        con.execute(
++            """INSERT INTO hr_appearances
++               (slate_date, gamePk, batter_id, batter, team, pa,
++                batting_slot, started, graded_at)
++               VALUES (?,?,?,?,?,?,?,?,?)
++               ON CONFLICT(slate_date, gamePk, batter_id) DO UPDATE SET
++                 batter=excluded.batter, team=excluded.team, pa=excluded.pa,
++                 batting_slot=excluded.batting_slot, started=excluded.started,
++                 graded_at=excluded.graded_at""",
++            (date, r["gamePk"], r["batter_id"], r["batter"], r["team"],
++             r["pa"], r["batting_slot"], r["started"], ts),
++        )
++    con.commit()
++
++
++def run_date(con, date):
++    games = slate_games(date)
++    finals = [
++        g for g in games
++        if g["status"] == "Final"
++        and g["detailed"] not in ("Postponed", "Cancelled", "Suspended")
++    ]
++    total, failed = 0, 0
++    for g in finals:
++        try:
++            rows = game_appearances(g["gamePk"])
++            write_appearances(con, date, rows)
++            total += len(rows)
++        except Exception as e:  # one bad game never kills the run
++            failed += 1
++            print(f"  ⚠ boxscore pull failed for {g['gamePk']}: {e}")
++    print(f"{date}: {len(finals)} final games, {total} appearance rows"
++          + (f", {failed} FAILED pulls" if failed else ""))
++    return total
++
++
++def main():
++    ap = argparse.ArgumentParser()
++    ap.add_argument("--date")
++    ap.add_argument("--backfill", action="store_true",
++                    help="run every date present in hr_finals")
++    ap.add_argument("--db", default="hrapp.db")
++    args = ap.parse_args()
++    if not args.date and not args.backfill:
++        ap.error("need --date or --backfill")
++
++    con = sqlite3.connect(args.db)
++    con.execute(DDL)
++    if args.backfill:
++        dates = [d for (d,) in con.execute(
++            "SELECT DISTINCT date FROM hr_finals ORDER BY date")]
++        print(f"=== appearance backfill — {len(dates)} graded dates ===")
++        for d in dates:
++            run_date(con, d)
++    else:
++        run_date(con, args.date)
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/engine/config.py b/engine/config.py
+index d3dda1e..30028be 100644
+--- a/engine/config.py
++++ b/engine/config.py
+@@ -5,7 +5,7 @@ When a rule changes after a graded slate, edit here and bump CONFIG_VERSION.
+ The results database tags every board with the config version that produced it.
+ """
+ 
+-CONFIG_VERSION = "v1.6.2-2026-08-03"  # shadow-lane auto-grading in season report + adjusted_reads table — reporting only, zero ranking-weight change
++CONFIG_VERSION = "v1.6.3-2026-08-06"  # appearance grading (hr_appearances) + three-denominator season view + board-depth table — reporting only, zero ranking-weight change
+ 
+ # ---------------- Gate 2.5: last-3-starts pitcher form (SHADOW, v1.4) ----------------
+ # Annotates only. Season verdict is authoritative; flags never move probabilities.
+diff --git a/track.py b/track.py
+index cdd11d2..a3fd2fc 100644
+--- a/track.py
++++ b/track.py
+@@ -300,6 +300,8 @@ def report(con, out_dir):
+         "_the number above is the honest one._",
+     ]
+ 
++    app_lines, app_strip = appearance_report(con)
++    lines += app_lines
+     lines += shadow_report(con)
+ 
+     md = "\n".join(lines) + "\n"
+@@ -326,6 +328,7 @@ def report(con, out_dir):
+             "pct": round(100 * cfg_h / cfg_b, 1) if cfg_b else None,
+         },
+         "pen_share_pct": round(100 * pen_share) if pen_share is not None else None,
++        "appearances": app_strip,
+         "slates": [
+             {
+                 "n": num,
+@@ -342,6 +345,151 @@ def report(con, out_dir):
+     return md
+ 
+ 
++# ---------------------------------------------------------------------------
++# Appearance-adjusted view (v1.6.3) — three honest denominators.
++# Reads hr_appearances (appearances.py, statsapi boxscore). Reporting only;
++# zero ranking-weight change. Skips cleanly if the table is absent/empty so
++# a boxscore outage can never block the grade commit.
++# ---------------------------------------------------------------------------
++LEAGUE_HR_PER_PA = 0.034  # methodology baseline used for EV shrink
++
++
++def _board_rows(con, date):
++    """Deduped, DH-aware board rows for a date: (batter_id, game_pk, hr_prob,
++    hit). Re-locked duplicate rows collapse to the latest locked_at, matching
++    the DB_COMPUTE distinct-key so ledger numbers and this view never drift.
++    """
++    return con.execute(
++        """WITH d AS (
++             SELECT batter_id, COALESCE(game_pk,0) gpk, hr_prob,
++                    ROW_NUMBER() OVER (
++                      PARTITION BY batter_id, COALESCE(NULLIF(game_pk,0),'d')
++                      ORDER BY locked_at DESC) rn
++             FROM hr_board WHERE slate_date=?)
++           SELECT batter_id, gpk, hr_prob,
++                  EXISTS(SELECT 1 FROM hr_finals f
++                         WHERE f.date=? AND f.batter_id=d.batter_id
++                           AND (d.gpk=0 OR f.gamePk=d.gpk)) AS hit
++           FROM d WHERE rn=1""",
++        (date, date),
++    ).fetchall()
++
++
++def appearance_report(con):
++    """Markdown lines + season.json block for the appearance-adjusted view."""
++    try:
++        app_dates = {d for (d,) in con.execute(
++            "SELECT DISTINCT slate_date FROM hr_appearances")}
++    except sqlite3.Error:
++        return [], None
++    finals_dates = {d for (d,) in con.execute("SELECT DISTINCT date FROM hr_finals")}
++    board_dates = {d for (d,) in con.execute("SELECT DISTINCT slate_date FROM hr_board")}
++    dates = sorted(app_dates & finals_dates & board_dates)
++    if not dates:
++        return [], None
++
++    per_slate, T = [], dict(b=0, h=0, a=0, ah=0, dead=0, pa=0)
++    for d in dates:
++        # (batter_id) -> {gamePk: pa} for bats who actually batted
++        pa_map = {}
++        for bid, gpk, pa in con.execute(
++            "SELECT batter_id, gamePk, pa FROM hr_appearances "
++            "WHERE slate_date=? AND pa>0", (d,)
++        ):
++            pa_map.setdefault(bid, {})[gpk] = pa
++
++        b = h = a = ah = dead = pa_sum = 0
++        for bid, gpk, prob, hit in _board_rows(con, d):
++            b += 1
++            h += hit
++            if gpk:  # DH-strict: appearance must be in the locked game
++                pa = pa_map.get(bid, {}).get(gpk, 0)
++            else:    # legacy game-unknown lock: any appearance that date
++                pa = sum(pa_map.get(bid, {}).values())
++            if pa > 0:
++                a += 1
++                ah += hit
++                pa_sum += pa
++            else:
++                dead += 1
++        per_slate.append((d, b, h, a, ah, dead, pa_sum))
++        for k, v in zip(("b", "h", "a", "ah", "dead", "pa"),
++                        (b, h, a, ah, dead, pa_sum)):
++            T[k] += v
++
++    lines = [
++        "",
++        "## Appearance-adjusted view (statsapi boxscore)",
++        "_Full board is the research/capture identity and stays the headline._",
++        "_Active = boarded bats with >=1 PA; dead = scratched/benched/never batted._",
++        "",
++        "| Date | Board | Hit% | Active | Active hit% | Dead bats | Board PA | HR/PA |",
++        "|------|------:|-----:|-------:|------------:|----------:|---------:|------:|",
++    ]
++    for d, b, h, a, ah, dead, pa in per_slate:
++        lines.append(
++            f"| {d} | {b} | {100*h/b:.1f}% | {a} | "
++            f"{(100*ah/a):.1f}% | {dead} | {pa} | "
++            f"{(100*ah/pa):.2f}% |" if a and pa else
++            f"| {d} | {b} | {100*h/b:.1f}% | {a} | — | {dead} | {pa} | — |"
++        )
++    lines += [
++        "",
++        f"- **Full board:** {T['h']}/{T['b']} = {100*T['h']/T['b']:.1f}%",
++        f"- **Active board:** {T['ah']}/{T['a']} = {100*T['ah']/T['a']:.1f}% "
++        f"({T['dead']} dead bats removed, "
++        f"{100*T['dead']/T['b']:.0f}% of locks)" if T["a"] else "- active: n/a",
++        f"- **HR per PA (active):** {T['ah']}/{T['pa']} = "
++        f"{100*T['ah']/T['pa']:.2f}% vs league ~{100*LEAGUE_HR_PER_PA:.1f}%"
++        if T["pa"] else "- HR/PA: n/a",
++    ]
++    lines += board_depth_report(con, dates)
++
++    strip = {
++        "dates": len(dates),
++        "full": {"hits": T["h"], "boarded": T["b"],
++                 "pct": round(100 * T["h"] / T["b"], 1) if T["b"] else None},
++        "active": {"hits": T["ah"], "boarded": T["a"],
++                   "pct": round(100 * T["ah"] / T["a"], 1) if T["a"] else None},
++        "dead_bats": T["dead"],
++        "board_pa": T["pa"],
++        "hr_per_pa_pct": round(100 * T["ah"] / T["pa"], 2) if T["pa"] else None,
++        "league_hr_per_pa_pct": round(100 * LEAGUE_HR_PER_PA, 1),
++    }
++    return lines, strip
++
++
++def board_depth_report(con, dates):
++    """Hit rate by slate-wide hr_prob rank (deduped) — the selection-layer
++    readout: does the top of the board clear breakeven while the tail dilutes.
++    """
++    buckets = {"top-10": [0, 0], "11-30": [0, 0], "31-60": [0, 0], "61+": [0, 0]}
++    for d in dates:
++        rows = sorted(_board_rows(con, d), key=lambda r: -(r[2] or 0))
++        for i, (bid, gpk, prob, hit) in enumerate(rows):
++            k = ("top-10" if i < 10 else "11-30" if i < 30
++                 else "31-60" if i < 60 else "61+")
++            buckets[k][0] += 1
++            buckets[k][1] += hit
++    lines = [
++        "",
++        "### Board depth (slate-wide hr_prob rank, deduped)",
++        "| Bucket | Hits | Rate |",
++        "|--------|-----:|-----:|",
++    ]
++    for k in ("top-10", "11-30", "31-60", "61+"):
++        n, h = buckets[k]
++        lines.append(f"| {k} | {h}/{n} | {100*h/n:.1f}% |" if n
++                     else f"| {k} | 0/0 | — |")
++    t60n = sum(buckets[k][0] for k in ("top-10", "11-30", "31-60"))
++    t60h = sum(buckets[k][1] for k in ("top-10", "11-30", "31-60"))
++    if t60n:
++        lines.append(f"| **top-60 pooled** | {t60h}/{t60n} | "
++                     f"{100*t60h/t60n:.1f}% |")
++    lines.append("_Breakeven ~15-18%. Selection-layer candidate cut lines._")
++    return lines
++
++
+ # ---------------------------------------------------------------------------
+ # Shadow-lane grading — recomputed on every grade run, appended to the season
+ # report. Annotates only; per standing rules nothing here moves ranking
