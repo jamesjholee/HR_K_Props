@@ -1,21 +1,32 @@
 Slate 2026-08-07 — precheck findings needing eyes:
 
-## T-90 slate sweep — 21:57Z
-- ✓ NYM@PIT: both probables match locked arms
-- ✓ TOR@PHI: both probables match locked arms
-- ⚠ CIN@WSH: status = Delayed Start — watch start time
-- ⚠ CIN@WSH: away probable Chase Petty (id 695534) was NOT SCORED at lock — scratch/trade signature. Bats boarded vs the other arm may be unaffected; bats scored VS this slot are built on a dead read.
-- ✓ ATL@NYY: both probables match locked arms
-- ✓ LAA@MIA: both probables match locked arms
-- ✓ ATH@BOS: both probables match locked arms
-- ✓ MIN@MIL: both probables match locked arms
-- ✓ CLE@CWS: both probables match locked arms
-- ⚠ CHC@KC: away probable Kevin Gausman (id 592332) was NOT SCORED at lock — scratch/trade signature. Bats boarded vs the other arm may be unaffected; bats scored VS this slot are built on a dead read.
-- ✓ BAL@TEX: both probables match locked arms
-- ✓ COL@STL: both probables match locked arms
-- ✓ HOU@SD: both probables match locked arms
-- ✓ LAD@ARI: both probables match locked arms
-- ✓ TB@SEA: both probables match locked arms
-- ⚠ DET@SF: home probable JT Brubaker (id 664141) was NOT SCORED at lock — scratch/trade signature. Bats boarded vs the other arm may be unaffected; bats scored VS this slot are built on a dead read.
+## T-30 — ATL@NYY (pk 823515) — 22:48Z
+- ✓ Ben Rice — batting 2
+- ✓ Ben Rice — batting 2
+- ✓ Jazz Chisholm Jr. — batting 5
+- ✓ Jazz Chisholm Jr. — batting 5
+- ⚠ Paul Goldschmidt — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Ryan McMahon — batting 8
+- ✓ Ryan McMahon — batting 8
+- ✓ Spencer Jones — batting 6
+- ✓ Spencer Jones — batting 6
+
+## T-30 — ATH@BOS (pk 824727) — 22:48Z
+- ⚠ Adley Rutschman — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Andruw Monasterio — batting 6
+- ✓ Andruw Monasterio — batting 6
+- ✓ Caleb Durbin — batting 4
+- ✓ Caleb Durbin — batting 4
+- ✓ Jarren Duran — batting 7
+- ✓ Jarren Duran — batting 7
+- ✓ Jonah Heim — batting 3
+- ✓ Jonah Heim — batting 3
+- ✓ Max Muncy — batting 8
+- ✓ Max Muncy — batting 8
+- ✓ Tyler Soderstrom — batting 4
+- ✓ Tyler Soderstrom — batting 4
+- ⚠ Willson Contreras — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Wilyer Abreu — batting 3
+- ✓ Wilyer Abreu — batting 3
 
 _Automated sweep. Verify via PropFinder + MLB app (5/27 rule). Board is locked and unchanged._
