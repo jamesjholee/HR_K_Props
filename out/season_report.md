@@ -1,5 +1,5 @@
 # Season Ledger — HR board
-_generated 2026-08-07T16:06:54+00:00 · research log, not advice · misses reported as loudly as hits_
+_generated 2026-08-07T16:18:07+00:00 · research log, not advice · misses reported as loudly as hits_
 
 | # | Date | Board | Hits | Hit% | Capture | Pen share | Cfg | Src | Note |
 |---|------|------:|-----:|-----:|--------:|----------:|-----|-----|------|
@@ -17,7 +17,8 @@ _generated 2026-08-07T16:06:54+00:00 · research log, not advice · misses repor
 | 12 | 2026-08-03 | 81 | 13 | 16.0% | 16/30 (53%) | 50% | 1.6.0 | db |  |
 | 13 | 2026-08-04 | 139 | 16 | 11.5% | 17/30 (57%) | 40% | 1.6.2 | db |  |
 | 14 | 2026-08-05 | 152 | 15 | 9.9% | 16/30 (53%) | 43% | 1.6.2 | db |  |
-| 15 | 2026-08-07 | 119 | — | — | PENDING | — | 1.6.3 | db | locked, awaiting grade |
+| 15 | 2026-08-06 | — | — | — | PENDING | — | ? | manual | NO LOCK — GitHub Actions outage killed morning run; not graded (no retroactive locks per no-peek rule) |
+| 16 | 2026-08-07 | 119 | — | — | PENDING | — | 1.6.3 | db | locked, awaiting grade |
 
 ## Aggregates
 - **Season:** 150/1448 = 10.4% across 13 graded slates
