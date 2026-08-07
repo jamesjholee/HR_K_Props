@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-07T08:06:57+00:00",
+  "generated": "2026-08-07T16:06:54+00:00",
   "graded_slates": 13,
   "season": {
     "hits": 150,
@@ -147,6 +147,14 @@
       "boarded": 152,
       "hits": 15,
       "pct": 9.9,
+      "pending": false
+    },
+    {
+      "n": 15,
+      "date": "2026-08-07",
+      "boarded": 119,
+      "hits": null,
+      "pct": null,
       "pending": false
     }
   ]
