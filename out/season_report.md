@@ -1,5 +1,5 @@
 # Season Ledger — HR board
-_generated 2026-08-06T14:59:43+00:00 · research log, not advice · misses reported as loudly as hits_
+_generated 2026-08-07T08:06:57+00:00 · research log, not advice · misses reported as loudly as hits_
 
 | # | Date | Board | Hits | Hit% | Capture | Pen share | Cfg | Src | Note |
 |---|------|------:|-----:|-----:|--------:|----------:|-----|-----|------|
@@ -48,14 +48,14 @@ _Active = boarded bats with >=1 PA; dead = scratched/benched/never batted._
 - **HR per PA (active):** 119/3644 = 3.27% vs league ~3.4%
 
 ### Board depth (slate-wide hr_prob rank, deduped)
-| Bucket | Hits | Rate |
-|--------|-----:|-----:|
-| top-10 | 14/90 | 15.6% |
-| 11-30 | 25/180 | 13.9% |
-| 31-60 | 37/270 | 13.7% |
-| 61+ | 43/513 | 8.4% |
-| **top-60 pooled** | 76/540 | 14.1% |
-_Breakeven ~15-18%. Selection-layer candidate cut lines._
+| Bucket | Full | Full% | Active | Active% | Dead% | HR/PA |
+|--------|-----:|------:|-------:|--------:|------:|------:|
+| top-10 | 14/90 | 15.6% | 14/86 | 16.3% | 4% | 3.87% |
+| 11-30 | 25/180 | 13.9% | 25/170 | 14.7% | 6% | 3.60% |
+| 31-60 | 37/270 | 13.7% | 37/236 | 15.7% | 13% | 3.94% |
+| 61+ | 43/513 | 8.4% | 43/428 | 10.0% | 17% | 2.61% |
+| **top-60 pooled** | 76/540 | 14.1% | 76/492 | 15.4% | 9% | 3.81% |
+_Breakeven ~15-18% (price-dependent: ~+550 at 15.4%; +400 needs 20%). Selection-layer candidate cut lines._
 
 ## Shadow lanes (auto-graded, annotate-only)
 _per-start figures are not IP-adjusted; sample spans multiple config versions; no ranking weight moves without 5-6 slate validation + config bump_
