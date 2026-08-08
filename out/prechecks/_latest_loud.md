@@ -1,18 +1,23 @@
 Slate 2026-08-08 — precheck findings needing eyes:
 
-## T-30 — TOR@PHI (pk 823426) — 21:49Z
-- ✓ Brandon Marsh — batting 6
-- ✓ Brandon Valenzuela — batting 7
-- ✓ Bryce Harper — batting 3
-- ⚠ Davis Schneider — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-- ⚠ Derek Hill — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-- ⚠ Edmundo Sosa — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-- ⚠ George Springer — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-- ✓ Jesus Sanchez — batting 4
-- ✓ Josh Smith — batting 8
-- ⚠ Kazuma Okamoto — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-- ✓ Kyle Schwarber — batting 1
-- ✓ Trea Turner — batting 2
-- ✓ Vladimir Guerrero Jr. — batting 3
+## T-30 — MIN@MIL (pk 823752) — 22:36Z
+- ✓ Austin Martin — batting 1
+- ✓ Brice Turang — batting 1
+- ✓ Brooks Lee — batting 8
+- ✓ Garrett Mitchell — batting 5
+- ✓ Jackson Chourio — batting 2
+- ✓ Jake Bauers — batting 3
+- ✓ Josh Bell — batting 4
+- ✓ Kody Clemens — batting 5
+- ✓ Ryan Jeffers — batting 2
+- ⚠ Victor Caratini — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+
+## T-30 — CHC@KC (pk 824079) — 22:36Z
+- ✓ Ian Happ — batting 5
+- ⚠ Michael Conforto — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ⚠ Miguel Amaya — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Pete Crow-Armstrong — batting 1
+- ✓ Seiya Suzuki — batting 2
+- ✓ Tyrone Taylor — batting 9
 
 _Automated sweep. Verify via PropFinder + MLB app (5/27 rule). Board is locked and unchanged._
