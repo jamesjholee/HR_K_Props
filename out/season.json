@@ -1,10 +1,10 @@
 {
-  "generated": "2026-08-08T07:40:53+00:00",
-  "graded_slates": 15,
+  "generated": "2026-08-08T15:14:05+00:00",
+  "graded_slates": 14,
   "season": {
-    "hits": 176,
-    "boarded": 1690,
-    "pct": 10.4
+    "hits": 167,
+    "boarded": 1578,
+    "pct": 10.6
   },
   "last5": {
     "hits": 74,
@@ -48,10 +48,10 @@
     {
       "n": 2,
       "date": "2026-07-24",
-      "boarded": 112,
-      "hits": 9,
-      "pct": 8.0,
-      "pending": false
+      "boarded": null,
+      "hits": null,
+      "pct": null,
+      "pending": true
     },
     {
       "n": 3,
@@ -163,6 +163,14 @@
       "boarded": 130,
       "hits": 17,
       "pct": 13.1,
+      "pending": false
+    },
+    {
+      "n": 17,
+      "date": "2026-08-08",
+      "boarded": 140,
+      "hits": null,
+      "pct": null,
       "pending": false
     }
   ]

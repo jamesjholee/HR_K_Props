@@ -1,10 +1,10 @@
 # Season Ledger — HR board
-_generated 2026-08-08T07:40:53+00:00 · research log, not advice · misses reported as loudly as hits_
+_generated 2026-08-08T15:14:04+00:00 · research log, not advice · misses reported as loudly as hits_
 
 | # | Date | Board | Hits | Hit% | Capture | Pen share | Cfg | Src | Note |
 |---|------|------:|-----:|-----:|--------:|----------:|-----|-----|------|
 | 1 | 2026-07-23 | 8 | 0 | 0.0% | — | — | ? | manual | pre-board format (promotes 0/8) |
-| 2 | 2026-07-24 | 112 | 9 | 8.0% | — | — | ? | manual | board list lost pre-repo — finals graded, slate excluded from rates |
+| 2 | 2026-07-24 | — | — | — | PENDING | — | ? | manual | board list lost pre-repo — finals graded, slate excluded from rates |
 | 3 | 2026-07-25 | 130 | 4 | 3.1% | — | — | 1.3 | manual | old grading source, least trustworthy |
 | 4 | 2026-07-26 | 108 | 15 | 13.9% | 16/40 (40%) | — | 1.4 | manual | capture 40% (16/40 approx from pct) |
 | 5 | 2026-07-27 | 103 | 6 | 5.8% | 6/28 (21%) | 36% | 1.4 | db |  |
@@ -19,9 +19,10 @@ _generated 2026-08-08T07:40:53+00:00 · research log, not advice · misses repor
 | 14 | 2026-08-05 | 152 | 15 | 9.9% | 16/30 (53%) | 43% | 1.6.2 | db |  |
 | 15 | 2026-08-06 | — | — | — | PENDING | — | ? | manual | NO LOCK — GitHub Actions outage killed morning run; not graded (no retroactive locks per no-peek rule) |
 | 16 | 2026-08-07 | 130 | 17 | 13.1% | 18/36 (50%) | 33% | 1.6.3 | db |  |
+| 17 | 2026-08-08 | 140 | — | — | PENDING | — | 1.6.3 | db | locked, awaiting grade |
 
 ## Aggregates
-- **Season:** 176/1690 = 10.4% across 15 graded slates
+- **Season:** 167/1578 = 10.6% across 14 graded slates
 - **Last 5 graded:** 74/629 = 11.8%
 - **Current config (v1.6.3-2026-08-06):** 17/130 = 13.1% across 1 slates — 4 more for clean 5-slate sample
 - **Pen share of slate HRs (db-graded):** 39%
