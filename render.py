@@ -641,6 +641,53 @@ here is financial advice; it's a research log.</p>
 }})();
 </script>
 </body></html>"""
+    html_out = html_out.replace("</body></html>", _LINEUP_OVERLAY)
     os.makedirs("out", exist_ok=True)
     with open("out/dashboard.html", "w") as f:
         f.write(html_out)
+
+
+# --------------------------------------------------------------------------
+# Lineup badges (v1.6.4) — display-only overlay fed by precheck's
+# out/lineup_status.json. Bats are ANNOTATED, never removed: scratched rows
+# dim + strike but remain fully visible (the locked board stays the record).
+# Plain string (NOT an f-string) so raw CSS/JS braces are safe.
+_LINEUP_OVERLAY = """<style>
+.lu{margin-left:6px;font-size:10px;padding:1px 5px;border-radius:8px;white-space:nowrap}
+.lu.in{background:#123d1f;color:#5fd57f}
+.lu.out{background:#43181c;color:#ff8d94}
+tr.lu-out td{opacity:.55}
+tr.lu-out .bat b{text-decoration:line-through;text-decoration-thickness:1px}
+#lu-stamp{font-size:10px;opacity:.6;margin-left:8px}
+</style>
+<script>
+(function(){
+  const norm=s=>(s||"").normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").toLowerCase().trim();
+  const ord=n=>n+({1:"st",2:"nd",3:"rd"}[[11,12,13].includes(n%100)?0:n%10]||"th");
+  function apply(d){
+    if(!d||!d.bats) return;
+    document.querySelectorAll("tr[data-search]").forEach(tr=>{
+      const b=tr.querySelector(".bat b"); if(!b) return;
+      const rec=d.bats[norm(b.textContent)];
+      tr.classList.remove("lu-out");
+      tr.querySelectorAll(".lu").forEach(e=>e.remove());
+      if(!rec) return;
+      const tag=document.createElement("span");
+      if(rec.st==="in"){tag.className="lu in";tag.textContent="\\u2713 "+(rec.slot?ord(rec.slot):"in");}
+      else{tag.className="lu out";tag.textContent="\\u2717 not in lineup";tr.classList.add("lu-out");}
+      b.after(tag);
+    });
+    let st=document.getElementById("lu-stamp");
+    if(!st){st=document.createElement("span");st.id="lu-stamp";
+      (document.querySelector("h1")||document.body).appendChild(st);}
+    st.textContent="lineups checked "+new Date(d.updated_at).toLocaleTimeString(
+      [],{hour:"2-digit",minute:"2-digit"});
+  }
+  function tick(){
+    fetch("lineup_status.json?t="+Date.now()).then(r=>r.ok?r.json():null)
+      .then(apply).catch(()=>{});
+  }
+  tick(); setInterval(tick, 5*60*1000);
+})();
+</script>
+</body></html>"""

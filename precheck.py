@@ -201,6 +201,52 @@ def check_t30(pk, g, arms, sidx, box):
 
 
 # --------------------------------------------------------------------------
+def _norm_name(s):
+    """NFKD accent-normalized lowercase key (the Peña lesson)."""
+    import unicodedata
+    return unicodedata.normalize("NFKD", s or "").encode(
+        "ascii", "ignore").decode().lower().strip()
+
+
+def export_lineup_status(date, g, lines):
+    """Merge this game's T-30 bat statuses into out/lineup_status.json.
+
+    Display-only artifact for the dashboard's client-side badges: bats are
+    ANNOTATED, never removed — the locked board table stays byte-identical
+    (no-peek preserved). Absent key = still pending. Later checks overwrite
+    earlier ones (a bat can go pending → in once his side posts).
+    Best-effort: any failure here must never break a precheck run.
+    """
+    import json
+    import re
+    try:
+        path = Path("out/lineup_status.json")
+        data = {"date": date, "updated_at": None, "bats": {}}
+        if path.exists():
+            try:
+                old = json.loads(path.read_text())
+                if old.get("date") == date:      # new slate day → fresh file
+                    data = old
+            except Exception:
+                pass
+        for line in lines:
+            m = re.match(r"✓\s+(.+?)\s+—\s+batting\s+(\d+)", line.strip())
+            if m:
+                data["bats"][_norm_name(m.group(1))] = {
+                    "st": "in", "slot": int(m.group(2)), "name": m.group(1)}
+                continue
+            m = re.match(r"⚠\s+(.+?)\s+—\s+NOT IN POSTED LINEUP", line.strip())
+            if m:
+                data["bats"][_norm_name(m.group(1))] = {
+                    "st": "out", "slot": None, "name": m.group(1)}
+        data["updated_at"] = datetime.now(timezone.utc).isoformat(
+            timespec="seconds")
+        path.write_text(json.dumps(data, ensure_ascii=False))
+    except Exception as e:
+        print(f"  (lineup_status.json export skipped: {e})")
+
+
+# --------------------------------------------------------------------------
 def due_checks(con, date, board, sidx, now, force=None):
     """Yield (check_id, kind, pk) for checks due and not yet logged.
 
@@ -274,6 +320,7 @@ def main():
             except Exception:
                 box = {}   # check_t30 degrades to loud 'manual lineup check'
             loud, lines = check_t30(pk, g, arms, sidx, box)
+            export_lineup_status(date, g, lines)
             hdr = (f"## T-30 — {g['label']} (pk {pk}) — "
                    f"{now.strftime('%H:%M')}Z")
         block = hdr + "\n" + "\n".join(f"- {ln}" for ln in lines)
