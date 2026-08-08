@@ -1,42 +1,33 @@
 Slate 2026-08-07 — precheck findings needing eyes:
 
-## T-30 — MIN@MIL (pk 823750) — 23:39Z
-- ✓ Brice Turang — batting 1
-- ✓ Brice Turang — batting 1
-- ⚠ Brooks Lee — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-- ✓ Garrett Mitchell — batting 5
-- ✓ Garrett Mitchell — batting 5
-- ⚠ Gary Sanchez — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-- ✓ Jackson Chourio — batting 2
-- ✓ Jackson Chourio — batting 2
-- ✓ Jake Bauers — batting 3
-- ✓ Jake Bauers — batting 3
-- ✓ Josh Bell — batting 4
-- ✓ Josh Bell — batting 4
-- ✓ Royce Lewis — batting 3
-- ✓ Royce Lewis — batting 3
-- ✓ Ryan Jeffers — batting 2
-- ✓ Ryan Jeffers — batting 2
-- ✓ Ryan Kreidler — batting 9
-- ✓ Ryan Kreidler — batting 9
-- ⚠ Trevor Larnach — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-- ⚠ Tristan Gray — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-- ✓ Victor Caratini — batting 8
-- ✓ Victor Caratini — batting 8
-- ✓ William Contreras — batting 4
-- ✓ William Contreras — batting 4
+## T-30 — HOU@SD (pk 823266) — 01:38Z
+- ✓ Cam Smith — batting 8
+- ✓ Cam Smith — batting 8
+- ✓ Christian Walker — batting 5
+- ✓ Christian Walker — batting 5
+- ✓ Jake Meyers — batting 9
+- ✓ Jeremy Pena — batting 1
+- ✓ Jose Altuve — batting 4
+- ✓ Jose Altuve — batting 4
+- ⚠ Nick Allen — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ⚠ Nick Allen — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Yordan Alvarez — batting 2
+- ✓ Yordan Alvarez — batting 2
 
-## T-30 — CLE@CWS (pk 824566) — 23:39Z
-- ✓ Angel Genao — batting 9
-- ✓ Angel Genao — batting 9
-- ✓ Miguel Vargas — batting 3
-- ✓ Miguel Vargas — batting 3
-- ✓ Munetaka Murakami — batting 2
-- ✓ Munetaka Murakami — batting 2
-- ⚠ Nathaniel Lowe — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-- ✓ Randal Grichuk — batting 4
-- ✓ Randal Grichuk — batting 4
-- ✓ Rhys Hoskins — batting 6
-- ✓ Rhys Hoskins — batting 6
+## T-30 — TB@SEA (pk 823103) — 01:38Z
+- ✓ Cal Raleigh — batting 8
+- ✓ Cal Raleigh — batting 8
+- ⚠ Cedric Mullins — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ⚠ Cedric Mullins — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Dominic Canzone — batting 4
+- ✓ Dominic Canzone — batting 4
+- ✓ Jonathan Aranda — batting 2
+- ✓ Jonathan Aranda — batting 2
+- ✓ Julio Rodriguez — batting 5
+- ✓ Julio Rodriguez — batting 5
+- ✓ Junior Caminero — batting 3
+- ✓ Junior Caminero — batting 3
+- ✓ Richie Palacios — batting 8
+- ✓ Richie Palacios — batting 8
 
 _Automated sweep. Verify via PropFinder + MLB app (5/27 rule). Board is locked and unchanged._
