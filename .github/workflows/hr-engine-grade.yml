@@ -22,6 +22,8 @@ on:
 
 permissions:
   contents: write
+  pages: write                   # deploy graded dashboard
+  id-token: write                # Pages OIDC
 
 concurrency:
   group: hr-engine               # same group as the morning run — never race the db
@@ -107,3 +109,11 @@ jobs:
           git diff --cached --quiet || git commit -m "grade: slate ${{ steps.slate.outputs.date }}"
           git pull --rebase origin main || true
           git push
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: out/               # re-serve out/ so the graded dashboard + report go live overnight
+
+      - name: Deploy to Pages
+        uses: actions/deploy-pages@v4

@@ -692,7 +692,7 @@ tr.lu-out .bat b{text-decoration:line-through;text-decoration-thickness:1px}
       [],{hour:"2-digit",minute:"2-digit"});
   }
   function tick(){
-    fetch("lineup_status.json?t="+Date.now()).then(r=>r.ok?r.json():null)
+    fetch("https://raw.githubusercontent.com/jamesjholee/HR_K_Props/main/out/lineup_status.json?t="+Date.now()).then(r=>r.ok?r.json():null)
       .then(apply).catch(()=>{});
   }
   tick(); setInterval(tick, 5*60*1000);
