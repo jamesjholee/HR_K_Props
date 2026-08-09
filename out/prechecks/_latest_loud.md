@@ -1,20 +1,21 @@
 Slate 2026-08-09 — precheck findings needing eyes:
 
-## T-90 slate sweep — 15:24Z
-- ✓ CIN@WSH: both probables match locked arms
-- ✓ NYM@PIT: both probables match locked arms
-- ✓ TOR@PHI: both probables match locked arms
-- ✓ ATL@NYY: both probables match locked arms
-- ✓ ATH@BOS: both probables match locked arms
-- ✓ LAA@MIA: both probables match locked arms
-- ✓ MIN@MIL: both probables match locked arms
-- ✓ CHC@KC: both probables match locked arms
-- ✓ CLE@CWS: both probables match locked arms
-- ✓ COL@STL: both probables match locked arms
-- ✓ BAL@TEX: both probables match locked arms
-- ✓ DET@SF: both probables match locked arms
-- ✓ TB@SEA: both probables match locked arms
-- ✓ LAD@ARI: both probables match locked arms
-- ⚠ HOU@SD: probable starter TBD (1/2 listed) — 5/27 RULE, verify in MLB app before betting this game
+## T-30 — CIN@WSH (pk 822700) — 16:13Z
+- ✓ Abimelec Ortiz — batting 2
+- ✓ Abimelec Ortiz — batting 2
+- ⚠ Brady House — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ CJ Abrams — batting 1
+- ✓ CJ Abrams — batting 1
+- ✓ Daylen Lile — batting 4
+- ✓ Daylen Lile — batting 4
+- ⚠ Harry Ford — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ JJ Bleday — batting 3
+- ✓ JJ Bleday — batting 3
+- ✓ Jose Tena — batting 3
+- ✓ Jose Tena — batting 3
+- ✓ Matt McLain — batting 8
+- ✓ Matt McLain — batting 8
+- ✓ Sal Stewart — batting 2
+- ✓ Sal Stewart — batting 2
 
 _Automated sweep. Verify via PropFinder + MLB app (5/27 rule). Board is locked and unchanged._
