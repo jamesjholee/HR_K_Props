@@ -81,6 +81,19 @@ jobs:
         run: |
           python3 appearances.py --date "${{ steps.slate.outputs.date }}" | tee out_grade_app.txt
 
+      - name: Late-finish sweep (D-2)
+        continue-on-error: true       # sweep is best-effort; idempotent writes
+        run: |
+          # Re-grade the day BEFORE the slate being graded: catches West Coast
+          # extras that outlasted the 07:00 UTC cron and suspended games that
+          # resumed and finished the next day. hr_finals is INSERT OR IGNORE
+          # on a per-event key and appearances upsert, so re-running a fully
+          # graded date is a no-op. track.py below re-reconciles the ledger.
+          SWEEP=$(date -u -d "${{ steps.slate.outputs.date }} -1 day" +%F)
+          echo "=== D-2 sweep: $SWEEP ==="
+          python3 grade_hrs.py --date "$SWEEP" | tee out_sweep_hr.txt
+          python3 appearances.py --date "$SWEEP" | tee out_sweep_app.txt
+
       - name: Season ledger (track.py)
         continue-on-error: true       # record strip is additive, never blocks the grade commit
         run: |
