@@ -641,7 +641,8 @@ here is financial advice; it's a research log.</p>
 }})();
 </script>
 </body></html>"""
-    html_out = html_out.replace("</body></html>", _LINEUP_OVERLAY)
+    html_out = html_out.replace("</body></html>",
+                            _LINEUP_OVERLAY.replace("__SLATE_DATE__", str(date)))
     os.makedirs("out", exist_ok=True)
     with open("out/dashboard.html", "w") as f:
         f.write(html_out)
@@ -664,8 +665,15 @@ tr.lu-out .bat b{text-decoration:line-through;text-decoration-thickness:1px}
 (function(){
   const norm=s=>(s||"").normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").toLowerCase().trim();
   const ord=n=>n+({1:"st",2:"nd",3:"rd"}[[11,12,13].includes(n%100)?0:n%10]||"th");
+  const SLATE="__SLATE_DATE__";
+  function clearAll(){
+    document.querySelectorAll(".lu").forEach(e=>e.remove());
+    document.querySelectorAll("tr.lu-out").forEach(tr=>tr.classList.remove("lu-out"));
+    const st=document.getElementById("lu-stamp"); if(st) st.textContent="";
+  }
   function apply(d){
     if(!d||!d.bats) return;
+    if(d.date!==SLATE){clearAll();return;}  // stale slate: never paint yesterday onto today
     document.querySelectorAll("tr[data-search]").forEach(tr=>{
       const b=tr.querySelector(".bat b"); if(!b) return;
       const rec=d.bats[norm(b.textContent)];
