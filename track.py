@@ -302,6 +302,7 @@ def report(con, out_dir):
 
     app_lines, app_strip = appearance_report(con)
     lines += app_lines
+    lines += virtual_card_report(con)
     lines += shadow_report(con)
 
     md = "\n".join(lines) + "\n"
@@ -457,6 +458,55 @@ def appearance_report(con):
         "league_hr_per_pa_pct": round(100 * LEAGUE_HR_PER_PA, 1),
     }
     return lines, strip
+
+
+
+def virtual_card_report(con):
+    """OUT-OF-SAMPLE selection-layer record: only forward-frozen cards count.
+    (In-sample depth-table numbers live above; this section is the honest
+    forward test of the top-N cut, per the 5-6-slate rule.)"""
+    try:
+        dates = [d for (d,) in con.execute(
+            "SELECT DISTINCT slate_date FROM virtual_cards ORDER BY slate_date")]
+    except sqlite3.Error:
+        return []
+    graded = [d for d in dates if con.execute(
+        "SELECT 1 FROM hr_finals WHERE date=? LIMIT 1", (d,)).fetchone()]
+    if not dates:
+        return []
+    lines = ["", "## Virtual cards (frozen at lock — out-of-sample)",
+             f"_cut rule frozen v1.6.5; {len(dates)} slate(s) logged, "
+             f"{len(graded)} graded; 5-6 graded slates before any promotion_"]
+    if not graded:
+        lines.append("- no graded card slates yet")
+        return lines
+    lines += ["", "| Card | Slates | Hits | Rate | Active | Active% |",
+              "|------|-------:|-----:|-----:|-------:|--------:|"]
+    for card in ("top30", "top60"):
+        n = h = an = ah = 0
+        for d in graded:
+            pa = {}
+            for bid, gpk, p in con.execute(
+                "SELECT batter_id, gamePk, pa FROM hr_appearances "
+                "WHERE slate_date=? AND pa>0", (d,)):
+                pa.setdefault(bid, {})[gpk] = p
+            for bid, gpk in con.execute(
+                "SELECT batter_id, game_pk FROM virtual_cards "
+                "WHERE slate_date=? AND card=?", (d, card)):
+                hit = 1 if con.execute(
+                    "SELECT 1 FROM hr_finals WHERE date=? AND batter_id=? "
+                    "AND (?=0 OR gamePk=?) LIMIT 1",
+                    (d, bid, gpk, gpk)).fetchone() else 0
+                p = (pa.get(bid, {}).get(gpk, 0) if gpk
+                     else sum(pa.get(bid, {}).values()))
+                n += 1; h += hit
+                if p > 0:
+                    an += 1; ah += hit
+        if n:
+            act = f"{ah}/{an} | {100*ah/an:.1f}%" if an else "0/0 | —"
+            lines.append(f"| {card} | {len(graded)} | {h}/{n} | "
+                         f"{100*h/n:.1f}% | {act} |")
+    return lines
 
 
 def board_depth_report(con, dates):

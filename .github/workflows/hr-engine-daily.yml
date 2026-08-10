@@ -66,6 +66,11 @@ jobs:
         run: |
           python3 run_morning.py --date "${{ steps.slate.outputs.date }}"
 
+      - name: Freeze virtual cards (top-30 / top-60)
+        continue-on-error: true      # card logging must never block the lock
+        run: |
+          python3 log_virtual_card.py --date "${{ steps.slate.outputs.date }}"
+
       - name: Commit locks (dashboard + db)
         run: |
           git config user.name  "hr-engine-bot"

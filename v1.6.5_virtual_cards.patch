@@ -1,0 +1,184 @@
+diff --git a/.github/workflows/hr-engine-daily.yml b/.github/workflows/hr-engine-daily.yml
+index ca3f7b8..f72b521 100644
+--- a/.github/workflows/hr-engine-daily.yml
++++ b/.github/workflows/hr-engine-daily.yml
+@@ -66,6 +66,11 @@ jobs:
+         run: |
+           python3 run_morning.py --date "${{ steps.slate.outputs.date }}"
+ 
++      - name: Freeze virtual cards (top-30 / top-60)
++        continue-on-error: true      # card logging must never block the lock
++        run: |
++          python3 log_virtual_card.py --date "${{ steps.slate.outputs.date }}"
++
+       - name: Commit locks (dashboard + db)
+         run: |
+           git config user.name  "hr-engine-bot"
+diff --git a/engine/config.py b/engine/config.py
+index 6c7839d..95415d3 100644
+--- a/engine/config.py
++++ b/engine/config.py
+@@ -5,7 +5,7 @@ When a rule changes after a graded slate, edit here and bump CONFIG_VERSION.
+ The results database tags every board with the config version that produced it.
+ """
+ 
+-CONFIG_VERSION = "v1.6.4-2026-08-08"  # lineup-status badges: precheck exports lineup_status.json, dashboard decorates client-side — display only, bats annotated never removed, zero ranking-weight change
++CONFIG_VERSION = "v1.6.5-2026-08-10"  # virtual-card logging (top-30/top-60 frozen at lock) + out-of-sample card section in season report — measurement only, zero ranking-weight change
+ 
+ # ---------------- Gate 2.5: last-3-starts pitcher form (SHADOW, v1.4) ----------------
+ # Annotates only. Season verdict is authoritative; flags never move probabilities.
+diff --git a/log_virtual_card.py b/log_virtual_card.py
+new file mode 100644
+index 0000000..aac3114
+--- /dev/null
++++ b/log_virtual_card.py
+@@ -0,0 +1,81 @@
++"""log_virtual_card.py — freeze selection-layer virtual cards at lock. (v1.6.5)
++
++Writes the top-30 and top-60 (by locked hr_prob, slate-wide, deduped) into a
++`virtual_cards` table immediately after the morning lock. The cards are a
++deterministic function of the locked board, but logging them forward with a
++timestamp is what makes the selection layer's validation OUT-OF-SAMPLE: the
++cut rule (top-N by hr_prob) is hereby frozen as of v1.6.5, and every card
++row proves the slice was named before the games were played.
++
++Immutable like the board: INSERT OR IGNORE — first write wins, re-runs are
++no-ops. No ranking-weight change; the board itself is untouched.
++
++Usage:
++  python3 log_virtual_card.py --date 2026-08-10
++"""
++
++import argparse
++import sqlite3
++from datetime import datetime, timezone
++
++CARDS = {"top30": 30, "top60": 60}
++
++DDL = """
++CREATE TABLE IF NOT EXISTS virtual_cards(
++    slate_date TEXT,
++    card       TEXT,
++    card_rank  INTEGER,
++    batter_id  INTEGER,
++    batter     TEXT,
++    game_pk    INTEGER,
++    hr_prob    REAL,
++    locked_at  TEXT,
++    UNIQUE(slate_date, card, batter_id, game_pk)
++)
++"""
++
++
++def main():
++    ap = argparse.ArgumentParser()
++    ap.add_argument("--date", required=True)
++    ap.add_argument("--db", default="hrapp.db")
++    args = ap.parse_args()
++
++    con = sqlite3.connect(args.db)
++    con.execute(DDL)
++
++    rows = con.execute(
++        """WITH d AS (
++             SELECT batter_id, batter_name, COALESCE(game_pk,0) gpk, hr_prob,
++                    ROW_NUMBER() OVER (
++                      PARTITION BY batter_id, COALESCE(NULLIF(game_pk,0),'d')
++                      ORDER BY locked_at DESC) rn
++             FROM hr_board WHERE slate_date=?)
++           SELECT batter_id, batter_name, gpk, hr_prob
++           FROM d WHERE rn=1 ORDER BY hr_prob DESC, batter_id""",
++        (args.date,),
++    ).fetchall()
++    if not rows:
++        print(f"{args.date}: no locked board — no card logged")
++        return
++
++    ts = datetime.now(timezone.utc).isoformat(timespec="seconds")
++    for card, n in CARDS.items():
++        wrote = 0
++        for rank, (bid, name, gpk, prob) in enumerate(rows[:n], start=1):
++            cur = con.execute(
++                """INSERT OR IGNORE INTO virtual_cards
++                   (slate_date, card, card_rank, batter_id, batter, game_pk,
++                    hr_prob, locked_at) VALUES (?,?,?,?,?,?,?,?)""",
++                (args.date, card, rank, bid, name, gpk, prob, ts),
++            )
++            wrote += cur.rowcount
++        total = min(n, len(rows))
++        print(f"{args.date} {card}: {wrote} rows written"
++              + ("" if wrote == total else
++                 f" ({total - wrote} already frozen — card immutable)"))
++    con.commit()
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/track.py b/track.py
+index d740af5..8e0d070 100644
+--- a/track.py
++++ b/track.py
+@@ -302,6 +302,7 @@ def report(con, out_dir):
+ 
+     app_lines, app_strip = appearance_report(con)
+     lines += app_lines
++    lines += virtual_card_report(con)
+     lines += shadow_report(con)
+ 
+     md = "\n".join(lines) + "\n"
+@@ -459,6 +460,55 @@ def appearance_report(con):
+     return lines, strip
+ 
+ 
++
++def virtual_card_report(con):
++    """OUT-OF-SAMPLE selection-layer record: only forward-frozen cards count.
++    (In-sample depth-table numbers live above; this section is the honest
++    forward test of the top-N cut, per the 5-6-slate rule.)"""
++    try:
++        dates = [d for (d,) in con.execute(
++            "SELECT DISTINCT slate_date FROM virtual_cards ORDER BY slate_date")]
++    except sqlite3.Error:
++        return []
++    graded = [d for d in dates if con.execute(
++        "SELECT 1 FROM hr_finals WHERE date=? LIMIT 1", (d,)).fetchone()]
++    if not dates:
++        return []
++    lines = ["", "## Virtual cards (frozen at lock — out-of-sample)",
++             f"_cut rule frozen v1.6.5; {len(dates)} slate(s) logged, "
++             f"{len(graded)} graded; 5-6 graded slates before any promotion_"]
++    if not graded:
++        lines.append("- no graded card slates yet")
++        return lines
++    lines += ["", "| Card | Slates | Hits | Rate | Active | Active% |",
++              "|------|-------:|-----:|-----:|-------:|--------:|"]
++    for card in ("top30", "top60"):
++        n = h = an = ah = 0
++        for d in graded:
++            pa = {}
++            for bid, gpk, p in con.execute(
++                "SELECT batter_id, gamePk, pa FROM hr_appearances "
++                "WHERE slate_date=? AND pa>0", (d,)):
++                pa.setdefault(bid, {})[gpk] = p
++            for bid, gpk in con.execute(
++                "SELECT batter_id, game_pk FROM virtual_cards "
++                "WHERE slate_date=? AND card=?", (d, card)):
++                hit = 1 if con.execute(
++                    "SELECT 1 FROM hr_finals WHERE date=? AND batter_id=? "
++                    "AND (?=0 OR gamePk=?) LIMIT 1",
++                    (d, bid, gpk, gpk)).fetchone() else 0
++                p = (pa.get(bid, {}).get(gpk, 0) if gpk
++                     else sum(pa.get(bid, {}).values()))
++                n += 1; h += hit
++                if p > 0:
++                    an += 1; ah += hit
++        if n:
++            act = f"{ah}/{an} | {100*ah/an:.1f}%" if an else "0/0 | —"
++            lines.append(f"| {card} | {len(graded)} | {h}/{n} | "
++                         f"{100*h/n:.1f}% | {act} |")
++    return lines
++
++
+ def board_depth_report(con, dates):
+     """Hit rate by slate-wide hr_prob rank (deduped), full vs active — the
+     selection-layer readout: does the top of the board clear breakeven while
