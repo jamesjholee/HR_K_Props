@@ -282,6 +282,72 @@ def due_checks(con, date, board, sidx, now, force=None):
             yield (cid, "t30", pk)
 
 
+
+EARLY_LEAD = timedelta(hours=4)   # start quiet lineup polling T-240
+
+
+def quiet_lineup_pass(date, board, sidx, now):
+    """Badge feed for early-posted lineups (no loud machinery).
+
+    Teams post lineups 2-4h before first pitch; the loud T-30 gate stays
+    where it is (closest-to-final truth, 5/27 rule), but any game inside
+    EARLY_LEAD with a posted lineup gets its statuses exported to
+    lineup_status.json so dashboard badges appear hours earlier.
+    No issues, no md blocks, no precheck_log rows — display feed only.
+    Skips games whose boarded bats all have a status already (cheap poll).
+    """
+    import json
+    try:
+        known = {}
+        p = Path("out/lineup_status.json")
+        if p.exists():
+            j = json.loads(p.read_text())
+            if j.get("date") == date:
+                known = j.get("bats", {})
+        for pk, g in board.items():
+            s = sidx.get(pk)
+            if not s:
+                continue
+            start = s["start"]
+            if not (start - EARLY_LEAD <= now < start - T30_LEAD):
+                continue   # T-30 window handles the rest, loudly
+            if all(_norm_name(bn) in known for _, bn in g["bats"]):
+                continue   # every boarded bat already badged for this game
+            try:
+                box = fetch_boxscore(pk)
+            except Exception:
+                continue
+            lines = []
+            lineup = {}
+            try:
+                for side in ("home", "away"):
+                    side_n = 0
+                    for key, pl in (box["teams"][side]["players"] or {}).items():
+                        bo = pl.get("battingOrder")
+                        if bo:
+                            side_n += 1
+                            if str(bo).endswith("00"):
+                                lineup[pl["person"]["id"]] = (
+                                    int(bo) // 100,
+                                    pl["person"].get("fullName", "?"))
+            except (KeyError, TypeError):
+                continue
+            if not lineup:
+                continue   # nothing posted yet — stay quiet
+            for bid, bname in g["bats"]:
+                if bid in lineup:
+                    lines.append(f"✓ {bname} — batting {lineup[bid][0]}")
+                else:
+                    lines.append(f"⚠ {bname} — NOT IN POSTED LINEUP (early)")
+            if lines:
+                export_lineup_status(date, g, lines)
+                print(f"  [early] {g['label']}: lineup posted — "
+                      f"{len(lines)} bats badged")
+    except Exception as e:
+        print(f"  (quiet lineup pass skipped: {e})")
+
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--db", default="hrapp.db")
@@ -301,6 +367,8 @@ def main():
         return 0
     arms = scored_arms(con, date)
     sidx = sched_index(fetch_schedule(date))
+
+    quiet_lineup_pass(date, board, sidx, now)
 
     todo = list(due_checks(con, date, board, sidx, now, force=args.force))
     if not todo:

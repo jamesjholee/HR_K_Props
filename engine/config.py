@@ -5,7 +5,7 @@ When a rule changes after a graded slate, edit here and bump CONFIG_VERSION.
 The results database tags every board with the config version that produced it.
 """
 
-CONFIG_VERSION = "v1.6.5-2026-08-10"  # virtual-card logging (top-30/top-60 frozen at lock) + out-of-sample card section in season report — measurement only, zero ranking-weight change
+CONFIG_VERSION = "v1.6.6-2026-08-10"  # quiet early lineup pass: badges from T-240 when lineups post early — display feed only, loud gate stays at T-30, zero ranking-weight change
 
 # ---------------- Gate 2.5: last-3-starts pitcher form (SHADOW, v1.4) ----------------
 # Annotates only. Season verdict is authoritative; flags never move probabilities.
