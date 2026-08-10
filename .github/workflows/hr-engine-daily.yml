@@ -66,6 +66,17 @@ jobs:
         run: |
           python3 run_morning.py --date "${{ steps.slate.outputs.date }}"
 
+      - name: Odds canary (dead-cookie alarm)
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          N=$(sqlite3 hrapp.db "SELECT COUNT(*) FROM odds_lock WHERE slate_date='${{ steps.slate.outputs.date }}'")
+          echo "odds rows for slate: $N"
+          if [ "$N" -eq 0 ]; then
+            gh issue create               --title "🔴 ODDS DARK: no odds locked for ${{ steps.slate.outputs.date }} — rotate ODDS_COOKIE"               --body "Lock completed with 0 rows in odds_lock. Price floor, breakevens, and EV lane are blind until the PropFinder cookie is rotated (Settings > Secrets > ODDS_COOKIE). Cookie lifespan ~3 days."               --label odds || true
+          fi
+
       - name: Freeze virtual cards (top-30 / top-60)
         continue-on-error: true      # card logging must never block the lock
         run: |
