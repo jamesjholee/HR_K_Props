@@ -1,0 +1,182 @@
+[
+ {
+  "gamePk": 822780,
+  "inning": 5,
+  "half": "bottom",
+  "batter_id": 807727,
+  "batter": "Charles McAdoo",
+  "pitcher_id": 543243,
+  "pitcher": "Sonny Gray",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824887,
+  "inning": 1,
+  "half": "top",
+  "batter_id": 683146,
+  "batter": "Brett Baty",
+  "pitcher_id": 693821,
+  "pitcher": "Bryce Elder",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824887,
+  "inning": 3,
+  "half": "top",
+  "batter_id": 596019,
+  "batter": "Francisco Lindor",
+  "pitcher_id": 693821,
+  "pitcher": "Bryce Elder",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823675,
+  "inning": 3,
+  "half": "bottom",
+  "batter_id": 668885,
+  "batter": "Austin Martin",
+  "pitcher_id": 669432,
+  "pitcher": "Trevor Rogers",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823675,
+  "inning": 7,
+  "half": "bottom",
+  "batter_id": 605137,
+  "batter": "Josh Bell",
+  "pitcher_id": 664991,
+  "pitcher": "Grant Wolfram",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823998,
+  "inning": 1,
+  "half": "bottom",
+  "batter_id": 545361,
+  "batter": "Mike Trout",
+  "pitcher_id": 669022,
+  "pitcher": "MacKenzie Gore",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 825048,
+  "inning": 1,
+  "half": "bottom",
+  "batter_id": 571448,
+  "batter": "Nolan Arenado",
+  "pitcher_id": 687312,
+  "pitcher": "Gabriel Hughes",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824969,
+  "inning": 1,
+  "half": "top",
+  "batter_id": 650490,
+  "batter": "Yandy D\u00edaz",
+  "pitcher_id": 682052,
+  "pitcher": "Jacob Lopez",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824969,
+  "inning": 5,
+  "half": "bottom",
+  "batter_id": 680869,
+  "batter": "Zack Gelof",
+  "pitcher_id": 642547,
+  "pitcher": "Freddy Peralta",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824969,
+  "inning": 8,
+  "half": "top",
+  "batter_id": 691406,
+  "batter": "Junior Caminero",
+  "pitcher_id": 686751,
+  "pitcher": "Seth Johnson",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823265,
+  "inning": 2,
+  "half": "top",
+  "batter_id": 592885,
+  "batter": "Christian Yelich",
+  "pitcher_id": 663554,
+  "pitcher": "Casey Mize",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823265,
+  "inning": 2,
+  "half": "bottom",
+  "batter_id": 664034,
+  "batter": "Ty France",
+  "pitcher_id": 701656,
+  "pitcher": "Logan Henderson",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823265,
+  "inning": 7,
+  "half": "bottom",
+  "batter_id": 701538,
+  "batter": "Jackson Merrill",
+  "pitcher_id": 701656,
+  "pitcher": "Logan Henderson",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823189,
+  "inning": 5,
+  "half": "bottom",
+  "batter_id": 808982,
+  "batter": "Jung Hoo Lee",
+  "pitcher_id": 669713,
+  "pitcher": "Hayden Wesneski",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823189,
+  "inning": 7,
+  "half": "top",
+  "batter_id": 701358,
+  "batter": "Cam Smith",
+  "pitcher_id": 664141,
+  "pitcher": "JT Brubaker",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823189,
+  "inning": 7,
+  "half": "bottom",
+  "batter_id": 687551,
+  "batter": "Drew Gilbert",
+  "pitcher_id": 669713,
+  "pitcher": "Hayden Wesneski",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823918,
+  "inning": 3,
+  "half": "top",
+  "batter_id": 695506,
+  "batter": "Jac Caglianone",
+  "pitcher_id": 669373,
+  "pitcher": "Tarik Skubal",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823918,
+  "inning": 7,
+  "half": "top",
+  "batter_id": 664728,
+  "batter": "Kyle Isbel",
+  "pitcher_id": 676263,
+  "pitcher": "Jack Dreyer",
+  "pitcher_role": "R"
+ }
+]
