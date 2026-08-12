@@ -1,32 +1,11 @@
 Slate 2026-08-12 — precheck findings needing eyes:
 
-## T-90 slate sweep — 17:14Z
-- ✓ BAL@MIN: both probables match locked arms
-- ✓ PHI@STL: both probables match locked arms
-- ✓ TB@ATH: both probables match locked arms
-- ✓ COL@ARI: both probables match locked arms
-- ⚠ HOU@SF: home probable Adrian Houser (id 605288) was NOT SCORED at lock — scratch/trade signature. Bats boarded vs the other arm may be unaffected; bats scored VS this slot are built on a dead read.
-- ✓ MIL@SD: both probables match locked arms
-- ✓ PIT@MIA: both probables match locked arms
-- ✓ CLE@DET: both probables match locked arms
-- ⚠ CHC@WSH: home probable Jackson Kent (id 800600) was NOT SCORED at lock — scratch/trade signature. Bats boarded vs the other arm may be unaffected; bats scored VS this slot are built on a dead read.
-- ✓ SEA@NYY: both probables match locked arms
-- ✓ BOS@TOR: both probables match locked arms
-- ✓ NYM@ATL: both probables match locked arms
-- ✓ CIN@CWS: both probables match locked arms
-- ✓ KC@LAD: both probables match locked arms
-- ✓ TEX@LAA: both probables match locked arms
-
-## T-30 — BAL@MIN (pk 823672) — 17:14Z
-- ✓ Brooks Lee — batting 5
-- ✓ Christian Encarnacion-Strand — batting 6
-- ⚠ Coby Mayo — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-- ⚠ Colton Cowser — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-- ✓ Gunnar Henderson — batting 1
-- ✓ Josh Bell — batting 3
-- ✓ Leody Taveras — batting 7
-- ✓ Pete Alonso — batting 2
-- ✓ Royce Lewis — batting 2
-- ✓ Victor Caratini — batting 7
+## T-30 — PHI@STL (pk 823017) — 18:11Z
+- ✓ Brandon Marsh — batting 6
+- ✓ Bryce Harper — batting 3
+- ✓ Bryson Stott — batting 5
+- ⚠ Derek Hill — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Kyle Schwarber — batting 1
+- ✓ Trea Turner — batting 2
 
 _Automated sweep. Verify via PropFinder + MLB app (5/27 rule). Board is locked and unchanged._
