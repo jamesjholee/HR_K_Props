@@ -311,33 +311,41 @@ def quiet_lineup_pass(date, board, sidx, now):
             start = s["start"]
             if not (start - EARLY_LEAD <= now < start - T30_LEAD):
                 continue   # T-30 window handles the rest, loudly
-            if all(_norm_name(bn) in known for _, bn in g["bats"]):
-                continue   # every boarded bat already badged for this game
+            if all(known.get(_norm_name(bn), {}).get("st") == "in"
+                   for _, bn in g["bats"]):
+                continue   # every boarded bat confirmed in — nothing to update
             try:
                 box = fetch_boxscore(pk)
             except Exception:
                 continue
             lines = []
             lineup = {}
+            posted_sides = 0
             try:
                 for side in ("home", "away"):
                     side_n = 0
                     for key, pl in (box["teams"][side]["players"] or {}).items():
                         bo = pl.get("battingOrder")
                         if bo:
-                            side_n += 1
                             if str(bo).endswith("00"):
+                                side_n += 1
                                 lineup[pl["person"]["id"]] = (
                                     int(bo) // 100,
                                     pl["person"].get("fullName", "?"))
+                    if side_n >= 8:
+                        posted_sides += 1
             except (KeyError, TypeError):
                 continue
             if not lineup:
                 continue   # nothing posted yet — stay quiet
+            # One-side-posted guard: a bat can only be marked OUT when BOTH
+            # lineups are up. Until then, export confirms only — a bat whose
+            # side hasn't posted is PENDING, not out. (Late-game lesson:
+            # sides post hours apart; the loud T-30 check already knew this.)
             for bid, bname in g["bats"]:
                 if bid in lineup:
                     lines.append(f"✓ {bname} — batting {lineup[bid][0]}")
-                else:
+                elif posted_sides == 2:
                     lines.append(f"⚠ {bname} — NOT IN POSTED LINEUP (early)")
             if lines:
                 export_lineup_status(date, g, lines)
