@@ -1,0 +1,172 @@
+[
+ {
+  "gamePk": 824238,
+  "inning": 6,
+  "half": "bottom",
+  "batter_id": 680664,
+  "batter": "Eduardo Valencia",
+  "pitcher_id": 800048,
+  "pitcher": "Parker Messick",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824561,
+  "inning": 1,
+  "half": "top",
+  "batter_id": 701398,
+  "batter": "Sal Stewart",
+  "pitcher_id": 663436,
+  "pitcher": "Davis Martin",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824561,
+  "inning": 1,
+  "half": "top",
+  "batter_id": 553993,
+  "batter": "Eugenio Su\u00e1rez",
+  "pitcher_id": 663436,
+  "pitcher": "Davis Martin",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824561,
+  "inning": 4,
+  "half": "top",
+  "batter_id": 663886,
+  "batter": "Tyler Stephenson",
+  "pitcher_id": 607200,
+  "pitcher": "Erick Fedde",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823829,
+  "inning": 5,
+  "half": "top",
+  "batter_id": 669707,
+  "batter": "Jared Triolo",
+  "pitcher_id": 663969,
+  "pitcher": "Tyler Phillips",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823829,
+  "inning": 8,
+  "half": "top",
+  "batter_id": 804668,
+  "batter": "Rafael Flores Jr.",
+  "pitcher_id": 667463,
+  "pitcher": "John King",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823829,
+  "inning": 9,
+  "half": "top",
+  "batter_id": 694378,
+  "batter": "Jacob Gonzalez",
+  "pitcher_id": 691594,
+  "pitcher": "Javier Sanoja",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823829,
+  "inning": 9,
+  "half": "top",
+  "batter_id": 804668,
+  "batter": "Rafael Flores Jr.",
+  "pitcher_id": 691594,
+  "pitcher": "Javier Sanoja",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823829,
+  "inning": 9,
+  "half": "bottom",
+  "batter_id": 683357,
+  "batter": "Owen Caissie",
+  "pitcher_id": 677952,
+  "pitcher": "Braxton Ashcraft",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823508,
+  "inning": 2,
+  "half": "top",
+  "batter_id": 642215,
+  "batter": "Weston Wilson",
+  "pitcher_id": 608331,
+  "pitcher": "Max Fried",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 822776,
+  "inning": 8,
+  "half": "top",
+  "batter_id": 702332,
+  "batter": "Caleb Durbin",
+  "pitcher_id": 695445,
+  "pitcher": "Chase Lee",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 822696,
+  "inning": 5,
+  "half": "bottom",
+  "batter_id": 694673,
+  "batter": "Abimelec Ortiz",
+  "pitcher_id": 592332,
+  "pitcher": "Kevin Gausman",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823669,
+  "inning": 1,
+  "half": "top",
+  "batter_id": 656941,
+  "batter": "Kyle Schwarber",
+  "pitcher_id": 671737,
+  "pitcher": "Taj Bradley",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823669,
+  "inning": 2,
+  "half": "bottom",
+  "batter_id": 807712,
+  "batter": "Luke Keaschall",
+  "pitcher_id": 605400,
+  "pitcher": "Aaron Nola",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823669,
+  "inning": 4,
+  "half": "top",
+  "batter_id": 656941,
+  "batter": "Kyle Schwarber",
+  "pitcher_id": 671737,
+  "pitcher": "Taj Bradley",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823669,
+  "inning": 7,
+  "half": "top",
+  "batter_id": 669016,
+  "batter": "Brandon Marsh",
+  "pitcher_id": 701519,
+  "pitcher": "Travis Adams",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823915,
+  "inning": 6,
+  "half": "bottom",
+  "batter_id": 571970,
+  "batter": "Max Muncy",
+  "pitcher_id": 622608,
+  "pitcher": "Antonio Senzatela",
+  "pitcher_role": "R"
+ }
+]
