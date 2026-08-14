@@ -1,17 +1,12 @@
 Slate 2026-08-14 — precheck findings needing eyes:
 
-## T-90 slate sweep — 17:01Z
-- ✓ STL@CHC: both probables match locked arms
-- ✓ MIA@CIN: both probables match locked arms
-- ⚠ BAL@TB: probable starter TBD (1/2 listed) — 5/27 RULE, verify in MLB app before betting this game
-- ✓ WSH@NYM: both probables match locked arms
-- ✓ SD@CLE: both probables match locked arms
-- ✓ NYY@TOR: both probables match locked arms
-- ⚠ ARI@ATL: home probable Chris Sale (id 519242) was NOT SCORED at lock — scratch/trade signature. Bats boarded vs the other arm may be unaffected; bats scored VS this slot are built on a dead read.
-- ✓ SEA@HOU: both probables match locked arms
-- ✓ KC@LAA: both probables match locked arms
-- ⚠ TEX@ATH: probable starter TBD (1/2 listed) — 5/27 RULE, verify in MLB app before betting this game
-- ✓ MIL@LAD: both probables match locked arms
-- ✓ COL@SF: both probables match locked arms
+## T-30 — STL@CHC (pk 824643) — 18:08Z
+- ✓ Dansby Swanson — batting 9
+- ✓ Ian Happ — batting 7
+- ⚠ Michael Conforto — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ⚠ Pedro Ramirez — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Pete Crow-Armstrong — batting 1
+- ✓ Seiya Suzuki — batting 2
+- ✓ Tyrone Taylor — batting 8
 
 _Automated sweep. Verify via PropFinder + MLB app (5/27 rule). Board is locked and unchanged._
