@@ -1,20 +1,18 @@
 Slate 2026-08-15 — precheck findings needing eyes:
 
-## T-90 slate sweep — 15:49Z
-- ✓ CWS@DET: both probables match locked arms
-- ✓ STL@CHC: both probables match locked arms
-- ✓ NYY@TOR: both probables match locked arms
-- ✓ COL@SF: both probables match locked arms
-- ✓ WSH@NYM: both probables match locked arms
-- ✓ BAL@TB: both probables match locked arms
-- ✓ MIA@CIN: both probables match locked arms
-- ✓ PHI@MIN: both probables match locked arms
-- ✓ SEA@HOU: both probables match locked arms
-- ⚠ SD@CLE: probable starter TBD (1/2 listed) — 5/27 RULE, verify in MLB app before betting this game
-- ✓ BOS@PIT: both probables match locked arms
-- ✓ MIL@LAD: both probables match locked arms
-- ✓ ARI@ATL: both probables match locked arms
-- ✓ KC@LAA: both probables match locked arms
-- ✓ TEX@ATH: both probables match locked arms
+## T-30 — STL@CHC (pk 824644) — 17:58Z
+- ✓ Blaze Jordan — batting 7
+- ✓ Everson Pereira — batting 8
+- ✓ Ian Happ — batting 5
+- ✓ Ivan Herrera — batting 2
+- ✓ JJ Wetherholt — batting 1
+- ✓ Jordan Walker — batting 3
+- ⚠ Jose Fermin — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Michael Conforto — batting 8
+- ✓ Miguel Amaya — batting 9
+- ⚠ Nathan Church — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Pete Crow-Armstrong — batting 1
+- ✓ Seiya Suzuki — batting 2
+- ⚠ Tyrone Taylor — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
 
 _Automated sweep. Verify via PropFinder + MLB app (5/27 rule). Board is locked and unchanged._
