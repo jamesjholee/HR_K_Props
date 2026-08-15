@@ -1,26 +1,18 @@
 Slate 2026-08-15 — precheck findings needing eyes:
 
-## T-30 — COL@SF (pk 823184) — 19:36Z
-- ✓ Bryce Eldridge — batting 3
-- ✓ Connor Norby — batting 7
-- ✓ Drew Gilbert — batting 1
-- ⚠ Hunter Goodman — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-- ✓ Mickey Moniak — batting 3
-- ✓ Osleivis Basabe — batting 5
-- ✓ Rafael Devers — batting 2
-- ⚠ Victor Bericoto — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-- ✓ Willi Castro — batting 5
-- ⚠ Willy Adames — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-
-## T-30 — WSH@NYM (pk 823588) — 19:36Z
-- ✓ A.J. Ewing — batting 1
-- ✓ Andres Chaparro — batting 2
-- ✓ Brady House — batting 3
-- ✓ CJ Abrams — batting 4
-- ✓ Dylan Crews — batting 1
-- ✓ Francisco Alvarez — batting 9
-- ⚠ Gabriel Arias — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-- ✓ Harry Ford — batting 5
-- ✓ Jacob Young — batting 6
+## T-30 — BAL@TB (pk 822941) — 21:36Z
+- ✓ Christian Encarnacion-Strand — batting 6
+- ✓ Coby Mayo — batting 4
+- ⚠ Colton Cowser — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Gunnar Henderson — batting 5
+- ⚠ Jeremiah Jackson — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Jonathan Aranda — batting 2
+- ✓ Jonny DeLuca — batting 6
+- ✓ Junior Caminero — batting 3
+- ✓ Liam Hicks — batting 4
+- ✓ Pete Alonso — batting 2
+- ⚠ Ryan Vilade — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Tyler O'Neill — batting 1
+- ⚠ Victor Mesa Jr. — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
 
 _Automated sweep. Verify via PropFinder + MLB app (5/27 rule). Board is locked and unchanged._
