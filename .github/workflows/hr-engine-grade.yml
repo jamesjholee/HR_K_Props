@@ -83,6 +83,11 @@ jobs:
         run: |
           python3 appearances.py --date "${{ steps.slate.outputs.date }}" | tee out_grade_app.txt
 
+      - name: Refresh player handedness dim
+        continue-on-error: true
+        run: |
+          python3 backfill_hands.py --missing-only
+
       - name: Late-finish sweep (D-2)
         continue-on-error: true       # sweep is best-effort; idempotent writes
         run: |
@@ -105,7 +110,7 @@ jobs:
         run: |
           git config user.name  "hr-engine-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add hrapp.db out/grades/ out/season_report.md out/season.json
+          git add hrapp.db out/grades/ out/season_report.md out/season.json out/hands.json
           git diff --cached --quiet || git commit -m "grade: slate ${{ steps.slate.outputs.date }}"
           git pull --rebase origin main || true
           git push

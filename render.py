@@ -642,7 +642,7 @@ here is financial advice; it's a research log.</p>
 </script>
 </body></html>"""
     html_out = html_out.replace("</body></html>",
-                            _LINEUP_OVERLAY.replace("__SLATE_DATE__", str(date)))
+                            _HANDS_OVERLAY + _LINEUP_OVERLAY.replace("__SLATE_DATE__", str(date)))
     os.makedirs("out", exist_ok=True)
     with open("out/dashboard.html", "w") as f:
         f.write(html_out)
@@ -696,6 +696,71 @@ tr.lu-out .bat b{text-decoration:line-through;text-decoration-thickness:1px}
       .then(apply).catch(()=>{});
   }
   tick(); setInterval(tick, 5*60*1000);
+})();
+</script>
+</body></html>"""
+
+
+# --------------------------------------------------------------------------
+# Handedness tags + filters (v1.6.7) — display-only overlay fed by
+# out/hands.json (backfill_hands.py). Adds (L)/(R)/(S) next to bat names,
+# infers each row's opposing pitcher hand via data-search, and renders
+# filter chips: vs LHP / vs RHP and bat side L / R / S. Filtering hides
+# rows visually at the user's request only — the locked board is untouched.
+_HANDS_OVERLAY = """<style>
+.hd{margin-left:4px;font-size:10px;opacity:.75}
+.hd.vs{color:#c9a227}
+#hand-chips{margin:8px 0;display:flex;gap:6px;flex-wrap:wrap}
+#hand-chips button{font-size:11px;padding:3px 9px;border-radius:12px;border:1px solid #555;background:transparent;color:inherit;cursor:pointer}
+#hand-chips button.on{background:#2a5a8a;border-color:#2a5a8a;color:#fff}
+tr.hd-hide{display:none}
+</style>
+<script>
+(function(){
+  const N=s=>(s||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
+  let F={vs:"",bat:""};
+  fetch("https://raw.githubusercontent.com/jamesjholee/HR_K_Props/main/out/hands.json?t="+Date.now())
+    .then(r=>r.ok?r.json():null).then(H=>{
+    if(!H) return;
+    const pitchers=Object.keys(H).filter(k=>H[k].p==="L"||H[k].p==="R");
+    document.querySelectorAll("tr[data-search]").forEach(tr=>{
+      const b=tr.querySelector(".bat b"); if(!b) return;
+      const rec=H[N(b.textContent)];
+      if(rec&&(rec.b==="L"||rec.b==="R"||rec.b==="S")){
+        tr.dataset.bathand=rec.b;
+        const t=document.createElement("span");t.className="hd";t.textContent="("+rec.b+")";b.after(t);
+      }
+      const ds=N(tr.dataset.search||"");
+      const pn=pitchers.find(p=>p.length>5&&ds.includes(p));
+      if(pn){tr.dataset.vshand=H[pn].p;
+        const v=document.createElement("span");v.className="hd vs";
+        v.textContent="vs "+H[pn].p+"HP";(tr.querySelector(".bat")||b).appendChild(v);}
+    });
+    const tbl=document.querySelector("tr[data-search]");
+    if(!tbl) return;
+    const bar=document.createElement("div");bar.id="hand-chips";
+    bar.innerHTML='<button data-k="vs" data-v="">All arms</button>'+
+      '<button data-k="vs" data-v="L">vs LHP</button><button data-k="vs" data-v="R">vs RHP</button>'+
+      '<span style="width:10px"></span>'+
+      '<button data-k="bat" data-v="">All bats</button><button data-k="bat" data-v="L">L</button>'+
+      '<button data-k="bat" data-v="R">R</button><button data-k="bat" data-v="S">S</button>';
+    const table=tbl.closest("table");
+    table.parentNode.insertBefore(bar,table);
+    function apply(){
+      document.querySelectorAll("tr[data-search]").forEach(tr=>{
+        const okV=!F.vs||tr.dataset.vshand===F.vs;
+        const okB=!F.bat||tr.dataset.bathand===F.bat;
+        tr.classList.toggle("hd-hide",!(okV&&okB));
+      });
+      bar.querySelectorAll("button").forEach(x=>
+        x.classList.toggle("on",F[x.dataset.k]===x.dataset.v&&x.dataset.v!==""));
+    }
+    bar.addEventListener("click",e=>{
+      const x=e.target.closest("button"); if(!x) return;
+      F[x.dataset.k]=(F[x.dataset.k]===x.dataset.v)?"":x.dataset.v;
+      apply();
+    });
+  }).catch(()=>{});
 })();
 </script>
 </body></html>"""
