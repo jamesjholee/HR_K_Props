@@ -1,0 +1,252 @@
+[
+ {
+  "gamePk": 824514,
+  "inning": 4,
+  "half": "bottom",
+  "batter_id": 667472,
+  "batter": "Dane Myers",
+  "pitcher_id": 687273,
+  "pitcher": "Quinn Mathews",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824478,
+  "inning": 4,
+  "half": "top",
+  "batter_id": 671056,
+  "batter": "Iv\u00e1n Herrera",
+  "pitcher_id": 695076,
+  "pitcher": "Rhett Lowder",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824478,
+  "inning": 9,
+  "half": "bottom",
+  "batter_id": 667472,
+  "batter": "Dane Myers",
+  "pitcher_id": 657265,
+  "pitcher": "Peter Strzelecki",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 822939,
+  "inning": 2,
+  "half": "top",
+  "batter_id": 691723,
+  "batter": "Coby Mayo",
+  "pitcher_id": 663556,
+  "pitcher": "Shane McClanahan",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 822939,
+  "inning": 3,
+  "half": "bottom",
+  "batter_id": 650490,
+  "batter": "Yandy D\u00edaz",
+  "pitcher_id": 687064,
+  "pitcher": "Brandon Young",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 822939,
+  "inning": 4,
+  "half": "bottom",
+  "batter_id": 668723,
+  "batter": "Ryan Vilade",
+  "pitcher_id": 687064,
+  "pitcher": "Brandon Young",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 822939,
+  "inning": 4,
+  "half": "bottom",
+  "batter_id": 622761,
+  "batter": "Jorge Mateo",
+  "pitcher_id": 687064,
+  "pitcher": "Brandon Young",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 822939,
+  "inning": 5,
+  "half": "top",
+  "batter_id": 624413,
+  "batter": "Pete Alonso",
+  "pitcher_id": 669330,
+  "pitcher": "Tyler Wells",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 822939,
+  "inning": 5,
+  "half": "top",
+  "batter_id": 687952,
+  "batter": "Christian Encarnacion-Strand",
+  "pitcher_id": 669330,
+  "pitcher": "Tyler Wells",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823427,
+  "inning": 8,
+  "half": "top",
+  "batter_id": 640459,
+  "batter": "Brian Navarreto",
+  "pitcher_id": 548384,
+  "pitcher": "Brooks Raley",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823343,
+  "inning": 2,
+  "half": "top",
+  "batter_id": 805808,
+  "batter": "Kevin McGonigle",
+  "pitcher_id": 669387,
+  "pitcher": "Carmen Mlodzinski",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824725,
+  "inning": 5,
+  "half": "bottom",
+  "batter_id": 575929,
+  "batter": "Willson Contreras",
+  "pitcher_id": 641793,
+  "pitcher": "Zack Littell",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824725,
+  "inning": 7,
+  "half": "bottom",
+  "batter_id": 681508,
+  "batter": "Mickey Gasper",
+  "pitcher_id": 641793,
+  "pitcher": "Zack Littell",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824077,
+  "inning": 1,
+  "half": "top",
+  "batter_id": 643446,
+  "batter": "Jeff McNeil",
+  "pitcher_id": 608379,
+  "pitcher": "Michael Wacha",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824077,
+  "inning": 2,
+  "half": "bottom",
+  "batter_id": 677951,
+  "batter": "Bobby Witt Jr.",
+  "pitcher_id": 686930,
+  "pitcher": "Mason Barnett",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824077,
+  "inning": 5,
+  "half": "top",
+  "batter_id": 695720,
+  "batter": "Tommy White",
+  "pitcher_id": 608379,
+  "pitcher": "Michael Wacha",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824077,
+  "inning": 5,
+  "half": "top",
+  "batter_id": 661531,
+  "batter": "Brian Serven",
+  "pitcher_id": 608379,
+  "pitcher": "Michael Wacha",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824641,
+  "inning": 1,
+  "half": "bottom",
+  "batter_id": 691718,
+  "batter": "Pete Crow-Armstrong",
+  "pitcher_id": 622491,
+  "pitcher": "Luis Castillo",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824641,
+  "inning": 1,
+  "half": "bottom",
+  "batter_id": 673548,
+  "batter": "Seiya Suzuki",
+  "pitcher_id": 622491,
+  "pitcher": "Luis Castillo",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824641,
+  "inning": 4,
+  "half": "top",
+  "batter_id": 545341,
+  "batter": "Randal Grichuk",
+  "pitcher_id": 684007,
+  "pitcher": "Shota Imanaga",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824641,
+  "inning": 8,
+  "half": "top",
+  "batter_id": 643217,
+  "batter": "Andrew Benintendi",
+  "pitcher_id": 666171,
+  "pitcher": "Ryan Zeferjahn",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824641,
+  "inning": 10,
+  "half": "bottom",
+  "batter_id": 691718,
+  "batter": "Pete Crow-Armstrong",
+  "pitcher_id": 696146,
+  "pitcher": "Hagen Smith",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824320,
+  "inning": 3,
+  "half": "top",
+  "batter_id": 571970,
+  "batter": "Max Muncy",
+  "pitcher_id": 608372,
+  "pitcher": "Tomoyuki Sugano",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824320,
+  "inning": 5,
+  "half": "top",
+  "batter_id": 660271,
+  "batter": "Shohei Ohtani",
+  "pitcher_id": 608372,
+  "pitcher": "Tomoyuki Sugano",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824320,
+  "inning": 6,
+  "half": "top",
+  "batter_id": 660271,
+  "batter": "Shohei Ohtani",
+  "pitcher_id": 675848,
+  "pitcher": "Juan Mejia",
+  "pitcher_role": "R"
+ }
+]
