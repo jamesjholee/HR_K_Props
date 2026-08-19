@@ -1,17 +1,12 @@
 Slate 2026-08-19 — precheck findings needing eyes:
 
-## T-90 slate sweep — 15:38Z
-- ✓ DET@PIT: both probables match locked arms
-- ✓ SD@NYM: both probables match locked arms
-- ✓ ATL@MIN: both probables match locked arms
-- ✓ ARI@BOS: both probables match locked arms
-- ✓ MIA@PHI: both probables match locked arms
-- ✓ NYY@BAL: both probables match locked arms
-- ✓ TOR@TB: both probables match locked arms
-- ⚠ SF@CLE: away probable Matt Wilkinson (id 683363) was NOT SCORED at lock — scratch/trade signature. Bats boarded vs the other arm may be unaffected; bats scored VS this slot are built on a dead read.
-- ✓ STL@CIN: both probables match locked arms
-- ✓ SEA@MIL: both probables match locked arms
-- ✓ WSH@TEX: both probables match locked arms
-- ✓ LAD@COL: both probables match locked arms
+## T-30 — SD@NYM (pk 823587) — 16:48Z
+- ✓ Brett Baty — batting 7
+- ⚠ Christopher Morel — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Francisco Alvarez — batting 6
+- ✓ Francisco Lindor — batting 2
+- ✓ Jared Young — batting 5
+- ⚠ Luis Robert — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Marcus Semien — batting 8
 
 _Automated sweep. Verify via PropFinder + MLB app (5/27 rule). Board is locked and unchanged._
