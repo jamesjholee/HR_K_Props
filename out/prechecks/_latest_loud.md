@@ -1,12 +1,11 @@
 Slate 2026-08-19 — precheck findings needing eyes:
 
-## T-30 — SD@NYM (pk 823587) — 16:48Z
-- ✓ Brett Baty — batting 7
-- ⚠ Christopher Morel — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-- ✓ Francisco Alvarez — batting 6
-- ✓ Francisco Lindor — batting 2
-- ✓ Jared Young — batting 5
-- ⚠ Luis Robert — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-- ✓ Marcus Semien — batting 8
+## T-30 — ATL@MIN (pk 823664) — 17:31Z
+- ✓ Austin Riley — batting 8
+- ✓ Drake Baldwin — batting 2
+- ⚠ Lane Thomas — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Matt Olson — batting 3
+- ✓ Mike Yastrzemski — batting 7
+- ✓ Ronald Acuna Jr. — batting 1
 
 _Automated sweep. Verify via PropFinder + MLB app (5/27 rule). Board is locked and unchanged._
