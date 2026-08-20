@@ -1,0 +1,58 @@
+{
+ "_comment": "Wall profiles: [bearing_deg, dist_ft, height_ft]; -45=LF line, 0=CF, +45=RF line. CLE calibrated to the 8/16 Tatis ground truth (bearing 16.9deg -> ~382ft @ 8ft; video: short by 7.4). Other parks: add profiles to enable wall verdicts.",
+ "CLE": {
+  "name": "Progressive Field",
+  "wall": [
+   [
+    -45,
+    325,
+    19
+   ],
+   [
+    -30,
+    358,
+    19
+   ],
+   [
+    -18,
+    370,
+    19
+   ],
+   [
+    -8,
+    400,
+    9
+   ],
+   [
+    0,
+    405,
+    9
+   ],
+   [
+    6,
+    398,
+    8
+   ],
+   [
+    12,
+    388,
+    8
+   ],
+   [
+    22,
+    374,
+    8
+   ],
+   [
+    32,
+    349,
+    8
+   ],
+   [
+    45,
+    325,
+    8
+   ]
+  ]
+ }
+}

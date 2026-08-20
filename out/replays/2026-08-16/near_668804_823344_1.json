@@ -1,0 +1,55 @@
+{
+ "type": "near_hr",
+ "date": "2026-08-16",
+ "gamePk": 823344,
+ "batter": {
+  "id": 668804,
+  "name": "Bryan Reynolds",
+  "headshot": "https://img.mlbstatic.com/mlb-photos/image/upload/w_240,q_auto:best/v1/people/668804/headshot/67/current",
+  "bat_side": "S"
+ },
+ "pitcher": {
+  "id": 663776,
+  "name": "Patrick Sandoval"
+ },
+ "context": {
+  "away": "BOS",
+  "home": "PIT",
+  "inning": 1,
+  "half": "Bot",
+  "count": "0-0",
+  "outcome": "double",
+  "board_hr_prob": 0.11
+ },
+ "pitch": {
+  "release_pos_x": 1.16,
+  "release_pos_y": 54.55,
+  "release_pos_z": 5.96,
+  "vx0": -5.206843430775797,
+  "vy0": -133.61289593974183,
+  "vz0": -3.79015862533072,
+  "ax": 7.971566002487916,
+  "ay": 24.93459352082852,
+  "az": -18.21822068760671,
+  "release_speed": 91.7,
+  "release_spin_rate": 1999.0,
+  "pitch_name": "4-Seam Fastball",
+  "plate_x": -0.432230429870154,
+  "plate_z": 3.062132934207882,
+  "sz_top": 3.284071522,
+  "sz_bot": 1.65738189
+ },
+ "bat": {
+  "bat_speed": 73.1,
+  "swing_length": 6.6,
+  "attack_angle": 11.5,
+  "attack_direction": 0.6
+ },
+ "contact": {
+  "ev": 102.9,
+  "la": 24.0,
+  "distance_ft": 382.0,
+  "bearing_deg": -14.1
+ },
+ "wall": null
+}

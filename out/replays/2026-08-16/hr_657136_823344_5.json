@@ -1,0 +1,55 @@
+{
+ "type": "home_run",
+ "date": "2026-08-16",
+ "gamePk": 823344,
+ "batter": {
+  "id": 657136,
+  "name": "Connor Wong",
+  "headshot": "https://img.mlbstatic.com/mlb-photos/image/upload/w_240,q_auto:best/v1/people/657136/headshot/67/current",
+  "bat_side": "R"
+ },
+ "pitcher": {
+  "id": 682995,
+  "name": "Hunter Barco"
+ },
+ "context": {
+  "away": "BOS",
+  "home": "PIT",
+  "inning": 5,
+  "half": "Top",
+  "count": "2-0",
+  "outcome": "home_run",
+  "board_hr_prob": 0.12
+ },
+ "pitch": {
+  "release_pos_x": 3.53,
+  "release_pos_y": 54.12,
+  "release_pos_z": 5.1,
+  "vx0": -10.864327851122138,
+  "vy0": -133.4045611435464,
+  "vz0": -3.953061920410268,
+  "ax": 15.5567622928867,
+  "ay": 28.07664423510677,
+  "az": -19.575560098953147,
+  "release_speed": 91.9,
+  "release_spin_rate": 2322.0,
+  "pitch_name": "4-Seam Fastball",
+  "plate_x": 0.1555991605095321,
+  "plate_z": 2.009224085157695,
+  "sz_top": 3.105913714,
+  "sz_bot": 1.567470472
+ },
+ "bat": {
+  "bat_speed": 77.4,
+  "swing_length": 7.9,
+  "attack_angle": 9.3,
+  "attack_direction": -5.6
+ },
+ "contact": {
+  "ev": 106.3,
+  "la": 28.0,
+  "distance_ft": 417.0,
+  "bearing_deg": -19.9
+ },
+ "wall": null
+}

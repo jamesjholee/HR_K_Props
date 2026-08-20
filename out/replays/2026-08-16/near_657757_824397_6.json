@@ -1,0 +1,61 @@
+{
+ "type": "near_hr",
+ "date": "2026-08-16",
+ "gamePk": 824397,
+ "batter": {
+  "id": 657757,
+  "name": "Gavin Sheets",
+  "headshot": "https://img.mlbstatic.com/mlb-photos/image/upload/w_240,q_auto:best/v1/people/657757/headshot/67/current",
+  "bat_side": "L"
+ },
+ "pitcher": {
+  "id": 676440,
+  "name": "Tanner Bibee"
+ },
+ "context": {
+  "away": "SD",
+  "home": "CLE",
+  "inning": 6,
+  "half": "Top",
+  "count": "2-1",
+  "outcome": "field_out",
+  "board_hr_prob": 0.13
+ },
+ "pitch": {
+  "release_pos_x": -2.18,
+  "release_pos_y": 53.64,
+  "release_pos_z": 6.13,
+  "vx0": 7.284838279210184,
+  "vy0": -136.355027110473,
+  "vz0": -7.091749720802192,
+  "ax": -4.896401866621592,
+  "ay": 25.861685863773264,
+  "az": -16.86644069006745,
+  "release_speed": 93.7,
+  "release_spin_rate": 2201.0,
+  "pitch_name": "4-Seam Fastball",
+  "plate_x": 0.3990049159655912,
+  "plate_z": 2.1005018942916776,
+  "sz_top": 3.350770997,
+  "sz_bot": 1.691043307
+ },
+ "bat": {
+  "bat_speed": 79.1,
+  "swing_length": 7.8,
+  "attack_angle": 8.1,
+  "attack_direction": -12.5
+ },
+ "contact": {
+  "ev": 100.2,
+  "la": 40.0,
+  "distance_ft": 357.0,
+  "bearing_deg": 22.1
+ },
+ "wall": {
+  "dist_ft": 373.7,
+  "height_ft": 8.0,
+  "ball_height_at_wall_ft": 0.0,
+  "clearance_ft": -8.0,
+  "short_by_ft": 16.7
+ }
+}

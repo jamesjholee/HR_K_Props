@@ -1,0 +1,55 @@
+{
+ "type": "near_hr",
+ "date": "2026-08-16",
+ "gamePk": 822940,
+ "batter": {
+  "id": 702616,
+  "name": "Jackson Holliday",
+  "headshot": "https://img.mlbstatic.com/mlb-photos/image/upload/w_240,q_auto:best/v1/people/702616/headshot/67/current",
+  "bat_side": "L"
+ },
+ "pitcher": {
+  "id": 571927,
+  "name": "Steven Matz"
+ },
+ "context": {
+  "away": "BAL",
+  "home": "TB",
+  "inning": 6,
+  "half": "Top",
+  "count": "1-2",
+  "outcome": "double",
+  "board_hr_prob": 0.11
+ },
+ "pitch": {
+  "release_pos_x": 2.81,
+  "release_pos_y": 53.57,
+  "release_pos_z": 5.53,
+  "vx0": -9.517102640292377,
+  "vy0": -122.41106335176865,
+  "vz0": -0.5484792212432333,
+  "ax": 14.578180920731253,
+  "ay": 23.84496067821923,
+  "az": -31.54842618399176,
+  "release_speed": 84.3,
+  "release_spin_rate": 2276.0,
+  "pitch_name": "Changeup",
+  "plate_x": -0.1793155627167204,
+  "plate_z": 2.511558408499095,
+  "sz_top": 3.168225066,
+  "sz_bot": 1.598917323
+ },
+ "bat": {
+  "bat_speed": 71.6,
+  "swing_length": 6.9,
+  "attack_angle": 9.2,
+  "attack_direction": -3.0
+ },
+ "contact": {
+  "ev": 101.0,
+  "la": 23.0,
+  "distance_ft": 391.0,
+  "bearing_deg": 11.0
+ },
+ "wall": null
+}

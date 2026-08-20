@@ -1,0 +1,55 @@
+{
+ "type": "near_hr",
+ "date": "2026-08-16",
+ "gamePk": 822774,
+ "batter": {
+  "id": 672960,
+  "name": "Kazuma Okamoto",
+  "headshot": "https://img.mlbstatic.com/mlb-photos/image/upload/w_240,q_auto:best/v1/people/672960/headshot/67/current",
+  "bat_side": "R"
+ },
+ "pitcher": {
+  "id": 677960,
+  "name": "Ryan Weathers"
+ },
+ "context": {
+  "away": "NYY",
+  "home": "TOR",
+  "inning": 5,
+  "half": "Bot",
+  "count": "0-1",
+  "outcome": "double",
+  "board_hr_prob": 0.15
+ },
+ "pitch": {
+  "release_pos_x": 3.08,
+  "release_pos_y": 54.8,
+  "release_pos_z": 5.37,
+  "vx0": -8.205170972433903,
+  "vy0": -123.90178698919588,
+  "vz0": -2.2804616464206555,
+  "ax": 12.014947599849645,
+  "ay": 25.125423454089443,
+  "az": -28.25431376367343,
+  "release_speed": 85.3,
+  "release_spin_rate": 2006.0,
+  "pitch_name": "Changeup",
+  "plate_x": 0.3852388452354334,
+  "plate_z": 1.9213439090370672,
+  "sz_top": 3.255987533,
+  "sz_bot": 1.643208661
+ },
+ "bat": {
+  "bat_speed": 76.3,
+  "swing_length": 8.2,
+  "attack_angle": 19.9,
+  "attack_direction": 0.1
+ },
+ "contact": {
+  "ev": 107.5,
+  "la": 23.0,
+  "distance_ft": 386.0,
+  "bearing_deg": -11.9
+ },
+ "wall": null
+}

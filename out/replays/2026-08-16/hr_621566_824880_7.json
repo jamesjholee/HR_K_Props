@@ -1,0 +1,55 @@
+{
+ "type": "home_run",
+ "date": "2026-08-16",
+ "gamePk": 824880,
+ "batter": {
+  "id": 621566,
+  "name": "Matt Olson",
+  "headshot": "https://img.mlbstatic.com/mlb-photos/image/upload/w_240,q_auto:best/v1/people/621566/headshot/67/current",
+  "bat_side": "L"
+ },
+ "pitcher": {
+  "id": 805299,
+  "name": "Brandyn Garcia"
+ },
+ "context": {
+  "away": "AZ",
+  "home": "ATL",
+  "inning": 7,
+  "half": "Bot",
+  "count": "3-0",
+  "outcome": "home_run",
+  "board_hr_prob": 0.16
+ },
+ "pitch": {
+  "release_pos_x": 1.66,
+  "release_pos_y": 55.13,
+  "release_pos_z": 5.73,
+  "vx0": -7.110597650429956,
+  "vy0": -139.3322897962835,
+  "vz0": -4.352183035514849,
+  "ax": 19.670819037192295,
+  "ay": 31.389611797086516,
+  "az": -29.146924447068333,
+  "release_speed": 95.8,
+  "release_spin_rate": 2387.0,
+  "pitch_name": "Sinker",
+  "plate_x": 0.0988402426136354,
+  "plate_z": 1.998152067157867,
+  "sz_top": 3.37183399,
+  "sz_bot": 1.701673228
+ },
+ "bat": {
+  "bat_speed": 77.7,
+  "swing_length": 8.0,
+  "attack_angle": 11.3,
+  "attack_direction": -1.5
+ },
+ "contact": {
+  "ev": 109.5,
+  "la": 24.0,
+  "distance_ft": 437.0,
+  "bearing_deg": -5.0
+ },
+ "wall": null
+}

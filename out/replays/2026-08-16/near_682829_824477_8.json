@@ -1,0 +1,55 @@
+{
+ "type": "near_hr",
+ "date": "2026-08-16",
+ "gamePk": 824477,
+ "batter": {
+  "id": 682829,
+  "name": "Elly De La Cruz",
+  "headshot": "https://img.mlbstatic.com/mlb-photos/image/upload/w_240,q_auto:best/v1/people/682829/headshot/67/current",
+  "bat_side": "S"
+ },
+ "pitcher": {
+  "id": 656848,
+  "name": "Michael Petersen"
+ },
+ "context": {
+  "away": "MIA",
+  "home": "CIN",
+  "inning": 8,
+  "half": "Bot",
+  "count": "2-1",
+  "outcome": "field_out",
+  "board_hr_prob": 0.16
+ },
+ "pitch": {
+  "release_pos_x": -0.46,
+  "release_pos_y": 54.06,
+  "release_pos_z": 6.75,
+  "vx0": 3.799449703837084,
+  "vy0": -142.10982862692617,
+  "vz0": -6.316885098350843,
+  "ax": -9.32520576070272,
+  "ay": 32.235735008474144,
+  "az": -11.069543691368844,
+  "release_speed": 97.7,
+  "release_spin_rate": 2464.0,
+  "pitch_name": "4-Seam Fastball",
+  "plate_x": 0.4143350174670089,
+  "plate_z": 3.5635891322306072,
+  "sz_top": 3.460474081,
+  "sz_bot": 1.74640748
+ },
+ "bat": {
+  "bat_speed": 77.3,
+  "swing_length": 7.3,
+  "attack_angle": 13.5,
+  "attack_direction": -0.6
+ },
+ "contact": {
+  "ev": 99.3,
+  "la": 27.0,
+  "distance_ft": 383.0,
+  "bearing_deg": 5.0
+ },
+ "wall": null
+}

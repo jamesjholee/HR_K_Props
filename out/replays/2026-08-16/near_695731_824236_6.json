@@ -1,0 +1,55 @@
+{
+ "type": "near_hr",
+ "date": "2026-08-16",
+ "gamePk": 824236,
+ "batter": {
+  "id": 695731,
+  "name": "Braden Montgomery",
+  "headshot": "https://img.mlbstatic.com/mlb-photos/image/upload/w_240,q_auto:best/v1/people/695731/headshot/67/current",
+  "bat_side": "S"
+ },
+ "pitcher": {
+  "id": 663947,
+  "name": "Tyler Holton"
+ },
+ "context": {
+  "away": "CWS",
+  "home": "DET",
+  "inning": 6,
+  "half": "Top",
+  "count": "0-1",
+  "outcome": "field_out",
+  "board_hr_prob": 0.08
+ },
+ "pitch": {
+  "release_pos_x": 1.68,
+  "release_pos_y": 53.96,
+  "release_pos_z": 5.81,
+  "vx0": -3.844610469068307,
+  "vy0": -129.7795017018647,
+  "vz0": -4.35447042578689,
+  "ax": -3.6272492481231056,
+  "ay": 23.373002912624035,
+  "az": -26.180313835563744,
+  "release_speed": 89.1,
+  "release_spin_rate": 2311.0,
+  "pitch_name": "Cutter",
+  "plate_x": -0.2278967299746943,
+  "plate_z": 1.9426400248218507,
+  "sz_top": 3.284071522,
+  "sz_bot": 1.65738189
+ },
+ "bat": {
+  "bat_speed": 71.7,
+  "swing_length": 7.2,
+  "attack_angle": 9.4,
+  "attack_direction": 2.4
+ },
+ "contact": {
+  "ev": 99.7,
+  "la": 36.0,
+  "distance_ft": 359.0,
+  "bearing_deg": 13.1
+ },
+ "wall": null
+}

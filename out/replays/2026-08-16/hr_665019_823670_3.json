@@ -1,0 +1,55 @@
+{
+ "type": "home_run",
+ "date": "2026-08-16",
+ "gamePk": 823670,
+ "batter": {
+  "id": 665019,
+  "name": "Kody Clemens",
+  "headshot": "https://img.mlbstatic.com/mlb-photos/image/upload/w_240,q_auto:best/v1/people/665019/headshot/67/current",
+  "bat_side": "L"
+ },
+ "pitcher": {
+  "id": 691725,
+  "name": "Andrew Painter"
+ },
+ "context": {
+  "away": "PHI",
+  "home": "MIN",
+  "inning": 3,
+  "half": "Bot",
+  "count": "1-0",
+  "outcome": "home_run",
+  "board_hr_prob": 0.15
+ },
+ "pitch": {
+  "release_pos_x": -2.08,
+  "release_pos_y": 53.94,
+  "release_pos_z": 6.53,
+  "vx0": 8.410447855135311,
+  "vy0": -140.68794863418546,
+  "vz0": -7.472435168048385,
+  "ax": -7.560735871218863,
+  "ay": 31.55526433355066,
+  "az": -10.742194858553528,
+  "release_speed": 96.9,
+  "release_spin_rate": 2565.0,
+  "pitch_name": "4-Seam Fastball",
+  "plate_x": 0.7251662333934683,
+  "plate_z": 2.8772841308127655,
+  "sz_top": 3.211228675,
+  "sz_bot": 1.620620079
+ },
+ "bat": {
+  "bat_speed": 70.6,
+  "swing_length": 6.9,
+  "attack_angle": 17.4,
+  "attack_direction": -12.2
+ },
+ "contact": {
+  "ev": 104.9,
+  "la": 35.0,
+  "distance_ft": 400.0,
+  "bearing_deg": 44.4
+ },
+ "wall": null
+}

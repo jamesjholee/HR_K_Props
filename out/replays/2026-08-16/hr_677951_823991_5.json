@@ -1,0 +1,55 @@
+{
+ "type": "home_run",
+ "date": "2026-08-16",
+ "gamePk": 823991,
+ "batter": {
+  "id": 677951,
+  "name": "Bobby Witt Jr.",
+  "headshot": "https://img.mlbstatic.com/mlb-photos/image/upload/w_240,q_auto:best/v1/people/677951/headshot/67/current",
+  "bat_side": "R"
+ },
+ "pitcher": {
+  "id": 696270,
+  "name": "Ryan Johnson"
+ },
+ "context": {
+  "away": "KC",
+  "home": "LAA",
+  "inning": 5,
+  "half": "Top",
+  "count": "0-0",
+  "outcome": "home_run",
+  "board_hr_prob": 0.13
+ },
+ "pitch": {
+  "release_pos_x": -2.73,
+  "release_pos_y": 54.41,
+  "release_pos_z": 5.69,
+  "vx0": 4.4507302141703216,
+  "vy0": -118.44605933524431,
+  "vz0": -1.1311502288902628,
+  "ax": 3.8033241728368345,
+  "ay": 25.220329092455493,
+  "az": -25.29349454737913,
+  "release_speed": 81.4,
+  "release_spin_rate": 2455.0,
+  "pitch_name": "Sweeper",
+  "plate_x": -0.2641554676910965,
+  "plate_z": 2.7635686113834947,
+  "sz_top": 3.238435039,
+  "sz_bot": 1.634350394
+ },
+ "bat": {
+  "bat_speed": 74.7,
+  "swing_length": 7.5,
+  "attack_angle": 15.7,
+  "attack_direction": -24.4
+ },
+ "contact": {
+  "ev": 98.4,
+  "la": 38.0,
+  "distance_ft": 365.0,
+  "bearing_deg": -43.5
+ },
+ "wall": null
+}

@@ -1,0 +1,55 @@
+{
+ "type": "home_run",
+ "date": "2026-08-16",
+ "gamePk": 823912,
+ "batter": {
+  "id": 571970,
+  "name": "Max Muncy",
+  "headshot": "https://img.mlbstatic.com/mlb-photos/image/upload/w_240,q_auto:best/v1/people/571970/headshot/67/current",
+  "bat_side": "L"
+ },
+ "pitcher": {
+  "id": 701656,
+  "name": "Logan Henderson"
+ },
+ "context": {
+  "away": "MIL",
+  "home": "LAD",
+  "inning": 4,
+  "half": "Bot",
+  "count": "2-0",
+  "outcome": "home_run",
+  "board_hr_prob": 0.15
+ },
+ "pitch": {
+  "release_pos_x": -1.74,
+  "release_pos_y": 54.38,
+  "release_pos_z": 5.23,
+  "vx0": 5.877186766587471,
+  "vy0": -122.0353348827555,
+  "vz0": -0.9182834072567252,
+  "ax": -16.017251377631567,
+  "ay": 22.617224732855593,
+  "az": -27.719363753180996,
+  "release_speed": 83.8,
+  "release_spin_rate": 2550.0,
+  "pitch_name": "Changeup",
+  "plate_x": -0.4592352469401366,
+  "plate_z": 2.3775875222642537,
+  "sz_top": 3.127854331,
+  "sz_bot": 1.578543307
+ },
+ "bat": {
+  "bat_speed": 80.3,
+  "swing_length": 7.4,
+  "attack_angle": 21.0,
+  "attack_direction": -11.4
+ },
+ "contact": {
+  "ev": 101.6,
+  "la": 32.0,
+  "distance_ft": 370.0,
+  "bearing_deg": 41.4
+ },
+ "wall": null
+}

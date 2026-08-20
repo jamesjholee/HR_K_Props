@@ -1,0 +1,55 @@
+{
+ "type": "home_run",
+ "date": "2026-08-16",
+ "gamePk": 822940,
+ "batter": {
+  "id": 668723,
+  "name": "Ryan Vilade",
+  "headshot": "https://img.mlbstatic.com/mlb-photos/image/upload/w_240,q_auto:best/v1/people/668723/headshot/67/current",
+  "bat_side": "R"
+ },
+ "pitcher": {
+  "id": 669432,
+  "name": "Trevor Rogers"
+ },
+ "context": {
+  "away": "BAL",
+  "home": "TB",
+  "inning": 4,
+  "half": "Bot",
+  "count": "2-2",
+  "outcome": "home_run",
+  "board_hr_prob": 0.13
+ },
+ "pitch": {
+  "release_pos_x": 2.26,
+  "release_pos_y": 53.54,
+  "release_pos_z": 5.77,
+  "vx0": -7.910942880998466,
+  "vy0": -137.77211104859884,
+  "vz0": -4.04083408751581,
+  "ax": 15.874799962308373,
+  "ay": 30.485105275393277,
+  "az": -16.825766830610277,
+  "release_speed": 94.8,
+  "release_spin_rate": 2459.0,
+  "pitch_name": "4-Seam Fastball",
+  "plate_x": 0.2073307170569935,
+  "plate_z": 2.9877319379786553,
+  "sz_top": 3.275295276,
+  "sz_bot": 1.652952756
+ },
+ "bat": {
+  "bat_speed": 80.3,
+  "swing_length": 7.3,
+  "attack_angle": 10.2,
+  "attack_direction": 2.3
+ },
+ "contact": {
+  "ev": 106.9,
+  "la": 23.0,
+  "distance_ft": 441.0,
+  "bearing_deg": -9.1
+ },
+ "wall": null
+}

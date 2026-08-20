@@ -1,0 +1,55 @@
+{
+ "type": "home_run",
+ "date": "2026-08-16",
+ "gamePk": 824477,
+ "batter": {
+  "id": 663886,
+  "name": "Tyler Stephenson",
+  "headshot": "https://img.mlbstatic.com/mlb-photos/image/upload/w_240,q_auto:best/v1/people/663886/headshot/67/current",
+  "bat_side": "R"
+ },
+ "pitcher": {
+  "id": 656848,
+  "name": "Michael Petersen"
+ },
+ "context": {
+  "away": "MIA",
+  "home": "CIN",
+  "inning": 8,
+  "half": "Bot",
+  "count": "0-0",
+  "outcome": "home_run",
+  "board_hr_prob": 0.14
+ },
+ "pitch": {
+  "release_pos_x": -0.35,
+  "release_pos_y": 54.09,
+  "release_pos_z": 6.82,
+  "vx0": 3.134690450637818,
+  "vy0": -140.9927084374214,
+  "vz0": -9.806481886341638,
+  "ax": -6.332727699684914,
+  "ay": 30.720817799479413,
+  "az": -11.002911458730074,
+  "release_speed": 97.0,
+  "release_spin_rate": 2295.0,
+  "pitch_name": "4-Seam Fastball",
+  "plate_x": 0.4668836908761028,
+  "plate_z": 2.240472840128413,
+  "sz_top": 3.359547244,
+  "sz_bot": 1.695472441
+ },
+ "bat": {
+  "bat_speed": 70.8,
+  "swing_length": 7.3,
+  "attack_angle": 14.7,
+  "attack_direction": 6.7
+ },
+ "contact": {
+  "ev": 99.0,
+  "la": 26.0,
+  "distance_ft": 390.0,
+  "bearing_deg": 13.4
+ },
+ "wall": null
+}

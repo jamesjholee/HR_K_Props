@@ -1,0 +1,55 @@
+{
+ "type": "home_run",
+ "date": "2026-08-16",
+ "gamePk": 824642,
+ "batter": {
+  "id": 665804,
+  "name": "Miguel Amaya",
+  "headshot": "https://img.mlbstatic.com/mlb-photos/image/upload/w_240,q_auto:best/v1/people/665804/headshot/67/current",
+  "bat_side": "R"
+ },
+ "pitcher": {
+  "id": 657571,
+  "name": "Caleb Ferguson"
+ },
+ "context": {
+  "away": "STL",
+  "home": "CHC",
+  "inning": 9,
+  "half": "Bot",
+  "count": "2-2",
+  "outcome": "home_run",
+  "board_hr_prob": 0.15000000000000002
+ },
+ "pitch": {
+  "release_pos_x": 2.83,
+  "release_pos_y": 54.16,
+  "release_pos_z": 5.51,
+  "vx0": -7.323776985733985,
+  "vy0": -134.29922659220406,
+  "vz0": -5.588133543353294,
+  "ax": 9.078292114096495,
+  "ay": 26.43180043277981,
+  "az": -18.315644951974257,
+  "release_speed": 92.3,
+  "release_spin_rate": 2336.0,
+  "pitch_name": "4-Seam Fastball",
+  "plate_x": 0.4651860854341331,
+  "plate_z": 1.8837937828193412,
+  "sz_top": 3.248966535,
+  "sz_bot": 1.639665354
+ },
+ "bat": {
+  "bat_speed": 73.8,
+  "swing_length": 7.5,
+  "attack_angle": 3.5,
+  "attack_direction": 12.1
+ },
+ "contact": {
+  "ev": 100.8,
+  "la": 28.0,
+  "distance_ft": 395.0,
+  "bearing_deg": 23.6
+ },
+ "wall": null
+}

@@ -1,0 +1,55 @@
+{
+ "type": "near_hr",
+ "date": "2026-08-16",
+ "gamePk": 824642,
+ "batter": {
+  "id": 691023,
+  "name": "Jordan Walker",
+  "headshot": "https://img.mlbstatic.com/mlb-photos/image/upload/w_240,q_auto:best/v1/people/691023/headshot/67/current",
+  "bat_side": "R"
+ },
+ "pitcher": {
+  "id": 663423,
+  "name": "663423"
+ },
+ "context": {
+  "away": "STL",
+  "home": "CHC",
+  "inning": 8,
+  "half": "Top",
+  "count": "0-0",
+  "outcome": "double",
+  "board_hr_prob": 0.14
+ },
+ "pitch": {
+  "release_pos_x": -2.49,
+  "release_pos_y": 54.42,
+  "release_pos_z": 5.55,
+  "vx0": 6.784458455930527,
+  "vy0": -134.2808758669327,
+  "vz0": -2.6260494218178603,
+  "ax": 1.9388646807344676,
+  "ay": 24.751326034093733,
+  "az": -22.006721398093145,
+  "release_speed": 92.2,
+  "release_spin_rate": 2672.0,
+  "pitch_name": "Cutter",
+  "plate_x": 0.4486167310341484,
+  "plate_z": 2.8860302176579817,
+  "sz_top": 3.461351706,
+  "sz_bot": 1.746850394
+ },
+ "bat": {
+  "bat_speed": 84.4,
+  "swing_length": 8.0,
+  "attack_angle": 1.7,
+  "attack_direction": 8.9
+ },
+ "contact": {
+  "ev": 101.1,
+  "la": 26.0,
+  "distance_ft": 375.0,
+  "bearing_deg": 22.6
+ },
+ "wall": null
+}

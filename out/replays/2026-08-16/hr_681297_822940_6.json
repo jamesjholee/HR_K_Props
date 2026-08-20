@@ -1,0 +1,55 @@
+{
+ "type": "home_run",
+ "date": "2026-08-16",
+ "gamePk": 822940,
+ "batter": {
+  "id": 681297,
+  "name": "Colton Cowser",
+  "headshot": "https://img.mlbstatic.com/mlb-photos/image/upload/w_240,q_auto:best/v1/people/681297/headshot/67/current",
+  "bat_side": "L"
+ },
+ "pitcher": {
+  "id": 571927,
+  "name": "Steven Matz"
+ },
+ "context": {
+  "away": "BAL",
+  "home": "TB",
+  "inning": 6,
+  "half": "Top",
+  "count": "1-2",
+  "outcome": "home_run",
+  "board_hr_prob": 0.13
+ },
+ "pitch": {
+  "release_pos_x": 3.29,
+  "release_pos_y": 53.47,
+  "release_pos_z": 4.96,
+  "vx0": -4.977847126190531,
+  "vy0": -117.23707284909796,
+  "vz0": 1.4686994392966002,
+  "ax": -8.7388473693791,
+  "ay": 21.556370884694093,
+  "az": -37.13401426438165,
+  "release_speed": 80.5,
+  "release_spin_rate": 2389.0,
+  "pitch_name": "Curveball",
+  "plate_x": 0.1280404187222211,
+  "plate_z": 2.1010885552789187,
+  "sz_top": 3.328830381,
+  "sz_bot": 1.679970472
+ },
+ "bat": {
+  "bat_speed": 77.9,
+  "swing_length": 7.7,
+  "attack_angle": 19.0,
+  "attack_direction": -8.9
+ },
+ "contact": {
+  "ev": 103.6,
+  "la": 39.0,
+  "distance_ft": 392.0,
+  "bearing_deg": 23.8
+ },
+ "wall": null
+}

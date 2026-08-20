@@ -1,0 +1,61 @@
+{
+ "type": "near_hr",
+ "date": "2026-08-16",
+ "gamePk": 824397,
+ "batter": {
+  "id": 665487,
+  "name": "Fernando Tatis Jr.",
+  "headshot": "https://img.mlbstatic.com/mlb-photos/image/upload/w_240,q_auto:best/v1/people/665487/headshot/67/current",
+  "bat_side": "R"
+ },
+ "pitcher": {
+  "id": 676440,
+  "name": "Tanner Bibee"
+ },
+ "context": {
+  "away": "SD",
+  "home": "CLE",
+  "inning": 1,
+  "half": "Top",
+  "count": "0-0",
+  "outcome": "field_out",
+  "board_hr_prob": 0.1
+ },
+ "pitch": {
+  "release_pos_x": -1.92,
+  "release_pos_y": 53.48,
+  "release_pos_z": 6.18,
+  "vx0": 7.0054567816967905,
+  "vy0": -138.60946960507098,
+  "vz0": -4.854168021654953,
+  "ax": -5.727523313254626,
+  "ay": 29.763139914978193,
+  "az": -16.372770444262244,
+  "release_speed": 95.3,
+  "release_spin_rate": 1940.0,
+  "pitch_name": "4-Seam Fastball",
+  "plate_x": 0.4554508357796429,
+  "plate_z": 3.1400522495440386,
+  "sz_top": 3.346382874,
+  "sz_bot": 1.68882874
+ },
+ "bat": {
+  "bat_speed": 79.5,
+  "swing_length": 7.4,
+  "attack_angle": 9.2,
+  "attack_direction": 1.2
+ },
+ "contact": {
+  "ev": 101.9,
+  "la": 40.0,
+  "distance_ft": 375.0,
+  "bearing_deg": 16.9
+ },
+ "wall": {
+  "dist_ft": 381.1,
+  "height_ft": 8.0,
+  "ball_height_at_wall_ft": 0.0,
+  "clearance_ft": -8.0,
+  "short_by_ft": 6.1
+ }
+}

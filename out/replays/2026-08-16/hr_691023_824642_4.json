@@ -1,0 +1,55 @@
+{
+ "type": "home_run",
+ "date": "2026-08-16",
+ "gamePk": 824642,
+ "batter": {
+  "id": 691023,
+  "name": "Jordan Walker",
+  "headshot": "https://img.mlbstatic.com/mlb-photos/image/upload/w_240,q_auto:best/v1/people/691023/headshot/67/current",
+  "bat_side": "R"
+ },
+ "pitcher": {
+  "id": 669020,
+  "name": "Ryan Rolison"
+ },
+ "context": {
+  "away": "STL",
+  "home": "CHC",
+  "inning": 4,
+  "half": "Top",
+  "count": "3-2",
+  "outcome": "home_run",
+  "board_hr_prob": 0.14
+ },
+ "pitch": {
+  "release_pos_x": 1.87,
+  "release_pos_y": 53.95,
+  "release_pos_z": 5.99,
+  "vx0": -1.3514093599845862,
+  "vy0": -115.14615212181532,
+  "vz0": 0.9873134250021952,
+  "ax": -8.537390602242173,
+  "ay": 22.54070957855761,
+  "az": -40.96650555989568,
+  "release_speed": 79.1,
+  "release_spin_rate": 2637.0,
+  "pitch_name": "Curveball",
+  "plate_x": 0.3715263510219589,
+  "plate_z": 2.388714933133694,
+  "sz_top": 3.461351706,
+  "sz_bot": 1.746850394
+ },
+ "bat": {
+  "bat_speed": 80.7,
+  "swing_length": 8.4,
+  "attack_angle": -0.0,
+  "attack_direction": 1.8
+ },
+ "contact": {
+  "ev": 106.6,
+  "la": 23.0,
+  "distance_ft": 413.0,
+  "bearing_deg": 4.0
+ },
+ "wall": null
+}

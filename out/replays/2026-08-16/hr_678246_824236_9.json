@@ -1,0 +1,55 @@
+{
+ "type": "home_run",
+ "date": "2026-08-16",
+ "gamePk": 824236,
+ "batter": {
+  "id": 678246,
+  "name": "Miguel Vargas",
+  "headshot": "https://img.mlbstatic.com/mlb-photos/image/upload/w_240,q_auto:best/v1/people/678246/headshot/67/current",
+  "bat_side": "R"
+ },
+ "pitcher": {
+  "id": 621097,
+  "name": "Jacob Waguespack"
+ },
+ "context": {
+  "away": "CWS",
+  "home": "DET",
+  "inning": 9,
+  "half": "Top",
+  "count": "2-2",
+  "outcome": "home_run",
+  "board_hr_prob": 0.15
+ },
+ "pitch": {
+  "release_pos_x": 0.04,
+  "release_pos_y": 53.39,
+  "release_pos_z": 6.19,
+  "vx0": 0.1643820073120936,
+  "vy0": -137.16879430064515,
+  "vz0": -3.666134750014917,
+  "ax": 1.927533045217376,
+  "ay": 29.922914504295026,
+  "az": -13.113355320173428,
+  "release_speed": 94.2,
+  "release_spin_rate": 2190.0,
+  "pitch_name": "4-Seam Fastball",
+  "plate_x": 0.2410639167507912,
+  "plate_z": 3.804992934643772,
+  "sz_top": 3.290214895,
+  "sz_bot": 1.660482283
+ },
+ "bat": {
+  "bat_speed": 72.9,
+  "swing_length": 7.9,
+  "attack_angle": 14.0,
+  "attack_direction": -19.3
+ },
+ "contact": {
+  "ev": 98.0,
+  "la": 30.0,
+  "distance_ft": 381.0,
+  "bearing_deg": -41.3
+ },
+ "wall": null
+}

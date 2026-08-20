@@ -1,0 +1,55 @@
+{
+ "type": "near_hr",
+ "date": "2026-08-16",
+ "gamePk": 824965,
+ "batter": {
+  "id": 679822,
+  "name": "Justin Foscue",
+  "headshot": "https://img.mlbstatic.com/mlb-photos/image/upload/w_240,q_auto:best/v1/people/679822/headshot/67/current",
+  "bat_side": "R"
+ },
+ "pitcher": {
+  "id": 682052,
+  "name": "Jacob Lopez"
+ },
+ "context": {
+  "away": "TEX",
+  "home": "ATH",
+  "inning": 6,
+  "half": "Top",
+  "count": "1-2",
+  "outcome": "field_out",
+  "board_hr_prob": 0.1
+ },
+ "pitch": {
+  "release_pos_x": 3.66,
+  "release_pos_y": 53.96,
+  "release_pos_z": 4.96,
+  "vx0": -4.270831264681702,
+  "vy0": -110.06843609269058,
+  "vz0": 0.3793919747783112,
+  "ax": -7.292988107984687,
+  "ay": 19.07329874145384,
+  "az": -30.555905127556617,
+  "release_speed": 75.6,
+  "release_spin_rate": 2431.0,
+  "pitch_name": "Slider",
+  "plate_x": 0.7199597983466739,
+  "plate_z": 1.8471103862490337,
+  "sz_top": 3.150672572,
+  "sz_bot": 1.590059055
+ },
+ "bat": {
+  "bat_speed": 74.2,
+  "swing_length": 7.4,
+  "attack_angle": 9.8,
+  "attack_direction": 3.2
+ },
+ "contact": {
+  "ev": 100.9,
+  "la": 22.0,
+  "distance_ft": 372.0,
+  "bearing_deg": 9.5
+ },
+ "wall": null
+}

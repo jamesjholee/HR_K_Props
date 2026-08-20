@@ -1,0 +1,55 @@
+{
+ "type": "home_run",
+ "date": "2026-08-16",
+ "gamePk": 824642,
+ "batter": {
+  "id": 676475,
+  "name": "Alec Burleson",
+  "headshot": "https://img.mlbstatic.com/mlb-photos/image/upload/w_240,q_auto:best/v1/people/676475/headshot/67/current",
+  "bat_side": "L"
+ },
+ "pitcher": {
+  "id": 665795,
+  "name": "Edward Cabrera"
+ },
+ "context": {
+  "away": "STL",
+  "home": "CHC",
+  "inning": 1,
+  "half": "Top",
+  "count": "1-1",
+  "outcome": "home_run",
+  "board_hr_prob": 0.17
+ },
+ "pitch": {
+  "release_pos_x": -1.57,
+  "release_pos_y": 53.79,
+  "release_pos_z": 5.85,
+  "vx0": 7.397068185742812,
+  "vy0": -138.41243005659345,
+  "vz0": -6.256644165110346,
+  "ax": -20.524923834245634,
+  "ay": 30.624233773531845,
+  "az": -24.47966282260638,
+  "release_speed": 95.2,
+  "release_spin_rate": 2044.0,
+  "pitch_name": "Changeup",
+  "plate_x": -0.0295916654147874,
+  "plate_z": 1.6811233738917597,
+  "sz_top": 3.215616798,
+  "sz_bot": 1.622834646
+ },
+ "bat": {
+  "bat_speed": 76.3,
+  "swing_length": 8.7,
+  "attack_angle": 24.7,
+  "attack_direction": -13.1
+ },
+ "contact": {
+  "ev": 105.8,
+  "la": 33.0,
+  "distance_ft": 421.0,
+  "bearing_deg": 31.2
+ },
+ "wall": null
+}

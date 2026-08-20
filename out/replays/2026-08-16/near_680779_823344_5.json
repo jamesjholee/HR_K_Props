@@ -1,0 +1,55 @@
+{
+ "type": "near_hr",
+ "date": "2026-08-16",
+ "gamePk": 823344,
+ "batter": {
+  "id": 680779,
+  "name": "Henry Davis",
+  "headshot": "https://img.mlbstatic.com/mlb-photos/image/upload/w_240,q_auto:best/v1/people/680779/headshot/67/current",
+  "bat_side": "R"
+ },
+ "pitcher": {
+  "id": 670103,
+  "name": "Raymond Burgos"
+ },
+ "context": {
+  "away": "BOS",
+  "home": "PIT",
+  "inning": 5,
+  "half": "Bot",
+  "count": "2-2",
+  "outcome": "field_out",
+  "board_hr_prob": 0.11
+ },
+ "pitch": {
+  "release_pos_x": 2.57,
+  "release_pos_y": 54.82,
+  "release_pos_z": 5.54,
+  "vx0": -1.5148732564457958,
+  "vy0": -112.16846307963596,
+  "vz0": 0.7811215365882409,
+  "ax": -10.153856634258412,
+  "ay": 20.900723091936545,
+  "az": -31.388561337933407,
+  "release_speed": 77.0,
+  "release_spin_rate": 2345.0,
+  "pitch_name": "Sweeper",
+  "plate_x": 0.7523107187869065,
+  "plate_z": 2.6546783175927477,
+  "sz_top": 3.187532808,
+  "sz_bot": 1.608661417
+ },
+ "bat": {
+  "bat_speed": 76.2,
+  "swing_length": 7.5,
+  "attack_angle": 15.4,
+  "attack_direction": -11.4
+ },
+ "contact": {
+  "ev": 100.3,
+  "la": 39.0,
+  "distance_ft": 375.0,
+  "bearing_deg": -21.0
+ },
+ "wall": null
+}

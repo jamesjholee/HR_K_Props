@@ -1,0 +1,55 @@
+{
+ "type": "near_hr",
+ "date": "2026-08-16",
+ "gamePk": 823912,
+ "batter": {
+  "id": 694192,
+  "name": "Jackson Chourio",
+  "headshot": "https://img.mlbstatic.com/mlb-photos/image/upload/w_240,q_auto:best/v1/people/694192/headshot/67/current",
+  "bat_side": "R"
+ },
+ "pitcher": {
+  "id": 669373,
+  "name": "Tarik Skubal"
+ },
+ "context": {
+  "away": "MIL",
+  "home": "LAD",
+  "inning": 2,
+  "half": "Top",
+  "count": "1-0",
+  "outcome": "field_out",
+  "board_hr_prob": 0.16
+ },
+ "pitch": {
+  "release_pos_x": 1.61,
+  "release_pos_y": 54.03,
+  "release_pos_z": 6.33,
+  "vx0": -7.319877177814882,
+  "vy0": -140.5543320031494,
+  "vz0": -6.308093822604504,
+  "ax": 3.9119330953155655,
+  "ay": 32.05979079831616,
+  "az": -10.610661052086014,
+  "release_speed": 96.7,
+  "release_spin_rate": 2435.0,
+  "pitch_name": "4-Seam Fastball",
+  "plate_x": -1.0169808951245167,
+  "plate_z": 3.135255406443194,
+  "sz_top": 3.237557415,
+  "sz_bot": 1.63390748
+ },
+ "bat": {
+  "bat_speed": 74.9,
+  "swing_length": 6.8,
+  "attack_angle": 11.7,
+  "attack_direction": -2.8
+ },
+ "contact": {
+  "ev": 100.3,
+  "la": 40.0,
+  "distance_ft": 361.0,
+  "bearing_deg": -8.1
+ },
+ "wall": null
+}

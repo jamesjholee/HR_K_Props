@@ -1,0 +1,55 @@
+{
+ "type": "home_run",
+ "date": "2026-08-16",
+ "gamePk": 824236,
+ "batter": {
+  "id": 808959,
+  "name": "Munetaka Murakami",
+  "headshot": "https://img.mlbstatic.com/mlb-photos/image/upload/w_240,q_auto:best/v1/people/808959/headshot/67/current",
+  "bat_side": "L"
+ },
+ "pitcher": {
+  "id": 663947,
+  "name": "Tyler Holton"
+ },
+ "context": {
+  "away": "CWS",
+  "home": "DET",
+  "inning": 7,
+  "half": "Top",
+  "count": "1-1",
+  "outcome": "home_run",
+  "board_hr_prob": 0.15
+ },
+ "pitch": {
+  "release_pos_x": 1.75,
+  "release_pos_y": 53.99,
+  "release_pos_z": 5.7,
+  "vx0": -7.058970750848496,
+  "vy0": -133.6942069317515,
+  "vz0": -3.3446906284669584,
+  "ax": 15.10279062981872,
+  "ay": 23.77444986208546,
+  "az": -23.504658248913476,
+  "release_speed": 91.8,
+  "release_spin_rate": 1988.0,
+  "pitch_name": "Sinker",
+  "plate_x": -0.0621636339031694,
+  "plate_z": 2.6219130884211905,
+  "sz_top": 3.296358268,
+  "sz_bot": 1.663582677
+ },
+ "bat": {
+  "bat_speed": 76.3,
+  "swing_length": 7.7,
+  "attack_angle": 16.0,
+  "attack_direction": 11.1
+ },
+ "contact": {
+  "ev": 102.4,
+  "la": 33.0,
+  "distance_ft": 393.0,
+  "bearing_deg": -24.5
+ },
+ "wall": null
+}

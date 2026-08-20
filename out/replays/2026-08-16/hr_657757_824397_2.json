@@ -1,0 +1,61 @@
+{
+ "type": "home_run",
+ "date": "2026-08-16",
+ "gamePk": 824397,
+ "batter": {
+  "id": 657757,
+  "name": "Gavin Sheets",
+  "headshot": "https://img.mlbstatic.com/mlb-photos/image/upload/w_240,q_auto:best/v1/people/657757/headshot/67/current",
+  "bat_side": "L"
+ },
+ "pitcher": {
+  "id": 676440,
+  "name": "Tanner Bibee"
+ },
+ "context": {
+  "away": "SD",
+  "home": "CLE",
+  "inning": 2,
+  "half": "Top",
+  "count": "2-2",
+  "outcome": "home_run",
+  "board_hr_prob": 0.13
+ },
+ "pitch": {
+  "release_pos_x": -2.13,
+  "release_pos_y": 53.45,
+  "release_pos_z": 6.06,
+  "vx0": 6.740123418220798,
+  "vy0": -117.65317351128915,
+  "vz0": -3.369431387848736,
+  "ax": -10.126583949660231,
+  "ay": 19.362451886048188,
+  "az": -22.86413389226688,
+  "release_speed": 80.8,
+  "release_spin_rate": 1967.0,
+  "pitch_name": "Changeup",
+  "plate_x": 0.0399554648205194,
+  "plate_z": 2.3490569715128458,
+  "sz_top": 3.350770997,
+  "sz_bot": 1.691043307
+ },
+ "bat": {
+  "bat_speed": 77.3,
+  "swing_length": 8.0,
+  "attack_angle": 12.5,
+  "attack_direction": -19.5
+ },
+ "contact": {
+  "ev": 96.0,
+  "la": 34.0,
+  "distance_ft": 367.0,
+  "bearing_deg": 33.7
+ },
+ "wall": {
+  "dist_ft": 345.8,
+  "height_ft": 8.0,
+  "ball_height_at_wall_ft": 13.8,
+  "clearance_ft": 5.8,
+  "short_by_ft": null
+ }
+}

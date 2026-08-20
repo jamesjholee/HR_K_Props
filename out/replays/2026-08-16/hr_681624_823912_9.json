@@ -1,0 +1,55 @@
+{
+ "type": "home_run",
+ "date": "2026-08-16",
+ "gamePk": 823912,
+ "batter": {
+  "id": 681624,
+  "name": "Andy Pages",
+  "headshot": "https://img.mlbstatic.com/mlb-photos/image/upload/w_240,q_auto:best/v1/people/681624/headshot/67/current",
+  "bat_side": "R"
+ },
+ "pitcher": {
+  "id": 669084,
+  "name": "DL Hall"
+ },
+ "context": {
+  "away": "MIL",
+  "home": "LAD",
+  "inning": 9,
+  "half": "Bot",
+  "count": "3-2",
+  "outcome": "home_run",
+  "board_hr_prob": 0.13
+ },
+ "pitch": {
+  "release_pos_x": 2.71,
+  "release_pos_y": 53.63,
+  "release_pos_z": 5.57,
+  "vx0": -10.155305682139211,
+  "vy0": -139.2210768213972,
+  "vz0": -5.600164313143481,
+  "ax": 11.47768523248638,
+  "ay": 29.501542575176625,
+  "az": -15.087428603908608,
+  "release_speed": 95.9,
+  "release_spin_rate": 2253.0,
+  "pitch_name": "4-Seam Fastball",
+  "plate_x": -0.5229610885475086,
+  "plate_z": 2.343909759639101,
+  "sz_top": 3.23667979,
+  "sz_bot": 1.633464567
+ },
+ "bat": {
+  "bat_speed": 72.1,
+  "swing_length": 8.0,
+  "attack_angle": 18.1,
+  "attack_direction": -9.3
+ },
+ "contact": {
+  "ev": 100.6,
+  "la": 33.0,
+  "distance_ft": 382.0,
+  "bearing_deg": -32.5
+ },
+ "wall": null
+}

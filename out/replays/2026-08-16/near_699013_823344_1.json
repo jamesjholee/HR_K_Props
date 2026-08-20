@@ -1,0 +1,55 @@
+{
+ "type": "near_hr",
+ "date": "2026-08-16",
+ "gamePk": 823344,
+ "batter": {
+  "id": 699013,
+  "name": "Esmerlyn Valdez",
+  "headshot": "https://img.mlbstatic.com/mlb-photos/image/upload/w_240,q_auto:best/v1/people/699013/headshot/67/current",
+  "bat_side": "R"
+ },
+ "pitcher": {
+  "id": 663776,
+  "name": "Patrick Sandoval"
+ },
+ "context": {
+  "away": "BOS",
+  "home": "PIT",
+  "inning": 1,
+  "half": "Bot",
+  "count": "1-1",
+  "outcome": "double",
+  "board_hr_prob": 0.21
+ },
+ "pitch": {
+  "release_pos_x": 1.37,
+  "release_pos_y": 54.37,
+  "release_pos_z": 5.87,
+  "vx0": -2.200514116857778,
+  "vy0": -125.62454205719416,
+  "vz0": -4.974079435556376,
+  "ax": -6.967818132485797,
+  "ay": 22.07902690507272,
+  "az": -27.501831455837564,
+  "release_speed": 86.2,
+  "release_spin_rate": 2598.0,
+  "pitch_name": "Slider",
+  "plate_x": -0.1722212640438952,
+  "plate_z": 1.415479665261874,
+  "sz_top": 3.311277887,
+  "sz_bot": 1.671112205
+ },
+ "bat": {
+  "bat_speed": 74.0,
+  "swing_length": 8.5,
+  "attack_angle": 15.3,
+  "attack_direction": -13.4
+ },
+ "contact": {
+  "ev": 102.0,
+  "la": 25.0,
+  "distance_ft": 372.0,
+  "bearing_deg": -30.7
+ },
+ "wall": null
+}

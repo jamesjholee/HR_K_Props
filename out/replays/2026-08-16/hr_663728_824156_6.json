@@ -1,0 +1,55 @@
+{
+ "type": "home_run",
+ "date": "2026-08-16",
+ "gamePk": 824156,
+ "batter": {
+  "id": 663728,
+  "name": "Cal Raleigh",
+  "headshot": "https://img.mlbstatic.com/mlb-photos/image/upload/w_240,q_auto:best/v1/people/663728/headshot/67/current",
+  "bat_side": "S"
+ },
+ "pitcher": {
+  "id": 656986,
+  "name": "Bennett Sousa"
+ },
+ "context": {
+  "away": "SEA",
+  "home": "HOU",
+  "inning": 6,
+  "half": "Top",
+  "count": "2-2",
+  "outcome": "home_run",
+  "board_hr_prob": 0.15
+ },
+ "pitch": {
+  "release_pos_x": 0.84,
+  "release_pos_y": 54.06,
+  "release_pos_z": 6.46,
+  "vx0": -1.3454134255650267,
+  "vy0": -120.65730542462056,
+  "vz0": -2.8267290353352426,
+  "ax": -4.721700384872554,
+  "ay": 24.681046143168125,
+  "az": -35.24319040368737,
+  "release_speed": 82.9,
+  "release_spin_rate": 2316.0,
+  "pitch_name": "Slider",
+  "plate_x": -0.2076148013595189,
+  "plate_z": 1.9625388013372675,
+  "sz_top": 3.282316273,
+  "sz_bot": 1.656496063
+ },
+ "bat": {
+  "bat_speed": 74.0,
+  "swing_length": 8.2,
+  "attack_angle": 20.6,
+  "attack_direction": -15.1
+ },
+ "contact": {
+  "ev": 100.6,
+  "la": 45.0,
+  "distance_ft": 327.0,
+  "bearing_deg": -40.6
+ },
+ "wall": null
+}

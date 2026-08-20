@@ -1,0 +1,55 @@
+{
+ "type": "home_run",
+ "date": "2026-08-16",
+ "gamePk": 824965,
+ "batter": {
+  "id": 669394,
+  "name": "Jake Burger",
+  "headshot": "https://img.mlbstatic.com/mlb-photos/image/upload/w_240,q_auto:best/v1/people/669394/headshot/67/current",
+  "bat_side": "R"
+ },
+ "pitcher": {
+  "id": 682052,
+  "name": "Jacob Lopez"
+ },
+ "context": {
+  "away": "TEX",
+  "home": "ATH",
+  "inning": 2,
+  "half": "Top",
+  "count": "1-1",
+  "outcome": "home_run",
+  "board_hr_prob": 0.18
+ },
+ "pitch": {
+  "release_pos_x": 3.43,
+  "release_pos_y": 53.83,
+  "release_pos_z": 5.21,
+  "vx0": -9.965790151184729,
+  "vy0": -117.23258070410348,
+  "vz0": -0.1144088785638743,
+  "ax": 15.77069849387138,
+  "ay": 20.255159829534016,
+  "az": -27.85713661244079,
+  "release_speed": 80.7,
+  "release_spin_rate": 2060.0,
+  "pitch_name": "Changeup",
+  "plate_x": 0.2494203204936875,
+  "plate_z": 2.5093035549793967,
+  "sz_top": 3.229658793,
+  "sz_bot": 1.62992126
+ },
+ "bat": {
+  "bat_speed": 75.0,
+  "swing_length": 7.1,
+  "attack_angle": -0.6,
+  "attack_direction": 9.7
+ },
+ "contact": {
+  "ev": 104.9,
+  "la": 24.0,
+  "distance_ft": 396.0,
+  "bearing_deg": 16.8
+ },
+ "wall": null
+}

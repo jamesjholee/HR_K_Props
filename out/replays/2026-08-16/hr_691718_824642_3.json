@@ -1,0 +1,55 @@
+{
+ "type": "home_run",
+ "date": "2026-08-16",
+ "gamePk": 824642,
+ "batter": {
+  "id": 691718,
+  "name": "Pete Crow-Armstrong",
+  "headshot": "https://img.mlbstatic.com/mlb-photos/image/upload/w_240,q_auto:best/v1/people/691718/headshot/67/current",
+  "bat_side": "L"
+ },
+ "pitcher": {
+  "id": 690928,
+  "name": "Hunter Dobbins"
+ },
+ "context": {
+  "away": "STL",
+  "home": "CHC",
+  "inning": 3,
+  "half": "Bot",
+  "count": "0-0",
+  "outcome": "home_run",
+  "board_hr_prob": 0.16999999999999998
+ },
+ "pitch": {
+  "release_pos_x": -0.5,
+  "release_pos_y": 54.25,
+  "release_pos_z": 6.16,
+  "vx0": 1.964658329467683,
+  "vy0": -136.86503244292751,
+  "vz0": -8.04988395092246,
+  "ax": -0.7353289494502497,
+  "ay": 27.166582500630454,
+  "az": -18.60940207536773,
+  "release_speed": 94.0,
+  "release_spin_rate": 2507.0,
+  "pitch_name": "4-Seam Fastball",
+  "plate_x": 0.2461561638402577,
+  "plate_z": 1.6021597099432103,
+  "sz_top": 3.202452428,
+  "sz_bot": 1.616190945
+ },
+ "bat": {
+  "bat_speed": 78.5,
+  "swing_length": 7.9,
+  "attack_angle": 12.1,
+  "attack_direction": -10.5
+ },
+ "contact": {
+  "ev": 110.3,
+  "la": 22.0,
+  "distance_ft": 408.0,
+  "bearing_deg": 28.8
+ },
+ "wall": null
+}

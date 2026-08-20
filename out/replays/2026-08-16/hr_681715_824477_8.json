@@ -1,0 +1,55 @@
+{
+ "type": "home_run",
+ "date": "2026-08-16",
+ "gamePk": 824477,
+ "batter": {
+  "id": 681715,
+  "name": "Heriberto Hern\u00e1ndez",
+  "headshot": "https://img.mlbstatic.com/mlb-photos/image/upload/w_240,q_auto:best/v1/people/681715/headshot/67/current",
+  "bat_side": "R"
+ },
+ "pitcher": {
+  "id": 622088,
+  "name": "Tejay Antone"
+ },
+ "context": {
+  "away": "MIA",
+  "home": "CIN",
+  "inning": 8,
+  "half": "Top",
+  "count": "3-1",
+  "outcome": "home_run",
+  "board_hr_prob": 0.13999999999999999
+ },
+ "pitch": {
+  "release_pos_x": -1.99,
+  "release_pos_y": 54.18,
+  "release_pos_z": 5.35,
+  "vx0": 3.0496968944391782,
+  "vy0": -122.42926902686196,
+  "vz0": -0.3170650894140475,
+  "ax": 13.75112640200308,
+  "ay": 24.449331285642938,
+  "az": -29.698658192339757,
+  "release_speed": 84.1,
+  "release_spin_rate": 2951.0,
+  "pitch_name": "Sweeper",
+  "plate_x": 0.6061694020032464,
+  "plate_z": 2.5956550657373243,
+  "sz_top": 3.178756562,
+  "sz_bot": 1.604232283
+ },
+ "bat": {
+  "bat_speed": 78.2,
+  "swing_length": 8.1,
+  "attack_angle": 21.4,
+  "attack_direction": -13.2
+ },
+ "contact": {
+  "ev": 102.0,
+  "la": 24.0,
+  "distance_ft": 359.0,
+  "bearing_deg": -41.2
+ },
+ "wall": null
+}
