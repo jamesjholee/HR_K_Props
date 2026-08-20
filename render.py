@@ -271,37 +271,40 @@ def render_dashboard(date, rows, k_rows, alerts, form_rows=(), game_times=None,
 <title>HR Engine &mdash; {_esc(date)}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Graduate&family=IBM+Plex+Mono:wght@400;500;600&family=Public+Sans:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
 :root{{
-  --field:#0C110F; --panel:#131A16; --panel2:#0F1512; --line:#24312A;
-  --ink:#EDE9DC; --dim:#8C978D; --amber:#F3A83B; --amber-dim:#8a6524;
-  --pos:#7ED99A; --neg:#F27A70; --cold:#7FA8C9;
-  --disp:"Barlow Condensed",Arial Narrow,sans-serif;
-  --body:"IBM Plex Sans",-apple-system,Segoe UI,sans-serif;
+  /* FIELDHOUSE (specimen book #2): varsity gym — outfield green, chalk,
+     mustard, brick pennant. Display type Graduate, body Public Sans. */
+  --field:#175136; --panel:#124129; --panel2:#0F3A26; --line:#2E6A47;
+  --ink:#F4EFDC; --dim:#C6C2A5; --amber:#E8B33B; --amber-dim:#9c7822;
+  --brick:#B4432E;
+  --pos:#9FD98A; --neg:#F08D7B; --cold:#9DBFA8;
+  --disp:"Graduate",Georgia,serif;
+  --body:"Public Sans",-apple-system,Segoe UI,sans-serif;
   --mono:"IBM Plex Mono",SFMono-Regular,Menlo,monospace;
 }}
 *{{box-sizing:border-box}}
 body{{margin:0;background:var(--field);color:var(--ink);
   font:14px/1.5 var(--body);
-  background-image:radial-gradient(ellipse 80% 50% at 50% -10%,#16221b 0%,transparent 60%)}}
+  background-image:radial-gradient(ellipse 80% 50% at 50% -10%,#1D5F40 0%,transparent 60%)}}
 a{{color:var(--amber)}}
 
 /* ---- topbar: the scoreboard ---- */
-.topbar{{position:sticky;top:0;z-index:30;background:linear-gradient(180deg,#0e1411,#0c110fE6);
+.topbar{{position:sticky;top:0;z-index:30;background:linear-gradient(180deg,#134A2F,#175136E6);
   backdrop-filter:blur(6px);border-bottom:2px solid var(--amber-dim);
   padding:.7em 1.2em;display:flex;flex-wrap:wrap;align-items:baseline;gap:.5em 1.2em}}
-.topbar h1{{margin:0;font:700 1.7em/1 var(--disp);letter-spacing:.06em;
+.topbar h1{{margin:0;font:400 1.45em/1 var(--disp);letter-spacing:.03em;
   text-transform:uppercase}}
 .topbar h1 .amber{{color:var(--amber)}}
 .meta{{font:500 .82em/1.4 var(--mono);color:var(--dim);display:flex;gap:1.2em;flex-wrap:wrap}}
 .meta b{{color:var(--ink);font-weight:600}}
-.alertpill{{font:600 .78em/1 var(--mono);color:#100b02;background:var(--amber);
+.alertpill{{font:800 .78em/1 var(--body);text-transform:uppercase;letter-spacing:.06em;color:#175136;background:var(--amber);border-radius:3px;
   border-radius:99px;padding:.35em .7em;margin-left:auto}}
 /* ---- season record strip (track.py -> season.json) ---- */
 .recstrip{{display:flex;gap:1.6em;flex-wrap:wrap;align-items:baseline;
   font:500 .8em/1.5 var(--mono);color:var(--dim);
-  background:#0d1310;border-bottom:1px solid #1c2620;padding:.5em 1.2em}}
+  background:#134A2F;border-bottom:1px solid #2E6A47;padding:.5em 1.2em}}
 .recstrip b{{color:var(--ink);font-weight:600}}
 .recstrip .spark{{letter-spacing:.12em;color:var(--dim)}}
 .recstrip .spark .hi{{color:var(--amber)}}
@@ -320,9 +323,9 @@ a{{color:var(--amber)}}
 .alerts .ok{{color:var(--dim);list-style:none;margin-left:-1.2em}}
 
 /* ---- section headers ---- */
-h2.sec{{font:600 1.15em var(--disp);letter-spacing:.14em;text-transform:uppercase;
+h2.sec{{font:400 1.0em var(--disp);letter-spacing:.08em;text-transform:uppercase;
   color:var(--ink);margin:1.8em 0 .6em;display:flex;align-items:center;gap:.6em}}
-h2.sec::after{{content:"";flex:1;height:1px;background:var(--line)}}
+h2.sec::after{{content:"";flex:1;border-top:3px dashed rgba(244,239,220,.4)}}
 h2.sec small{{font:500 .62em var(--mono);letter-spacing:0;text-transform:none;color:var(--dim)}}
 
 /* ---- filter bar ---- */
@@ -655,8 +658,8 @@ here is financial advice; it's a research log.</p>
 # Plain string (NOT an f-string) so raw CSS/JS braces are safe.
 _LINEUP_OVERLAY = """<style>
 .lu{margin-left:6px;font-size:10px;padding:1px 5px;border-radius:8px;white-space:nowrap}
-.lu.in{background:#123d1f;color:#5fd57f}
-.lu.out{background:#43181c;color:#ff8d94}
+.lu.in{background:#0F3A26;color:#E8B33B;border:1px solid #E8B33B55}
+.lu.out{background:#B4432E;color:#F4EFDC;clip-path:polygon(0 0,100% 0,94% 50%,100% 100%,0 100%);padding-right:10px}
 tr.lu-out td{opacity:.55}
 tr.lu-out .bat b{text-decoration:line-through;text-decoration-thickness:1px}
 #lu-stamp{font-size:10px;opacity:.6;margin-left:8px}
@@ -711,8 +714,8 @@ _HANDS_OVERLAY = """<style>
 .hd{margin-left:4px;font-size:10px;opacity:.75}
 .hd.vs{color:#c9a227}
 #hand-chips{margin:8px 0;display:flex;gap:6px;flex-wrap:wrap}
-#hand-chips button{font-size:11px;padding:3px 9px;border-radius:12px;border:1px solid #555;background:transparent;color:inherit;cursor:pointer}
-#hand-chips button.on{background:#2a5a8a;border-color:#2a5a8a;color:#fff}
+#hand-chips button{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;padding:3px 10px;border-radius:3px;border:1px solid #F4EFDC66;background:transparent;color:inherit;cursor:pointer}
+#hand-chips button.on{background:#E8B33B;border-color:#E8B33B;color:#175136}
 tr.hd-hide{display:none}
 </style>
 <script>
