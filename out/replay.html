@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HR Engine — Replay</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Graduate&family=Public+Sans:wght@400;600;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{--outfield:#175136;--deep:#0F3A26;--chalk:#F4EFDC;--mustard:#E8B33B;--brick:#B4432E;
+  --disp:'Graduate',Georgia,serif;--body:'Public Sans',sans-serif;--mono:'IBM Plex Mono',monospace}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:#081C12;color:var(--chalk);
+  font-family:var(--body);overflow:hidden}
+#stage{position:fixed;inset:0}
+.hud{position:fixed;pointer-events:none;z-index:5}
+#tag{top:18px;left:18px;font:400 15px var(--disp);letter-spacing:.1em;color:var(--mustard);
+  opacity:0;transition:opacity .4s}
+#cards{top:60px;left:18px;display:flex;flex-direction:column;gap:10px;max-width:230px}
+.card{background:#0F3A26E6;border:1px solid #F4EFDC33;border-left:3px solid var(--mustard);
+  padding:9px 12px;border-radius:3px;opacity:0;transform:translateX(-16px);
+  transition:opacity .35s,transform .35s}
+.card.show{opacity:1;transform:none}
+.card .l{font:600 9.5px var(--body);letter-spacing:.14em;text-transform:uppercase;color:#C6C2A5}
+.card .v{font:600 20px var(--mono);color:var(--chalk)}.card .v small{font-size:11px;color:var(--mustard)}
+#dist{bottom:20px;left:18px;font:400 34px var(--disp);color:var(--chalk);opacity:0}
+#dist small{font-size:15px;color:var(--mustard)}
+#ticker{bottom:20px;left:50%;transform:translate(-50%,60px);white-space:nowrap;
+  background:#0F3A26E6;border:1px solid #F4EFDC33;border-radius:3px;padding:8px 16px;
+  font:500 11px var(--mono);letter-spacing:.06em;color:var(--chalk);transition:transform .5s}
+#ticker.show{transform:translate(-50%,0)}
+#ticker b{color:var(--mustard);font-weight:600}
+#verdict{top:34%;left:50%;transform:translate(-50%,-50%) scale(.92);text-align:center;opacity:0;
+  transition:opacity .35s,transform .35s}
+#verdict.show{opacity:1;transform:translate(-50%,-50%) scale(1)}
+#verdict .big{font:400 clamp(22px,4.5vw,44px) var(--disp);letter-spacing:.06em;color:var(--mustard);
+  text-shadow:0 2px 0 #08130C,0 0 30px #E8B33B44;background:#0F3A26D9;border:2px solid var(--mustard);
+  padding:10px 26px;border-radius:3px;display:inline-block}
+#verdict .sub{font:400 clamp(13px,2.2vw,20px) var(--disp);letter-spacing:.08em;color:var(--chalk);
+  margin-top:10px;background:#0F3A26D9;padding:6px 18px;border-radius:3px;display:inline-block}
+#chip{bottom:64px;right:18px;display:flex;gap:12px;align-items:center;background:#0F3A26E6;
+  border:1px solid #F4EFDC33;border-radius:3px;padding:10px 14px;opacity:0;transition:opacity .4s}
+#chip.show{opacity:1}
+#chip img{width:52px;height:52px;border-radius:50%;border:2px solid var(--mustard);background:#123}
+#chip .n{font:400 17px var(--disp);letter-spacing:.04em}
+#chip .m{font:500 10px var(--mono);color:#C6C2A5;margin-top:3px}
+#chip .m b{color:var(--mustard);font-weight:600}
+#chip .r{font:800 9px var(--body);letter-spacing:.1em;text-transform:uppercase;color:#175136;
+  background:var(--mustard);border-radius:3px;padding:3px 7px;margin-top:5px;display:inline-block}
+#ui{position:fixed;top:14px;right:14px;z-index:6;display:flex;gap:8px;align-items:center}
+#ui button,#ui select{font:800 11px var(--body);letter-spacing:.06em;text-transform:uppercase;
+  background:var(--mustard);color:#175136;border:0;border-radius:3px;padding:8px 13px;cursor:pointer}
+#ui select{background:#0F3A26;color:var(--chalk);border:1px solid #F4EFDC44;text-transform:none;
+  font-weight:600;max-width:280px}
+#loading{position:fixed;inset:0;display:grid;place-items:center;background:#081C12;z-index:9;
+  font:400 16px var(--disp);letter-spacing:.12em;color:var(--mustard)}
+</style>
+</head>
+<body>
+<div id="stage"></div>
+<div class="hud" id="tag"></div>
+<div class="hud" id="cards"></div>
+<div class="hud" id="dist"><span id="dn">0</span><small> FT</small></div>
+<div class="hud" id="ticker"></div>
+<div class="hud" id="verdict"></div>
+<div class="hud" id="chip"></div>
+<div id="ui">
+  <select id="pick"></select>
+  <button id="replay">Replay</button>
+</div>
+<div id="loading">LOADING REPLAY…</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+/* HR Engine replay — Fieldhouse. Scene units = feet. Plate at origin,
+   +Z toward CF, +X toward RF, Y up. Statcast: x->x, z->y, y->z. */
+const RAW="https://raw.githubusercontent.com/jamesjholee/HR_K_Props/main/";
+const API="https://api.github.com/repos/jamesjholee/HR_K_Props/contents/out/replays";
+const $=id=>document.getElementById(id);
+let scene,renderer,cam,ball,trailPts=[],trail,D=null,park=null,t0=null,phase=0,raf;
+
+const FALLBACK_CLE=[[-45,325,19],[-30,358,19],[-18,370,19],[-8,400,9],[0,405,9],
+  [6,398,8],[12,388,8],[22,374,8],[32,349,8],[45,325,8]];
+
+function wallAt(prof,b){
+  const p=[...prof].sort((a,c)=>a[0]-c[0]);
+  if(b<=p[0][0])return[p[0][1],p[0][2]];
+  for(let i=0;i<p.length-1;i++){const[a0,d0,h0]=p[i],[a1,d1,h1]=p[i+1];
+    if(b>=a0&&b<=a1){const t=a1>a0?(b-a0)/(a1-a0):0;return[d0+t*(d1-d0),h0+t*(h1-h0)];}}
+  const l=p[p.length-1];return[l[1],l[2]];
+}
+function arcH(la,dist,x){if(x>=dist)return 0;
+  const s=Math.tan(la*Math.PI/180),a=-(s*dist+3)/(dist*dist);
+  return Math.max(0,3+s*x+a*x*x);}
+
+/* ---------- park ---------- */
+function checkerTex(){
+  const c=document.createElement("canvas");c.width=c.height=512;
+  const g=c.getContext("2d");
+  for(let y=0;y<8;y++)for(let x=0;x<8;x++){
+    g.fillStyle=(x+y)%2?"#175136":"#124129";g.fillRect(x*64,y*64,64,64);}
+  const t=new THREE.CanvasTexture(c);t.wrapS=t.wrapT=THREE.RepeatWrapping;
+  t.repeat.set(6,6);return t;}
+function numTex(n){const c=document.createElement("canvas");c.width=128;c.height=64;
+  const g=c.getContext("2d");g.fillStyle="#0F3A26";g.fillRect(0,0,128,64);
+  g.fillStyle="#F4EFDC";g.font="700 34px Graduate,serif";g.textAlign="center";
+  g.textBaseline="middle";g.fillText(n,64,34);return new THREE.CanvasTexture(c);}
+function silhouetteTex(kind){
+  const c=document.createElement("canvas");c.width=128;c.height=256;
+  const g=c.getContext("2d");g.fillStyle="#08130C";
+  g.beginPath();g.arc(64,42,18,0,7);g.fill();               // head
+  g.fillRect(46,58,36,90);                                   // torso
+  g.fillRect(46,146,14,86);g.fillRect(68,146,14,86);         // legs
+  if(kind==="bat"){g.save();g.translate(82,84);g.rotate(-.7);
+    g.fillRect(0,-5,86,9);g.restore();}                      // bat
+  else{g.fillRect(20,70,30,10);}                             // pitch arm
+  return new THREE.CanvasTexture(c);}
+function buildPark(prof){
+  const grp=new THREE.Group();
+  const field=new THREE.Mesh(new THREE.CircleGeometry(560,64),
+    new THREE.MeshLambertMaterial({map:checkerTex()}));
+  field.rotation.x=-Math.PI/2;grp.add(field);
+  const dirt=new THREE.MeshLambertMaterial({color:0x8a5f38});
+  const inf=new THREE.Mesh(new THREE.CircleGeometry(95,48,Math.PI/4,Math.PI/2),dirt);
+  inf.rotation.x=-Math.PI/2;inf.rotation.z=0;inf.position.y=.05;grp.add(inf);
+  const dia=new THREE.Mesh(new THREE.PlaneGeometry(63.6,63.6),
+    new THREE.MeshLambertMaterial({color:0x175136}));
+  dia.rotation.x=-Math.PI/2;dia.rotation.z=Math.PI/4;dia.position.set(0,.1,45);grp.add(dia);
+  const mound=new THREE.Mesh(new THREE.CylinderGeometry(9,10,.9,24),dirt);
+  mound.position.set(0,.45,60.5);grp.add(mound);
+  // foul lines
+  const chalk=new THREE.MeshBasicMaterial({color:0xF4EFDC});
+  [-45,45].forEach(a=>{const r=a<0?wallAt(prof,-45)[1]:wallAt(prof,45)[1];
+    const l=new THREE.Mesh(new THREE.PlaneGeometry(1.2,r),chalk);
+    l.rotation.x=-Math.PI/2;const rad=a*Math.PI/180;
+    l.position.set(Math.sin(rad)*r/2,.15,Math.cos(rad)*r/2);
+    l.rotation.z=-rad;grp.add(l);});
+  // wall + stands + markers
+  const wallM=new THREE.MeshLambertMaterial({color:0x0F3A26});
+  const standM=new THREE.MeshLambertMaterial({color:0x1B2E3C});
+  for(let b=-45;b<45;b+=3){
+    const[d0,h0]=wallAt(prof,b),[d1,h1]=wallAt(prof,b+3);
+    const a0=b*Math.PI/180,a1=(b+3)*Math.PI/180;
+    const p0=new THREE.Vector3(Math.sin(a0)*d0,0,Math.cos(a0)*d0);
+    const p1=new THREE.Vector3(Math.sin(a1)*d1,0,Math.cos(a1)*d1);
+    const w=p0.distanceTo(p1),h=(h0+h1)/2;
+    const seg=new THREE.Mesh(new THREE.BoxGeometry(w+0.6,h,1.5),wallM);
+    seg.position.copy(p0.clone().add(p1).multiplyScalar(.5));seg.position.y=h/2;
+    seg.lookAt(new THREE.Vector3(0,h/2,0));grp.add(seg);
+    const st=new THREE.Mesh(new THREE.BoxGeometry(w+2,10+18*Math.random()*0+14,26),standM);
+    st.position.copy(seg.position.clone().multiplyScalar(1.09));st.position.y=9;
+    st.lookAt(new THREE.Vector3(0,9,0));grp.add(st);
+  }
+  [-38,-20,0,20,38].forEach(b=>{const[d,h]=wallAt(prof,b);const a=b*Math.PI/180;
+    const m=new THREE.Mesh(new THREE.PlaneGeometry(10,5),
+      new THREE.MeshBasicMaterial({map:numTex(String(Math.round(d)))}));
+    m.position.set(Math.sin(a)*(d-1),Math.max(2.5,h*.55),Math.cos(a)*(d-1));
+    m.lookAt(new THREE.Vector3(0,3,0));grp.add(m);});
+  // silhouettes
+  const bat=new THREE.Mesh(new THREE.PlaneGeometry(7,14),
+    new THREE.MeshBasicMaterial({map:silhouetteTex("bat"),transparent:true}));
+  bat.position.set(-2.6,7,0);bat.rotation.y=Math.PI+0.35;grp.add(bat);
+  const pit=new THREE.Mesh(new THREE.PlaneGeometry(6.5,13),
+    new THREE.MeshBasicMaterial({map:silhouetteTex("pitch"),transparent:true}));
+  pit.position.set(.8,6.5,60);pit.rotation.y=0.15;grp.add(pit);
+  return grp;
+}
+
+/* ---------- data + timeline ---------- */
+function pitchPath(p){
+  // solve y(t)=1.42 (plate front); statcast y-> scene z
+  const{release_pos_x:x0,release_pos_y:y0,release_pos_z:z0,vx0,vy0,vz0,ax,ay,az}=p;
+  const A=.5*ay,B=vy0,C=y0-1.42,T=(-B-Math.sqrt(B*B-4*A*C))/(2*A);
+  const pts=[];for(let i=0;i<=40;i++){const t=T*i/40;
+    pts.push(new THREE.Vector3(x0+vx0*t+.5*ax*t*t, z0+vz0*t+.5*az*t*t, y0+vy0*t+.5*ay*t*t));}
+  return pts;
+}
+function exitPath(c,wall){
+  const D=c.distance_ft||360,b=(c.bearing_deg||0)*Math.PI/180;
+  const dir=new THREE.Vector3(Math.sin(b),0,Math.cos(b));
+  const end=(wall&&wall.short_by_ft!=null)?Math.min(D,wall.dist_ft):D;
+  const pts=[];for(let i=0;i<=90;i++){const x=end*i/90;
+    const v=dir.clone().multiplyScalar(x);v.y=arcH(c.la,D,x);pts.push(v);}
+  return{pts,D};
+}
+function card(l,v,delay){const d=document.createElement("div");d.className="card";
+  d.innerHTML=`<div class="l">${l}</div><div class="v">${v}</div>`;
+  $("cards").appendChild(d);setTimeout(()=>d.classList.add("show"),delay);}
+function setVerdict(D){
+  const hr=D.type==="home_run",w=D.wall,el=$("verdict");
+  let big=hr?"HOME RUN":"NEAR HOME RUN",sub="";
+  if(hr&&w&&w.clearance_ft>0)sub=`CLEARED THE WALL BY ${w.clearance_ft} FT`;
+  if(!hr&&w)sub=w.short_by_ft>0?`DIED ON THE TRACK — ${w.short_by_ft} FT SHORT`
+                               :`OFF THE WALL — ${(-w.clearance_ft).toFixed(1)} FT SHY`;
+  if(!hr&&!w)sub=`${D.contact.distance_ft} FT — CAUGHT`;
+  el.innerHTML=`<div class="big">${big}</div><br><div class="sub">${D.batter.name.toUpperCase()}${sub?" · "+sub:""}</div>`;
+}
+function hud(D){
+  $("tag").textContent=(D.type==="home_run"?"HOME RUN":"NEAR HR")+" · "+D.context.away+" @ "+D.context.home;
+  const p=D.pitch,loc=p.plate_x>0.33?"OUTER":(p.plate_x<-0.33?"INNER":"MIDDLE");
+  const hgt=p.plate_z>(p.sz_top-((p.sz_top-p.sz_bot)/3))?"UP ":(p.plate_z<p.sz_bot+((p.sz_top-p.sz_bot)/3)?"DOWN ":"");
+  $("ticker").innerHTML=`<b>${(p.pitch_name||"").toUpperCase()}</b> · ${p.release_speed} MPH · ${hgt}${loc} · `+
+    `${p.release_spin_rate} RPM · ${D.context.count} COUNT`+
+    (D.bat&&D.bat.bat_speed?` · <b>${D.bat.bat_speed} MPH BAT</b> · ${D.bat.attack_angle}° ATTACK`:"");
+  $("chip").innerHTML=`<img src="${D.batter.headshot}" onerror="this.style.display='none'">
+    <div><div class="n">${D.batter.name.toUpperCase()}</div>
+    <div class="m">${D.context.away==="SD"&&false?"":""}<b>OFF ${D.pitcher.name.toUpperCase()}</b></div>
+    <div class="m">${D.context.half.toUpperCase()} ${D.context.inning} · ${D.context.count} · ${(D.context.outcome||"").replace("_"," ").toUpperCase()}</div>
+    ${D.context.board_hr_prob?`<div class="r">Boarded at ${(100*D.context.board_hr_prob).toFixed(0)}%</div>`:""}</div>`;
+}
+
+/* ---------- play ---------- */
+let PP,EP,ED,seq;
+function start(D){
+  cancelAnimationFrame(raf);
+  $("cards").innerHTML="";$("verdict").className="hud";$("verdict").innerHTML="";
+  $("chip").className="hud";$("ticker").className="hud";$("dist").style.opacity=0;
+  $("tag").style.opacity=1;
+  if(ball)scene.remove(ball);if(trail)scene.remove(trail);
+  ball=new THREE.Mesh(new THREE.SphereGeometry(1.1,16,16),
+    new THREE.MeshBasicMaterial({color:0xF4EFDC}));
+  scene.add(ball);trailPts=[];
+  PP=pitchPath(D.pitch);const e=exitPath(D.contact,D.wall);EP=e.pts;ED=e.D;
+  hud(D);setTimeout(()=>$("ticker").classList.add("show"),700);
+  const w=D.wall;
+  seq=[[3600,()=>card("EXIT VELOCITY",`${D.contact.ev}<small> MPH</small>`,0)],
+       [4300,()=>card("LAUNCH ANGLE",`${D.contact.la}<small>°</small>`,0)],
+       [5200,()=>w&&card(`WALL HERE · ${w.height_ft} FT HIGH`,`${Math.round(w.dist_ft)}<small> FT</small>`,0)],
+       [6000,()=>w&&card(w.short_by_ft>0?"SHORT OF THE WALL BY":"CLEARANCE",
+             `${Math.abs(w.short_by_ft??w.clearance_ft)}<small> FT</small>`,0)],
+       [6600,()=>{setVerdict(D);$("verdict").classList.add("show");}],
+       [8200,()=>$("chip").classList.add("show")]];
+  t0=performance.now();phase=0;loop();
+}
+function camPOV(){cam.position.set(-5.5,5.2,-9);cam.lookAt(0,4.5,60);}
+function loop(){
+  const t=(performance.now()-t0)/1000;
+  seq=seq.filter(([ms,f])=>{if(t*1000>=ms){f();return false}return true});
+  if(t<2.2){ // pitch, POV
+    camPOV();
+    const k=Math.min(1,Math.max(0,(t-0.9)/0.55));
+    const p=PP[Math.floor(k*(PP.length-1))];
+    ball.position.set(p.x,p.y,p.z);
+  }else if(t<8.0){ // exit arc, chase cam
+    const k=Math.min(1,(t-2.2)/3.4);
+    const i=Math.floor(k*(EP.length-1)),p=EP[i];
+    ball.position.copy(p);
+    trailPts.push(p.clone());
+    if(trail)scene.remove(trail);
+    if(trailPts.length>2){
+      trail=new THREE.Mesh(new THREE.TubeGeometry(
+        new THREE.CatmullRomCurve3(trailPts),40,.55,6,false),
+        new THREE.MeshBasicMaterial({color:0xE8B33B,transparent:true,opacity:.85}));
+      scene.add(trail);}
+    const back=p.clone().normalize().multiplyScalar(-46);
+    cam.position.lerp(p.clone().add(back).add(new THREE.Vector3(14,16,0)),.08);
+    cam.lookAt(p);
+    $("dist").style.opacity=1;
+    $("dn").textContent=Math.round(k*((EP[EP.length-1].length()/1)|0||ED));
+  }else{ // overhead
+    const k=Math.min(1,(t-8)/1.6);
+    cam.position.lerp(new THREE.Vector3(0,430,110),.06);
+    cam.lookAt(0,0,180);
+  }
+  renderer.render(scene,cam);
+  if(t<14)raf=requestAnimationFrame(loop);
+}
+
+/* ---------- boot ---------- */
+async function boot(){
+  const st=$("stage");
+  renderer=new THREE.WebGLRenderer({antialias:true});
+  renderer.setSize(innerWidth,innerHeight);renderer.setPixelRatio(devicePixelRatio);
+  st.appendChild(renderer.domElement);
+  scene=new THREE.Scene();scene.background=new THREE.Color(0x0A2318);
+  scene.fog=new THREE.Fog(0x0A2318,420,900);
+  cam=new THREE.PerspectiveCamera(55,innerWidth/innerHeight,.5,2000);
+  scene.add(new THREE.HemisphereLight(0xF4EFDC,0x0F3A26,.95));
+  const sun=new THREE.DirectionalLight(0xF4EFDC,.6);sun.position.set(-120,300,-80);scene.add(sun);
+  let prof=FALLBACK_CLE;
+  try{const r=await fetch(RAW+"parks.json?t="+Date.now());
+    if(r.ok){const pj=await r.json();/* pick by home team once data loads */park=pj;}}catch(e){}
+  const q=new URLSearchParams(location.search);
+  const f=q.get("f")||"replays/2026-08-16/near_665487_824397_1.json";
+  const D0=await(await fetch(f.startsWith("http")?f:f+"?t="+Date.now())).json();
+  if(park&&park[D0.context.home])prof=park[D0.context.home].wall;
+  scene.add(buildPark(prof));
+  window.addEventListener("resize",()=>{renderer.setSize(innerWidth,innerHeight);
+    cam.aspect=innerWidth/innerHeight;cam.updateProjectionMatrix();});
+  // picker: list this date's replays via GitHub API
+  try{const date=(q.get("f")||f).match(/replays\/([\d-]+)\//)[1];
+    const ls=await(await fetch(`${API}/${date}`)).json();
+    if(Array.isArray(ls)){$("pick").innerHTML=ls.map(x=>
+      `<option value="replays/${date}/${x.name}" ${x.name===f.split("/").pop()?"selected":""}>${x.name.replace(".json","")}</option>`).join("");
+      $("pick").onchange=e=>location.search="?f="+encodeURIComponent(e.target.value);}}catch(e){}
+  $("replay").onclick=()=>start(D0);
+  $("loading").style.display="none";
+  start(D0);
+}
+boot();
+</script>
+</body>
+</html>
