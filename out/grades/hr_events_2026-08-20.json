@@ -1,0 +1,142 @@
+[
+ {
+  "gamePk": 824474,
+  "inning": 3,
+  "half": "top",
+  "batter_id": 691023,
+  "batter": "Jordan Walker",
+  "pitcher_id": 663903,
+  "pitcher": "Brady Singer",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824474,
+  "inning": 6,
+  "half": "bottom",
+  "batter_id": 680574,
+  "batter": "Matt McLain",
+  "pitcher_id": 592773,
+  "pitcher": "Ryne Stanek",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824395,
+  "inning": 4,
+  "half": "top",
+  "batter_id": 642715,
+  "batter": "Willy Adames",
+  "pitcher_id": 668909,
+  "pitcher": "Gavin Williams",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 822934,
+  "inning": 2,
+  "half": "top",
+  "batter_id": 672960,
+  "batter": "Kazuma Okamoto",
+  "pitcher_id": 693855,
+  "pitcher": "Ian Seymour",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 822934,
+  "inning": 5,
+  "half": "top",
+  "batter_id": 664770,
+  "batter": "Nathan Lukes",
+  "pitcher_id": 693855,
+  "pitcher": "Ian Seymour",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 822934,
+  "inning": 5,
+  "half": "top",
+  "batter_id": 663662,
+  "batter": "Daz Cameron",
+  "pitcher_id": 693855,
+  "pitcher": "Ian Seymour",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824074,
+  "inning": 1,
+  "half": "bottom",
+  "batter_id": 677951,
+  "batter": "Bobby Witt Jr.",
+  "pitcher_id": 695611,
+  "pitcher": "Gage Jump",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823747,
+  "inning": 8,
+  "half": "bottom",
+  "batter_id": 669003,
+  "batter": "Garrett Mitchell",
+  "pitcher_id": 646242,
+  "pitcher": "Jhonathan D\u00edaz",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824802,
+  "inning": 5,
+  "half": "bottom",
+  "batter_id": 687637,
+  "batter": "Dylan Beavers",
+  "pitcher_id": 543037,
+  "pitcher": "Gerrit Cole",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824802,
+  "inning": 6,
+  "half": "top",
+  "batter_id": 671277,
+  "batter": "Luis Garc\u00eda Jr.",
+  "pitcher_id": 680694,
+  "pitcher": "Kyle Bradish",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824802,
+  "inning": 6,
+  "half": "top",
+  "batter_id": 682987,
+  "batter": "Spencer Jones",
+  "pitcher_id": 680694,
+  "pitcher": "Kyle Bradish",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 822861,
+  "inning": 3,
+  "half": "bottom",
+  "batter_id": 608369,
+  "batter": "Corey Seager",
+  "pitcher_id": 674841,
+  "pitcher": "Andrew Alvarez",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824153,
+  "inning": 5,
+  "half": "top",
+  "batter_id": 687263,
+  "batter": "Zach Neto",
+  "pitcher_id": 687911,
+  "pitcher": "Bryan King",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824153,
+  "inning": 9,
+  "half": "top",
+  "batter_id": 694203,
+  "batter": "Denzer Guzman",
+  "pitcher_id": 664774,
+  "pitcher": "LaMonte Wade Jr.",
+  "pitcher_role": "R"
+ }
+]
