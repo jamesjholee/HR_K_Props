@@ -1,13 +1,15 @@
 Slate 2026-08-24 — precheck findings needing eyes:
 
-## T-90 slate sweep — 21:12Z
-- ✓ BOS@MIA: both probables match locked arms
-- ✓ COL@WSH: both probables match locked arms
-- ⚠ TEX@CWS: home probable José Urquidy (id 664353) was NOT SCORED at lock — scratch/trade signature. Bats boarded vs the other arm may be unaffected; bats scored VS this slot are built on a dead read.
-- ✓ CLE@LAA: both probables match locked arms
-- ✓ PHI@SEA: both probables match locked arms
-- ✓ PIT@SD: both probables match locked arms
-- ✓ MIN@ATH: both probables match locked arms
-- ✓ CHC@ARI: both probables match locked arms
+## T-30 — COL@WSH (pk 822695) — 22:33Z
+- ✓ Abimelec Ortiz — batting 2
+- ⚠ Andres Chaparro — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ⚠ Andrew Pinckney — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Brady House — batting 5
+- ✓ Brett Sullivan — batting 7
+- ✓ CJ Abrams — batting 1
+- ✓ Daylen Lile — batting 4
+- ✓ Dylan Crews — batting 3
+- ✓ Mickey Moniak — batting 2
+- ✓ Willi Castro — batting 3
 
 _Automated sweep. Verify via PropFinder + MLB app (5/27 rule). Board is locked and unchanged._
