@@ -1,20 +1,48 @@
 Slate 2026-08-25 — precheck findings needing eyes:
 
-## T-90 slate sweep — 21:34Z
-- ⚠ BOS@MIA: home probable Tyler Phillips (id 663969) was NOT SCORED at lock — scratch/trade signature. Bats boarded vs the other arm may be unaffected; bats scored VS this slot are built on a dead read.
-- ⚠ TB@DET: away probable Casey Legumina (id 668984) was NOT SCORED at lock — scratch/trade signature. Bats boarded vs the other arm may be unaffected; bats scored VS this slot are built on a dead read.
-- ⚠ COL@WSH: away probable Mason Adams (id 690279) was NOT SCORED at lock — scratch/trade signature. Bats boarded vs the other arm may be unaffected; bats scored VS this slot are built on a dead read.
-- ✓ HOU@NYY: both probables match locked arms
-- ✓ KC@TOR: both probables match locked arms
-- ✓ MIL@NYM: both probables match locked arms
-- ✓ LAD@ATL: both probables match locked arms
-- ✓ TEX@CWS: both probables match locked arms
-- ⚠ BAL@STL: home probable Matthew Liberatore (id 669461) was NOT SCORED at lock — scratch/trade signature. Bats boarded vs the other arm may be unaffected; bats scored VS this slot are built on a dead read.
-- ✓ CLE@LAA: both probables match locked arms
-- ✓ PHI@SEA: both probables match locked arms
-- ✓ PIT@SD: both probables match locked arms
-- ✓ MIN@ATH: both probables match locked arms
-- ✓ CHC@ARI: both probables match locked arms
-- ✓ CIN@SF: both probables match locked arms
+## T-30 — HOU@NYY (pk 823505) — 22:47Z
+- ⚠ Cam Smith — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Christian Walker — batting 6
+- ✓ Daulton Varsho — batting 5
+- ✓ Isaac Paredes — batting 3
+- ⚠ Nelson Velazquez — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Taylor Trammell — batting 9
+- ✓ Yordan Alvarez — batting 2
+
+## T-30 — KC@TOR (pk 822773) — 22:47Z
+- ⚠ Alejandro Kirk — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Bobby Witt Jr. — batting 2
+- ✓ Brandon Valenzuela — batting 8
+- ✓ Carter Jensen — batting 1
+- ⚠ George Springer — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Isaac Collins — batting 7
+- ⚠ Jac Caglianone — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Jesus Sanchez — batting 5
+- ✓ Kazuma Okamoto — batting 4
+- ✓ Kyle Isbel — batting 9
+- ✓ Michael Massey — batting 5
+- ⚠ Tyler Tolbert — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Vladimir Guerrero Jr. — batting 3
+
+## T-30 — MIL@NYM (pk 823585) — 22:47Z
+- ✓ Andrew Vaughn — batting 4
+- ⚠ Christian Yelich — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Garrett Mitchell — batting 7
+- ✓ Gary Sanchez — batting 5
+- ✓ Jackson Chourio — batting 1
+- ⚠ Jake Bauers — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+
+## T-30 — LAD@ATL (pk 824881) — 22:47Z
+- ✓ Alek Thomas — batting 8
+- ✓ Austin Riley — batting 8
+- ✓ Freddie Freeman — batting 2
+- ✓ Kyle Tucker — batting 6
+- ⚠ Lane Thomas — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Matt Olson — batting 3
+- ✓ Max Muncy — batting 4
+- ✓ Michael Harris II — batting 5
+- ✓ Mike Yastrzemski — batting 7
+- ✓ Shohei Ohtani — batting 1
+- ⚠ Teoscar Hernandez — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
 
 _Automated sweep. Verify via PropFinder + MLB app (5/27 rule). Board is locked and unchanged._
