@@ -1,0 +1,192 @@
+[
+ {
+  "gamePk": 824235,
+  "inning": 6,
+  "half": "top",
+  "batter_id": 666018,
+  "batter": "Jonathan Aranda",
+  "pitcher_id": 664285,
+  "pitcher": "Framber Valdez",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 822695,
+  "inning": 4,
+  "half": "top",
+  "batter_id": 650489,
+  "batter": "Willi Castro",
+  "pitcher_id": 676917,
+  "pitcher": "Cade Cavalli",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 822695,
+  "inning": 5,
+  "half": "top",
+  "batter_id": 678662,
+  "batter": "Ezequiel Tovar",
+  "pitcher_id": 676917,
+  "pitcher": "Cade Cavalli",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 822695,
+  "inning": 8,
+  "half": "bottom",
+  "batter_id": 695734,
+  "batter": "Daylen Lile",
+  "pitcher_id": 687060,
+  "pitcher": "Blake Adams",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824557,
+  "inning": 2,
+  "half": "bottom",
+  "batter_id": 671976,
+  "batter": "Tristan Peters",
+  "pitcher_id": 677958,
+  "pitcher": "Kumar Rocker",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824557,
+  "inning": 5,
+  "half": "top",
+  "batter_id": 669394,
+  "batter": "Jake Burger",
+  "pitcher_id": 805326,
+  "pitcher": "Tyler Schweitzer",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824557,
+  "inning": 9,
+  "half": "top",
+  "batter_id": 694671,
+  "batter": "Wyatt Langford",
+  "pitcher_id": 670950,
+  "pitcher": "Trevor Richards",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823992,
+  "inning": 6,
+  "half": "top",
+  "batter_id": 595978,
+  "batter": "Austin Hedges",
+  "pitcher_id": 676620,
+  "pitcher": "Blake Weiman",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 825041,
+  "inning": 6,
+  "half": "top",
+  "batter_id": 624424,
+  "batter": "Michael Conforto",
+  "pitcher_id": 664199,
+  "pitcher": "Taylor Clarke",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 825041,
+  "inning": 6,
+  "half": "top",
+  "batter_id": 608348,
+  "batter": "Carson Kelly",
+  "pitcher_id": 664199,
+  "pitcher": "Taylor Clarke",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823260,
+  "inning": 6,
+  "half": "top",
+  "batter_id": 699013,
+  "batter": "Esmerlyn Valdez",
+  "pitcher_id": 592662,
+  "pitcher": "Robbie Ray",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824964,
+  "inning": 5,
+  "half": "top",
+  "batter_id": 668952,
+  "batter": "Ryan Kreidler",
+  "pitcher_id": 605488,
+  "pitcher": "Jeffrey Springs",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823097,
+  "inning": 1,
+  "half": "bottom",
+  "batter_id": 677594,
+  "batter": "Julio Rodr\u00edguez",
+  "pitcher_id": 554430,
+  "pitcher": "Zack Wheeler",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823097,
+  "inning": 1,
+  "half": "bottom",
+  "batter_id": 663728,
+  "batter": "Cal Raleigh",
+  "pitcher_id": 554430,
+  "pitcher": "Zack Wheeler",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823097,
+  "inning": 2,
+  "half": "top",
+  "batter_id": 592663,
+  "batter": "J.T. Realmuto",
+  "pitcher_id": 669302,
+  "pitcher": "Logan Gilbert",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823097,
+  "inning": 5,
+  "half": "bottom",
+  "batter_id": 663728,
+  "batter": "Cal Raleigh",
+  "pitcher_id": 554430,
+  "pitcher": "Zack Wheeler",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823097,
+  "inning": 5,
+  "half": "bottom",
+  "batter_id": 702284,
+  "batter": "Cole Young",
+  "pitcher_id": 554430,
+  "pitcher": "Zack Wheeler",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823097,
+  "inning": 7,
+  "half": "bottom",
+  "batter_id": 663728,
+  "batter": "Cal Raleigh",
+  "pitcher_id": 663767,
+  "pitcher": "Chase Shugart",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823183,
+  "inning": 2,
+  "half": "bottom",
+  "batter_id": 646240,
+  "batter": "Rafael Devers",
+  "pitcher_id": 695505,
+  "pitcher": "Chase Burns",
+  "pitcher_role": "S"
+ }
+]
