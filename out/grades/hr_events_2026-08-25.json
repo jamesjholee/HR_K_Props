@@ -1,0 +1,312 @@
+[
+ {
+  "gamePk": 824233,
+  "inning": 5,
+  "half": "bottom",
+  "batter_id": 703601,
+  "batter": "Max Clark",
+  "pitcher_id": 693855,
+  "pitcher": "Ian Seymour",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823826,
+  "inning": 2,
+  "half": "top",
+  "batter_id": 681508,
+  "batter": "Mickey Gasper",
+  "pitcher_id": 663969,
+  "pitcher": "Tyler Phillips",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823826,
+  "inning": 6,
+  "half": "top",
+  "batter_id": 681508,
+  "batter": "Mickey Gasper",
+  "pitcher_id": 676604,
+  "pitcher": "Tyler Zuber",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823826,
+  "inning": 6,
+  "half": "bottom",
+  "batter_id": 681715,
+  "batter": "Heriberto Hern\u00e1ndez",
+  "pitcher_id": 801139,
+  "pitcher": "Payton Tolle",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823826,
+  "inning": 11,
+  "half": "top",
+  "batter_id": 680776,
+  "batter": "Jarren Duran",
+  "pitcher_id": 806188,
+  "pitcher": "Cade Gibson",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 822693,
+  "inning": 4,
+  "half": "top",
+  "batter_id": 696100,
+  "batter": "Hunter Goodman",
+  "pitcher_id": 674841,
+  "pitcher": "Andrew Alvarez",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 822693,
+  "inning": 4,
+  "half": "bottom",
+  "batter_id": 695734,
+  "batter": "Daylen Lile",
+  "pitcher_id": 690279,
+  "pitcher": "Mason Adams",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823505,
+  "inning": 2,
+  "half": "top",
+  "batter_id": 673237,
+  "batter": "Yainer Diaz",
+  "pitcher_id": 701542,
+  "pitcher": "Will Warren",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823505,
+  "inning": 3,
+  "half": "bottom",
+  "batter_id": 641355,
+  "batter": "Cody Bellinger",
+  "pitcher_id": 814490,
+  "pitcher": "Ethan Pecko",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823505,
+  "inning": 5,
+  "half": "bottom",
+  "batter_id": 671277,
+  "batter": "Luis Garc\u00eda Jr.",
+  "pitcher_id": 814490,
+  "pitcher": "Ethan Pecko",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823505,
+  "inning": 6,
+  "half": "top",
+  "batter_id": 665161,
+  "batter": "Jeremy Pe\u00f1a",
+  "pitcher_id": 518585,
+  "pitcher": "Fernando Cruz",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823505,
+  "inning": 8,
+  "half": "top",
+  "batter_id": 673237,
+  "batter": "Yainer Diaz",
+  "pitcher_id": 687396,
+  "pitcher": "Brent Headrick",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823585,
+  "inning": 5,
+  "half": "bottom",
+  "batter_id": 596019,
+  "batter": "Francisco Lindor",
+  "pitcher_id": 690986,
+  "pitcher": "Kyle Harrison",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823585,
+  "inning": 6,
+  "half": "bottom",
+  "batter_id": 673357,
+  "batter": "Luis Robert Jr.",
+  "pitcher_id": 694477,
+  "pitcher": "Chad Patrick",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824556,
+  "inning": 2,
+  "half": "top",
+  "batter_id": 669394,
+  "batter": "Jake Burger",
+  "pitcher_id": 641743,
+  "pitcher": "Anthony Kay",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824556,
+  "inning": 5,
+  "half": "top",
+  "batter_id": 643376,
+  "batter": "Danny Jansen",
+  "pitcher_id": 641743,
+  "pitcher": "Anthony Kay",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824556,
+  "inning": 6,
+  "half": "top",
+  "batter_id": 679822,
+  "batter": "Justin Foscue",
+  "pitcher_id": 663855,
+  "pitcher": "Jordan Hicks",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824556,
+  "inning": 6,
+  "half": "bottom",
+  "batter_id": 671976,
+  "batter": "Tristan Peters",
+  "pitcher_id": 682608,
+  "pitcher": "Peyton Gray",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823016,
+  "inning": 3,
+  "half": "top",
+  "batter_id": 624413,
+  "batter": "Pete Alonso",
+  "pitcher_id": 669461,
+  "pitcher": "Matthew Liberatore",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823016,
+  "inning": 3,
+  "half": "top",
+  "batter_id": 687952,
+  "batter": "Christian Encarnacion-Strand",
+  "pitcher_id": 669461,
+  "pitcher": "Matthew Liberatore",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823016,
+  "inning": 3,
+  "half": "bottom",
+  "batter_id": 701675,
+  "batter": "Nathan Church",
+  "pitcher_id": 605135,
+  "pitcher": "Chris Bassitt",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823989,
+  "inning": 1,
+  "half": "bottom",
+  "batter_id": 687093,
+  "batter": "Vaughn Grissom",
+  "pitcher_id": 668909,
+  "pitcher": "Gavin Williams",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823989,
+  "inning": 2,
+  "half": "bottom",
+  "batter_id": 695681,
+  "batter": "Christian Moore",
+  "pitcher_id": 668909,
+  "pitcher": "Gavin Williams",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823989,
+  "inning": 5,
+  "half": "bottom",
+  "batter_id": 687093,
+  "batter": "Vaughn Grissom",
+  "pitcher_id": 671106,
+  "pitcher": "Logan Allen",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 825042,
+  "inning": 4,
+  "half": "top",
+  "batter_id": 664023,
+  "batter": "Ian Happ",
+  "pitcher_id": 694297,
+  "pitcher": "Brandon Pfaadt",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 825042,
+  "inning": 9,
+  "half": "bottom",
+  "batter_id": 814439,
+  "batter": "Ryan Waldschmidt",
+  "pitcher_id": 657097,
+  "pitcher": "Jacob Webb",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823259,
+  "inning": 9,
+  "half": "top",
+  "batter_id": 665833,
+  "batter": "Oneil Cruz",
+  "pitcher_id": 695243,
+  "pitcher": "Mason Miller",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824962,
+  "inning": 2,
+  "half": "bottom",
+  "batter_id": 666126,
+  "batter": "Carlos Cortes",
+  "pitcher_id": 671737,
+  "pitcher": "Taj Bradley",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823098,
+  "inning": 2,
+  "half": "bottom",
+  "batter_id": 663728,
+  "batter": "Cal Raleigh",
+  "pitcher_id": 605400,
+  "pitcher": "Aaron Nola",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823181,
+  "inning": 5,
+  "half": "bottom",
+  "batter_id": 646240,
+  "batter": "Rafael Devers",
+  "pitcher_id": 663903,
+  "pitcher": "Brady Singer",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823181,
+  "inning": 9,
+  "half": "top",
+  "batter_id": 701398,
+  "batter": "Sal Stewart",
+  "pitcher_id": 693313,
+  "pitcher": "Carson Seymour",
+  "pitcher_role": "R"
+ }
+]
