@@ -1,20 +1,17 @@
 Slate 2026-08-26 — precheck findings needing eyes:
 
-## T-90 slate sweep — 16:22Z
-- ✓ TB@DET: both probables match locked arms
-- ✓ CHC@ARI: both probables match locked arms
-- ✓ CIN@SF: both probables match locked arms
-- ✓ CLE@LAA: both probables match locked arms
-- ✓ PHI@SEA: both probables match locked arms
-- ✓ PIT@SD: both probables match locked arms
-- ✓ BOS@MIA: both probables match locked arms
-- ✓ COL@WSH: both probables match locked arms
-- ⚠ HOU@NYY: home probable Elmer Rodríguez (id 695684) was NOT SCORED at lock — scratch/trade signature. Bats boarded vs the other arm may be unaffected; bats scored VS this slot are built on a dead read.
-- ✓ KC@TOR: both probables match locked arms
-- ✓ MIL@NYM: both probables match locked arms
-- ✓ LAD@ATL: both probables match locked arms
-- ✓ TEX@CWS: both probables match locked arms
-- ✓ BAL@STL: both probables match locked arms
-- ✓ MIN@ATH: both probables match locked arms
+## T-30 — MIN@ATH (pk 824963) — 00:39Z
+- ✓ Brian Serven — batting 7
+- ✓ Brooks Lee — batting 2
+- ⚠ Byron Buxton — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Henry Bolte — batting 1
+- ✓ Jonah Heim — batting 4
+- ✓ Josh Bell — batting 3
+- ✓ Kody Clemens — batting 5
+- ✓ Lawrence Butler — batting 3
+- ⚠ Max Muncy — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Royce Lewis — batting 6
+- ⚠ Ryan Kreidler — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Zack Gelof — batting 2
 
 _Automated sweep. Verify via PropFinder + MLB app (5/27 rule). Board is locked and unchanged._
