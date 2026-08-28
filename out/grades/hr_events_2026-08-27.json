@@ -1,0 +1,162 @@
+[
+ {
+  "gamePk": 822694,
+  "inning": 5,
+  "half": "bottom",
+  "batter_id": 695734,
+  "batter": "Daylen Lile",
+  "pitcher_id": 687312,
+  "pitcher": "Gabriel Hughes",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 822694,
+  "inning": 8,
+  "half": "bottom",
+  "batter_id": 660688,
+  "batter": "Keibert Ruiz",
+  "pitcher_id": 623474,
+  "pitcher": "Jimmy Herget",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823014,
+  "inning": 2,
+  "half": "bottom",
+  "batter_id": 691458,
+  "batter": "Blaze Jordan",
+  "pitcher_id": 669432,
+  "pitcher": "Trevor Rogers",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823014,
+  "inning": 4,
+  "half": "bottom",
+  "batter_id": 602104,
+  "batter": "Ram\u00f3n Ur\u00edas",
+  "pitcher_id": 669432,
+  "pitcher": "Trevor Rogers",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823014,
+  "inning": 7,
+  "half": "top",
+  "batter_id": 691723,
+  "batter": "Coby Mayo",
+  "pitcher_id": 657571,
+  "pitcher": "Caleb Ferguson",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823503,
+  "inning": 6,
+  "half": "top",
+  "batter_id": 572233,
+  "batter": "Christian Walker",
+  "pitcher_id": 543037,
+  "pitcher": "Gerrit Cole",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823503,
+  "inning": 7,
+  "half": "top",
+  "batter_id": 665161,
+  "batter": "Jeremy Pe\u00f1a",
+  "pitcher_id": 660787,
+  "pitcher": "Yerry De los Santos",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 822771,
+  "inning": 1,
+  "half": "top",
+  "batter_id": 695600,
+  "batter": "Carter Jensen",
+  "pitcher_id": 681293,
+  "pitcher": "Spencer Arrighetti",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 822771,
+  "inning": 6,
+  "half": "top",
+  "batter_id": 686469,
+  "batter": "Vinnie Pasquantino",
+  "pitcher_id": 680573,
+  "pitcher": "Simeon Woods Richardson",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 822771,
+  "inning": 6,
+  "half": "bottom",
+  "batter_id": 543807,
+  "batter": "George Springer",
+  "pitcher_id": 702070,
+  "pitcher": "Noah Cameron",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 822771,
+  "inning": 9,
+  "half": "top",
+  "batter_id": 695506,
+  "batter": "Jac Caglianone",
+  "pitcher_id": 664702,
+  "pitcher": "Myles Straw",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823581,
+  "inning": 2,
+  "half": "top",
+  "batter_id": 694192,
+  "batter": "Jackson Chourio",
+  "pitcher_id": 640455,
+  "pitcher": "Sean Manaea",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823581,
+  "inning": 8,
+  "half": "top",
+  "batter_id": 694192,
+  "batter": "Jackson Chourio",
+  "pitcher_id": 675540,
+  "pitcher": "Xzavion Curry",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824879,
+  "inning": 1,
+  "half": "bottom",
+  "batter_id": 686948,
+  "batter": "Drake Baldwin",
+  "pitcher_id": 808967,
+  "pitcher": "Yoshinobu Yamamoto",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823179,
+  "inning": 1,
+  "half": "bottom",
+  "batter_id": 687551,
+  "batter": "Drew Gilbert",
+  "pitcher_id": 703615,
+  "pitcher": "Jose Cabrera",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823179,
+  "inning": 4,
+  "half": "top",
+  "batter_id": 672515,
+  "batter": "Gabriel Moreno",
+  "pitcher_id": 694738,
+  "pitcher": "Landen Roupp",
+  "pitcher_role": "S"
+ }
+]
