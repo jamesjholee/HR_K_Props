@@ -1,0 +1,312 @@
+[
+ {
+  "gamePk": 824638,
+  "inning": 3,
+  "half": "bottom",
+  "batter_id": 683737,
+  "batter": "Michael Busch",
+  "pitcher_id": 695076,
+  "pitcher": "Rhett Lowder",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824638,
+  "inning": 5,
+  "half": "top",
+  "batter_id": 701398,
+  "batter": "Sal Stewart",
+  "pitcher_id": 656849,
+  "pitcher": "David Peterson",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824638,
+  "inning": 6,
+  "half": "top",
+  "batter_id": 624431,
+  "batter": "Jose Trevino",
+  "pitcher_id": 663423,
+  "pitcher": "Trent Thornton",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824638,
+  "inning": 6,
+  "half": "top",
+  "batter_id": 663886,
+  "batter": "Tyler Stephenson",
+  "pitcher_id": 663423,
+  "pitcher": "Trent Thornton",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824638,
+  "inning": 8,
+  "half": "bottom",
+  "batter_id": 699393,
+  "batter": "Pedro Ram\u00edrez",
+  "pitcher_id": 622088,
+  "pitcher": "Tejay Antone",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824638,
+  "inning": 9,
+  "half": "top",
+  "batter_id": 670770,
+  "batter": "TJ Friedl",
+  "pitcher_id": 694037,
+  "pitcher": "Daniel Palencia",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 822691,
+  "inning": 3,
+  "half": "bottom",
+  "batter_id": 691781,
+  "batter": "Brady House",
+  "pitcher_id": 691587,
+  "pitcher": "Eury P\u00e9rez",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 822691,
+  "inning": 7,
+  "half": "bottom",
+  "batter_id": 695670,
+  "batter": "Harry Ford",
+  "pitcher_id": 687287,
+  "pitcher": "Patrick Monteverde",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 822691,
+  "inning": 8,
+  "half": "top",
+  "batter_id": 681715,
+  "batter": "Heriberto Hern\u00e1ndez",
+  "pitcher_id": 668820,
+  "pitcher": "Max Kranick",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824396,
+  "inning": 9,
+  "half": "top",
+  "batter_id": 695600,
+  "batter": "Carter Jensen",
+  "pitcher_id": 684974,
+  "pitcher": "Craig Yoho",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 822935,
+  "inning": 3,
+  "half": "bottom",
+  "batter_id": 650490,
+  "batter": "Yandy D\u00edaz",
+  "pitcher_id": 663554,
+  "pitcher": "Casey Mize",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 822935,
+  "inning": 6,
+  "half": "top",
+  "batter_id": 701538,
+  "batter": "Jackson Merrill",
+  "pitcher_id": 663556,
+  "pitcher": "Shane McClanahan",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 822935,
+  "inning": 7,
+  "half": "bottom",
+  "batter_id": 656775,
+  "batter": "Cedric Mullins",
+  "pitcher_id": 593974,
+  "pitcher": "Wandy Peralta",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 822769,
+  "inning": 1,
+  "half": "top",
+  "batter_id": 686527,
+  "batter": "Dominic Canzone",
+  "pitcher_id": 656302,
+  "pitcher": "Dylan Cease",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 822769,
+  "inning": 5,
+  "half": "bottom",
+  "batter_id": 664770,
+  "batter": "Nathan Lukes",
+  "pitcher_id": 676106,
+  "pitcher": "Emerson Hancock",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 822769,
+  "inning": 5,
+  "half": "bottom",
+  "batter_id": 543807,
+  "batter": "George Springer",
+  "pitcher_id": 676106,
+  "pitcher": "Emerson Hancock",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 822769,
+  "inning": 6,
+  "half": "bottom",
+  "batter_id": 672960,
+  "batter": "Kazuma Okamoto",
+  "pitcher_id": 622554,
+  "pitcher": "Seranthony Dom\u00ednguez",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824877,
+  "inning": 5,
+  "half": "bottom",
+  "batter_id": 671739,
+  "batter": "Michael Harris II",
+  "pitcher_id": 608372,
+  "pitcher": "Tomoyuki Sugano",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823504,
+  "inning": 3,
+  "half": "bottom",
+  "batter_id": 502671,
+  "batter": "Paul Goldschmidt",
+  "pitcher_id": 663776,
+  "pitcher": "Patrick Sandoval",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823744,
+  "inning": 3,
+  "half": "top",
+  "batter_id": 643376,
+  "batter": "Danny Jansen",
+  "pitcher_id": 701656,
+  "pitcher": "Logan Henderson",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823666,
+  "inning": 1,
+  "half": "top",
+  "batter_id": 695657,
+  "batter": "Colson Montgomery",
+  "pitcher_id": 665152,
+  "pitcher": "Dean Kremer",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823666,
+  "inning": 1,
+  "half": "bottom",
+  "batter_id": 686797,
+  "batter": "Brooks Lee",
+  "pitcher_id": 622491,
+  "pitcher": "Luis Castillo",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823666,
+  "inning": 1,
+  "half": "bottom",
+  "batter_id": 665019,
+  "batter": "Kody Clemens",
+  "pitcher_id": 622491,
+  "pitcher": "Luis Castillo",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823013,
+  "inning": 3,
+  "half": "bottom",
+  "batter_id": 699625,
+  "batter": "Jimmy Crooks",
+  "pitcher_id": 683003,
+  "pitcher": "Jared Jones",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823985,
+  "inning": 9,
+  "half": "top",
+  "batter_id": 624641,
+  "batter": "Edmundo Sosa",
+  "pitcher_id": 671111,
+  "pitcher": "Sammy Peralta",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824960,
+  "inning": 7,
+  "half": "bottom",
+  "batter_id": 641680,
+  "batter": "Jonah Heim",
+  "pitcher_id": 687064,
+  "pitcher": "Brandon Young",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823178,
+  "inning": 1,
+  "half": "top",
+  "batter_id": 663457,
+  "batter": "Lars Nootbaar",
+  "pitcher_id": 694918,
+  "pitcher": "Blade Tidwell",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823178,
+  "inning": 1,
+  "half": "bottom",
+  "batter_id": 805811,
+  "batter": "Bryce Eldridge",
+  "pitcher_id": 684442,
+  "pitcher": "Kohl Drake",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823178,
+  "inning": 3,
+  "half": "top",
+  "batter_id": 682998,
+  "batter": "Corbin Carroll",
+  "pitcher_id": 694918,
+  "pitcher": "Blade Tidwell",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823178,
+  "inning": 3,
+  "half": "top",
+  "batter_id": 694374,
+  "batter": "Tim Tawa",
+  "pitcher_id": 694918,
+  "pitcher": "Blade Tidwell",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823178,
+  "inning": 4,
+  "half": "bottom",
+  "batter_id": 683766,
+  "batter": "Christian Koss",
+  "pitcher_id": 684442,
+  "pitcher": "Kohl Drake",
+  "pitcher_role": "S"
+ }
+]
