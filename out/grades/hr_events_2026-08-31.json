@@ -1,0 +1,312 @@
+[
+ {
+  "gamePk": 824911,
+  "inning": 1,
+  "half": "top",
+  "batter_id": 646240,
+  "batter": "Rafael Devers",
+  "pitcher_id": 693821,
+  "pitcher": "Bryce Elder",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824911,
+  "inning": 2,
+  "half": "bottom",
+  "batter_id": 671739,
+  "batter": "Michael Harris II",
+  "pitcher_id": 683627,
+  "pitcher": "Anthony Molina",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824911,
+  "inning": 6,
+  "half": "top",
+  "batter_id": 678545,
+  "batter": "Osleivis Basabe",
+  "pitcher_id": 693821,
+  "pitcher": "Bryce Elder",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824911,
+  "inning": 9,
+  "half": "top",
+  "batter_id": 813841,
+  "batter": "Jonah Cox",
+  "pitcher_id": 678061,
+  "pitcher": "Ray Kerr",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 822932,
+  "inning": 7,
+  "half": "top",
+  "batter_id": 668901,
+  "batter": "Mark Vientos",
+  "pitcher_id": 693855,
+  "pitcher": "Ian Seymour",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824719,
+  "inning": 1,
+  "half": "bottom",
+  "batter_id": 681508,
+  "batter": "Mickey Gasper",
+  "pitcher_id": 669923,
+  "pitcher": "George Kirby",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824719,
+  "inning": 2,
+  "half": "bottom",
+  "batter_id": 680776,
+  "batter": "Jarren Duran",
+  "pitcher_id": 669923,
+  "pitcher": "George Kirby",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824719,
+  "inning": 3,
+  "half": "top",
+  "batter_id": 668227,
+  "batter": "Randy Arozarena",
+  "pitcher_id": 801139,
+  "pitcher": "Payton Tolle",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824719,
+  "inning": 7,
+  "half": "top",
+  "batter_id": 663728,
+  "batter": "Cal Raleigh",
+  "pitcher_id": 669062,
+  "pitcher": "Erik Miller",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 822689,
+  "inning": 5,
+  "half": "bottom",
+  "batter_id": 695734,
+  "batter": "Daylen Lile",
+  "pitcher_id": 667652,
+  "pitcher": "Jack Ralston",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 822689,
+  "inning": 7,
+  "half": "bottom",
+  "batter_id": 695734,
+  "batter": "Daylen Lile",
+  "pitcher_id": 694795,
+  "pitcher": "Josh Ekness",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823663,
+  "inning": 4,
+  "half": "bottom",
+  "batter_id": 665019,
+  "batter": "Kody Clemens",
+  "pitcher_id": 695549,
+  "pitcher": "Jackson Jobe",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823663,
+  "inning": 5,
+  "half": "bottom",
+  "batter_id": 680777,
+  "batter": "Ryan Jeffers",
+  "pitcher_id": 695549,
+  "pitcher": "Jackson Jobe",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823663,
+  "inning": 6,
+  "half": "top",
+  "batter_id": 701678,
+  "batter": "Hao-Yu Lee",
+  "pitcher_id": 671737,
+  "pitcher": "Taj Bradley",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823663,
+  "inning": 7,
+  "half": "bottom",
+  "batter_id": 680777,
+  "batter": "Ryan Jeffers",
+  "pitcher_id": 700270,
+  "pitcher": "Yilber D\u00edaz",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823663,
+  "inning": 8,
+  "half": "bottom",
+  "batter_id": 805805,
+  "batter": "Walker Jenkins",
+  "pitcher_id": 656716,
+  "pitcher": "Zach McKinstry",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824635,
+  "inning": 1,
+  "half": "bottom",
+  "batter_id": 621438,
+  "batter": "Tyrone Taylor",
+  "pitcher_id": 690986,
+  "pitcher": "Kyle Harrison",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824635,
+  "inning": 1,
+  "half": "bottom",
+  "batter_id": 663538,
+  "batter": "Nico Hoerner",
+  "pitcher_id": 690986,
+  "pitcher": "Kyle Harrison",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824635,
+  "inning": 2,
+  "half": "bottom",
+  "batter_id": 608324,
+  "batter": "Alex Bregman",
+  "pitcher_id": 690986,
+  "pitcher": "Kyle Harrison",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824635,
+  "inning": 4,
+  "half": "bottom",
+  "batter_id": 673548,
+  "batter": "Seiya Suzuki",
+  "pitcher_id": 690986,
+  "pitcher": "Kyle Harrison",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824635,
+  "inning": 4,
+  "half": "bottom",
+  "batter_id": 608324,
+  "batter": "Alex Bregman",
+  "pitcher_id": 690986,
+  "pitcher": "Kyle Harrison",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824635,
+  "inning": 7,
+  "half": "top",
+  "batter_id": 806198,
+  "batter": "Cooper Pratt",
+  "pitcher_id": 669020,
+  "pitcher": "Ryan Rolison",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824635,
+  "inning": 7,
+  "half": "bottom",
+  "batter_id": 608348,
+  "batter": "Carson Kelly",
+  "pitcher_id": 669084,
+  "pitcher": "DL Hall",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824635,
+  "inning": 7,
+  "half": "bottom",
+  "batter_id": 807713,
+  "batter": "Matt Shaw",
+  "pitcher_id": 683734,
+  "pitcher": "Andrew Vaughn",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824635,
+  "inning": 8,
+  "half": "bottom",
+  "batter_id": 624424,
+  "batter": "Michael Conforto",
+  "pitcher_id": 683734,
+  "pitcher": "Andrew Vaughn",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824635,
+  "inning": 8,
+  "half": "bottom",
+  "batter_id": 608324,
+  "batter": "Alex Bregman",
+  "pitcher_id": 683734,
+  "pitcher": "Andrew Vaughn",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 822855,
+  "inning": 4,
+  "half": "bottom",
+  "batter_id": 679822,
+  "batter": "Justin Foscue",
+  "pitcher_id": 695611,
+  "pitcher": "Gage Jump",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824149,
+  "inning": 4,
+  "half": "bottom",
+  "batter_id": 676369,
+  "batter": "Nelson Vel\u00e1zquez",
+  "pitcher_id": 641743,
+  "pitcher": "Anthony Kay",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824149,
+  "inning": 7,
+  "half": "top",
+  "batter_id": 695657,
+  "batter": "Colson Montgomery",
+  "pitcher_id": 656986,
+  "pitcher": "Bennett Sousa",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823982,
+  "inning": 5,
+  "half": "top",
+  "batter_id": 682987,
+  "batter": "Spencer Jones",
+  "pitcher_id": 700712,
+  "pitcher": "Walbert Ure\u00f1a",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 825040,
+  "inning": 2,
+  "half": "top",
+  "batter_id": 681082,
+  "batter": "Bryson Stott",
+  "pitcher_id": 694297,
+  "pitcher": "Brandon Pfaadt",
+  "pitcher_role": "S"
+ }
+]
