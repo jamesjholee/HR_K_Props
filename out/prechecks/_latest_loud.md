@@ -1,37 +1,31 @@
-Slate 2026-08-29 — precheck findings needing eyes:
+Slate 2026-09-01 — precheck findings needing eyes:
 
-## T-30 — ARI@SF-G2 (pk 823176) — 01:33Z
-- ⚠ starter Yunior Marte (id 805074, home) not among locked scored arms — verify matchup basis
-- ✓ Bryce Eldridge — batting 3
-- ✓ Jonah Cox — batting 1
-- ✓ Rafael Devers — batting 2
-- ✓ Shay Whitcomb — batting 5
+## T-30 — DET@MIN (pk 823661) — 23:23Z
+- ⚠ Ben Malgeri — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Brooks Lee — batting 2
+- ⚠ Colt Keith — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Dillon Dingler — batting 3
+- ⚠ Eduardo Valencia — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Kevin McGonigle — batting 1
+- ✓ Kody Clemens — batting 3
+- ✓ Max Clark — batting 7
+- ✓ Royce Lewis — batting 7
+- ✓ Ryan Jeffers — batting 4
+- ⚠ Ryan Kreidler — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Spencer Torkelson — batting 6
 
-## T-30 — BAL@ATH (pk 824961) — 01:33Z
-- ⚠ Blaze Alexander — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-- ✓ Carlos Cortes — batting 8
-- ✓ Coby Mayo — batting 7
-- ✓ Colton Cowser — batting 8
-- ✓ Dylan Beavers — batting 6
-- ✓ Gunnar Henderson — batting 3
-- ✓ Henry Bolte — batting 1
-- ✓ Lawrence Butler — batting 4
-- ✓ Max Muncy — batting 7
-- ✓ Pete Alonso — batting 2
-- ✓ Samuel Basallo — batting 5
-- ✓ Tommy White — batting 5
-- ✓ Zack Gelof — batting 3
-
-## T-30 — PHI@LAA (pk 823986) — 01:33Z
-- ✓ Brandon Marsh — batting 7
-- ✓ Bryce Harper — batting 3
-- ✓ Bryson Stott — batting 6
-- ✓ Denzer Guzman — batting 7
-- ✓ J.T. Realmuto — batting 8
-- ✓ Jose Siri — batting 4
-- ✓ Kyle Schwarber — batting 1
-- ✓ Luis Arraez — batting 4
-- ⚠ Moisés Ballesteros — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-- ✓ Travis d'Arnaud — batting 8
+## T-30 — MIL@CHC (pk 824633) — 23:23Z
+- ✓ Alex Bregman — batting 3
+- ✓ Andrew Vaughn — batting 5
+- ✓ Carson Kelly — batting 7
+- ✓ Christian Yelich — batting 6
+- ⚠ Garrett Mitchell — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ⚠ Gary Sanchez — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ⚠ Ian Happ — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Jackson Chourio — batting 1
+- ✓ Jake Bauers — batting 4
+- ✓ Michael Busch — batting 6
+- ✓ Pete Crow-Armstrong — batting 1
+- ✓ Seiya Suzuki — batting 2
 
 _Automated sweep. Verify via PropFinder + MLB app (5/27 rule). Board is locked and unchanged._
