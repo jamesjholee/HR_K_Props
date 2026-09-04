@@ -1,0 +1,162 @@
+[
+ {
+  "gamePk": 824144,
+  "inning": 1,
+  "half": "bottom",
+  "batter_id": 514888,
+  "batter": "Jose Altuve",
+  "pitcher_id": 622491,
+  "pitcher": "Luis Castillo",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824796,
+  "inning": 1,
+  "half": "top",
+  "batter_id": 668939,
+  "batter": "Adley Rutschman",
+  "pitcher_id": 687064,
+  "pitcher": "Brandon Young",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824796,
+  "inning": 4,
+  "half": "bottom",
+  "batter_id": 673357,
+  "batter": "Luis Robert Jr.",
+  "pitcher_id": 687562,
+  "pitcher": "Jake Bennett",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824796,
+  "inning": 4,
+  "half": "bottom",
+  "batter_id": 624413,
+  "batter": "Pete Alonso",
+  "pitcher_id": 687562,
+  "pitcher": "Jake Bennett",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824796,
+  "inning": 6,
+  "half": "top",
+  "batter_id": 668939,
+  "batter": "Adley Rutschman",
+  "pitcher_id": 687064,
+  "pitcher": "Brandon Young",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824796,
+  "inning": 8,
+  "half": "top",
+  "batter_id": 686765,
+  "batter": "Nick Sogard",
+  "pitcher_id": 666974,
+  "pitcher": "Yennier Cano",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824796,
+  "inning": 9,
+  "half": "top",
+  "batter_id": 701350,
+  "batter": "Roman Anthony",
+  "pitcher_id": 544150,
+  "pitcher": "Albert Su\u00e1rez",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824796,
+  "inning": 9,
+  "half": "bottom",
+  "batter_id": 687952,
+  "batter": "Christian Encarnacion-Strand",
+  "pitcher_id": 547973,
+  "pitcher": "Aroldis Chapman",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824632,
+  "inning": 3,
+  "half": "bottom",
+  "batter_id": 691718,
+  "batter": "Pete Crow-Armstrong",
+  "pitcher_id": 701656,
+  "pitcher": "Logan Henderson",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824632,
+  "inning": 4,
+  "half": "top",
+  "batter_id": 683734,
+  "batter": "Andrew Vaughn",
+  "pitcher_id": 592332,
+  "pitcher": "Kevin Gausman",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824069,
+  "inning": 1,
+  "half": "top",
+  "batter_id": 681715,
+  "batter": "Heriberto Hern\u00e1ndez",
+  "pitcher_id": 608379,
+  "pitcher": "Michael Wacha",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824069,
+  "inning": 4,
+  "half": "top",
+  "batter_id": 682663,
+  "batter": "Agust\u00edn Ram\u00edrez",
+  "pitcher_id": 608379,
+  "pitcher": "Michael Wacha",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824069,
+  "inning": 5,
+  "half": "bottom",
+  "batter_id": 695600,
+  "batter": "Carter Jensen",
+  "pitcher_id": 645261,
+  "pitcher": "Sandy Alcantara",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 822853,
+  "inning": 5,
+  "half": "bottom",
+  "batter_id": 608369,
+  "batter": "Corey Seager",
+  "pitcher_id": 663556,
+  "pitcher": "Shane McClanahan",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823095,
+  "inning": 1,
+  "half": "top",
+  "batter_id": 680869,
+  "batter": "Zack Gelof",
+  "pitcher_id": 807739,
+  "pitcher": "Kade Anderson",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823095,
+  "inning": 6,
+  "half": "top",
+  "batter_id": 622268,
+  "batter": "Donovan Walton",
+  "pitcher_id": 672841,
+  "pitcher": "Carlos Vargas",
+  "pitcher_role": "R"
+ }
+]
