@@ -1,37 +1,23 @@
-Slate 2026-09-04 — precheck findings needing eyes:
+Slate 2026-09-05 — precheck findings needing eyes:
 
-## T-30 — SF@NYM (pk 823579) — 22:56Z
-- ⚠ A.J. Ewing — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-- ⚠ Andrew Knizner — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-- ✓ Bryce Eldridge — batting 3
-- ✓ Carson Benge — batting 5
-- ✓ Drew Gilbert — batting 1
-- ✓ Francisco Lindor — batting 1
-- ⚠ Grant McCray — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-- ✓ Osleivis Basabe — batting 7
-- ✓ Rafael Devers — batting 2
-- ✓ Turner Hill — batting 4
+## T-30 — NYY@SD (pk 823257) — 23:10Z
+- ✓ Ben Rice — batting 4
+- ✓ Fernando Tatis Jr. — batting 1
+- ✓ Heliot Ramos — batting 5
+- ✓ Jackson Merrill — batting 5
+- ⚠ Jazz Chisholm Jr. — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ⚠ Luis Garcia Jr. — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Paul Goldschmidt — batting 1
+- ✓ Spencer Jones — batting 7
+- ✓ Ty France — batting 4
 
-## T-30 — CHC@MIA (pk 823824) — 22:56Z
-- ✓ Agustin Ramirez — batting 5
-- ✓ Alex Bregman — batting 4
-- ✓ Esteury Ruiz — batting 6
-- ⚠ Gabriel Arias — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-- ✓ Heriberto Hernandez — batting 1
-- ✓ Ian Happ — batting 5
-- ⚠ Joe Mack — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-- ⚠ Kyle Stowers — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-- ✓ Michael Conforto — batting 8
-- ✓ Otto Lopez — batting 2
-- ✓ Pete Crow-Armstrong — batting 1
-- ✓ Seiya Suzuki — batting 2
-
-## T-30 — DET@CLE-G2 (pk 824387) — 22:56Z
-- ⚠ Dillon Dingler — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-- ✓ Eduardo Valencia — batting 4
-- ✓ Gleyber Torres — batting 1
-- ✓ Hao-Yu  Lee — batting 2
-- ⚠ Riley Greene — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-- ✓ Spencer Torkelson — batting 5
+## T-30 — ARI@HOU (pk 824145) — 23:10Z
+- ✓ Cam Smith — batting 9
+- ✓ Christian Walker — batting 6
+- ✓ Isaac Paredes — batting 3
+- ⚠ Jake Meyers — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Taylor Trammell — batting 8
+- ✓ Yainer Diaz — batting 7
+- ✓ Yordan Alvarez — batting 2
 
 _Automated sweep. Verify via PropFinder + MLB app (5/27 rule). Board is locked and unchanged._
