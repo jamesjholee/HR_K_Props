@@ -1,23 +1,15 @@
 Slate 2026-09-05 — precheck findings needing eyes:
 
-## T-30 — NYY@SD (pk 823257) — 23:10Z
-- ✓ Ben Rice — batting 4
-- ✓ Fernando Tatis Jr. — batting 1
-- ✓ Heliot Ramos — batting 5
-- ✓ Jackson Merrill — batting 5
-- ⚠ Jazz Chisholm Jr. — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-- ⚠ Luis Garcia Jr. — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-- ✓ Paul Goldschmidt — batting 1
-- ✓ Spencer Jones — batting 7
-- ✓ Ty France — batting 4
-
-## T-30 — ARI@HOU (pk 824145) — 23:10Z
-- ✓ Cam Smith — batting 9
-- ✓ Christian Walker — batting 6
-- ✓ Isaac Paredes — batting 3
-- ⚠ Jake Meyers — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-- ✓ Taylor Trammell — batting 8
-- ✓ Yainer Diaz — batting 7
-- ✓ Yordan Alvarez — batting 2
+## T-30 — WSH@LAD (pk 823904) — 01:02Z
+- ✓ Abimelec Ortiz — batting 3
+- ⚠ Andres Chaparro — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Brady House — batting 5
+- ⚠ Dalton Rushing — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Daylen Lile — batting 2
+- ✓ Hunter Feduccia — batting 6
+- ✓ James Wood — batting 1
+- ⚠ Max Muncy — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ⚠ Shohei Ohtani — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ⚠ Will Smith — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
 
 _Automated sweep. Verify via PropFinder + MLB app (5/27 rule). Board is locked and unchanged._
