@@ -42,10 +42,18 @@ def now():
     return datetime.now(timezone.utc).isoformat(timespec="seconds")
 
 
+def _migrate_team(c):
+    try:
+        c.execute("ALTER TABLE hr_board ADD COLUMN team TEXT")
+    except Exception:
+        pass
+
+
 def conn():
     c = sqlite3.connect(DB_PATH)
     c.executescript(SCHEMA)
     _migrate(c)
+    _migrate_team(c)
     return c
 
 
@@ -114,8 +122,10 @@ def lock_board_row(
     c.execute(
         "INSERT INTO hr_board(slate_date,game,batter_id,batter_name,"
         "batting_order,hr_prob,breakeven,engine_rank,final_rank,"
-        "l15_flag,human_override,lane,locked_at,game_pk) "
-        "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+        "l15_flag,human_override,lane,locked_at,game_pk,team) "
+        "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,"
+        " (SELECT a.team FROM hr_appearances a WHERE a.batter_id=?"
+        "  ORDER BY a.slate_date DESC LIMIT 1))",
         (
             slate_date,
             game,
@@ -131,6 +141,7 @@ def lock_board_row(
             lane,
             now(),
             int(game_pk or 0),
+            bid,
         ),
     )
     c.commit()

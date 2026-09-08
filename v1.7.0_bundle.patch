@@ -1,0 +1,102 @@
+diff --git a/db.py b/db.py
+index 813e3c6..60ed0b5 100644
+--- a/db.py
++++ b/db.py
+@@ -42,10 +42,18 @@ def now():
+     return datetime.now(timezone.utc).isoformat(timespec="seconds")
+ 
+ 
++def _migrate_team(c):
++    try:
++        c.execute("ALTER TABLE hr_board ADD COLUMN team TEXT")
++    except Exception:
++        pass
++
++
+ def conn():
+     c = sqlite3.connect(DB_PATH)
+     c.executescript(SCHEMA)
+     _migrate(c)
++    _migrate_team(c)
+     return c
+ 
+ 
+@@ -114,8 +122,10 @@ def lock_board_row(
+     c.execute(
+         "INSERT INTO hr_board(slate_date,game,batter_id,batter_name,"
+         "batting_order,hr_prob,breakeven,engine_rank,final_rank,"
+-        "l15_flag,human_override,lane,locked_at,game_pk) "
+-        "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
++        "l15_flag,human_override,lane,locked_at,game_pk,team) "
++        "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,"
++        " (SELECT a.team FROM hr_appearances a WHERE a.batter_id=?"
++        "  ORDER BY a.slate_date DESC LIMIT 1))",
+         (
+             slate_date,
+             game,
+@@ -131,6 +141,7 @@ def lock_board_row(
+             lane,
+             now(),
+             int(game_pk or 0),
++            bid,
+         ),
+     )
+     c.commit()
+diff --git a/engine/config.py b/engine/config.py
+index 977a26b..404cc37 100644
+--- a/engine/config.py
++++ b/engine/config.py
+@@ -5,7 +5,7 @@ When a rule changes after a graded slate, edit here and bump CONFIG_VERSION.
+ The results database tags every board with the config version that produced it.
+ """
+ 
+-CONFIG_VERSION = "v1.6.7-2026-08-16"  # players handedness dim (bat_side/pitch_hand) + hands.json + dashboard L/R/S tags and vs-LHP/RHP filter chips — display and research only, zero ranking-weight change
++CONFIG_VERSION = "v1.7.0-2026-09-08"  # WHIFF CAP promoted to gate (>=30%% arsenal whiff caps TARGET-family to dart tier) + hr_board.team column + top-30 card status: mild-lift/monitoring
+ 
+ # ---------------- Gate 2.5: last-3-starts pitcher form (SHADOW, v1.4) ----------------
+ # Annotates only. Season verdict is authoritative; flags never move probabilities.
+@@ -37,6 +37,7 @@ BROAD_DAMAGE_MIN_PITCHES = 2  # 2+ crushable pitches => broad-damage TARGET
+ 
+ # Whiff overlay: downgraded per methodology — a MODIFIER, not a veto
+ ELITE_WHIFF_ARSENAL = 0.32  # usage-weighted whiff above this = one-notch caution flag
++WHIFF_CAP = 0.30            # v1.7.0: TARGET-family arms at/above this cap to dart tier (validated: 0.56 vs 0.72 HR/start, n=64)
+ ELITE_K_PCT = 28.0  # aggregate K% flag (informational; logged, not gating)
+ 
+ # ---------------- Gate 3: batter composite ----------------
+diff --git a/engine/gates.py b/engine/gates.py
+index 83f9e82..4fe3609 100644
+--- a/engine/gates.py
++++ b/engine/gates.py
+@@ -57,9 +57,15 @@ def gate2_pitcher(splits, pitch_types):
+         verdict = "FADE"
+         note = "no crushable pitch clears triggers"
+ 
+-    # whiff overlay: modifier — TARGET with elite whiff drops to ONE-PITCH-tier caution
+-    if verdict == "TARGET" and uw_whiff >= C.ELITE_WHIFF_ARSENAL:
+-        note += "; whiff overlay applied (treat as conditional)"
++    # v1.7.0 WHIFF CAP — promoted from shadow after 64 graded starts:
++    # TARGET-family arms at >=30% usage-weighted whiff allowed 0.56 HR/start
++    # vs ~0.72 for the family. Swing-and-miss suppresses regardless of
++    # damage vectors (the Cole/Williams 5/27 lesson, now with receipts), so
++    # such arms cap at dart tier: narrow board width, no full-TARGET pool.
++    if uw_whiff >= C.WHIFF_CAP and verdict in ("TARGET", "TARGET-THIN", "ONE-PITCH"):
++        note += (f"; WHIFF-CAP: {uw_whiff*100:.1f}% arsenal whiff >= "
++                 f"{C.WHIFF_CAP*100:.0f}% — capped to dart tier despite damage")
++        verdict = "ONE-PITCH-THIN"
+ 
+     vector = [p["code"] for p in crushable]
+     return {
+diff --git a/track.py b/track.py
+index 8e0d070..d520520 100644
+--- a/track.py
++++ b/track.py
+@@ -476,7 +476,8 @@ def virtual_card_report(con):
+         return []
+     lines = ["", "## Virtual cards (frozen at lock — out-of-sample)",
+              f"_cut rule frozen v1.6.5; {len(dates)} slate(s) logged, "
+-             f"{len(graded)} graded; 5-6 graded slates before any promotion_"]
++             f"{len(graded)} graded — STATUS: mild lift (~13%), below breakeven; "
++             f"monitoring only, not a promotion candidate_"]
+     if not graded:
+         lines.append("- no graded card slates yet")
+         return lines

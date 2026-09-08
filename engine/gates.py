@@ -57,9 +57,15 @@ def gate2_pitcher(splits, pitch_types):
         verdict = "FADE"
         note = "no crushable pitch clears triggers"
 
-    # whiff overlay: modifier — TARGET with elite whiff drops to ONE-PITCH-tier caution
-    if verdict == "TARGET" and uw_whiff >= C.ELITE_WHIFF_ARSENAL:
-        note += "; whiff overlay applied (treat as conditional)"
+    # v1.7.0 WHIFF CAP — promoted from shadow after 64 graded starts:
+    # TARGET-family arms at >=30% usage-weighted whiff allowed 0.56 HR/start
+    # vs ~0.72 for the family. Swing-and-miss suppresses regardless of
+    # damage vectors (the Cole/Williams 5/27 lesson, now with receipts), so
+    # such arms cap at dart tier: narrow board width, no full-TARGET pool.
+    if uw_whiff >= C.WHIFF_CAP and verdict in ("TARGET", "TARGET-THIN", "ONE-PITCH"):
+        note += (f"; WHIFF-CAP: {uw_whiff*100:.1f}% arsenal whiff >= "
+                 f"{C.WHIFF_CAP*100:.0f}% — capped to dart tier despite damage")
+        verdict = "ONE-PITCH-THIN"
 
     vector = [p["code"] for p in crushable]
     return {

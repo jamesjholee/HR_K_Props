@@ -5,7 +5,7 @@ When a rule changes after a graded slate, edit here and bump CONFIG_VERSION.
 The results database tags every board with the config version that produced it.
 """
 
-CONFIG_VERSION = "v1.6.7-2026-08-16"  # players handedness dim (bat_side/pitch_hand) + hands.json + dashboard L/R/S tags and vs-LHP/RHP filter chips — display and research only, zero ranking-weight change
+CONFIG_VERSION = "v1.7.0-2026-09-08"  # WHIFF CAP promoted to gate (>=30%% arsenal whiff caps TARGET-family to dart tier) + hr_board.team column + top-30 card status: mild-lift/monitoring
 
 # ---------------- Gate 2.5: last-3-starts pitcher form (SHADOW, v1.4) ----------------
 # Annotates only. Season verdict is authoritative; flags never move probabilities.
@@ -37,6 +37,7 @@ BROAD_DAMAGE_MIN_PITCHES = 2  # 2+ crushable pitches => broad-damage TARGET
 
 # Whiff overlay: downgraded per methodology — a MODIFIER, not a veto
 ELITE_WHIFF_ARSENAL = 0.32  # usage-weighted whiff above this = one-notch caution flag
+WHIFF_CAP = 0.30            # v1.7.0: TARGET-family arms at/above this cap to dart tier (validated: 0.56 vs 0.72 HR/start, n=64)
 ELITE_K_PCT = 28.0  # aggregate K% flag (informational; logged, not gating)
 
 # ---------------- Gate 3: batter composite ----------------

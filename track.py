@@ -476,7 +476,8 @@ def virtual_card_report(con):
         return []
     lines = ["", "## Virtual cards (frozen at lock — out-of-sample)",
              f"_cut rule frozen v1.6.5; {len(dates)} slate(s) logged, "
-             f"{len(graded)} graded; 5-6 graded slates before any promotion_"]
+             f"{len(graded)} graded — STATUS: mild lift (~13%), below breakeven; "
+             f"monitoring only, not a promotion candidate_"]
     if not graded:
         lines.append("- no graded card slates yet")
         return lines
