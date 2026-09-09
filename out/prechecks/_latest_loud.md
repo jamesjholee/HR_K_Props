@@ -1,19 +1,37 @@
 Slate 2026-09-09 — precheck findings needing eyes:
 
-## T-90 slate sweep — 18:26Z
-- ✓ TOR@ATH: both probables match locked arms
-- ✓ STL@SF: both probables match locked arms
-- ✓ TEX@SEA: both probables match locked arms
-- ✓ WSH@SD: both probables match locked arms
-- ✓ CLE@BAL: both probables match locked arms
-- ✓ HOU@PHI: both probables match locked arms
-- ✓ NYM@MIA: both probables match locked arms
-- ✓ LAA@BOS: both probables match locked arms
-- ✓ COL@NYY: both probables match locked arms
-- ⚠ TB@ATL: probable starter TBD (1/2 listed) — 5/27 RULE, verify in MLB app before betting this game
-- ✓ CHC@MIL: both probables match locked arms
-- ✓ ARI@KC: both probables match locked arms
-- ✓ PIT@CWS: both probables match locked arms
-- ✓ CIN@LAD: both probables match locked arms
+## T-30 — CHC@MIL (pk 823739) — 23:17Z
+- ✓ Carson Kelly — batting 9
+- ✓ Ian Happ — batting 5
+- ✓ Michael Conforto — batting 8
+- ✓ Pete Crow-Armstrong — batting 1
+- ✓ Seiya Suzuki — batting 2
+- ⚠ Tyrone Taylor — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+
+## T-30 — ARI@KC (pk 824064) — 23:17Z
+- ✓ Bobby Witt Jr. — batting 2
+- ✓ Carter Jensen — batting 1
+- ⚠ Corbin Carroll — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ⚠ Jac Caglianone — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ John Rave — batting 7
+- ✓ Ketel Marte — batting 2
+- ✓ Kyle Isbel — batting 8
+- ✓ Nolan Arenado — batting 4
+- ✓ Salvador Perez — batting 4
+- ⚠ Tommy Troy — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+
+## T-30 — PIT@CWS (pk 824549) — 23:17Z
+- ✓ Andrew Benintendi — batting 2
+- ✓ Brandon Lowe — batting 2
+- ✓ Bryan Reynolds — batting 3
+- ✓ Colson Montgomery — batting 5
+- ✓ Esmerlyn Valdez — batting 6
+- ⚠ Henry Davis — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Konnor Griffin — batting 1
+- ⚠ Miguel Vargas — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Munetaka Murakami — batting 3
+- ✓ Oneil Cruz — batting 5
+- ✓ Rafael Flores — batting 8
+- ✓ Tristan Peters — batting 7
 
 _Automated sweep. Verify via PropFinder + MLB app (5/27 rule). Board is locked and unchanged._
