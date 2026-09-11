@@ -1,0 +1,82 @@
+[
+ {
+  "gamePk": 824872,
+  "inning": 9,
+  "half": "top",
+  "batter_id": 683748,
+  "batter": "Victor Mesa Jr.",
+  "pitcher_id": 628452,
+  "pitcher": "Raisel Iglesias",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823413,
+  "inning": 9,
+  "half": "top",
+  "batter_id": 701358,
+  "batter": "Cam Smith",
+  "pitcher_id": 661395,
+  "pitcher": "Jhoan Duran",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823088,
+  "inning": 3,
+  "half": "top",
+  "batter_id": 592626,
+  "batter": "Joc Pederson",
+  "pitcher_id": 669302,
+  "pitcher": "Logan Gilbert",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823088,
+  "inning": 7,
+  "half": "bottom",
+  "batter_id": 677594,
+  "batter": "Julio Rodr\u00edguez",
+  "pitcher_id": 596001,
+  "pitcher": "Jakob Junis",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823499,
+  "inning": 1,
+  "half": "bottom",
+  "batter_id": 671277,
+  "batter": "Luis Garc\u00eda Jr.",
+  "pitcher_id": 663372,
+  "pitcher": "Ryan Feltner",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823499,
+  "inning": 2,
+  "half": "top",
+  "batter_id": 691720,
+  "batter": "Kyle Karros",
+  "pitcher_id": 608331,
+  "pitcher": "Max Fried",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823499,
+  "inning": 7,
+  "half": "bottom",
+  "batter_id": 683011,
+  "batter": "Anthony Volpe",
+  "pitcher_id": 623474,
+  "pitcher": "Jimmy Herget",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824550,
+  "inning": 4,
+  "half": "top",
+  "batter_id": 665833,
+  "batter": "Oneil Cruz",
+  "pitcher_id": 607200,
+  "pitcher": "Erick Fedde",
+  "pitcher_role": "R"
+ }
+]
