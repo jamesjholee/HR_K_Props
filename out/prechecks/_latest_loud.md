@@ -1,69 +1,25 @@
 Slate 2026-09-12 — precheck findings needing eyes:
 
-## T-30 — LAA@WSH (pk 822685) — 19:39Z
-- ✓ Christian Moore — batting 5
-- ✓ Christian Moore — batting 5
-- ✓ Denzer Guzman — batting 7
-- ✓ Denzer Guzman — batting 7
-- ✓ Jose Siri — batting 3
-- ✓ Jose Siri — batting 3
-- ✓ Mike Trout — batting 2
-- ✓ Mike Trout — batting 2
-- ✓ Oswald Peraza — batting 6
-- ✓ Oswald Peraza — batting 6
-- ⚠ Travis d'Arnaud — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-- ⚠ Travis d'Arnaud — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-- ✓ Zach Neto — batting 1
-- ✓ Zach Neto — batting 1
-
-## T-30 — SD@SF (pk 823170) — 19:39Z
-- ✓ Bryce Eldridge — batting 3
-- ✓ Bryce Eldridge — batting 3
-- ⚠ Grant McCray — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-- ⚠ Grant McCray — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-- ⚠ Osleivis Basabe — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-- ⚠ Osleivis Basabe — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-- ✓ Rafael Devers — batting 2
-- ✓ Rafael Devers — batting 2
-- ✓ Shay Whitcomb — batting 7
-- ✓ Shay Whitcomb — batting 7
-- ✓ Turner Hill — batting 5
-- ✓ Turner Hill — batting 5
-
-## T-30 — CLE@MIN (pk 823657) — 19:39Z
-- ⚠ Angel Genao — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-- ⚠ Angel Genao — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-- ✓ Angel Martinez — batting 5
-- ✓ Angel Martinez — batting 5
-- ⚠ Daniel Schneemann — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-- ⚠ Daniel Schneemann — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-- ✓ David Fry — batting 6
-- ✓ David Fry — batting 6
-- ✓ Jo Adell — batting 4
-- ✓ Jo Adell — batting 4
-- ✓ Jose Ramirez — batting 2
-- ✓ Jose Ramirez — batting 2
-
-## T-30 — LAD@MIA (pk 823819) — 19:39Z
-- ✓ Freddie Freeman — batting 2
-- ✓ Freddie Freeman — batting 2
-- ✓ Griffin Conine — batting 3
-- ✓ Griffin Conine — batting 3
-- ✓ Heriberto Hernandez — batting 2
-- ✓ Heriberto Hernandez — batting 2
-- ✓ Hunter Feduccia — batting 8
-- ✓ Hunter Feduccia — batting 8
-- ✓ Kyle Stowers — batting 1
-- ✓ Kyle Stowers — batting 1
-- ✓ Kyle Tucker — batting 5
-- ✓ Kyle Tucker — batting 5
-- ✓ Max Muncy — batting 4
-- ✓ Max Muncy — batting 4
-- ✓ Mookie Betts — batting 3
-- ✓ Mookie Betts — batting 3
-- ✓ Owen Caissie — batting 7
-- ✓ Owen Caissie — batting 7
-- ⚠ Will Smith — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-- ⚠ Will Smith — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+## T-30 — HOU@TB (pk 822927) — 21:41Z
+- ✓ Cam Smith — batting 7
+- ✓ Cam Smith — batting 7
+- ✓ Daulton Varsho — batting 5
+- ✓ Daulton Varsho — batting 5
+- ✓ Isaac Paredes — batting 2
+- ✓ Isaac Paredes — batting 2
+- ⚠ Jorge Barrosa — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ⚠ Jorge Barrosa — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Junior Caminero — batting 3
+- ✓ Junior Caminero — batting 3
+- ⚠ Nelson Velazquez — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ⚠ Nelson Velazquez — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ⚠ Ryan Vilade — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ⚠ Ryan Vilade — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Taylor Trammell — batting 8
+- ✓ Taylor Trammell — batting 8
+- ✓ Victor Mesa Jr. — batting 5
+- ✓ Victor Mesa Jr. — batting 5
+- ⚠ Yordan Alvarez — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ⚠ Yordan Alvarez — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
 
 _Automated sweep. Verify via PropFinder + MLB app (5/27 rule). Board is locked and unchanged._
