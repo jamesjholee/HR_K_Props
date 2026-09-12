@@ -1,0 +1,312 @@
+[
+ {
+  "gamePk": 824631,
+  "inning": 4,
+  "half": "bottom",
+  "batter_id": 608324,
+  "batter": "Alex Bregman",
+  "pitcher_id": 694753,
+  "pitcher": "Khristian Curtis",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824631,
+  "inning": 6,
+  "half": "top",
+  "batter_id": 668804,
+  "batter": "Bryan Reynolds",
+  "pitcher_id": 684007,
+  "pitcher": "Shota Imanaga",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824227,
+  "inning": 5,
+  "half": "bottom",
+  "batter_id": 703601,
+  "batter": "Max Clark",
+  "pitcher_id": 690279,
+  "pitcher": "Mason Adams",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824227,
+  "inning": 6,
+  "half": "bottom",
+  "batter_id": 693307,
+  "batter": "Dillon Dingler",
+  "pitcher_id": 693308,
+  "pitcher": "Nick Frasso",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 822684,
+  "inning": 1,
+  "half": "top",
+  "batter_id": 545361,
+  "batter": "Mike Trout",
+  "pitcher_id": 676917,
+  "pitcher": "Cade Cavalli",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823498,
+  "inning": 2,
+  "half": "bottom",
+  "batter_id": 641355,
+  "batter": "Cody Bellinger",
+  "pitcher_id": 690997,
+  "pitcher": "Nolan McLean",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823498,
+  "inning": 5,
+  "half": "bottom",
+  "batter_id": 700250,
+  "batter": "Ben Rice",
+  "pitcher_id": 690997,
+  "pitcher": "Nolan McLean",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823498,
+  "inning": 9,
+  "half": "top",
+  "batter_id": 805999,
+  "batter": "A.J. Ewing",
+  "pitcher_id": 670280,
+  "pitcher": "David Bednar",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 822767,
+  "inning": 1,
+  "half": "top",
+  "batter_id": 687637,
+  "batter": "Dylan Beavers",
+  "pitcher_id": 453286,
+  "pitcher": "Max Scherzer",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 822767,
+  "inning": 4,
+  "half": "bottom",
+  "batter_id": 672960,
+  "batter": "Kazuma Okamoto",
+  "pitcher_id": 605135,
+  "pitcher": "Chris Bassitt",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 822767,
+  "inning": 7,
+  "half": "top",
+  "batter_id": 691723,
+  "batter": "Coby Mayo",
+  "pitcher_id": 680755,
+  "pitcher": "Braydon Fisher",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 822767,
+  "inning": 9,
+  "half": "bottom",
+  "batter_id": 703520,
+  "batter": "Brett Bateman",
+  "pitcher_id": 695380,
+  "pitcher": "Alex Hoppe",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824711,
+  "inning": 5,
+  "half": "bottom",
+  "batter_id": 681508,
+  "batter": "Mickey Gasper",
+  "pitcher_id": 607625,
+  "pitcher": "Seth Lugo",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 822930,
+  "inning": 5,
+  "half": "bottom",
+  "batter_id": 683748,
+  "batter": "Victor Mesa Jr.",
+  "pitcher_id": 814490,
+  "pitcher": "Ethan Pecko",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 822930,
+  "inning": 9,
+  "half": "bottom",
+  "batter_id": 691406,
+  "batter": "Junior Caminero",
+  "pitcher_id": 650556,
+  "pitcher": "Bryan Abreu",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823817,
+  "inning": 7,
+  "half": "top",
+  "batter_id": 663656,
+  "batter": "Kyle Tucker",
+  "pitcher_id": 806188,
+  "pitcher": "Cade Gibson",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824873,
+  "inning": 1,
+  "half": "bottom",
+  "batter_id": 621566,
+  "batter": "Matt Olson",
+  "pitcher_id": 605400,
+  "pitcher": "Aaron Nola",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824873,
+  "inning": 7,
+  "half": "bottom",
+  "batter_id": 663586,
+  "batter": "Austin Riley",
+  "pitcher_id": 605400,
+  "pitcher": "Aaron Nola",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823736,
+  "inning": 2,
+  "half": "bottom",
+  "batter_id": 668930,
+  "batter": "Brice Turang",
+  "pitcher_id": 671096,
+  "pitcher": "Andrew Abbott",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823736,
+  "inning": 2,
+  "half": "bottom",
+  "batter_id": 641343,
+  "batter": "Jake Bauers",
+  "pitcher_id": 671096,
+  "pitcher": "Andrew Abbott",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823736,
+  "inning": 5,
+  "half": "bottom",
+  "batter_id": 669003,
+  "batter": "Garrett Mitchell",
+  "pitcher_id": 682825,
+  "pitcher": "Luis Mey",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823736,
+  "inning": 8,
+  "half": "bottom",
+  "batter_id": 661388,
+  "batter": "William Contreras",
+  "pitcher_id": 624431,
+  "pitcher": "Jose Trevino",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823659,
+  "inning": 7,
+  "half": "top",
+  "batter_id": 682657,
+  "batter": "Angel Mart\u00ednez",
+  "pitcher_id": 621345,
+  "pitcher": "A.J. Minter",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823012,
+  "inning": 1,
+  "half": "top",
+  "batter_id": 805367,
+  "batter": "Chase Meidroth",
+  "pitcher_id": 669461,
+  "pitcher": "Matthew Liberatore",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823012,
+  "inning": 3,
+  "half": "top",
+  "batter_id": 805367,
+  "batter": "Chase Meidroth",
+  "pitcher_id": 669461,
+  "pitcher": "Matthew Liberatore",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824954,
+  "inning": 3,
+  "half": "bottom",
+  "batter_id": 671732,
+  "batter": "Lawrence Butler",
+  "pitcher_id": 669923,
+  "pitcher": "George Kirby",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824954,
+  "inning": 6,
+  "half": "top",
+  "batter_id": 703155,
+  "batter": "Lazaro Montes",
+  "pitcher_id": 656240,
+  "pitcher": "Scott Blewett",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824954,
+  "inning": 10,
+  "half": "bottom",
+  "batter_id": 622268,
+  "batter": "Donovan Walton",
+  "pitcher_id": 660825,
+  "pitcher": "Eduard Bazardo",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 825036,
+  "inning": 6,
+  "half": "bottom",
+  "batter_id": 682998,
+  "batter": "Corbin Carroll",
+  "pitcher_id": 671936,
+  "pitcher": "Adam Macko",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 825036,
+  "inning": 6,
+  "half": "bottom",
+  "batter_id": 571448,
+  "batter": "Nolan Arenado",
+  "pitcher_id": 671936,
+  "pitcher": "Adam Macko",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823173,
+  "inning": 5,
+  "half": "bottom",
+  "batter_id": 646240,
+  "batter": "Rafael Devers",
+  "pitcher_id": 592662,
+  "pitcher": "Robbie Ray",
+  "pitcher_role": "S"
+ }
+]
