@@ -1,5 +1,5 @@
 # Season Ledger — HR board
-_generated 2026-09-15T12:21:37+00:00 · research log, not advice · misses reported as loudly as hits_
+_generated 2026-09-16T12:18:48+00:00 · research log, not advice · misses reported as loudly as hits_
 
 | # | Date | Board | Hits | Hit% | Capture | Pen share | Cfg | Src | Note |
 |---|------|------:|-----:|-----:|--------:|----------:|-----|-----|------|
@@ -57,11 +57,12 @@ _generated 2026-09-15T12:21:37+00:00 · research log, not advice · misses repor
 | 52 | 2026-09-12 | 102 | 17 | 16.7% | 18/46 (39%) | 39% | 1.7.0 | db |  |
 | 53 | 2026-09-13 | 118 | 21 | 17.8% | 24/40 (60%) | 42% | 1.7.0 | db |  |
 | 54 | 2026-09-14 | 78 | 11 | 14.1% | 11/24 (46%) | 58% | 1.7.0 | db |  |
+| 55 | 2026-09-15 | 134 | 18 | 13.4% | 18/38 (47%) | 39% | 1.7.0 | db |  |
 
 ## Aggregates
-- **Season:** 652/5475 = 11.9% across 52 graded slates
-- **Last 5 graded:** 66/423 = 15.6%
-- **Current config (v1.7.0-2026-09-08):** 107/665 = 16.1% across 7 slates — clean 5-slate sample reached
+- **Season:** 670/5609 = 11.9% across 53 graded slates
+- **Last 5 graded:** 81/536 = 15.1%
+- **Current config (v1.7.0-2026-09-08):** 125/799 = 15.6% across 8 slates — clean 5-slate sample reached
 - **Pen share of slate HRs (db-graded):** 39%
 
 _Typical board breakeven ~15–18%. Season rate below that is not edge;_
@@ -121,28 +122,29 @@ _Active = boarded bats with >=1 PA; dead = scratched/benched/never batted._
 | 2026-09-12 | 102 | 16.7% | 89 | 19.1% | 13 | 353 | 4.82% |
 | 2026-09-13 | 118 | 17.8% | 112 | 18.8% | 6 | 450 | 4.67% |
 | 2026-09-14 | 78 | 14.1% | 69 | 15.9% | 9 | 290 | 3.79% |
+| 2026-09-15 | 134 | 13.4% | 111 | 16.2% | 23 | 405 | 4.44% |
 
-- **Full board:** 621/5080 = 12.2%
-- **Active board:** 621/4478 = 13.9% (602 dead bats removed, 12% of locks)
-- **HR per PA (active):** 621/17854 = 3.48% vs league ~3.4%
+- **Full board:** 639/5214 = 12.3%
+- **Active board:** 639/4589 = 13.9% (625 dead bats removed, 12% of locks)
+- **HR per PA (active):** 639/18259 = 3.50% vs league ~3.4%
 
 ### Board depth (slate-wide hr_prob rank, deduped)
 | Bucket | Full | Full% | Active | Active% | Dead% | HR/PA |
 |--------|-----:|------:|-------:|--------:|------:|------:|
-| top-10 | 80/477 | 16.8% | 80/461 | 17.4% | 3% | 4.16% |
-| 11-30 | 120/931 | 12.9% | 120/855 | 14.0% | 8% | 3.42% |
-| 31-60 | 184/1355 | 13.6% | 184/1211 | 15.2% | 11% | 3.81% |
-| 61+ | 237/2317 | 10.2% | 237/1951 | 12.1% | 16% | 3.12% |
-| **top-60 pooled** | 384/2763 | 13.9% | 384/2527 | 15.2% | 9% | 3.74% |
+| top-10 | 83/487 | 17.0% | 83/470 | 17.7% | 3% | 4.24% |
+| 11-30 | 122/951 | 12.8% | 122/872 | 14.0% | 8% | 3.41% |
+| 31-60 | 188/1385 | 13.6% | 188/1235 | 15.2% | 11% | 3.83% |
+| 61+ | 246/2391 | 10.3% | 246/2012 | 12.2% | 16% | 3.15% |
+| **top-60 pooled** | 393/2823 | 13.9% | 393/2577 | 15.3% | 9% | 3.76% |
 _Breakeven ~15-18% (price-dependent: ~+550 at 15.4%; +400 needs 20%). Selection-layer candidate cut lines._
 
 ## Virtual cards (frozen at lock — out-of-sample)
-_cut rule frozen v1.6.5; 36 slate(s) logged, 36 graded — STATUS: mild lift (~13%), below breakeven; monitoring only, not a promotion candidate_
+_cut rule frozen v1.6.5; 37 slate(s) logged, 37 graded — STATUS: mild lift (~13%), below breakeven; monitoring only, not a promotion candidate_
 
 | Card | Slates | Hits | Rate | Active | Active% |
 |------|-------:|-----:|-----:|-------:|--------:|
-| top30 | 36 | 145/1050 | 13.8% | 145/976 | 14.9% |
-| top60 | 36 | 282/2048 | 13.8% | 282/1871 | 15.1% |
+| top30 | 37 | 150/1080 | 13.9% | 150/1002 | 15.0% |
+| top60 | 37 | 291/2108 | 13.8% | 291/1921 | 15.1% |
 
 ## Shadow lanes (auto-graded, annotate-only)
 _per-start figures are not IP-adjusted; sample spans multiple config versions; no ranking weight moves without 5-6 slate validation + config bump_
@@ -150,66 +152,66 @@ _per-start figures are not IP-adjusted; sample spans multiple config versions; n
 ### Board lanes
 | lane | hits | rate |
 |---|---|---|
-| one-pitch | 118/755 | 15.6% |
-| standard | 339/2851 | 11.9% |
-| thin | 108/946 | 11.4% |
-| watch | 57/533 | 10.7% |
+| one-pitch | 120/779 | 15.4% |
+| standard | 349/2905 | 12.0% |
+| thin | 112/982 | 11.4% |
+| watch | 59/553 | 10.7% |
 
 ### Whiff overlay (starter HRs allowed / start)
 | whiff | starts | HRs | per-start |
 |---|---|---|---|
-| >=30% | 169 | 84 | 0.50 |
-| 28-30% | 152 | 127 | 0.84 |
-| 26-28% | 267 | 197 | 0.74 |
-| 20-26% | 855 | 624 | 0.73 |
-| <=20% | 233 | 162 | 0.70 |
+| >=30% | 175 | 89 | 0.51 |
+| 28-30% | 154 | 127 | 0.82 |
+| 26-28% | 272 | 198 | 0.73 |
+| 20-26% | 868 | 638 | 0.74 |
+| <=20% | 237 | 165 | 0.70 |
 
 ### Verdict gate (starter HRs allowed / start)
 | verdict | starts | HRs | per-start |
 |---|---|---|---|
-| FADE | 169 | 140 | 0.83 |
-| TARGET | 693 | 528 | 0.76 |
-| ONE-PITCH | 365 | 276 | 0.76 |
-| TARGET-THIN | 167 | 108 | 0.65 |
+| FADE | 173 | 141 | 0.82 |
+| TARGET | 702 | 539 | 0.77 |
+| ONE-PITCH | 373 | 280 | 0.75 |
+| TARGET-THIN | 170 | 110 | 0.65 |
 | NO-READ | 115 | 62 | 0.54 |
-| ONE-PITCH-THIN | 167 | 80 | 0.48 |
+| ONE-PITCH-THIN | 173 | 85 | 0.49 |
 
 ### Gate 2.5 form (starter HRs allowed / start)
 | form flag | starts | HRs | per-start |
 |---|---|---|---|
-| — | 605 | 456 | 0.75 |
+| — | 619 | 463 | 0.75 |
 | EMERGING | 41 | 35 | 0.85 |
-| DECLINING-TARGET | 409 | 318 | 0.78 |
-| CONFIRMED? | 230 | 154 | 0.67 |
-| CONFIRMED | 281 | 200 | 0.71 |
-| N/A | 110 | 31 | 0.28 |
+| DECLINING-TARGET | 415 | 326 | 0.79 |
+| CONFIRMED? | 234 | 158 | 0.68 |
+| CONFIRMED | 284 | 202 | 0.71 |
+| N/A | 113 | 33 | 0.29 |
 
 ### Pen-edge (per pen-slate)
 | edge tier | pens | pen HRs | boarded hits | HRs/pen |
 |---|---|---|---|---|
-| edge 0-2 | 402 | 142 | 78 | 0.35 |
-| edge 3-5 | 616 | 214 | 89 | 0.35 |
-| edge>=6 | 422 | 141 | 66 | 0.33 |
+| edge 0-2 | 411 | 146 | 81 | 0.36 |
+| edge 3-5 | 631 | 222 | 90 | 0.35 |
+| edge>=6 | 428 | 144 | 68 | 0.34 |
 
 ### DTP batter profiles (boarded-bat hit rate)
 | profile | hits | rate |
 |---|---|---|
-| INSANE | 24/142 | 16.9% |
-| ELITE | 22/249 | 8.8% |
-| FLYBALL | 53/365 | 14.5% |
-| LINEDRIVE | 41/225 | 18.2% |
-| ANY PROFILE | 140/981 | 14.3% |
-| (untagged) | 481/4099 | 11.7% |
+| INSANE | 26/148 | 17.6% |
+| ELITE | 22/256 | 8.6% |
+| FLYBALL | 55/379 | 14.5% |
+| LINEDRIVE | 42/232 | 18.1% |
+| ANY PROFILE | 145/1015 | 14.3% |
+| (untagged) | 494/4199 | 11.8% |
 
 ### L15 heat tags (boarded-bat hit rate)
 | tag | hits | rate |
 |---|---|---|
-| LOUD | 179/1391 | 12.9% |
-| SUSTAINED | 101/800 | 12.6% |
-| HEATING | 99/768 | 12.9% |
-| WARM | 38/284 | 13.4% |
-| NEAR | 194/1436 | 13.5% |
-| COOLING | 130/1137 | 11.4% |
-| QUIET | 38/280 | 13.6% |
+| LOUD | 184/1438 | 12.8% |
+| SUSTAINED | 105/828 | 12.7% |
+| HEATING | 99/781 | 12.7% |
+| WARM | 40/290 | 13.8% |
+| NEAR | 199/1474 | 13.5% |
+| COOLING | 133/1168 | 11.4% |
+| QUIET | 41/288 | 14.2% |
 
 ### Adjusted-read layer: 0 slate(s) logged — log rankings into adjusted_reads to start the tally
