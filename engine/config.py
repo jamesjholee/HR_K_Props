@@ -5,7 +5,7 @@ When a rule changes after a graded slate, edit here and bump CONFIG_VERSION.
 The results database tags every board with the config version that produced it.
 """
 
-CONFIG_VERSION = "v1.7.0-2026-09-08"  # WHIFF CAP promoted to gate (>=30%% arsenal whiff caps TARGET-family to dart tier) + hr_board.team column + top-30 card status: mild-lift/monitoring
+CONFIG_VERSION = "v1.7.1-2026-09-16"  # one-pitch lane weight promoted (+0.02, true ONE-PITCH arms only) + shadow-report dedup fix (FADE reconciliation closed)
 
 # ---------------- Gate 2.5: last-3-starts pitcher form (SHADOW, v1.4) ----------------
 # Annotates only. Season verdict is authoritative; flags never move probabilities.
@@ -100,6 +100,14 @@ L15_B_ZONE = 18.0  # Zone metric not in hr-matchup API response;
 BOARD_MIN_NAMES_PER_TARGET = 5  # broad-damage arms get wide coverage
 BOARD_MAX_NAMES_PER_TARGET = 6
 ONEPITCH_MAX_NAMES = 3  # one-pitch arms: only bats with damage on that pitch
+ONEPITCH_LANE_BUMP = 0.02   # v1.7.1: promoted after 777 graded locks — the
+                            # one-pitch lane hit 15.3% vs 12.0% standard, a
+                            # 3.3pt spread that never closed all season. Bump
+                            # is deliberately smaller than the observed edge
+                            # (model probs already run hot ~0.75 shrink) and
+                            # applies ONLY to true ONE-PITCH arms; the
+                            # ONE-PITCH-THIN tier the v1.7.0 whiff cap creates
+                            # lands in the 'thin' lane and is NOT bumped.
 TIER1_ODDS_FLOOR = 400  # sub-+400 goes to watchlist lane unless exception fires
 
 # ---------------- Trajectory (tri-window L5/L10/L15) ----------------

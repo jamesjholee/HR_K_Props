@@ -1,0 +1,106 @@
+diff --git a/engine/config.py b/engine/config.py
+index 404cc37..d4f891e 100644
+--- a/engine/config.py
++++ b/engine/config.py
+@@ -5,7 +5,7 @@ When a rule changes after a graded slate, edit here and bump CONFIG_VERSION.
+ The results database tags every board with the config version that produced it.
+ """
+ 
+-CONFIG_VERSION = "v1.7.0-2026-09-08"  # WHIFF CAP promoted to gate (>=30%% arsenal whiff caps TARGET-family to dart tier) + hr_board.team column + top-30 card status: mild-lift/monitoring
++CONFIG_VERSION = "v1.7.1-2026-09-16"  # one-pitch lane weight promoted (+0.02, true ONE-PITCH arms only) + shadow-report dedup fix (FADE reconciliation closed)
+ 
+ # ---------------- Gate 2.5: last-3-starts pitcher form (SHADOW, v1.4) ----------------
+ # Annotates only. Season verdict is authoritative; flags never move probabilities.
+@@ -100,6 +100,14 @@ L15_B_ZONE = 18.0  # Zone metric not in hr-matchup API response;
+ BOARD_MIN_NAMES_PER_TARGET = 5  # broad-damage arms get wide coverage
+ BOARD_MAX_NAMES_PER_TARGET = 6
+ ONEPITCH_MAX_NAMES = 3  # one-pitch arms: only bats with damage on that pitch
++ONEPITCH_LANE_BUMP = 0.02   # v1.7.1: promoted after 777 graded locks — the
++                            # one-pitch lane hit 15.3% vs 12.0% standard, a
++                            # 3.3pt spread that never closed all season. Bump
++                            # is deliberately smaller than the observed edge
++                            # (model probs already run hot ~0.75 shrink) and
++                            # applies ONLY to true ONE-PITCH arms; the
++                            # ONE-PITCH-THIN tier the v1.7.0 whiff cap creates
++                            # lands in the 'thin' lane and is NOT bumped.
+ TIER1_ODDS_FLOOR = 400  # sub-+400 goes to watchlist lane unless exception fires
+ 
+ # ---------------- Trajectory (tri-window L5/L10/L15) ----------------
+diff --git a/run_morning.py b/run_morning.py
+index 2f9c90d..665641f 100644
+--- a/run_morning.py
++++ b/run_morning.py
+@@ -543,6 +543,13 @@ def main():
+                         p = min(0.25, p + 0.01)
+                     elif traj == "COOLING":
+                         p = max(0.08, p - 0.01)
++                    # v1.7.1 ONE-PITCH LANE WEIGHT — first lane-level scoring
++                    # change. True one-pitch arms only (THIN tier excluded):
++                    # their boarded bats converted 15.3% vs 12.0% standard
++                    # across 777 graded locks.
++                    if (g2["verdict"].startswith("ONE")
++                            and "THIN" not in g2["verdict"]):
++                        p = min(0.25, p + C.ONEPITCH_LANE_BUMP)
+                     lane = (
+                         "thin"
+                         if "THIN" in g2["verdict"]
+diff --git a/track.py b/track.py
+index d520520..a7cf158 100644
+--- a/track.py
++++ b/track.py
+@@ -582,6 +582,18 @@ CREATE TABLE IF NOT EXISTS adjusted_reads(
+ 
+ _G = "(SELECT DISTINCT date FROM hr_finals)"
+ 
++# v1.7.1 SHADOW-REPORT DEDUP FIX. hr_board/pitcher_verdicts accumulate
++# duplicate rows whenever a slate re-locks (355 arm-days carried 2+ identical
++# verdict rows). Joining the starter-HR view per duplicate row double-counted
++# HRs, and because re-locked arm-days skew toward HR-allowing games the
++# inflation was NOT proportional — it moved the per-start ratios themselves.
++# This is the source of the FADE discrepancy that blocked v1.7.0: undeduped
++# FADE read 0.82 HR/start (1.28-1.36 on the smaller mid-season sample) while
++# the deduped truth is 0.67 — BELOW TARGET's 0.77. The inversion was an
++# artifact. Every table below now reads from the deduped view.
++_VERDICTS = """(SELECT DISTINCT slate_date, pitcher_id, verdict, whiff
++                FROM pitcher_verdicts)"""
++
+ _STARTER_HRS = """(SELECT date, pitcher_id, COUNT(*) n FROM hr_finals
+                    WHERE pitcher_role='S' GROUP BY date, pitcher_id)"""
+ 
+@@ -599,7 +611,17 @@ def shadow_report(con):
+     out = ["", "## Shadow lanes (auto-graded, annotate-only)",
+            "_per-start figures are not IP-adjusted; sample spans multiple "
+            "config versions; no ranking weight moves without 5-6 slate "
+-           "validation + config bump_", ""]
++           "validation + config bump_",
++           "",
++           "**RESOLVED v1.7.1 — FADE inversion retired.** The apparent "
++           "'fade arms leak more' signal was a duplicate-row artifact (see "
++           "_VERDICTS in track.py). Deduped, FADE allows 0.67 starter "
++           "HR/start vs TARGET 0.77 — fade games leak LESS. No board "
++           "widening. Ticket closed.",
++           "",
++           "**PROMOTED v1.7.1 — one-pitch lane weight (+0.02).** 15.3% vs "
++           "12.0% standard across 777 graded locks. Watch the one-pitch row "
++           "below for post-promotion drift.", ""]
+ 
+     rows = con.execute(f"""
+         SELECT b.lane,
+@@ -619,7 +641,7 @@ def shadow_report(con):
+                     WHEN v.whiff>=0.26 THEN '26-28%' WHEN v.whiff>=0.20 THEN '20-26%'
+                     ELSE '<=20%' END tier,
+           COUNT(*) s, COALESCE(SUM(h.n),0) hr
+-        FROM pitcher_verdicts v JOIN {_G} g ON g.date=v.slate_date
++        FROM {_VERDICTS} v JOIN {_G} g ON g.date=v.slate_date
+         LEFT JOIN {_STARTER_HRS} h ON h.date=v.slate_date AND h.pitcher_id=v.pitcher_id
+         GROUP BY tier ORDER BY MIN(v.whiff) DESC""").fetchall()
+     out += ["", "### Whiff overlay (starter HRs allowed / start)"]
+@@ -628,7 +650,7 @@ def shadow_report(con):
+ 
+     rows = con.execute(f"""
+         SELECT v.verdict, COUNT(*) s, COALESCE(SUM(h.n),0) hr
+-        FROM pitcher_verdicts v JOIN {_G} g ON g.date=v.slate_date
++        FROM {_VERDICTS} v JOIN {_G} g ON g.date=v.slate_date
+         LEFT JOIN {_STARTER_HRS} h ON h.date=v.slate_date AND h.pitcher_id=v.pitcher_id
+         GROUP BY v.verdict ORDER BY hr*1.0/s DESC""").fetchall()
+     out += ["", "### Verdict gate (starter HRs allowed / start)"]

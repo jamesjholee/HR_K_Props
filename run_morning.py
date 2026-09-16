@@ -543,6 +543,13 @@ def main():
                         p = min(0.25, p + 0.01)
                     elif traj == "COOLING":
                         p = max(0.08, p - 0.01)
+                    # v1.7.1 ONE-PITCH LANE WEIGHT — first lane-level scoring
+                    # change. True one-pitch arms only (THIN tier excluded):
+                    # their boarded bats converted 15.3% vs 12.0% standard
+                    # across 777 graded locks.
+                    if (g2["verdict"].startswith("ONE")
+                            and "THIN" not in g2["verdict"]):
+                        p = min(0.25, p + C.ONEPITCH_LANE_BUMP)
                     lane = (
                         "thin"
                         if "THIN" in g2["verdict"]

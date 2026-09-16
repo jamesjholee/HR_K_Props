@@ -582,6 +582,18 @@ CREATE TABLE IF NOT EXISTS adjusted_reads(
 
 _G = "(SELECT DISTINCT date FROM hr_finals)"
 
+# v1.7.1 SHADOW-REPORT DEDUP FIX. hr_board/pitcher_verdicts accumulate
+# duplicate rows whenever a slate re-locks (355 arm-days carried 2+ identical
+# verdict rows). Joining the starter-HR view per duplicate row double-counted
+# HRs, and because re-locked arm-days skew toward HR-allowing games the
+# inflation was NOT proportional — it moved the per-start ratios themselves.
+# This is the source of the FADE discrepancy that blocked v1.7.0: undeduped
+# FADE read 0.82 HR/start (1.28-1.36 on the smaller mid-season sample) while
+# the deduped truth is 0.67 — BELOW TARGET's 0.77. The inversion was an
+# artifact. Every table below now reads from the deduped view.
+_VERDICTS = """(SELECT DISTINCT slate_date, pitcher_id, verdict, whiff
+                FROM pitcher_verdicts)"""
+
 _STARTER_HRS = """(SELECT date, pitcher_id, COUNT(*) n FROM hr_finals
                    WHERE pitcher_role='S' GROUP BY date, pitcher_id)"""
 
@@ -599,7 +611,17 @@ def shadow_report(con):
     out = ["", "## Shadow lanes (auto-graded, annotate-only)",
            "_per-start figures are not IP-adjusted; sample spans multiple "
            "config versions; no ranking weight moves without 5-6 slate "
-           "validation + config bump_", ""]
+           "validation + config bump_",
+           "",
+           "**RESOLVED v1.7.1 — FADE inversion retired.** The apparent "
+           "'fade arms leak more' signal was a duplicate-row artifact (see "
+           "_VERDICTS in track.py). Deduped, FADE allows 0.67 starter "
+           "HR/start vs TARGET 0.77 — fade games leak LESS. No board "
+           "widening. Ticket closed.",
+           "",
+           "**PROMOTED v1.7.1 — one-pitch lane weight (+0.02).** 15.3% vs "
+           "12.0% standard across 777 graded locks. Watch the one-pitch row "
+           "below for post-promotion drift.", ""]
 
     rows = con.execute(f"""
         SELECT b.lane,
@@ -619,7 +641,7 @@ def shadow_report(con):
                     WHEN v.whiff>=0.26 THEN '26-28%' WHEN v.whiff>=0.20 THEN '20-26%'
                     ELSE '<=20%' END tier,
           COUNT(*) s, COALESCE(SUM(h.n),0) hr
-        FROM pitcher_verdicts v JOIN {_G} g ON g.date=v.slate_date
+        FROM {_VERDICTS} v JOIN {_G} g ON g.date=v.slate_date
         LEFT JOIN {_STARTER_HRS} h ON h.date=v.slate_date AND h.pitcher_id=v.pitcher_id
         GROUP BY tier ORDER BY MIN(v.whiff) DESC""").fetchall()
     out += ["", "### Whiff overlay (starter HRs allowed / start)"]
@@ -628,7 +650,7 @@ def shadow_report(con):
 
     rows = con.execute(f"""
         SELECT v.verdict, COUNT(*) s, COALESCE(SUM(h.n),0) hr
-        FROM pitcher_verdicts v JOIN {_G} g ON g.date=v.slate_date
+        FROM {_VERDICTS} v JOIN {_G} g ON g.date=v.slate_date
         LEFT JOIN {_STARTER_HRS} h ON h.date=v.slate_date AND h.pitcher_id=v.pitcher_id
         GROUP BY v.verdict ORDER BY hr*1.0/s DESC""").fetchall()
     out += ["", "### Verdict gate (starter HRs allowed / start)"]
