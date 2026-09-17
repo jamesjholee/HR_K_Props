@@ -1,17 +1,17 @@
 Slate 2026-09-16 — precheck findings needing eyes:
 
-## T-90 slate sweep — 18:47Z
-- ✓ DET@TOR: both probables match locked arms
-- ✓ ATH@TB: both probables match locked arms
-- ✓ MIL@PIT: both probables match locked arms
-- ✓ LAD@CIN: both probables match locked arms
-- ✓ PHI@WSH: both probables match locked arms
-- ⚠ BAL@NYM: home probable Xzavion Curry (id 675540) was NOT SCORED at lock — scratch/trade signature. Bats boarded vs the other arm may be unaffected; bats scored VS this slot are built on a dead read.
-- ✓ ATL@CHC: both probables match locked arms
-- ✓ BOS@TEX: both probables match locked arms
-- ✓ KC@HOU: both probables match locked arms
-- ✓ SD@COL: both probables match locked arms
-- ✓ SEA@LAA: both probables match locked arms
-- ✓ MIA@ARI: both probables match locked arms
+## T-30 — SD@COL (pk 824306) — 00:34Z
+- ✓ Cole Carrigg — batting 3
+- ✓ Connor Norby — batting 2
+- ✓ Fernando Tatis Jr. — batting 1
+- ⚠ Hunter Goodman — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Jackson Merrill — batting 5
+- ✓ Jake McCarthy — batting 1
+- ✓ Jordan Beck — batting 7
+- ⚠ Luis Campusano — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Manny Machado — batting 3
+- ⚠ Mickey Moniak — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Ty France — batting 4
+- ✓ Xander Bogaerts — batting 6
 
 _Automated sweep. Verify via PropFinder + MLB app (5/27 rule). Board is locked and unchanged._
