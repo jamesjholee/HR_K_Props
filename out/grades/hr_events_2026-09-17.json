@@ -1,0 +1,162 @@
+[
+ {
+  "gamePk": 823334,
+  "inning": 8,
+  "half": "top",
+  "batter_id": 666310,
+  "batter": "Bo Naylor",
+  "pitcher_id": 596133,
+  "pitcher": "Luke Weaver",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823334,
+  "inning": 8,
+  "half": "bottom",
+  "batter_id": 680779,
+  "batter": "Henry Davis",
+  "pitcher_id": 676879,
+  "pitcher": "Aaron Ashby",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824464,
+  "inning": 1,
+  "half": "top",
+  "batter_id": 663656,
+  "batter": "Kyle Tucker",
+  "pitcher_id": 663903,
+  "pitcher": "Brady Singer",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824464,
+  "inning": 4,
+  "half": "bottom",
+  "batter_id": 701398,
+  "batter": "Sal Stewart",
+  "pitcher_id": 595014,
+  "pitcher": "Blake Treinen",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824464,
+  "inning": 9,
+  "half": "top",
+  "batter_id": 500743,
+  "batter": "Miguel Rojas",
+  "pitcher_id": 682227,
+  "pitcher": "Brandon Williamson",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 822924,
+  "inning": 6,
+  "half": "top",
+  "batter_id": 671732,
+  "batter": "Lawrence Butler",
+  "pitcher_id": 668984,
+  "pitcher": "Casey Legumina",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824305,
+  "inning": 2,
+  "half": "top",
+  "batter_id": 593428,
+  "batter": "Xander Bogaerts",
+  "pitcher_id": 685299,
+  "pitcher": "Tanner Gordon",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824141,
+  "inning": 1,
+  "half": "bottom",
+  "batter_id": 665161,
+  "batter": "Jeremy Pe\u00f1a",
+  "pitcher_id": 607625,
+  "pitcher": "Seth Lugo",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824141,
+  "inning": 2,
+  "half": "bottom",
+  "batter_id": 662139,
+  "batter": "Daulton Varsho",
+  "pitcher_id": 607625,
+  "pitcher": "Seth Lugo",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824141,
+  "inning": 5,
+  "half": "bottom",
+  "batter_id": 664774,
+  "batter": "LaMonte Wade Jr.",
+  "pitcher_id": 607625,
+  "pitcher": "Seth Lugo",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824141,
+  "inning": 5,
+  "half": "bottom",
+  "batter_id": 670541,
+  "batter": "Yordan Alvarez",
+  "pitcher_id": 607625,
+  "pitcher": "Seth Lugo",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824141,
+  "inning": 8,
+  "half": "bottom",
+  "batter_id": 666211,
+  "batter": "Taylor Trammell",
+  "pitcher_id": 656638,
+  "pitcher": "Alex Lange",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824548,
+  "inning": 1,
+  "half": "bottom",
+  "batter_id": 808959,
+  "batter": "Munetaka Murakami",
+  "pitcher_id": 664285,
+  "pitcher": "Framber Valdez",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 822845,
+  "inning": 1,
+  "half": "bottom",
+  "batter_id": 673962,
+  "batter": "Josh Jung",
+  "pitcher_id": 543243,
+  "pitcher": "Sonny Gray",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 822845,
+  "inning": 8,
+  "half": "top",
+  "batter_id": 596115,
+  "batter": "Trevor Story",
+  "pitcher_id": 656641,
+  "pitcher": "Jacob Latz",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823978,
+  "inning": 9,
+  "half": "top",
+  "batter_id": 805805,
+  "batter": "Walker Jenkins",
+  "pitcher_id": 690829,
+  "pitcher": "Ben Joyce",
+  "pitcher_role": "R"
+ }
+]
