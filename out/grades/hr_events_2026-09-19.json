@@ -1,0 +1,342 @@
+[
+ {
+  "gamePk": 824545,
+  "inning": 6,
+  "half": "bottom",
+  "batter_id": 678246,
+  "batter": "Miguel Vargas",
+  "pitcher_id": 695549,
+  "pitcher": "Jackson Jobe",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 822921,
+  "inning": 4,
+  "half": "bottom",
+  "batter_id": 666018,
+  "batter": "Jonathan Aranda",
+  "pitcher_id": 678394,
+  "pitcher": "Brayan Bello",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823571,
+  "inning": 2,
+  "half": "bottom",
+  "batter_id": 701807,
+  "batter": "Carson Benge",
+  "pitcher_id": 691725,
+  "pitcher": "Andrew Painter",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823571,
+  "inning": 5,
+  "half": "bottom",
+  "batter_id": 682626,
+  "batter": "Francisco Alvarez",
+  "pitcher_id": 691725,
+  "pitcher": "Andrew Painter",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824380,
+  "inning": 1,
+  "half": "bottom",
+  "batter_id": 800050,
+  "batter": "Chase DeLauter",
+  "pitcher_id": 682052,
+  "pitcher": "Jacob Lopez",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824380,
+  "inning": 1,
+  "half": "bottom",
+  "batter_id": 682657,
+  "batter": "Angel Mart\u00ednez",
+  "pitcher_id": 682052,
+  "pitcher": "Jacob Lopez",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824380,
+  "inning": 4,
+  "half": "bottom",
+  "batter_id": 682657,
+  "batter": "Angel Mart\u00ednez",
+  "pitcher_id": 688297,
+  "pitcher": "Chris Roycroft",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824380,
+  "inning": 5,
+  "half": "top",
+  "batter_id": 622268,
+  "batter": "Donovan Walton",
+  "pitcher_id": 676440,
+  "pitcher": "Tanner Bibee",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824461,
+  "inning": 6,
+  "half": "top",
+  "batter_id": 683737,
+  "batter": "Michael Busch",
+  "pitcher_id": 666157,
+  "pitcher": "Nick Lodolo",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824461,
+  "inning": 9,
+  "half": "top",
+  "batter_id": 621020,
+  "batter": "Dansby Swanson",
+  "pitcher_id": 685112,
+  "pitcher": "Zach McCambley",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823330,
+  "inning": 2,
+  "half": "bottom",
+  "batter_id": 682927,
+  "batter": "Ronny Simon",
+  "pitcher_id": 702070,
+  "pitcher": "Noah Cameron",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823330,
+  "inning": 3,
+  "half": "top",
+  "batter_id": 695600,
+  "batter": "Carter Jensen",
+  "pitcher_id": 696149,
+  "pitcher": "Bubba Chandler",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823330,
+  "inning": 4,
+  "half": "bottom",
+  "batter_id": 663968,
+  "batter": "Jake Mangum",
+  "pitcher_id": 702070,
+  "pitcher": "Noah Cameron",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823330,
+  "inning": 8,
+  "half": "bottom",
+  "batter_id": 664040,
+  "batter": "Brandon Lowe",
+  "pitcher_id": 674444,
+  "pitcher": "Steven Cruz",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 822843,
+  "inning": 1,
+  "half": "bottom",
+  "batter_id": 673962,
+  "batter": "Josh Jung",
+  "pitcher_id": 667755,
+  "pitcher": "Jos\u00e9 Soriano",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 822843,
+  "inning": 7,
+  "half": "top",
+  "batter_id": 676914,
+  "batter": "Davis Schneider",
+  "pitcher_id": 676395,
+  "pitcher": "Robert Garcia",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824137,
+  "inning": 1,
+  "half": "bottom",
+  "batter_id": 670623,
+  "batter": "Isaac Paredes",
+  "pitcher_id": 656550,
+  "pitcher": "Grant Holmes",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824137,
+  "inning": 7,
+  "half": "top",
+  "batter_id": 660670,
+  "batter": "Ronald Acu\u00f1a Jr.",
+  "pitcher_id": 650556,
+  "pitcher": "Bryan Abreu",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824137,
+  "inning": 8,
+  "half": "top",
+  "batter_id": 573262,
+  "batter": "Mike Yastrzemski",
+  "pitcher_id": 701121,
+  "pitcher": "Logan VanWey",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823003,
+  "inning": 1,
+  "half": "top",
+  "batter_id": 695734,
+  "batter": "Daylen Lile",
+  "pitcher_id": 700241,
+  "pitcher": "Michael McGreevy",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824304,
+  "inning": 1,
+  "half": "top",
+  "batter_id": 663728,
+  "batter": "Cal Raleigh",
+  "pitcher_id": 500779,
+  "pitcher": "Jose Quintana",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824304,
+  "inning": 3,
+  "half": "top",
+  "batter_id": 668227,
+  "batter": "Randy Arozarena",
+  "pitcher_id": 500779,
+  "pitcher": "Jose Quintana",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 825029,
+  "inning": 6,
+  "half": "top",
+  "batter_id": 671218,
+  "batter": "Heliot Ramos",
+  "pitcher_id": 656464,
+  "pitcher": "Kevin Ginkel",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 825029,
+  "inning": 6,
+  "half": "top",
+  "batter_id": 669224,
+  "batter": "Austin Wells",
+  "pitcher_id": 656464,
+  "pitcher": "Kevin Ginkel",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 825029,
+  "inning": 9,
+  "half": "bottom",
+  "batter_id": 656976,
+  "batter": "Pavin Smith",
+  "pitcher_id": 605242,
+  "pitcher": "Michael Fulmer",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823249,
+  "inning": 2,
+  "half": "top",
+  "batter_id": 672640,
+  "batter": "Otto Lopez",
+  "pitcher_id": 663554,
+  "pitcher": "Casey Mize",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823249,
+  "inning": 2,
+  "half": "bottom",
+  "batter_id": 669392,
+  "batter": "Samad Taylor",
+  "pitcher_id": 691587,
+  "pitcher": "Eury P\u00e9rez",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823249,
+  "inning": 4,
+  "half": "bottom",
+  "batter_id": 665487,
+  "batter": "Fernando Tatis Jr.",
+  "pitcher_id": 691587,
+  "pitcher": "Eury P\u00e9rez",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823249,
+  "inning": 9,
+  "half": "top",
+  "batter_id": 665052,
+  "batter": "Griffin Conine",
+  "pitcher_id": 695243,
+  "pitcher": "Mason Miller",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823899,
+  "inning": 3,
+  "half": "top",
+  "batter_id": 682674,
+  "batter": "Victor Bericoto",
+  "pitcher_id": 669373,
+  "pitcher": "Tarik Skubal",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823899,
+  "inning": 3,
+  "half": "bottom",
+  "batter_id": 669257,
+  "batter": "Will Smith",
+  "pitcher_id": 805074,
+  "pitcher": "Yunior Marte",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823976,
+  "inning": 4,
+  "half": "bottom",
+  "batter_id": 642350,
+  "batter": "Jose Siri",
+  "pitcher_id": 657746,
+  "pitcher": "Joe Ryan",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823976,
+  "inning": 5,
+  "half": "top",
+  "batter_id": 668952,
+  "batter": "Ryan Kreidler",
+  "pitcher_id": 672282,
+  "pitcher": "Reid Detmers",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823976,
+  "inning": 9,
+  "half": "bottom",
+  "batter_id": 687093,
+  "batter": "Vaughn Grissom",
+  "pitcher_id": 621345,
+  "pitcher": "A.J. Minter",
+  "pitcher_role": "R"
+ }
+]
