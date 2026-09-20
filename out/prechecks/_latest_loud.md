@@ -1,18 +1,18 @@
 Slate 2026-09-19 — precheck findings needing eyes:
 
-## T-30 — CHC@CIN (pk 824461) — 22:26Z
-- ✓ Alex Bregman — batting 2
-- ✓ Dansby Swanson — batting 9
-- ✓ Elly De La Cruz — batting 2
-- ✓ Eugenio Suarez — batting 5
-- ✓ JJ Bleday — batting 7
-- ✓ Juan Brito — batting 6
-- ✓ Matt McLain — batting 8
-- ✓ Michael Busch — batting 6
-- ⚠ Michael Conforto — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-- ✓ Pete Crow-Armstrong — batting 1
-- ✓ Sal Stewart — batting 3
-- ✓ Seiya Suzuki — batting 3
-- ✓ Tyrone Taylor — batting 4
+## T-30 — MIA@SD (pk 823249) — 00:18Z
+- ✓ Agustin Ramirez — batting 7
+- ✓ Esteury Ruiz — batting 9
+- ✓ Fernando Tatis Jr. — batting 1
+- ⚠ Graham Pauley — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ⚠ Griffin Conine — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Heriberto Hernandez — batting 2
+- ✓ Jackson Merrill — batting 5
+- ✓ Joe Mack — batting 8
+- ✓ Kyle Stowers — batting 3
+- ✓ Luis Campusano — batting 6
+- ✓ Manny Machado — batting 3
+- ✓ Ty France — batting 4
+- ⚠ Xander Bogaerts — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
 
 _Automated sweep. Verify via PropFinder + MLB app (5/27 rule). Board is locked and unchanged._
