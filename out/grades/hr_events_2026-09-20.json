@@ -1,0 +1,312 @@
+[
+ {
+  "gamePk": 823570,
+  "inning": 6,
+  "half": "bottom",
+  "batter_id": 666182,
+  "batter": "Bo Bichette",
+  "pitcher_id": 650911,
+  "pitcher": "Cristopher S\u00e1nchez",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823329,
+  "inning": 4,
+  "half": "bottom",
+  "batter_id": 665833,
+  "batter": "Oneil Cruz",
+  "pitcher_id": 608379,
+  "pitcher": "Michael Wacha",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823329,
+  "inning": 7,
+  "half": "top",
+  "batter_id": 686469,
+  "batter": "Vinnie Pasquantino",
+  "pitcher_id": 669387,
+  "pitcher": "Carmen Mlodzinski",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823329,
+  "inning": 8,
+  "half": "bottom",
+  "batter_id": 804668,
+  "batter": "Rafael Flores Jr.",
+  "pitcher_id": 663878,
+  "pitcher": "Nate Pearson",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824462,
+  "inning": 4,
+  "half": "bottom",
+  "batter_id": 668709,
+  "batter": "JJ Bleday",
+  "pitcher_id": 656849,
+  "pitcher": "David Peterson",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824462,
+  "inning": 5,
+  "half": "top",
+  "batter_id": 624424,
+  "batter": "Michael Conforto",
+  "pitcher_id": 686730,
+  "pitcher": "Carson Spiers",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824462,
+  "inning": 5,
+  "half": "top",
+  "batter_id": 691718,
+  "batter": "Pete Crow-Armstrong",
+  "pitcher_id": 686730,
+  "pitcher": "Carson Spiers",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824462,
+  "inning": 8,
+  "half": "top",
+  "batter_id": 673548,
+  "batter": "Seiya Suzuki",
+  "pitcher_id": 686730,
+  "pitcher": "Carson Spiers",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 822922,
+  "inning": 4,
+  "half": "bottom",
+  "batter_id": 683748,
+  "batter": "Victor Mesa Jr.",
+  "pitcher_id": 663776,
+  "pitcher": "Patrick Sandoval",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 822922,
+  "inning": 9,
+  "half": "top",
+  "batter_id": 596115,
+  "batter": "Trevor Story",
+  "pitcher_id": 694494,
+  "pitcher": "Ty Johnson",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824139,
+  "inning": 4,
+  "half": "bottom",
+  "batter_id": 514888,
+  "batter": "Jose Altuve",
+  "pitcher_id": 527048,
+  "pitcher": "Mart\u00edn P\u00e9rez",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824139,
+  "inning": 6,
+  "half": "top",
+  "batter_id": 573262,
+  "batter": "Mike Yastrzemski",
+  "pitcher_id": 687911,
+  "pitcher": "Bryan King",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824139,
+  "inning": 8,
+  "half": "bottom",
+  "batter_id": 673237,
+  "batter": "Yainer Diaz",
+  "pitcher_id": 678061,
+  "pitcher": "Ray Kerr",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824546,
+  "inning": 5,
+  "half": "bottom",
+  "batter_id": 805367,
+  "batter": "Chase Meidroth",
+  "pitcher_id": 680744,
+  "pitcher": "Ty Madden",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823001,
+  "inning": 1,
+  "half": "bottom",
+  "batter_id": 671056,
+  "batter": "Iv\u00e1n Herrera",
+  "pitcher_id": 663623,
+  "pitcher": "Jake Irvin",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823001,
+  "inning": 6,
+  "half": "top",
+  "batter_id": 682928,
+  "batter": "CJ Abrams",
+  "pitcher_id": 687273,
+  "pitcher": "Quinn Mathews",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823001,
+  "inning": 8,
+  "half": "bottom",
+  "batter_id": 671056,
+  "batter": "Iv\u00e1n Herrera",
+  "pitcher_id": 680899,
+  "pitcher": "Erik Tolman",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823001,
+  "inning": 8,
+  "half": "bottom",
+  "batter_id": 699024,
+  "batter": "Leo Bernal",
+  "pitcher_id": 672442,
+  "pitcher": "Yovanny Cruz",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 822844,
+  "inning": 4,
+  "half": "bottom",
+  "batter_id": 669394,
+  "batter": "Jake Burger",
+  "pitcher_id": 681293,
+  "pitcher": "Spencer Arrighetti",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824300,
+  "inning": 9,
+  "half": "bottom",
+  "batter_id": 696100,
+  "batter": "Hunter Goodman",
+  "pitcher_id": 662253,
+  "pitcher": "Andr\u00e9s Mu\u00f1oz",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823975,
+  "inning": 7,
+  "half": "top",
+  "batter_id": 702176,
+  "batter": "Alan Roden",
+  "pitcher_id": 671111,
+  "pitcher": "Sammy Peralta",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823896,
+  "inning": 6,
+  "half": "bottom",
+  "batter_id": 669242,
+  "batter": "Tommy Edman",
+  "pitcher_id": 693313,
+  "pitcher": "Carson Seymour",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823247,
+  "inning": 2,
+  "half": "bottom",
+  "batter_id": 630105,
+  "batter": "Jake Cronenworth",
+  "pitcher_id": 645261,
+  "pitcher": "Sandy Alcantara",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823247,
+  "inning": 7,
+  "half": "top",
+  "batter_id": 691594,
+  "batter": "Javier Sanoja",
+  "pitcher_id": 621111,
+  "pitcher": "Walker Buehler",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823247,
+  "inning": 7,
+  "half": "bottom",
+  "batter_id": 665487,
+  "batter": "Fernando Tatis Jr.",
+  "pitcher_id": 687134,
+  "pitcher": "Bradley Blalock",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823247,
+  "inning": 8,
+  "half": "bottom",
+  "batter_id": 630105,
+  "batter": "Jake Cronenworth",
+  "pitcher_id": 687134,
+  "pitcher": "Bradley Blalock",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 825028,
+  "inning": 3,
+  "half": "top",
+  "batter_id": 671218,
+  "batter": "Heliot Ramos",
+  "pitcher_id": 669203,
+  "pitcher": "Corbin Burnes",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 825028,
+  "inning": 3,
+  "half": "top",
+  "batter_id": 806146,
+  "batter": "George Lombard Jr.",
+  "pitcher_id": 669203,
+  "pitcher": "Corbin Burnes",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 825028,
+  "inning": 3,
+  "half": "top",
+  "batter_id": 682987,
+  "batter": "Spencer Jones",
+  "pitcher_id": 669203,
+  "pitcher": "Corbin Burnes",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 825028,
+  "inning": 5,
+  "half": "bottom",
+  "batter_id": 571448,
+  "batter": "Nolan Arenado",
+  "pitcher_id": 687396,
+  "pitcher": "Brent Headrick",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824789,
+  "inning": 4,
+  "half": "top",
+  "batter_id": 661388,
+  "batter": "William Contreras",
+  "pitcher_id": 687064,
+  "pitcher": "Brandon Young",
+  "pitcher_role": "S"
+ }
+]
