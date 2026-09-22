@@ -1,19 +1,18 @@
 Slate 2026-09-22 — precheck findings needing eyes:
 
-## T-90 slate sweep — 21:40Z
-- ⚠ TOR@BAL: status = Postponed — 8 boarded bats DEAD
-- ✓ STL@PIT: both probables match locked arms
-- ✓ MIL@PHI: both probables match locked arms
-- ✓ CLE@BOS: both probables match locked arms
-- ✓ TB@NYY-G2: both probables match locked arms
-- ✓ CIN@ATL: both probables match locked arms
-- ✓ CWS@KC: both probables match locked arms
-- ✓ MIA@CHC: both probables match locked arms
-- ✓ NYM@TEX: both probables match locked arms
-- ✓ ARI@COL: both probables match locked arms
-- ✓ HOU@SEA: both probables match locked arms
-- ✓ LAA@ATH: both probables match locked arms
-- ✓ MIN@SF: both probables match locked arms
-- ⚠ SD@LAD: probable starter TBD (1/2 listed) — 5/27 RULE, verify in MLB app before betting this game
+## T-30 — NYM@TEX (pk 822840) — 23:51Z
+- ✓ Bo Bichette — batting 3
+- ✓ Carson Benge — batting 5
+- ✓ Corey Seager — batting 2
+- ✓ Elias Diaz — batting 8
+- ✓ Francisco Alvarez — batting 7
+- ✓ Francisco Lindor — batting 1
+- ✓ Jake Burger — batting 4
+- ⚠ Joc Pederson — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Josh Jung — batting 3
+- ✓ Juan Soto — batting 2
+- ✓ Justin Foscue — batting 7
+- ✓ Mark Vientos — batting 4
+- ✓ Wyatt Langford — batting 1
 
 _Automated sweep. Verify via PropFinder + MLB app (5/27 rule). Board is locked and unchanged._
