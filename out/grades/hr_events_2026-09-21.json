@@ -1,0 +1,102 @@
+[
+ {
+  "gamePk": 824787,
+  "inning": 1,
+  "half": "bottom",
+  "batter_id": 624413,
+  "batter": "Pete Alonso",
+  "pitcher_id": 702056,
+  "pitcher": "Trey Yesavage",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824787,
+  "inning": 6,
+  "half": "bottom",
+  "batter_id": 683002,
+  "batter": "Gunnar Henderson",
+  "pitcher_id": 689149,
+  "pitcher": "Chad Dallas",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824787,
+  "inning": 8,
+  "half": "bottom",
+  "batter_id": 624413,
+  "batter": "Pete Alonso",
+  "pitcher_id": 643511,
+  "pitcher": "Tyler Rogers",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824221,
+  "inning": 4,
+  "half": "bottom",
+  "batter_id": 595879,
+  "batter": "Javier B\u00e1ez",
+  "pitcher_id": 687792,
+  "pitcher": "DJ Herz",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 824221,
+  "inning": 5,
+  "half": "bottom",
+  "batter_id": 701162,
+  "batter": "Ben Malgeri",
+  "pitcher_id": 691384,
+  "pitcher": "Luis Perales",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824221,
+  "inning": 5,
+  "half": "bottom",
+  "batter_id": 679529,
+  "batter": "Spencer Torkelson",
+  "pitcher_id": 691384,
+  "pitcher": "Luis Perales",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 824221,
+  "inning": 8,
+  "half": "top",
+  "batter_id": 691002,
+  "batter": "Yohandy Morales",
+  "pitcher_id": 805427,
+  "pitcher": "Drew Sommers",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 823169,
+  "inning": 4,
+  "half": "top",
+  "batter_id": 686797,
+  "batter": "Brooks Lee",
+  "pitcher_id": 694918,
+  "pitcher": "Blade Tidwell",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823169,
+  "inning": 5,
+  "half": "bottom",
+  "batter_id": 687551,
+  "batter": "Drew Gilbert",
+  "pitcher_id": 805673,
+  "pitcher": "Zebby Matthews",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 823169,
+  "inning": 8,
+  "half": "top",
+  "batter_id": 691181,
+  "batter": "Emmanuel Rodriguez",
+  "pitcher_id": 671345,
+  "pitcher": "Jason Foley",
+  "pitcher_role": "R"
+ }
+]
