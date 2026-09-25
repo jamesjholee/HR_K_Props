@@ -1,21 +1,15 @@
 Slate 2026-09-25 — precheck findings needing eyes:
 
-## T-90 slate sweep — 19:11Z
-- ✓ BAL@NYY-G1: both probables match locked arms
-- ⚠ BAL@NYY-G2: probable starter TBD (1/2 listed) — 5/27 RULE, verify in MLB app before betting this game
-- ✓ CHC@BOS-G2: both probables match locked arms
-- ✓ TB@PHI: both probables match locked arms
-- ✓ PIT@DET: both probables match locked arms
-- ⚠ NYM@WSH: probable starter TBD (1/2 listed) — 5/27 RULE, verify in MLB app before betting this game
-- ⚠ CIN@TOR: home probable José Soriano (id 667755) was NOT SCORED at lock — scratch/trade signature. Bats boarded vs the other arm may be unaffected; bats scored VS this slot are built on a dead read.
-- ⚠ ATL@MIA: away probable Ray Kerr (id 678061) was NOT SCORED at lock — scratch/trade signature. Bats boarded vs the other arm may be unaffected; bats scored VS this slot are built on a dead read.
-- ✓ STL@MIL: both probables match locked arms
-- ✓ CLE@KC: both probables match locked arms
-- ✓ COL@CWS: both probables match locked arms
-- ✓ TEX@MIN: both probables match locked arms
-- ⚠ ARI@SD: probable starter TBD (1/2 listed) — 5/27 RULE, verify in MLB app before betting this game
-- ✓ HOU@ATH: both probables match locked arms
-- ✓ LAA@SEA: both probables match locked arms
-- ✓ LAD@SF: both probables match locked arms
+## T-30 — PIT@DET (pk 824220) — 22:26Z
+- ✓ Brandon Lowe — batting 2
+- ✓ Bryan Reynolds — batting 3
+- ⚠ Henry Davis — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Oneil Cruz — batting 4
+
+## T-30 — NYM@WSH (pk 822681) — 22:26Z
+- ⚠ starter Jefry Yan (id 642376, away) not among locked scored arms — verify matchup basis
+- ✓ Bo Bichette — batting 3
+- ✓ Carson Benge — batting 5
+- ✓ Francisco Lindor — batting 1
 
 _Automated sweep. Verify via PropFinder + MLB app (5/27 rule). Board is locked and unchanged._
