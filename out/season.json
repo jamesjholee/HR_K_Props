@@ -1,39 +1,39 @@
 {
-  "generated": "2026-09-27T12:35:12+00:00",
-  "graded_slates": 64,
+  "generated": "2026-09-28T14:42:47+00:00",
+  "graded_slates": 65,
   "season": {
-    "hits": 794,
-    "boarded": 6763,
-    "pct": 11.7
+    "hits": 809,
+    "boarded": 6852,
+    "pct": 11.8
   },
   "last5": {
-    "hits": 55,
-    "boarded": 558,
-    "pct": 9.9
+    "hits": 59,
+    "boarded": 520,
+    "pct": 11.3
   },
   "current_config": {
     "version": "v1.7.1-2026-09-16",
-    "slates": 10,
-    "hits": 114,
-    "boarded": 1045,
-    "pct": 10.9
+    "slates": 11,
+    "hits": 129,
+    "boarded": 1134,
+    "pct": 11.4
   },
   "pen_share_pct": 40,
   "appearances": {
-    "dates": 60,
+    "dates": 61,
     "full": {
-      "hits": 763,
-      "boarded": 6368,
+      "hits": 778,
+      "boarded": 6457,
       "pct": 12.0
     },
     "active": {
-      "hits": 763,
-      "boarded": 5582,
+      "hits": 778,
+      "boarded": 5670,
       "pct": 13.7
     },
-    "dead_bats": 786,
-    "board_pa": 22220,
-    "hr_per_pa_pct": 3.43,
+    "dead_bats": 787,
+    "board_pa": 22555,
+    "hr_per_pa_pct": 3.45,
     "league_hr_per_pa_pct": 3.4
   },
   "slates": [
@@ -563,6 +563,14 @@
       "boarded": 89,
       "hits": 11,
       "pct": 12.4,
+      "pending": false
+    },
+    {
+      "n": 67,
+      "date": "2026-09-27",
+      "boarded": 89,
+      "hits": 15,
+      "pct": 16.9,
       "pending": false
     }
   ]
