@@ -1,5 +1,5 @@
 # Season Ledger — HR board
-_generated 2026-09-28T14:42:47+00:00 · research log, not advice · misses reported as loudly as hits_
+_generated 2026-09-29T13:33:14+00:00 · research log, not advice · misses reported as loudly as hits_
 
 | # | Date | Board | Hits | Hit% | Capture | Pen share | Cfg | Src | Note |
 |---|------|------:|-----:|-----:|--------:|----------:|-----|-----|------|
