@@ -1,0 +1,82 @@
+[
+ {
+  "gamePk": 849845,
+  "inning": 8,
+  "half": "bottom",
+  "batter_id": 663586,
+  "batter": "Austin Riley",
+  "pitcher_id": 661395,
+  "pitcher": "Jhoan Duran",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 849849,
+  "inning": 4,
+  "half": "top",
+  "batter_id": 695657,
+  "batter": "Colson Montgomery",
+  "pitcher_id": 699044,
+  "pitcher": "Miguel Ullola",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 849849,
+  "inning": 5,
+  "half": "bottom",
+  "batter_id": 676369,
+  "batter": "Nelson Vel\u00e1zquez",
+  "pitcher_id": 656794,
+  "pitcher": "Sean Newcomb",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 849851,
+  "inning": 5,
+  "half": "bottom",
+  "batter_id": 700250,
+  "batter": "Ben Rice",
+  "pitcher_id": 669062,
+  "pitcher": "Erik Miller",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 849851,
+  "inning": 8,
+  "half": "bottom",
+  "batter_id": 700250,
+  "batter": "Ben Rice",
+  "pitcher_id": 678394,
+  "pitcher": "Brayan Bello",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 849843,
+  "inning": 1,
+  "half": "bottom",
+  "batter_id": 665487,
+  "batter": "Fernando Tatis Jr.",
+  "pitcher_id": 571510,
+  "pitcher": "Matthew Boyd",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 849843,
+  "inning": 1,
+  "half": "bottom",
+  "batter_id": 592518,
+  "batter": "Manny Machado",
+  "pitcher_id": 571510,
+  "pitcher": "Matthew Boyd",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 849843,
+  "inning": 4,
+  "half": "bottom",
+  "batter_id": 593428,
+  "batter": "Xander Bogaerts",
+  "pitcher_id": 571510,
+  "pitcher": "Matthew Boyd",
+  "pitcher_role": "S"
+ }
+]
