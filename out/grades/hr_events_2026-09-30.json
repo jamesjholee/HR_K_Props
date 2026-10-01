@@ -1,0 +1,122 @@
+[
+ {
+  "gamePk": 849841,
+  "inning": 8,
+  "half": "top",
+  "batter_id": 656941,
+  "batter": "Kyle Schwarber",
+  "pitcher_id": 669276,
+  "pitcher": "Dylan Lee",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 849841,
+  "inning": 8,
+  "half": "top",
+  "batter_id": 547180,
+  "batter": "Bryce Harper",
+  "pitcher_id": 669276,
+  "pitcher": "Dylan Lee",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 849841,
+  "inning": 10,
+  "half": "top",
+  "batter_id": 664761,
+  "batter": "Alec Bohm",
+  "pitcher_id": 800311,
+  "pitcher": "Didier Fuentes",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 849846,
+  "inning": 1,
+  "half": "bottom",
+  "batter_id": 665161,
+  "batter": "Jeremy Pe\u00f1a",
+  "pitcher_id": 680732,
+  "pitcher": "Sean Burke",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 849846,
+  "inning": 2,
+  "half": "bottom",
+  "batter_id": 701358,
+  "batter": "Cam Smith",
+  "pitcher_id": 680732,
+  "pitcher": "Sean Burke",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 849846,
+  "inning": 4,
+  "half": "bottom",
+  "batter_id": 514888,
+  "batter": "Jose Altuve",
+  "pitcher_id": 680732,
+  "pitcher": "Sean Burke",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 849846,
+  "inning": 6,
+  "half": "top",
+  "batter_id": 805367,
+  "batter": "Chase Meidroth",
+  "pitcher_id": 650556,
+  "pitcher": "Bryan Abreu",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 849848,
+  "inning": 4,
+  "half": "bottom",
+  "batter_id": 671277,
+  "batter": "Luis Garc\u00eda Jr.",
+  "pitcher_id": 543243,
+  "pitcher": "Sonny Gray",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 849848,
+  "inning": 6,
+  "half": "top",
+  "batter_id": 575929,
+  "batter": "Willson Contreras",
+  "pitcher_id": 608331,
+  "pitcher": "Max Fried",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 849848,
+  "inning": 6,
+  "half": "bottom",
+  "batter_id": 641355,
+  "batter": "Cody Bellinger",
+  "pitcher_id": 676477,
+  "pitcher": "Garrett Whitlock",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 849848,
+  "inning": 7,
+  "half": "top",
+  "batter_id": 686765,
+  "batter": "Nick Sogard",
+  "pitcher_id": 701542,
+  "pitcher": "Will Warren",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 849842,
+  "inning": 4,
+  "half": "bottom",
+  "batter_id": 657757,
+  "batter": "Gavin Sheets",
+  "pitcher_id": 694037,
+  "pitcher": "Daniel Palencia",
+  "pitcher_role": "R"
+ }
+]
