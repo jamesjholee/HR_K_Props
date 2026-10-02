@@ -1,0 +1,32 @@
+[
+ {
+  "gamePk": 849844,
+  "inning": 1,
+  "half": "bottom",
+  "batter_id": 671739,
+  "batter": "Michael Harris II",
+  "pitcher_id": 605400,
+  "pitcher": "Aaron Nola",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 849844,
+  "inning": 4,
+  "half": "bottom",
+  "batter_id": 645277,
+  "batter": "Ozzie Albies",
+  "pitcher_id": 554430,
+  "pitcher": "Zack Wheeler",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 849844,
+  "inning": 7,
+  "half": "bottom",
+  "batter_id": 621566,
+  "batter": "Matt Olson",
+  "pitcher_id": 680742,
+  "pitcher": "Jonathan Bowlan",
+  "pitcher_role": "R"
+ }
+]
