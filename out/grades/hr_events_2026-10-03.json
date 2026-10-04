@@ -1,0 +1,92 @@
+[
+ {
+  "gamePk": 849829,
+  "inning": 4,
+  "half": "top",
+  "batter_id": 808959,
+  "batter": "Munetaka Murakami",
+  "pitcher_id": 800048,
+  "pitcher": "Parker Messick",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 849828,
+  "inning": 4,
+  "half": "bottom",
+  "batter_id": 606192,
+  "batter": "Teoscar Hern\u00e1ndez",
+  "pitcher_id": 682989,
+  "pitcher": "Victor Mederos",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 849828,
+  "inning": 6,
+  "half": "top",
+  "batter_id": 669221,
+  "batter": "Sean Murphy",
+  "pitcher_id": 669373,
+  "pitcher": "Tarik Skubal",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 849828,
+  "inning": 6,
+  "half": "bottom",
+  "batter_id": 663656,
+  "batter": "Kyle Tucker",
+  "pitcher_id": 700363,
+  "pitcher": "AJ Smith-Shawver",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 849828,
+  "inning": 6,
+  "half": "bottom",
+  "batter_id": 571970,
+  "batter": "Max Muncy",
+  "pitcher_id": 700363,
+  "pitcher": "AJ Smith-Shawver",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 849828,
+  "inning": 9,
+  "half": "top",
+  "batter_id": 645277,
+  "batter": "Ozzie Albies",
+  "pitcher_id": 656945,
+  "pitcher": "Tanner Scott",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 849835,
+  "inning": 3,
+  "half": "bottom",
+  "batter_id": 666018,
+  "batter": "Jonathan Aranda",
+  "pitcher_id": 543037,
+  "pitcher": "Gerrit Cole",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 849830,
+  "inning": 3,
+  "half": "bottom",
+  "batter_id": 694192,
+  "batter": "Jackson Chourio",
+  "pitcher_id": 592662,
+  "pitcher": "Robbie Ray",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 849830,
+  "inning": 7,
+  "half": "bottom",
+  "batter_id": 661388,
+  "batter": "William Contreras",
+  "pitcher_id": 670970,
+  "pitcher": "Adrian Morejon",
+  "pitcher_role": "R"
+ }
+]
