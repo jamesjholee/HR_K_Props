@@ -1,0 +1,22 @@
+[
+ {
+  "gamePk": 849823,
+  "inning": 4,
+  "half": "bottom",
+  "batter_id": 518692,
+  "batter": "Freddie Freeman",
+  "pitcher_id": 656550,
+  "pitcher": "Grant Holmes",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 849823,
+  "inning": 9,
+  "half": "bottom",
+  "batter_id": 571970,
+  "batter": "Max Muncy",
+  "pitcher_id": 800311,
+  "pitcher": "Didier Fuentes",
+  "pitcher_role": "R"
+ }
+]
