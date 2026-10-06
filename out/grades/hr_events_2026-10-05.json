@@ -1,0 +1,22 @@
+[
+ {
+  "gamePk": 849839,
+  "inning": 4,
+  "half": "top",
+  "batter_id": 700250,
+  "batter": "Ben Rice",
+  "pitcher_id": 642547,
+  "pitcher": "Freddy Peralta",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 849839,
+  "inning": 8,
+  "half": "top",
+  "batter_id": 700250,
+  "batter": "Ben Rice",
+  "pitcher_id": 693855,
+  "pitcher": "Ian Seymour",
+  "pitcher_role": "R"
+ }
+]
