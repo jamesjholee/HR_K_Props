@@ -1,0 +1,42 @@
+[
+ {
+  "gamePk": 849819,
+  "inning": 4,
+  "half": "top",
+  "batter_id": 571771,
+  "batter": "Enrique Hern\u00e1ndez",
+  "pitcher_id": 519242,
+  "pitcher": "Chris Sale",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 849819,
+  "inning": 4,
+  "half": "top",
+  "batter_id": 518692,
+  "batter": "Freddie Freeman",
+  "pitcher_id": 519242,
+  "pitcher": "Chris Sale",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 849826,
+  "inning": 4,
+  "half": "top",
+  "batter_id": 661388,
+  "batter": "William Contreras",
+  "pitcher_id": 601713,
+  "pitcher": "Nick Pivetta",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 849826,
+  "inning": 5,
+  "half": "bottom",
+  "batter_id": 630105,
+  "batter": "Jake Cronenworth",
+  "pitcher_id": 668941,
+  "pitcher": "JoJo Romero",
+  "pitcher_role": "R"
+ }
+]
