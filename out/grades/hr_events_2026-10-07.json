@@ -1,0 +1,42 @@
+[
+ {
+  "gamePk": 849822,
+  "inning": 9,
+  "half": "top",
+  "batter_id": 571970,
+  "batter": "Max Muncy",
+  "pitcher_id": 628452,
+  "pitcher": "Raisel Iglesias",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 849838,
+  "inning": 4,
+  "half": "top",
+  "batter_id": 668723,
+  "batter": "Ryan Vilade",
+  "pitcher_id": 608331,
+  "pitcher": "Max Fried",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 849838,
+  "inning": 6,
+  "half": "top",
+  "batter_id": 683748,
+  "batter": "Victor Mesa Jr.",
+  "pitcher_id": 608331,
+  "pitcher": "Max Fried",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 849827,
+  "inning": 3,
+  "half": "bottom",
+  "batter_id": 665487,
+  "batter": "Fernando Tatis Jr.",
+  "pitcher_id": 688107,
+  "pitcher": "Robert Gasser",
+  "pitcher_role": "S"
+ }
+]
