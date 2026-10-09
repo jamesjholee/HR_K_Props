@@ -1,0 +1,32 @@
+[
+ {
+  "gamePk": 849832,
+  "inning": 5,
+  "half": "top",
+  "batter_id": 672275,
+  "batter": "Patrick Bailey",
+  "pitcher_id": 607200,
+  "pitcher": "Erick Fedde",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 849832,
+  "inning": 5,
+  "half": "top",
+  "batter_id": 608070,
+  "batter": "Jos\u00e9 Ram\u00edrez",
+  "pitcher_id": 663855,
+  "pitcher": "Jordan Hicks",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 849832,
+  "inning": 9,
+  "half": "bottom",
+  "batter_id": 678246,
+  "batter": "Miguel Vargas",
+  "pitcher_id": 671922,
+  "pitcher": "Cade Smith",
+  "pitcher_role": "R"
+ }
+]
