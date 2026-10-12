@@ -1,5 +1,5 @@
 # Season Ledger — HR board
-_generated 2026-10-11T13:38:29+00:00 · research log, not advice · misses reported as loudly as hits_
+_generated 2026-10-12T16:18:47+00:00 · research log, not advice · misses reported as loudly as hits_
 
 | # | Date | Board | Hits | Hit% | Capture | Pen share | Cfg | Src | Note |
 |---|------|------:|-----:|-----:|--------:|----------:|-----|-----|------|
@@ -206,7 +206,7 @@ _per-start figures are not IP-adjusted; sample spans multiple config versions; n
 ### Whiff overlay (starter HRs allowed / start)
 | whiff | starts | HRs | per-start |
 |---|---|---|---|
-| >=30% | 173 | 87 | 0.50 |
+| >=30% | 175 | 88 | 0.50 |
 | 28-30% | 124 | 95 | 0.77 |
 | 26-28% | 246 | 159 | 0.65 |
 | 20-26% | 798 | 560 | 0.70 |
@@ -218,14 +218,14 @@ _per-start figures are not IP-adjusted; sample spans multiple config versions; n
 | TARGET | 625 | 466 | 0.75 |
 | TARGET-THIN | 145 | 102 | 0.70 |
 | ONE-PITCH | 336 | 229 | 0.68 |
-| FADE | 160 | 100 | 0.62 |
+| FADE | 162 | 101 | 0.62 |
 | NO-READ | 96 | 54 | 0.56 |
 | ONE-PITCH-THIN | 164 | 80 | 0.49 |
 
 ### Gate 2.5 form (starter HRs allowed / start)
 | form flag | starts | HRs | per-start |
 |---|---|---|---|
-| — | 735 | 528 | 0.72 |
+| — | 737 | 529 | 0.72 |
 | EMERGING | 48 | 36 | 0.75 |
 | DECLINING-TARGET | 482 | 375 | 0.78 |
 | CONFIRMED? | 291 | 192 | 0.66 |
@@ -235,8 +235,8 @@ _per-start figures are not IP-adjusted; sample spans multiple config versions; n
 ### Pen-edge (per pen-slate)
 | edge tier | pens | pen HRs | boarded hits | HRs/pen |
 |---|---|---|---|---|
-| edge 0-2 | 746 | 195 | 103 | 0.26 |
-| edge 3-5 | 823 | 286 | 119 | 0.35 |
+| edge 0-2 | 773 | 195 | 103 | 0.25 |
+| edge 3-5 | 826 | 286 | 119 | 0.35 |
 | edge>=6 | 561 | 197 | 93 | 0.35 |
 
 ### DTP batter profiles (boarded-bat hit rate)
