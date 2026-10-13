@@ -1,0 +1,42 @@
+[
+ {
+  "gamePk": 849812,
+  "inning": 5,
+  "half": "bottom",
+  "batter_id": 661388,
+  "batter": "William Contreras",
+  "pitcher_id": 663460,
+  "pitcher": "Kris Bubic",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 849820,
+  "inning": 6,
+  "half": "top",
+  "batter_id": 800050,
+  "batter": "Chase DeLauter",
+  "pitcher_id": 656876,
+  "pitcher": "Drew Rasmussen",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 849820,
+  "inning": 7,
+  "half": "top",
+  "batter_id": 672275,
+  "batter": "Patrick Bailey",
+  "pitcher_id": 656876,
+  "pitcher": "Drew Rasmussen",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 849820,
+  "inning": 8,
+  "half": "bottom",
+  "batter_id": 656775,
+  "batter": "Cedric Mullins",
+  "pitcher_id": 681870,
+  "pitcher": "Erik Sabrowski",
+  "pitcher_role": "R"
+ }
+]
