@@ -1,6 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>HR Engine &mdash; 2026-10-14</title>
+<title>HR Engine &mdash; 2026-10-15</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Graduate&family=IBM+Plex+Mono:wght@400;500;600&family=Public+Sans:wght@400;600;800&display=swap" rel="stylesheet">
@@ -167,18 +167,18 @@ details[open] summary h2.sec::before{transform:rotate(90deg)}
 <header class="topbar">
   <h1>HR <span class="amber">/</span> K Engine</h1>
   <div class="meta">
-    <span>SLATE <b>2026-10-14</b></span>
+    <span>SLATE <b>2026-10-15</b></span>
     <span>CFG <b>v1.7.1-2026-09-16</b></span>
-    <span>LOCKED <b>2026-10-14T18:14:12+00:00</b></span>
+    <span>LOCKED <b>2026-10-15T17:56:27+00:00</b></span>
   </div>
-  <span class="alertpill">2 ALERTS</span>
+  <span class="alertpill">3 ALERTS</span>
 </header>
-<div class="recstrip"><span>SEASON <b>826/6992</b> (11.8%)</span><span>LAST 5 <b>4/59</b> (6.8%)</span><span>v1.7.1 <b>146/1274</b> (11.5% · 21 slates)</span><span class="spark"><span class="hi">▇</span><span class="hi">█</span><span class="hi">█</span><span class="hi">█</span>▁<span class="hi">▆</span>▁▄▅▁</span><span class="tag">graded ledger · breakeven ~15&ndash;18% &middot; research log, not advice</span></div>
+<div class="recstrip"><span>SEASON <b>826/6999</b> (11.8%)</span><span>LAST 5 <b>3/59</b> (5.1%)</span><span>v1.7.1 <b>146/1281</b> (11.4% · 22 slates)</span><span class="spark"><span class="hi">█</span><span class="hi">█</span><span class="hi">█</span>▁<span class="hi">▆</span>▁▄▅▁▁</span><span class="tag">graded ledger · breakeven ~15&ndash;18% &middot; research log, not advice</span></div>
 <div class="wrap">
 
 <div class="alerts">
   <h2>Verify by hand &mdash; 5/27 rule</h2>
-  <ul><li>odds feed empty/dark — EV column blank this run (prices manual, as before)</li><li>odds feed dark — no prices on this board; EV lane blank (verify prices manually)</li></ul>
+  <ul><li>STARTER MISSING: MIL@LAD (849810) — verify in MLB app (opener? scratch?)</li><li>odds feed empty/dark — EV column blank this run (prices manual, as before)</li><li>odds feed dark — no prices on this board; EV lane blank (verify prices manually)</li></ul>
 </div>
 
 <details class="legend"><summary>
@@ -224,14 +224,14 @@ graded slates. That's the house rule: evidence moves the model, not instinct.</p
 </div>
 </details>
 
-<h2 class="sec">HR Board <small>7 bats &middot; sorted by model HR%</small></h2>
+<h2 class="sec">HR Board <small>3 bats &middot; sorted by model HR%</small></h2>
 
 <div class="controls">
   <input type="search" id="q" placeholder="search bat / pitcher / game" aria-label="Search board">
   <span class="fdivider"></span>
   <button class="fchip" data-fgame="MIL@LAD">MIL@LAD<span class="ftime">8:00p</span></button>
   <span class="fdivider"></span>
-  <button class="fchip" data-flane="standard">standard</button><button class="fchip" data-flane="watch">watch</button>
+  <button class="fchip" data-flane="thin">thin</button>
   <button class="fchip" id="penonly" data-fpen="1">&#9889; PEN only</button>
   <span class="count" id="count"></span>
 </div>
@@ -257,13 +257,9 @@ graded slates. That's the house rule: evidence moves the model, not instinct.</p
   <th class="num sortable" data-sort="ev">EV</th>
   <th>Signals</th><th>Lane</th>
 </tr></thead>
-<tbody><tr data-game="MIL@LAD" data-lane="standard" data-pen="1" data-p="0.18" data-be="+456" data-insight="4 HR + 4 near-HR in 26 PA — barrel 26.3%, pull-air 26.3%, HH 63%, bat speed 74.1, 5× 350ft+. vs Robert Gasser: TARGET (arsenal whiff 22%, crushable: ST,FC). Risk: thin sample 19 BBE. L15 LOUD · SUSTAINED · profile ELITE · opp pen fatigued — late-HR exposure. Model 18% (breakeven +456)." data-search="andy pages robert gasser mil@lad"><td class="num rk">1</td><td class="bat"><b>Andy Pages</b><span class=prof>🚀 ELITE</span></td><td class="game">MIL@LAD</td><td class="pit">Robert Gasser</td><td class="num">&mdash;</td><td class="num pcell"><span class="pval">18%</span><span class="lamps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></td><td class="num">+456</td><td class="num dim">&mdash;</td><td class="num dim">&mdash;</td><td class="sig"><span class="chip hot">LOUD</span><span class="chip pen">&#9889; PEN</span></td><td><span class="lane l-standard">standard</span></td></tr>
-<tr data-game="MIL@LAD" data-lane="standard" data-pen="1" data-p="0.15" data-be="+567" data-insight="3 HR + 4 near-HR in 42 PA — barrel 13.3%, pull-air 23.3%, HH 50%, bat speed 73.0, 6× 350ft+. vs Robert Gasser: TARGET (arsenal whiff 22%, crushable: ST,FC). Risk: high whiff 33%, thin sample 30 BBE. L15 NEAR · opp pen fatigued — late-HR exposure. Model 15% (breakeven +567)." data-search="shohei ohtani robert gasser mil@lad"><td class="num rk">2</td><td class="bat"><b>Shohei Ohtani</b></td><td class="game">MIL@LAD</td><td class="pit">Robert Gasser</td><td class="num">&mdash;</td><td class="num pcell"><span class="pval">15%</span><span class="lamps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></td><td class="num">+567</td><td class="num dim">&mdash;</td><td class="num dim">&mdash;</td><td class="sig"><span class="chip warm">NEAR</span><span class="chip pen">&#9889; PEN</span></td><td><span class="lane l-standard">standard</span></td></tr>
-<tr data-game="MIL@LAD" data-lane="standard" data-pen="1" data-p="0.14" data-be="+614" data-insight="2 HR + 2 near-HR in 23 PA — barrel 12.5%, pull-air 37.5%, HH 38%, bat speed 71.4, 2× 350ft+. vs Robert Gasser: TARGET (arsenal whiff 22%, crushable: ST,FC). Risk: thin sample 16 BBE. HEATING · opp pen fatigued — late-HR exposure. Model 14% (breakeven +614)." data-search="kyle tucker robert gasser mil@lad"><td class="num rk">3</td><td class="bat"><b>Kyle Tucker</b></td><td class="game">MIL@LAD</td><td class="pit">Robert Gasser</td><td class="num">&mdash;</td><td class="num pcell"><span class="pval">14%</span><span class="lamps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></td><td class="num">+614</td><td class="num dim">&mdash;</td><td class="num dim">&mdash;</td><td class="sig"><span class="chip pen">&#9889; PEN</span></td><td><span class="lane l-standard">standard</span></td></tr>
-<tr data-game="MIL@LAD" data-lane="standard" data-pen="1" data-p="0.13" data-be="+669" data-insight="1 HR + 1 near-HR in 23 PA — barrel 13.3%, pull-air 20.0%, HH 40%, bat speed 73.5, 1× 350ft+. vs Robert Gasser: TARGET (arsenal whiff 22%, crushable: ST,FC). Risk: high whiff 31%, thin sample 15 BBE. HEATING · opp pen fatigued — late-HR exposure. Model 13% (breakeven +669)." data-search="teoscar hernandez robert gasser mil@lad"><td class="num rk">4</td><td class="bat"><b>Teoscar Hernandez</b></td><td class="game">MIL@LAD</td><td class="pit">Robert Gasser</td><td class="num">&mdash;</td><td class="num pcell"><span class="pval">13%</span><span class="lamps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></td><td class="num">+669</td><td class="num dim">&mdash;</td><td class="num dim">&mdash;</td><td class="sig"><span class="chip pen">&#9889; PEN</span></td><td><span class="lane l-standard">standard</span></td></tr>
-<tr data-game="MIL@LAD" data-lane="watch" data-pen="1" data-p="0.13" data-be="+669" data-insight="0 HR + 0 near-HR in 6 PA — barrel 33.3%, pull-air 0.0%, HH 67%, bat speed 70.0, 1× 350ft+. vs Robert Gasser: TARGET (arsenal whiff 22%, crushable: ST,FC). Risk: high whiff 46%, thin sample 3 BBE. L15 LOUD · SUSTAINED · profile LINEDRIVE · opp pen fatigued — late-HR exposure. Model 13% (breakeven +669)." data-search="enrique hernandez robert gasser mil@lad"><td class="num rk">5</td><td class="bat"><b>Enrique Hernandez</b><span class=prof>🎯 LINEDRIVE</span></td><td class="game">MIL@LAD</td><td class="pit">Robert Gasser</td><td class="num">&mdash;</td><td class="num pcell"><span class="pval">13%</span><span class="lamps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></td><td class="num">+669</td><td class="num dim">&mdash;</td><td class="num dim">&mdash;</td><td class="sig"><span class="chip hot">LOUD</span><span class="chip pen">&#9889; PEN</span></td><td><span class="lane l-watch">watch</span></td></tr>
-<tr data-game="MIL@LAD" data-lane="standard" data-pen="1" data-p="0.12" data-be="+733" data-insight="1 HR + 1 near-HR in 18 PA — barrel 6.2%, pull-air 31.2%, HH 25%, bat speed 68.7, 1× 350ft+. vs Robert Gasser: TARGET (arsenal whiff 22%, crushable: ST,FC). Risk: thin sample 16 BBE. HEATING · opp pen fatigued — late-HR exposure. Model 12% (breakeven +733)." data-search="mookie betts robert gasser mil@lad"><td class="num rk">6</td><td class="bat"><b>Mookie Betts</b></td><td class="game">MIL@LAD</td><td class="pit">Robert Gasser</td><td class="num">&mdash;</td><td class="num pcell"><span class="pval">12%</span><span class="lamps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></td><td class="num">+733</td><td class="num dim">&mdash;</td><td class="num dim">&mdash;</td><td class="sig"><span class="chip pen">&#9889; PEN</span></td><td><span class="lane l-standard">standard</span></td></tr>
-<tr data-game="MIL@LAD" data-lane="standard" data-pen="1" data-p="0.1" data-be="+900" data-insight="1 HR + 1 near-HR in 15 PA — barrel 7.7%, pull-air 7.7%, HH 15%, bat speed 73.3, 2× 350ft+. vs Robert Gasser: TARGET (arsenal whiff 22%, crushable: ST,FC). Risk: thin sample 13 BBE. opp pen fatigued — late-HR exposure. Model 10% (breakeven +900)." data-search="tommy edman robert gasser mil@lad"><td class="num rk">7</td><td class="bat"><b>Tommy Edman</b></td><td class="game">MIL@LAD</td><td class="pit">Robert Gasser</td><td class="num">&mdash;</td><td class="num pcell"><span class="pval">10%</span><span class="lamps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></td><td class="num">+900</td><td class="num dim">&mdash;</td><td class="num dim">&mdash;</td><td class="sig"><span class="chip pen">&#9889; PEN</span></td><td><span class="lane l-standard">standard</span></td></tr></tbody>
+<tbody><tr data-game="MIL@LAD" data-lane="thin" data-pen="1" data-p="0.16" data-be="+525" data-insight="6 HR + 12 near-HR in 104 PA — barrel 15.5%, pull-air 4.2%, HH 54%, bat speed 74.0, 18× 350ft+. vs Tyler Glasnow: ONE-PITCH-THIN (arsenal whiff 30%, crushable: FF). Risk: thin sample 71 BBE. L15 NEAR · HEATING · opp pen fatigued — late-HR exposure. Model 16% (breakeven +525)." data-search="jackson chourio tyler glasnow mil@lad"><td class="num rk">1</td><td class="bat"><b>Jackson Chourio</b></td><td class="game">MIL@LAD</td><td class="pit">Tyler Glasnow</td><td class="num">&mdash;</td><td class="num pcell"><span class="pval">16%</span><span class="lamps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></td><td class="num">+525</td><td class="num dim">&mdash;</td><td class="num dim">&mdash;</td><td class="sig"><span class="chip warm">NEAR</span><span class="chip pen">&#9889; PEN</span></td><td><span class="lane l-thin">thin</span></td></tr>
+<tr data-game="MIL@LAD" data-lane="thin" data-pen="1" data-p="0.13" data-be="+669" data-insight="3 HR + 5 near-HR in 132 PA — barrel 12.0%, pull-air 12.0%, HH 57%, bat speed 75.9, 10× 350ft+. vs Tyler Glasnow: ONE-PITCH-THIN (arsenal whiff 30%, crushable: FF). Risk: thin sample 75 BBE. opp pen fatigued — late-HR exposure. Model 13% (breakeven +669)." data-search="jake bauers tyler glasnow mil@lad"><td class="num rk">2</td><td class="bat"><b>Jake Bauers</b></td><td class="game">MIL@LAD</td><td class="pit">Tyler Glasnow</td><td class="num">&mdash;</td><td class="num pcell"><span class="pval">13%</span><span class="lamps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></td><td class="num">+669</td><td class="num dim">&mdash;</td><td class="num dim">&mdash;</td><td class="sig"><span class="chip pen">&#9889; PEN</span></td><td><span class="lane l-thin">thin</span></td></tr>
+<tr data-game="MIL@LAD" data-lane="thin" data-pen="1" data-p="0.12" data-be="+733" data-insight="3 HR + 9 near-HR in 150 PA — barrel 14.7%, pull-air 2.7%, HH 68%, bat speed 77.3, 10× 350ft+. vs Tyler Glasnow: ONE-PITCH-THIN (arsenal whiff 30%, crushable: FF). Risk: high whiff 31%, thin sample 75 BBE. opp pen fatigued — late-HR exposure. Model 12% (breakeven +733)." data-search="garrett mitchell tyler glasnow mil@lad"><td class="num rk">3</td><td class="bat"><b>Garrett Mitchell</b></td><td class="game">MIL@LAD</td><td class="pit">Tyler Glasnow</td><td class="num">&mdash;</td><td class="num pcell"><span class="pval">12%</span><span class="lamps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></td><td class="num">+733</td><td class="num dim">&mdash;</td><td class="num dim">&mdash;</td><td class="sig"><span class="chip pen">&#9889; PEN</span></td><td><span class="lane l-thin">thin</span></td></tr></tbody>
 </table>
 </div>
 
@@ -272,8 +268,7 @@ graded slates. That's the house rule: evidence moves the model, not instinct.</p
 </summary>
 <div class="tblwrap"><table>
 <thead><tr><th>Game</th><th>Pitcher</th><th>Season Verdict</th><th>Form Flag</th><th>Detail</th></tr></thead>
-<tbody><tr><td class="game">MIL@LAD</td><td class="pit">Blake Snell</td><td>NO-READ</td><td class="flag f-—"><b>—</b></td><td class="dim">last 3 starts: 27 BBE, 0 HR, HH 22.2%, air 66.7% (0.0 HR/start)</td></tr>
-<tr><td class="game">MIL@LAD</td><td class="pit">Robert Gasser</td><td>TARGET</td><td class="flag f-CONFIRMED"><b>CONFIRMED?</b></td><td class="dim">last 3 starts: 43 BBE, 0 HR, HH 39.5%, air 65.1% (0.0 HR/start)</td></tr></tbody>
+<tbody><tr><td class="game">MIL@LAD</td><td class="pit">Tyler Glasnow</td><td>ONE-PITCH-THIN</td><td class="flag f-—"><b>—</b></td><td class="dim">last 3 starts: 32 BBE, 0 HR, HH 34.4%, air 65.6% (0.0 HR/start)</td></tr></tbody>
 </table></div>
 </details>
 
@@ -283,8 +278,7 @@ graded slates. That's the house rule: evidence moves the model, not instinct.</p
 <div class="tblwrap"><table>
 <thead><tr><th>Game</th><th>Pitcher</th><th class="num">Proj K</th><th class="num">Range</th>
 <th class="num">Arsenal Whiff</th><th class="num">Opp K Rank</th><th>Verdict</th></tr></thead>
-<tbody><tr><td class="game">MIL@LAD</td><td class="pit">Blake Snell</td><td class="num kbig">6.4</td><td class="num">5&ndash;8</td><td class="num">34.5%</td><td class="num">19</td><td>NO-READ</td></tr>
-<tr><td class="game">MIL@LAD</td><td class="pit">Robert Gasser</td><td class="num kbig">4.0</td><td class="num">2&ndash;5</td><td class="num">22.1%</td><td class="num">21</td><td>TARGET</td></tr></tbody>
+<tbody><tr><td class="game">MIL@LAD</td><td class="pit">Tyler Glasnow</td><td class="num kbig">6.3</td><td class="num">5&ndash;8</td><td class="num">29.9%</td><td class="num">11</td><td>ONE-PITCH-THIN</td></tr></tbody>
 </table></div>
 </details>
 
@@ -451,7 +445,7 @@ tr.lu-out .bat b{text-decoration:line-through;text-decoration-thickness:1px}
 (function(){
   const norm=s=>(s||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().trim();
   const ord=n=>n+({1:"st",2:"nd",3:"rd"}[[11,12,13].includes(n%100)?0:n%10]||"th");
-  const SLATE="2026-10-14";
+  const SLATE="2026-10-15";
   function clearAll(){
     document.querySelectorAll(".lu").forEach(e=>e.remove());
     document.querySelectorAll("tr.lu-out").forEach(tr=>tr.classList.remove("lu-out"));
