@@ -1,0 +1,32 @@
+[
+ {
+  "gamePk": 849811,
+  "inning": 1,
+  "half": "top",
+  "batter_id": 694192,
+  "batter": "Jackson Chourio",
+  "pitcher_id": 605483,
+  "pitcher": "Blake Snell",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 849811,
+  "inning": 7,
+  "half": "top",
+  "batter_id": 641343,
+  "batter": "Jake Bauers",
+  "pitcher_id": 605483,
+  "pitcher": "Blake Snell",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 849811,
+  "inning": 7,
+  "half": "top",
+  "batter_id": 669003,
+  "batter": "Garrett Mitchell",
+  "pitcher_id": 605483,
+  "pitcher": "Blake Snell",
+  "pitcher_role": "S"
+ }
+]
