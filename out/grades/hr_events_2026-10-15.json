@@ -1,0 +1,42 @@
+[
+ {
+  "gamePk": 849818,
+  "inning": 5,
+  "half": "bottom",
+  "batter_id": 690984,
+  "batter": "Petey Halpin",
+  "pitcher_id": 643377,
+  "pitcher": "Griffin Jax",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 849810,
+  "inning": 2,
+  "half": "bottom",
+  "batter_id": 660271,
+  "batter": "Shohei Ohtani",
+  "pitcher_id": 669160,
+  "pitcher": "Dustin May",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 849810,
+  "inning": 6,
+  "half": "top",
+  "batter_id": 669003,
+  "batter": "Garrett Mitchell",
+  "pitcher_id": 656945,
+  "pitcher": "Tanner Scott",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 849810,
+  "inning": 9,
+  "half": "top",
+  "batter_id": 666152,
+  "batter": "David Hamilton",
+  "pitcher_id": 621242,
+  "pitcher": "Edwin D\u00edaz",
+  "pitcher_role": "R"
+ }
+]
