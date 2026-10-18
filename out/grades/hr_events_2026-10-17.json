@@ -1,0 +1,22 @@
+[
+ {
+  "gamePk": 849816,
+  "inning": 7,
+  "half": "bottom",
+  "batter_id": 683953,
+  "batter": "Travis Bazzana",
+  "pitcher_id": 693855,
+  "pitcher": "Ian Seymour",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 849816,
+  "inning": 9,
+  "half": "top",
+  "batter_id": 650490,
+  "batter": "Yandy D\u00edaz",
+  "pitcher_id": 670036,
+  "pitcher": "Matt Festa",
+  "pitcher_role": "R"
+ }
+]
