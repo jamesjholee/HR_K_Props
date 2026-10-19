@@ -1,6 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>HR Engine &mdash; 2026-10-18</title>
+<title>HR Engine &mdash; 2026-10-19</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Graduate&family=IBM+Plex+Mono:wght@400;500;600&family=Public+Sans:wght@400;600;800&display=swap" rel="stylesheet">
@@ -167,18 +167,18 @@ details[open] summary h2.sec::before{transform:rotate(90deg)}
 <header class="topbar">
   <h1>HR <span class="amber">/</span> K Engine</h1>
   <div class="meta">
-    <span>SLATE <b>2026-10-18</b></span>
+    <span>SLATE <b>2026-10-19</b></span>
     <span>CFG <b>v1.7.1-2026-09-16</b></span>
-    <span>LOCKED <b>2026-10-18T17:01:02+00:00</b></span>
+    <span>LOCKED <b>2026-10-19T19:34:15+00:00</b></span>
   </div>
-  <span class="alertpill">1 ALERT</span>
+  <span class="alertpill">2 ALERTS</span>
 </header>
 <div class="recstrip"><span>SEASON <b>828/7009</b> (11.8%)</span><span>LAST 5 <b>3/32</b> (9.4%)</span><span>v1.7.1 <b>148/1291</b> (11.5% · 24 slates)</span><span class="spark"><span class="hi">█</span>▁<span class="hi">▆</span>▁▄▅▁▁<span class="hi">█</span><span class="hi">▆</span></span><span class="tag">graded ledger · breakeven ~15&ndash;18% &middot; research log, not advice</span></div>
 <div class="wrap">
 
 <div class="alerts">
   <h2>Verify by hand &mdash; 5/27 rule</h2>
-  <ul><li>odds feed empty/dark — EV column blank this run (prices manual, as before)</li></ul>
+  <ul><li>odds feed empty/dark — EV column blank this run (prices manual, as before)</li><li>odds feed dark — no prices on this board; EV lane blank (verify prices manually)</li></ul>
 </div>
 
 <details class="legend"><summary>
@@ -224,14 +224,14 @@ graded slates. That's the house rule: evidence moves the model, not instinct.</p
 </div>
 </details>
 
-<h2 class="sec">HR Board <small>0 bats &middot; sorted by model HR%</small></h2>
+<h2 class="sec">HR Board <small>6 bats &middot; sorted by model HR%</small></h2>
 
 <div class="controls">
   <input type="search" id="q" placeholder="search bat / pitcher / game" aria-label="Search board">
   <span class="fdivider"></span>
-  
+  <button class="fchip" data-fgame="CLE@TB">CLE@TB<span class="ftime">8:08p</span></button>
   <span class="fdivider"></span>
-  
+  <button class="fchip" data-flane="one-pitch">one-pitch</button><button class="fchip" data-flane="thin">thin</button>
   <button class="fchip" id="penonly" data-fpen="1">&#9889; PEN only</button>
   <span class="count" id="count"></span>
 </div>
@@ -257,7 +257,12 @@ graded slates. That's the house rule: evidence moves the model, not instinct.</p
   <th class="num sortable" data-sort="ev">EV</th>
   <th>Signals</th><th>Lane</th>
 </tr></thead>
-<tbody></tbody>
+<tbody><tr data-game="CLE@TB" data-lane="thin" data-pen="1" data-p="0.18" data-be="+456" data-insight="8 HR + 11 near-HR in 95 PA — barrel 17.2%, pull-air 20.3%, HH 69%, bat speed 79.4, 10× 350ft+. vs Shawn Armstrong: ONE-PITCH-THIN (arsenal whiff 23%, crushable: FF). Risk: thin sample 64 BBE. L15 NEAR · opp pen fatigued — late-HR exposure. Model 18% (breakeven +456)." data-search="junior caminero shawn armstrong cle@tb"><td class="num rk">1</td><td class="bat"><b>Junior Caminero</b></td><td class="game">CLE@TB</td><td class="pit">Shawn Armstrong</td><td class="num">&mdash;</td><td class="num pcell"><span class="pval">18%</span><span class="lamps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></td><td class="num">+456</td><td class="num dim">&mdash;</td><td class="num dim">&mdash;</td><td class="sig"><span class="chip warm">NEAR</span><span class="chip pen">&#9889; PEN</span></td><td><span class="lane l-thin">thin</span></td></tr>
+<tr data-game="CLE@TB" data-lane="one-pitch" data-pen="0" data-p="0.12000000000000001" data-be="+733" data-insight="1 HR + 1 near-HR in 21 PA — barrel 6.2%, pull-air 43.8%, HH 56%, bat speed 77.0, 2× 350ft+. vs Freddy Peralta: ONE-PITCH (arsenal whiff 26%, crushable: CU). Risk: thin sample 16 BBE. L15 QUIET. Model 12% (breakeven +733)." data-search="jo adell freddy peralta cle@tb"><td class="num rk">2</td><td class="bat"><b>Jo Adell</b></td><td class="game">CLE@TB</td><td class="pit">Freddy Peralta</td><td class="num">&mdash;</td><td class="num pcell"><span class="pval">12%</span><span class="lamps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></td><td class="num">+733</td><td class="num dim">&mdash;</td><td class="num dim">&mdash;</td><td class="sig"><span class="chip cold">QUIET</span></td><td><span class="lane l-one-pitch">one-pitch</span></td></tr>
+<tr data-game="CLE@TB" data-lane="one-pitch" data-pen="0" data-p="0.12000000000000001" data-be="+733" data-insight="3 HR + 4 near-HR in 14 PA — barrel 28.6%, pull-air 71.4%, HH 71%, bat speed 71.8, 4× 350ft+. vs Freddy Peralta: ONE-PITCH (arsenal whiff 26%, crushable: CU). Risk: high whiff 32%, thin sample 7 BBE. L15 QUIET. Model 12% (breakeven +733)." data-search="angel martinez freddy peralta cle@tb"><td class="num rk">3</td><td class="bat"><b>Angel Martinez</b></td><td class="game">CLE@TB</td><td class="pit">Freddy Peralta</td><td class="num">&mdash;</td><td class="num pcell"><span class="pval">12%</span><span class="lamps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></td><td class="num">+733</td><td class="num dim">&mdash;</td><td class="num dim">&mdash;</td><td class="sig"><span class="chip cold">QUIET</span></td><td><span class="lane l-one-pitch">one-pitch</span></td></tr>
+<tr data-game="CLE@TB" data-lane="one-pitch" data-pen="0" data-p="0.12" data-be="+733" data-insight="1 HR + 1 near-HR in 24 PA — barrel 5.0%, pull-air 25.0%, HH 65%, bat speed 71.1, 2× 350ft+. vs Freddy Peralta: ONE-PITCH (arsenal whiff 26%, crushable: CU). Risk: thin sample 20 BBE. L15 QUIET · HEATING. Model 12% (breakeven +733)." data-search="chase delauter freddy peralta cle@tb"><td class="num rk">4</td><td class="bat"><b>Chase DeLauter</b></td><td class="game">CLE@TB</td><td class="pit">Freddy Peralta</td><td class="num">&mdash;</td><td class="num pcell"><span class="pval">12%</span><span class="lamps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></td><td class="num">+733</td><td class="num dim">&mdash;</td><td class="num dim">&mdash;</td><td class="sig"><span class="chip cold">QUIET</span></td><td><span class="lane l-one-pitch">one-pitch</span></td></tr>
+<tr data-game="CLE@TB" data-lane="thin" data-pen="1" data-p="0.12" data-be="+733" data-insight="5 HR + 8 near-HR in 82 PA — barrel 13.7%, pull-air 17.6%, HH 43%, bat speed 74.5, 12× 350ft+. vs Shawn Armstrong: ONE-PITCH-THIN (arsenal whiff 23%, crushable: FF). Risk: thin sample 51 BBE. L15 QUIET · opp pen fatigued — late-HR exposure. Model 12% (breakeven +733)." data-search="victor mesa jr. shawn armstrong cle@tb"><td class="num rk">5</td><td class="bat"><b>Victor Mesa Jr.</b></td><td class="game">CLE@TB</td><td class="pit">Shawn Armstrong</td><td class="num">&mdash;</td><td class="num pcell"><span class="pval">12%</span><span class="lamps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></td><td class="num">+733</td><td class="num dim">&mdash;</td><td class="num dim">&mdash;</td><td class="sig"><span class="chip cold">QUIET</span><span class="chip pen">&#9889; PEN</span></td><td><span class="lane l-thin">thin</span></td></tr>
+<tr data-game="CLE@TB" data-lane="thin" data-pen="1" data-p="0.11" data-be="+809" data-insight="2 HR + 2 near-HR in 34 PA — barrel 14.3%, pull-air 21.4%, HH 43%, bat speed 75.7, 2× 350ft+. vs Shawn Armstrong: ONE-PITCH-THIN (arsenal whiff 23%, crushable: FF). Risk: high whiff 32%, thin sample 14 BBE. L15 QUIET · opp pen fatigued — late-HR exposure. Model 11% (breakeven +809)." data-search="ryan vilade shawn armstrong cle@tb"><td class="num rk">6</td><td class="bat"><b>Ryan Vilade</b></td><td class="game">CLE@TB</td><td class="pit">Shawn Armstrong</td><td class="num">&mdash;</td><td class="num pcell"><span class="pval">11%</span><span class="lamps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></td><td class="num">+809</td><td class="num dim">&mdash;</td><td class="num dim">&mdash;</td><td class="sig"><span class="chip cold">QUIET</span><span class="chip pen">&#9889; PEN</span></td><td><span class="lane l-thin">thin</span></td></tr></tbody>
 </table>
 </div>
 
@@ -266,8 +271,8 @@ graded slates. That's the house rule: evidence moves the model, not instinct.</p
 </summary>
 <div class="tblwrap"><table>
 <thead><tr><th>Game</th><th>Pitcher</th><th>Season Verdict</th><th>Form Flag</th><th>Detail</th></tr></thead>
-<tbody><tr><td class="game">TB@CLE</td><td class="pit">Parker Messick</td><td>FADE</td><td class="flag f-EMERGING"><b>EMERGING</b></td><td class="dim">last 3 starts: 44 BBE, 0 HR, HH 52.3%, air 47.7% (0.0 HR/start)</td></tr>
-<tr><td class="game">TB@CLE</td><td class="pit">Drew Rasmussen</td><td>FADE</td><td class="flag f-—"><b>—</b></td><td class="dim">last 3 starts: 48 BBE, 0 HR, HH 29.2%, air 45.8% (0.0 HR/start)</td></tr></tbody>
+<tbody><tr><td class="game">CLE@TB</td><td class="pit">Freddy Peralta</td><td>ONE-PITCH</td><td class="flag f-—"><b>—</b></td><td class="dim">last 3 starts: 41 BBE, 0 HR, HH 17.5%, air 57.5% (0.0 HR/start)</td></tr>
+<tr><td class="game">CLE@TB</td><td class="pit">Shawn Armstrong</td><td>ONE-PITCH-THIN</td><td class="flag f-N/A"><b>N/A</b></td><td class="dim">fewer than 2 starts on log</td></tr></tbody>
 </table></div>
 </details>
 
@@ -277,8 +282,8 @@ graded slates. That's the house rule: evidence moves the model, not instinct.</p
 <div class="tblwrap"><table>
 <thead><tr><th>Game</th><th>Pitcher</th><th class="num">Proj K</th><th class="num">Range</th>
 <th class="num">Arsenal Whiff</th><th class="num">Opp K Rank</th><th>Verdict</th></tr></thead>
-<tbody><tr><td class="game">TB@CLE</td><td class="pit">Parker Messick</td><td class="num kbig">4.4</td><td class="num">3&ndash;6</td><td class="num">25.9%</td><td class="num">25</td><td>FADE</td></tr>
-<tr><td class="game">TB@CLE</td><td class="pit">Drew Rasmussen</td><td class="num kbig">4.1</td><td class="num">3&ndash;6</td><td class="num">25.1%</td><td class="num">27</td><td>FADE</td></tr></tbody>
+<tbody><tr><td class="game">CLE@TB</td><td class="pit">Freddy Peralta</td><td class="num kbig">4.2</td><td class="num">3&ndash;6</td><td class="num">25.6%</td><td class="num">27</td><td>ONE-PITCH</td></tr>
+<tr><td class="game">CLE@TB</td><td class="pit">Shawn Armstrong</td><td class="num kbig">3.6</td><td class="num">2&ndash;5</td><td class="num">23.5%</td><td class="num">30</td><td>ONE-PITCH-THIN</td></tr></tbody>
 </table></div>
 </details>
 
@@ -445,7 +450,7 @@ tr.lu-out .bat b{text-decoration:line-through;text-decoration-thickness:1px}
 (function(){
   const norm=s=>(s||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().trim();
   const ord=n=>n+({1:"st",2:"nd",3:"rd"}[[11,12,13].includes(n%100)?0:n%10]||"th");
-  const SLATE="2026-10-18";
+  const SLATE="2026-10-19";
   function clearAll(){
     document.querySelectorAll(".lu").forEach(e=>e.remove());
     document.querySelectorAll("tr.lu-out").forEach(tr=>tr.classList.remove("lu-out"));
