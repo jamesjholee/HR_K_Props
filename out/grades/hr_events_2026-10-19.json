@@ -1,0 +1,22 @@
+[
+ {
+  "gamePk": 849815,
+  "inning": 7,
+  "half": "bottom",
+  "batter_id": 691406,
+  "batter": "Junior Caminero",
+  "pitcher_id": 671922,
+  "pitcher": "Cade Smith",
+  "pitcher_role": "R"
+ },
+ {
+  "gamePk": 849815,
+  "inning": 8,
+  "half": "bottom",
+  "batter_id": 650490,
+  "batter": "Yandy D\u00edaz",
+  "pitcher_id": 683769,
+  "pitcher": "Hunter Gaddis",
+  "pitcher_role": "R"
+ }
+]
