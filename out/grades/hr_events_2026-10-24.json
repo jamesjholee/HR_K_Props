@@ -1,0 +1,22 @@
+[
+ {
+  "gamePk": 849802,
+  "inning": 1,
+  "half": "top",
+  "batter_id": 689414,
+  "batter": "Liam Hicks",
+  "pitcher_id": 701656,
+  "pitcher": "Logan Henderson",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 849802,
+  "inning": 6,
+  "half": "bottom",
+  "batter_id": 686217,
+  "batter": "Sal Frelick",
+  "pitcher_id": 693855,
+  "pitcher": "Ian Seymour",
+  "pitcher_role": "R"
+ }
+]
