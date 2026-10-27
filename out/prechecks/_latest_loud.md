@@ -1,11 +1,16 @@
-Slate 2026-10-19 — precheck findings needing eyes:
+Slate 2026-10-27 — precheck findings needing eyes:
 
-## T-30 — CLE@TB (pk 849815) — 23:54Z
-- ⚠ Angel Martinez — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-- ✓ Chase DeLauter — batting 3
-- ✓ Jo Adell — batting 4
-- ✓ Junior Caminero — batting 4
-- ⚠ Ryan Vilade — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
-- ✓ Victor Mesa Jr. — batting 6
+## T-90 slate sweep — 23:43Z
+- ⚠ MIL@TB: away probable Dustin May (id 669160) was NOT SCORED at lock — scratch/trade signature. Bats boarded vs the other arm may be unaffected; bats scored VS this slot are built on a dead read.
+
+## T-30 — MIL@TB (pk 849803) — 23:43Z
+- ⚠ starter Dustin May (id 669160, away) not among locked scored arms — verify matchup basis
+- ✓ Brice Turang — batting 5
+- ✓ Christian Yelich — batting 3
+- ✓ Garrett Mitchell — batting 8
+- ⚠ Gary Sanchez — NOT IN POSTED LINEUP (benched/traded/scratched?) — bet is off unless he appears
+- ✓ Jackson Chourio — batting 1
+- ✓ Jake Bauers — batting 2
+- ✓ William Contreras — batting 4
 
 _Automated sweep. Verify via PropFinder + MLB app (5/27 rule). Board is locked and unchanged._
