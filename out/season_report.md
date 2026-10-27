@@ -1,5 +1,5 @@
 # Season Ledger — HR board
-_generated 2026-10-26T13:44:18+00:00 · research log, not advice · misses reported as loudly as hits_
+_generated 2026-10-27T12:51:53+00:00 · research log, not advice · misses reported as loudly as hits_
 
 | # | Date | Board | Hits | Hit% | Capture | Pen share | Cfg | Src | Note |
 |---|------|------:|-----:|-----:|--------:|----------:|-----|-----|------|
@@ -88,6 +88,7 @@ _generated 2026-10-26T13:44:18+00:00 · research log, not advice · misses repor
 | 83 | 2026-10-19 | 6 | 1 | 16.7% | 1/2 (50%) | 100% | 1.7.1 | db |  |
 | 84 | 2026-10-23 | 3 | — | — | PENDING | — | 1.7.1 | db | locked, awaiting grade |
 | 85 | 2026-10-24 | 6 | 0 | 0.0% | — | 50% | 1.7.1 | db |  |
+| 86 | 2026-10-26 | 10 | — | — | PENDING | — | 1.7.1 | db | locked, awaiting grade |
 
 ## Aggregates
 - **Season:** 829/7021 = 11.8% across 80 graded slates
@@ -196,7 +197,7 @@ _Active = boarded bats with >=1 PA; dead = scratched/benched/never batted._
 _Breakeven ~15-18% (price-dependent: ~+550 at 15.4%; +400 needs 20%). Selection-layer candidate cut lines._
 
 ## Virtual cards (frozen at lock — out-of-sample)
-_cut rule frozen v1.6.5; 67 slate(s) logged, 64 graded — STATUS: mild lift (~13%), below breakeven; monitoring only, not a promotion candidate_
+_cut rule frozen v1.6.5; 68 slate(s) logged, 64 graded — STATUS: mild lift (~13%), below breakeven; monitoring only, not a promotion candidate_
 
 | Card | Slates | Hits | Rate | Active | Active% |
 |------|-------:|-----:|-----:|-------:|--------:|
