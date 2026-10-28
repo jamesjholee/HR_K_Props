@@ -1,0 +1,22 @@
+[
+ {
+  "gamePk": 849803,
+  "inning": 5,
+  "half": "top",
+  "batter_id": 666152,
+  "batter": "David Hamilton",
+  "pitcher_id": 643377,
+  "pitcher": "Griffin Jax",
+  "pitcher_role": "S"
+ },
+ {
+  "gamePk": 849803,
+  "inning": 12,
+  "half": "top",
+  "batter_id": 806198,
+  "batter": "Cooper Pratt",
+  "pitcher_id": 693855,
+  "pitcher": "Ian Seymour",
+  "pitcher_role": "R"
+ }
+]
